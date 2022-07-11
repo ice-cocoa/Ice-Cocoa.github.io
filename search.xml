@@ -1,128 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2022/07/08/%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<span id="more"></span>
-]]></content>
-  </entry>
-  <entry>
-    <title>发帖基本说明</title>
-    <url>/2022/07/07/%E5%8F%91%E5%B8%96%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/</url>
-    <content><![CDATA[<p>使用本主题发帖的基本说明，包括创建帖子文件，编辑帖子内容，本地测试发布效果，正式发布帖子</p>
-<span id="more"></span>
-
-<h1 id="第一类发布方式"><a href="#第一类发布方式" class="headerlink" title="第一类发布方式"></a>第一类发布方式</h1><p>使用VScode编辑帖子内容，代码提交到github的博客代码仓库，利用工作流自动部署到github的博客页面仓库。<br>具体流程如下：</p>
-<ol>
-<li><p>配置github，克隆代码到本地</p>
-<ol>
-<li><p>登录<a href="https://github.com/" title="github">github网站</a>，创建账号</p>
-</li>
-<li><p>创建名为”MyBlogCode”的私人仓库，这个仓库保存了相关代码和帖子;这个仓库名字可以自己起</p>
-</li>
-<li><p>创建名为”你的用户名.github.io”的公共仓库，这个仓库保存了博客页面；这个仓库</p>
-</li>
-<li><p>安装<a href="/Download/Git-2.36.0-64-bit.exe" title="Git工具">Git工具</a>，这个工具能够本地代码直接上传到仓库，或者从仓库拉去代码</p>
-</li>
-<li><p>安装好Git工具后，右击桌面空白处，点击”Git Bash here”,进行以下配置</p>
-<pre><code> git config --global user.name &quot;github用户名&quot;
- git config --global user.email &quot;github邮箱&quot;
-</code></pre>
-</li>
-<li><p>在本机上生成密钥</p>
-<pre><code> ssh-keygen -t rsa -c &quot;github邮箱&quot;
-</code></pre>
-<p> 公钥文件：~&#x2F;.ssh&#x2F;id_rsa.pub     </p>
-<p> 私钥文件：~&#x2F;.ssh&#x2F;id_rsa</p>
-<p> ~表示用户文件夹，Windows平台中指的是 C:&#x2F;Users&#x2F;用户名&#x2F;</p>
-</li>
-<li><p>登录github，点击右上角头像下拉框-Settings-SSH and GPG keys-New SSH key,把刚刚生成密钥中的公钥内容复制进去，Title自起一个名字</p>
-</li>
-<li><p>右击空白处，打开Git Bash，输入下方代码第一行检验密钥，若全文显示如下则表示密钥配置成功</p>
-<pre><code> $ ssh -T git@github.com
- Enter passphrase for key &#39;/c/Users/王宇晨/.ssh/id_rsa&#39;:
- Hi Ice-Cocoa! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
-</code></pre>
-</li>
-<li><p>使用git命令获取博客代码仓库</p>
-<pre><code> $ git init  
- $ git remote add origin &lt;你的项目地址&gt;
- $ git clone &lt;项目地址&gt;
-</code></pre>
-</li>
-</ol>
-</li>
-<li><p>使用VScode代码编辑器编辑帖子内容，</p>
-<ol>
-<li><p>安装<a href="/Download/VSCodeSetup-x64-1.68.1.exe" title="VScode代码编辑器">VScode代码编辑器</a></p>
-</li>
-<li><p>使用VScode打开拉取的项目文件夹;或者使用VScode重新拉去一次代码仓库，打开这个项目文件夹</p>
-</li>
-<li><p>(… … 进行hexo主题配置 … …)</p>
-</li>
-<li><p>打开文件夹下  &#x2F;source&#x2F;_posts&#x2F; ，在这里新建一个空的txt文件，重命名为 “帖子1.md” （名字随意，但后缀.md不能改变）</p>
-</li>
-<li><p>用VScode打开该文件，复制以下内容到.md文件内，并相应修改</p>
-<pre><code> title: 帖子1
- categories:
-   - 父类名称
-   - 子类名称  #如不需要该子类可删除本行
-   - 子类名称  #根据需要再新建子类
- tags: 展示    #设置任意值后，本贴会在首页展示，若不需要展示则在tags:后留空
- discription: #简短描述本帖意义或内容
- top: 0       #只有在首页展示top才有设置意义，取值0~100
-              #其中设置为1~100会置顶，同样的置顶文章，值越大越上面
- date: 2022-07-07 14:31:05  #帖子创建时间，不设定也不影响正常发帖
- ---
- 前言部分，会在首页展示中预览
- &lt;!-- more --&gt;
- 正文部分，需要使用Markdown语法编辑
-</code></pre>
-</li>
-</ol>
-</li>
-<li><p>设置触发博客上传就自动部署的功能</p>
-<ol>
-<li><p>生成博客代码仓库和博客页面仓库的密钥</p>
-<pre><code> ssh-keygen -f hexo-deploy-key -t rsa -C &quot;github邮箱&quot;
-</code></pre>
-<p> 以上代码分别在项目文件夹下生成 hexo-deploy-key私钥文件,  hexo-deploy-key.pub公钥文件</p>
-</li>
-<li><p>在博客代码仓库 Setting-Secrets-Actions添加新密钥，使用hexo-deploy-key私钥文件内容配置</p>
-</li>
-<li><p>在博客页面仓库 Setting-Deploy Keys添加新密钥，使用hexo-deploy-key.pub公钥文件内容配置</p>
-</li>
-<li><p>在.github&#x2F;workflows 目录中创建一个yaml格式的workflow 文件来编写GitHub Actions 工作流程，设置触发push就在docker里完成生成和部署的工作。注意文件内容在密钥名的适配</p>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>通用类</category>
-      </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo-Next建站到自动部署流程</title>
-    <url>/2022/07/07/%E5%AD%A6%E4%B9%A0/Hexo-Next%E5%BB%BA%E7%AB%99%E5%88%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown基础语法</title>
-    <url>/2022/07/05/%E5%AD%A6%E4%B9%A0/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<span id="more"></span>
-
-
-
-
-
-
+    <url>/2022/07/11/%E5%AD%A6%E4%B9%A0/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>记录Markdown基本语法</p>
+<p>计划更新:</p>
+<ul>
+<li>2022-07-11 html内嵌和特殊和转义字符整理完成<span id="more"></span></li>
+</ul>
 <h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="Heading-level-1"><a href="#Heading-level-1" class="headerlink" title="Heading level 1"></a>Heading level 1</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Heading level 1//一级标题，注意井号后面有个空格</span><br></pre></td></tr></table></figure>
 <h2 id="Heading-level-2"><a href="#Heading-level-2" class="headerlink" title="Heading level 2"></a>Heading level 2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## Heading level 2//二级标题</span><br></pre></td></tr></table></figure>
 <h3 id="Heading-level-3"><a href="#Heading-level-3" class="headerlink" title="Heading level 3"></a>Heading level 3</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">### Heading level 3//三级标题，增加井号数量可继续增加子标题等级</span><br></pre></td></tr></table></figure>
@@ -197,7 +82,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的*，或三个连续的下划线可作分隔线</span><br></pre></td></tr></table></figure>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个链接 [百度](www.baidu.com)&lt;br&gt;</span><br><span class="line">这是一个链接 [百度](www.baidu.com &quot;百度搜素&quot;)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
-<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#102;&#97;&#x6b;&#101;&#64;&#101;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;">&#102;&#97;&#x6b;&#101;&#64;&#101;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
+<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#97;&#x6b;&#101;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;">&#x66;&#97;&#x6b;&#101;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;https://markdown.com.cn&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 ***[中国天气](http://www.weather.com.cn/)***</span><br><span class="line">查看[`code`](#code)</span><br></pre></td></tr></table></figure>
@@ -206,7 +91,7 @@
 <h1 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p><img src="/../../themes/next_a/source/images/avatars/aoba.jpg" alt="图片1" title="aoba"><br></p>
 <p><img src="/assets/images/aoba.jpg" alt="青叶" title="aoba"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片](../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;)&lt;br&gt;  //以该post的地址作为起始地址，是错误的</span><br><span class="line"></span><br><span class="line">![青叶](/assets/images/aoba.jpg &quot;aoba&quot;)  //运行时相对地址的起始为根目录文件夹</span><br></pre></td></tr></table></figure>
-<h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a href="http://www.ice-cocoa.net:4000/assets/images/hifumi.jpg" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="aoba"></a></p>
+<h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a href="http://www.ice-cocoa.net:4000/assets/images/hifumi.jpg" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="hifumi"></a></p>
 <h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><h2 id="可做转义的字符"><a href="#可做转义的字符" class="headerlink" title="可做转义的字符"></a>可做转义的字符</h2><p>以下列出的字符都可以通过使用反斜杠字符从而达到转义目的。</p>
 <table>
 <thead>
@@ -264,12 +149,166 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="特殊字符自动转义"><a href="#特殊字符自动转义" class="headerlink" title="特殊字符自动转义"></a>特殊字符自动转义</h2><p>如果你使用 &amp; 符号的作为 HTML 实体的一部分，那么它不会被转换，而在其它情况下，它则会被转换成 &amp;amp;。<br>xxxxxxxxxxxxxxx</p>
-<h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1><p>xxxxxxxxxxxx</p>
-]]></content>
+<h2 id="特殊字符自动转义"><a href="#特殊字符自动转义" class="headerlink" title="特殊字符自动转义"></a>特殊字符自动转义</h2><p>如果你使用 &amp; 符号的作为 HTML 实体的一部分，那么它不会被转换，而在其它情况下，它则会被转换成 &amp;amp;。</p>
+<h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1>]]></content>
       <categories>
         <category>学习</category>
         <category>软件测试学习</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/07/11/%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>#—<br>#title: 帖子名<br>#categories:<br>#- 父类名称<br>#- 子类名称  #如不需要该子类可删除本行<br>#- 子类名称  #根据需要再新建子类<br>#tags: 展示    #设置任意值后，本贴会在首页展示，若不需要展示则在tags:后留空<br>#discription: #简短描述本帖意义或内容<br>#top: 0       #只有在首页展示top才有设置意义，取值0<del>100；其中设置为1</del>100会置顶，同样的置顶文章，值越大越上面<br>#date: 2022-07-07 14:31:05  #帖子创建时间，不设定也不影响正常发帖<br>#—<br>#前言部分，会在首页展示中预览；<br>#更新日志：</p>
+<h1 id="2022-07-11-完成xxxx"><a href="#2022-07-11-完成xxxx" class="headerlink" title="2022-07-11 完成xxxx"></a>2022-07-11 完成xxxx</h1><h1 id="2022-07-15-完成xxxx"><a href="#2022-07-15-完成xxxx" class="headerlink" title="2022-07-15 完成xxxx"></a>2022-07-15 完成xxxx</h1><p>#<span id="more"></span><br>#正文部分，需要使用Markdown语法编辑</p>
+<hr>
+<p>title:<br>categories:<br>    -<br>    -<br>tags:<br>    - 展示<br>discription:<br>top: 0<br>date: 2022-07-09</p>
+<hr>
+<p>前言xxxx<br>更新日志：</p>
+<ul>
+<li>2022-06-11 完成xxxx</li>
+<li>2022-06-15 完成xxxx<br>计划更新：</li>
+<li>2022-06-17 完成xxxx</li>
+<li>2022-06-19 完成xxxx<!-- more --></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>日语基本语法学习与整理</title>
+    <url>/2022/07/10/%E5%AD%A6%E4%B9%A0/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>记录《中日交流标准日本语》上中两侧册常用语法</p>
+<p>计划更新:</p>
+<ul>
+<li>2022-07-11 完成五十音的整理</li>
+</ul>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>发帖基本说明</title>
+    <url>/2022/07/07/%E5%8F%91%E5%B8%96%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/</url>
+    <content><![CDATA[<p>使用本主题发帖的基本说明，包括创建帖子文件，编辑帖子内容，本地测试发布效果，正式发布帖子，自动部署。万一忘了，或者哪天需要新建网站的时候再看看。<br>更新日志:</p>
+<ul>
+<li>2022-07-11 完成了我能够理解和复现的“从建站到自动部署”的流程整理</li>
+</ul>
+<p>计划更新:</p>
+<ul>
+<li>2022-07	完成hexo-next-icecocoa的详细配置记录</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="第一类发布方式"><a href="#第一类发布方式" class="headerlink" title="第一类发布方式"></a>第一类发布方式</h1><p>使用VScode编辑帖子内容，代码提交到github的博客代码仓库，利用工作流自动部署到github的博客页面仓库。<br>具体流程如下：</p>
+<h2 id="配置github，克隆代码到本地"><a href="#配置github，克隆代码到本地" class="headerlink" title="配置github，克隆代码到本地"></a>配置github，克隆代码到本地</h2><ol>
+<li><p>登录<a href="https://github.com/" title="github">github网站</a>，创建账号</p>
+</li>
+<li><p>创建名为”MyBlogCode”的私人仓库，这个仓库保存了相关代码和帖子;这个仓库名字可以自己起</p>
+</li>
+<li><p>创建名为”你的用户名.github.io”的公开仓库，这个仓库保存了博客页面</p>
+</li>
+<li><p>安装<a href="/assets/downloads/Git-2.36.0-64-bit.exe" title="Git工具">Git工具</a>，这个工具能够本地代码直接上传到仓库，或者从仓库拉去代码</p>
+</li>
+<li><p>安装好Git工具后，右击桌面空白处，点击”Git Bash here”,进行以下配置</p>
+<pre><code> git config --global user.name &quot;github用户名&quot;
+ git config --global user.email &quot;github邮箱&quot;
+</code></pre>
+</li>
+<li><p>在本机上生成密钥</p>
+<pre><code> ssh-keygen -t rsa -c &quot;github邮箱&quot;
+</code></pre>
+<p> 公钥文件：~&#x2F;.ssh&#x2F;id_rsa.pub     </p>
+<p> 私钥文件：~&#x2F;.ssh&#x2F;id_rsa</p>
+<p> ~表示用户文件夹，Windows平台中指的是 C:&#x2F;Users&#x2F;用户名&#x2F;</p>
+</li>
+<li><p>登录github，点击右上角头像下拉框-Settings-SSH and GPG keys-New SSH key,把刚刚生成密钥中的公钥内容复制进去，Title自起一个名字</p>
+</li>
+<li><p>检验密钥是否配置成功：右击空白处，打开Git Bash，输入下方代码第一行检验密钥，若全文显示如下则表示密钥配置成功</p>
+<pre><code> $ ssh -T git@github.com
+ Enter passphrase for key &#39;/c/Users/王宇晨/.ssh/id_rsa&#39;:
+ Hi Ice-Cocoa! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+</li>
+<li><p>使用git命令获取博客代码仓库</p>
+<pre><code> $ git init  
+ $ git remote add origin &lt;代码仓库地址&gt;
+ $ git clone &lt;代码仓库地址&gt;
+</code></pre>
+</li>
+</ol>
+<h2 id="使用VScode代码编辑器编辑帖子内容，管理分支"><a href="#使用VScode代码编辑器编辑帖子内容，管理分支" class="headerlink" title="使用VScode代码编辑器编辑帖子内容，管理分支"></a>使用VScode代码编辑器编辑帖子内容，管理分支</h2><ol>
+<li><p>安装<a href="/assets/downloads/VSCodeSetup-x64-1.68.1.exe" title="VScode代码编辑器">VScode代码编辑器</a></p>
+</li>
+<li><p>使用VScode打开拉取的项目文件夹；或者使用VScode重新拉取一次代码仓库，打开这个项目文件夹</p>
+</li>
+<li><p>进行hexo主题配置，我的hexo-next主题个性化修改包括:</p>
+<ol>
+<li>根目录下_config.yml配置：网页信息(title,author,copyright,language)，repo仓库地址配，本地搜索</li>
+<li>主题目录下_config.yml配置：各类图标，显示方案和模式，侧边栏项目等</li>
+<li>首页置顶配置，</li>
+<li>首页只展示标签post</li>
+<li>音乐外链配置</li>
+<li>首页文章截取</li>
+</ol>
+</li>
+<li><p>打开文件夹下  &#x2F;source&#x2F;_posts&#x2F; ，在这里新建一个空的txt文件，重命名为 “帖子1.md” （名字随意，但后缀.md不能改变）</p>
+</li>
+<li><p>用VScode打开该文件，复制以下内容到.md文件内，并相应修改</p>
+<pre><code> title: 帖子1
+ categories:
+     - 父类名称
+     - 子类名称  #如不需要该子类可删除本行
+     - 子类名称  #根据需要再新建子类
+ tags: 展示    #设置任意值后，本贴会在首页展示，若不需要展示则在tags:后留空
+ discription: #简短描述本帖意义或内容
+ top: 0       #只有在首页展示top才有设置意义，取值0~100
+                 #其中设置为1~100会置顶，同样的置顶文章，值越大越上面
+ date: 2022-07-07 14:31:05  #帖子创建时间，不设定也不影响正常发帖
+ ---
+ 前言部分，会在首页展示中预览
+ &lt;!-- more --&gt;
+ 正文部分，需要使用Markdown语法编辑
+</code></pre>
+</li>
+<li><p>进行本地部署、远程部署</p>
+</li>
+<li><p>右击项目文件夹打开git bash，运行以下代码，开启本地服务器</p>
+<pre><code> hexo service # shell里可能需要开头加上npx，在shell开发人员设置里可设置
+</code></pre>
+</li>
+<li><p>根据提示，在浏览器网址栏输入 <a href="http://localhost:4000/">http://localhost:4000/</a> ，完成了本地部署，现在在服务器运行期间在本地计算机查看网页</p>
+</li>
+<li><p>右击项目文件夹打开git bash，运行以下代码，部署到github页面仓库</p>
+<pre><code> hexo clean
+ hexo generate
+ hexo deploy	#注意，这一步成功的前提是hexo已经配置完成
+ #可能需要登录github
+ #若配置密钥时设置密码，需要输入密码
+</code></pre>
+</li>
+<li><p>在浏览器网址栏输入 github用户名.github.io , 若部署成功就可以查看博客页面</p>
+</li>
+</ol>
+<h2 id="设置一旦触发推送博客就自动部署的功能"><a href="#设置一旦触发推送博客就自动部署的功能" class="headerlink" title="设置一旦触发推送博客就自动部署的功能"></a>设置一旦触发推送博客就自动部署的功能</h2><ol>
+<li><p>生成博客代码仓库和博客页面仓库的密钥</p>
+<pre><code> ssh-keygen -f hexo-deploy-key -t rsa -C &quot;github邮箱&quot; 
+ 
+</code></pre>
+<p> 以上代码分别在项目文件夹下生成 hexo-deploy-key私钥文件,  hexo-deploy-key.pub公钥文件</p>
+</li>
+<li><p>在博客代码仓库 Setting-Secrets-Actions添加新密钥，使用hexo-deploy-key私钥文件内容配置</p>
+</li>
+<li><p>在博客页面仓库 Setting-Deploy Keys添加新密钥，使用hexo-deploy-key.pub公钥文件内容配置</p>
+</li>
+<li><p>在.github&#x2F;workflows 目录下新建 <a href="/assets/downloads/deploy.txt" title="部署工作流">deploy.yml</a> 来编写GitHub Actions 工作流程，设置触发push就在docker里完成生成和部署的工作,注意文件内容在密钥名的适配</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>通用类</category>
       </categories>
       <tags>
         <tag>展示</tag>
