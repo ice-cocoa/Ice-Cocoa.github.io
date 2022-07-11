@@ -6,7 +6,7 @@
     <content><![CDATA[<p>记录Markdown基本语法</p>
 <p>计划更新:</p>
 <ul>
-<li>2022-07-11 html内嵌和特殊和转义字符整理完成<span id="more"></span></li>
+<li>2022-07-* html内嵌和特殊和转义字符整理完成<span id="more"></span></li>
 </ul>
 <h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="Heading-level-1"><a href="#Heading-level-1" class="headerlink" title="Heading level 1"></a>Heading level 1</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Heading level 1//一级标题，注意井号后面有个空格</span><br></pre></td></tr></table></figure>
 <h2 id="Heading-level-2"><a href="#Heading-level-2" class="headerlink" title="Heading level 2"></a>Heading level 2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## Heading level 2//二级标题</span><br></pre></td></tr></table></figure>
@@ -82,7 +82,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的*，或三个连续的下划线可作分隔线</span><br></pre></td></tr></table></figure>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个链接 [百度](www.baidu.com)&lt;br&gt;</span><br><span class="line">这是一个链接 [百度](www.baidu.com &quot;百度搜素&quot;)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
-<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#97;&#x6b;&#101;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;">&#x66;&#97;&#x6b;&#101;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a></p>
+<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#x61;&#107;&#101;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;">&#x66;&#x61;&#107;&#101;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;https://markdown.com.cn&gt;</span><br><span class="line">&lt;fake@example.com&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 ***[中国天气](http://www.weather.com.cn/)***</span><br><span class="line">查看[`code`](#code)</span><br></pre></td></tr></table></figure>
@@ -153,28 +153,10 @@
 <h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1>]]></content>
       <categories>
         <category>学习</category>
-        <category>软件测试学习</category>
       </categories>
       <tags>
         <tag>展示</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/07/11/%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p>#—<br>#title: 帖子名<br>#categories:<br>#- 父类名称<br>#- 子类名称  #如不需要该子类可删除本行<br>#- 子类名称  #根据需要再新建子类<br>#tags: 展示    #设置任意值后，本贴会在首页展示，若不需要展示则在tags:后留空<br>#discription: #简短描述本帖意义或内容<br>#top: 0       #只有在首页展示top才有设置意义，取值0<del>100；其中设置为1</del>100会置顶，同样的置顶文章，值越大越上面<br>#date: 2022-07-07 14:31:05  #帖子创建时间，不设定也不影响正常发帖<br>#—<br>#前言部分，会在首页展示中预览；<br>#更新日志：</p>
-<h1 id="2022-07-11-完成xxxx"><a href="#2022-07-11-完成xxxx" class="headerlink" title="2022-07-11 完成xxxx"></a>2022-07-11 完成xxxx</h1><h1 id="2022-07-15-完成xxxx"><a href="#2022-07-15-完成xxxx" class="headerlink" title="2022-07-15 完成xxxx"></a>2022-07-15 完成xxxx</h1><p>#<span id="more"></span><br>#正文部分，需要使用Markdown语法编辑</p>
-<hr>
-<p>title:<br>categories:<br>    -<br>    -<br>tags:<br>    - 展示<br>discription:<br>top: 0<br>date: 2022-07-09</p>
-<hr>
-<p>前言xxxx<br>更新日志：</p>
-<ul>
-<li>2022-06-11 完成xxxx</li>
-<li>2022-06-15 完成xxxx<br>计划更新：</li>
-<li>2022-06-17 完成xxxx</li>
-<li>2022-06-19 完成xxxx<!-- more --></li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>日语基本语法学习与整理</title>
@@ -190,6 +172,41 @@
       </categories>
   </entry>
   <entry>
+    <title></title>
+    <url>/2022/07/10/%E5%AD%A6%E4%B9%A0/JMeter%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>预计进行两次以上大更新，第一次为学习视频时的同步记录，第二次为使用JMeter一段时间后，参考各类文档后整理的实践笔记。<br>更新日志：<br>计划更新：</p>
+<ul>
+<li>2022-07-*</li>
+</ul>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/07/08/%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>前言xxxx<br>更新日志：</p>
+<ul>
+<li>2022-06-11 完成xxxx</li>
+<li>2022-06-15 完成xxxx<br>计划更新：</li>
+<li>2022-06-17 完成xxxx</li>
+<li>2022-06-19 完成xxxx<span id="more"></span></li>
+</ul>
+<p>#—<br>#title: 模板<br>#categories:<br>#- 父类名称<br>#- 子类名称  #如不需要该子类可删除本行<br>#- 子类名称  #根据需要再新建子类<br>#tags: 展示    #设置任意值后，本贴会在首页展示，若不需要展示则在tags:后留空<br>#discription: #简短描述本帖意义或内容<br>#top: 0       #只有在首页展示top才有设置意义，取值0<del>100；其中设置为1</del>100会置顶，同样的置顶文章，值越大越上面<br>#date: 2022-07-07 14:31:05  #帖子创建时间，不设定也不影响正常发帖<br>#—<br>#前言部分，会在首页展示中预览；<br>#更新日志：</p>
+<h1 id="2022-07-11-完成xxxx"><a href="#2022-07-11-完成xxxx" class="headerlink" title="2022-07-11 完成xxxx"></a>2022-07-11 完成xxxx</h1><h1 id="2022-07-15-完成xxxx"><a href="#2022-07-15-完成xxxx" class="headerlink" title="2022-07-15 完成xxxx"></a>2022-07-15 完成xxxx</h1><p>#<!-- more --><br>#正文部分，需要使用Markdown语法编辑</p>
+]]></content>
+      <categories>
+        <category>通用类</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>发帖基本说明</title>
     <url>/2022/07/07/%E5%8F%91%E5%B8%96%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E/</url>
     <content><![CDATA[<p>使用本主题发帖的基本说明，包括创建帖子文件，编辑帖子内容，本地测试发布效果，正式发布帖子，自动部署。万一忘了，或者哪天需要新建网站的时候再看看。<br>更新日志:</p>
@@ -198,7 +215,7 @@
 </ul>
 <p>计划更新:</p>
 <ul>
-<li>2022-07	完成hexo-next-icecocoa的详细配置记录</li>
+<li>2022-07-*	完成hexo-next-icecocoa的详细配置记录</li>
 </ul>
 <span id="more"></span>
 
@@ -210,7 +227,7 @@
 </li>
 <li><p>创建名为”你的用户名.github.io”的公开仓库，这个仓库保存了博客页面</p>
 </li>
-<li><p>安装<a href="/assets/downloads/Git-2.36.0-64-bit.exe" title="Git工具">Git工具</a>，这个工具能够本地代码直接上传到仓库，或者从仓库拉去代码</p>
+<li><p>安装<a href="https://git-scm.com/downloads" title="Git工具">Git工具</a>，这个工具能够本地代码直接上传到仓库，或者从仓库拉去代码</p>
 </li>
 <li><p>安装好Git工具后，右击桌面空白处，点击”Git Bash here”,进行以下配置</p>
 <pre><code> git config --global user.name &quot;github用户名&quot;
@@ -240,7 +257,7 @@
 </li>
 </ol>
 <h2 id="使用VScode代码编辑器编辑帖子内容，管理分支"><a href="#使用VScode代码编辑器编辑帖子内容，管理分支" class="headerlink" title="使用VScode代码编辑器编辑帖子内容，管理分支"></a>使用VScode代码编辑器编辑帖子内容，管理分支</h2><ol>
-<li><p>安装<a href="/assets/downloads/VSCodeSetup-x64-1.68.1.exe" title="VScode代码编辑器">VScode代码编辑器</a></p>
+<li><p>安装<a href="https://code.visualstudio.com/Download" title="VScode代码编辑器">VScode代码编辑器</a></p>
 </li>
 <li><p>使用VScode打开拉取的项目文件夹；或者使用VScode重新拉取一次代码仓库，打开这个项目文件夹</p>
 </li>
