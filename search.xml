@@ -283,7 +283,11 @@
 </ul>
 <span id="more"></span>
 
-<h1 id="《标准日本语》初级语法记录"><a href="#《标准日本语》初级语法记录" class="headerlink" title="《标准日本语》初级语法记录"></a>《标准日本语》初级语法记录</h1><h2 id="五十音"><a href="#五十音" class="headerlink" title="五十音"></a>五十音</h2><table>
+<h1 id="《标准日本语》初级语法记录"><a href="#《标准日本语》初级语法记录" class="headerlink" title="《标准日本语》初级语法记录"></a>《标准日本语》初级语法记录</h1><h2 id="五十音"><a href="#五十音" class="headerlink" title="五十音"></a>五十音</h2><details class="note primary no-icon" open="">
+<!--五十音-->
+<summary><p><strong>平假名/片假名</strong></p></summary>
+
+<table>
 <thead>
 <tr>
 <th>a</th>
@@ -370,15 +374,49 @@
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td>がガ</td>
+<td>ぎギ</td>
+<td>ぐグ</td>
+<td>げゲ</td>
+<td>ごゴ</td>
+</tr>
+<tr>
+<td>ざザ</td>
+<td>じジ</td>
+<td>ずズ</td>
+<td>ぜゼ</td>
+<td>ぞゾ</td>
+</tr>
+<tr>
+<td>だザ</td>
+<td>ぢヂ</td>
+<td>づヅ</td>
+<td>でデ</td>
+<td>どド</td>
+</tr>
+<tr>
+<td>ばバ</td>
+<td>びビ</td>
+<td>ぶブ</td>
+<td>べベ</td>
+<td>ぼボ</td>
+</tr>
+<tr>
+<td>ぱパ</td>
+<td>ぴピ</td>
+<td>ぷプ</td>
+<td>ぺペ</td>
+<td>ぽポ</td>
+</tr>
 </tbody></table>
-<!-- 以下部分待更新
+<summary><p><strong>平假名</strong></p></summary>
 
 
-|が|ぎ|ぐ|げ|ご|das
-||||||  
+<summary><p><strong>片假名</strong></p></summary>
 
 
-]]></content>
+</detail>]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -628,7 +666,7 @@
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的<span class="emphasis">*，或三个连续的下划线可作分隔线</span></span><br></pre></td></tr></table></figure>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com &quot;百度搜素&quot;</span>)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
-<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#102;&#97;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#102;&#97;&#107;&#x65;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#102;&#x61;&#x6b;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#109;">&#102;&#x61;&#x6b;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#109;</a></p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://markdown.com.cn&gt;</span></span><br><span class="line"><span class="language-xml">&lt;fake@example.com&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 <span class="strong">**<span class="emphasis">*[<span class="string">中国天气</span>](<span class="link">http://www.weather.com.cn/</span>)*</span>**</span></span><br><span class="line">查看[<span class="string">`code`</span>](<span class="link">#code</span>)</span><br></pre></td></tr></table></figure>
@@ -636,7 +674,7 @@
 
 <h1 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p><img src="/../../themes/next_a/source/images/avatars/aoba.jpg" alt="图片1" title="aoba"><br></p>
 <p><img src="/assets/images/aoba.jpg" alt="青叶" title="aoba"></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>  //以该post的地址作为起始地址，这样的链接是错误的</span><br><span class="line"></span><br><span class="line">![<span class="string">青叶</span>](<span class="link">/assets/images/aoba.jpg &quot;aoba&quot;</span>)  //运行时相对地址的起始为根目录文件夹，这样的链接是正确的</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>  //以该post的地址作为起始地址，这样的链接是错误的</span><br><span class="line"></span><br><span class="line">![<span class="string">青叶</span>](<span class="link">/assets/images/aoba.jpg &quot;aoba&quot;</span>)  //运行时相对地址的起始为博客的根目录文件夹，这样的链接是正确的</span><br></pre></td></tr></table></figure>
 
 <h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a href="http://newgame-anime.com/assets/character/c4.png" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="hifumi"></a></p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![日富美</span>](<span class="link">/assets/images/hifumi.jpg &quot;hifumi&quot;</span>)](<span class="link">http://newgame-anime.com/assets/character/c4.png &quot;hifumi&quot;</span>)</span><br></pre></td></tr></table></figure>
