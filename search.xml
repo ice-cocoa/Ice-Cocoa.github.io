@@ -399,7 +399,23 @@
 <li>开始测试计划</li>
 </ol>
 <p>模板的使用:</p>
-<h2 id="Blazemeter"><a href="#Blazemeter" class="headerlink" title="Blazemeter"></a>Blazemeter</h2><p>暂时留空</p>
+<h2 id="Blazemeter"><a href="#Blazemeter" class="headerlink" title="Blazemeter"></a>Blazemeter</h2><p><em>用于在云端运行性能测试的工具，相比使用JMeter内置脚本记录器，更加简便)</em></p>
+<p>视频内容:</p>
+<ol>
+<li>create Blazemeter account</li>
+<li>get Blazemeter extension</li>
+<li>login </li>
+<li>record test</li>
+<li>save jmx</li>
+<li>add JMX in JMeter and Run</li>
+</ol>
+<p>使用方法：</p>
+<ol>
+<li>使用扩展，开始记录，在网页上进行操作，完成记录，</li>
+<li>Run，然后自动跳转至Blazemeter Dashbord</li>
+<li>Edit</li>
+<li>Save，下载指定JMX文件，可以导入到JMeter文件，只要再加两个监听器即可直接运行</li>
+</ol>
 <h2 id="关联CSV数据"><a href="#关联CSV数据" class="headerlink" title="关联CSV数据"></a>关联CSV数据</h2><p>步骤：</p>
 <ol>
 <li>添加CSV Data Set Config，和线程组同级别意味着可以用于该线程组</li>
@@ -407,6 +423,10 @@
 <li>使用语法${FeatureName}引用对应特征名的变量</li>
 <li>其他设置，如重命名特征名，文件编码，是否识别第一行，文件分隔符，到达EOF后停止或循环或结束线程</li>
 </ol>
+<h2 id="Config-Elements-HTTP-Web-Test-（其他类型的可到官方文档查看）"><a href="#Config-Elements-HTTP-Web-Test-（其他类型的可到官方文档查看）" class="headerlink" title="Config Elements - HTTP Web Test （其他类型的可到官方文档查看）"></a>Config Elements - HTTP Web Test （其他类型的可到官方文档查看）</h2><p><em>结果树监听器View Results Tree Listener消耗内存，调试测试测试计划时可以使用，但真正要测性能时要禁用</em></p>
+<p><em>使用Blazemeter录制完保存为jmx文件后，导入到JMeter，会生成完整的配置元素和采样器</em></p>
+<p>demo app - <a href="https://opensource-demo.orangehrmlive.com/">https://opensource-demo.orangehrmlive.com/</a></p>
+<p>有以下几种设置元素:<br>    - 用户定义变量<br>    - HTTP头管理器<br>    - HTTP请求默认设置<br>    - DNS缓存管理器<br>    - HTTP认证（Authorization）管理器<br>    - HTTP Cookie管理器<br>    - HTTP缓存管理器</p>
 <p>
 ==========================分隔==========================
 <br>
@@ -886,7 +906,13 @@
 <td>ポ</td>
 </tr>
 </tbody></table>
-</details>]]></content>
+</details>
+
+
+
+
+
+]]></content>
       <categories>
         <category>学习</category>
       </categories>

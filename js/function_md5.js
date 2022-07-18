@@ -1,4 +1,3 @@
-
 /*
  * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
  * Digest Algorithm, as defined in RFC 1321.
@@ -255,23 +254,3 @@ function binl2b64(binarray)
   }
   return str;
 }
-
-/*=======================================================*/
-var authorization = "";
-
-while(true) {
-    authorization = prompt('authorization:', '');
-    var hex_md5_authorization = hex_md5(authorization);
-    if(hex_md5_authorization=="e8883e37722dc2b6240f8853b0e40b6f"){
-        break;
-    }
-}
-
-
-
-
-
-
-
-
-
