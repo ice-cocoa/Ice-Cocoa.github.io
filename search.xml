@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python基本语法记录</title>
+    <url>/2022/07/18/%E5%AD%A6%E4%B9%A0/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h1><p>python读取程序文本转为Unicode代码点；编码声明用于指定源文件编码，默认为UTF-8</p>
+<h2 id="行结构"><a href="#行结构" class="headerlink" title="行结构"></a>行结构</h2><ul>
+<li>逻辑行：源代码经过编译后，代码所在一行。NEWLINE形式符表示结束逻辑行，单个语句不能超出逻辑行边界，除非语法支持。</li>
+<li>物理行：编写的代码所在行。</li>
+<li>注释使用井号(#)开头，在物理行末尾截止</li>
+<li>显示指定编码，该注释会被当作编码上面，必须独占行在文件开始  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: &lt;encoding-name&gt; -*-</span></span><br></pre></td></tr></table></figure></li>
+<li>显示拼接行：两个及两个以上的物理行可用反斜杠拼接为一个逻辑行  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="number">1900</span> &lt; year &lt; <span class="number">2100</span> <span class="keyword">and</span> <span class="number">1</span> &lt;= month &lt;= <span class="number">12</span> \</span><br><span class="line"><span class="keyword">and</span> <span class="number">1</span> &lt;= day &lt;= <span class="number">31</span> <span class="keyword">and</span> <span class="number">0</span> &lt;= hour &lt; <span class="number">24</span> \</span><br><span class="line"><span class="keyword">and</span> <span class="number">0</span> &lt;= minute &lt; <span class="number">60</span> \</span><br><span class="line"><span class="keyword">and</span> <span class="number">0</span> &lt;= second &lt; <span class="number">60</span>:   <span class="comment"># 以反斜杠结尾的行，不能加注释</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li>隐式拼接行：圆括号、方括号、花括号内的表达式可以分成多个物理行，不必使用反斜杠</li>
+<li>缩进格式</li>
+<li>标识格式：A-Z，0-9，下划线，但不能以数字开头，标识符区分大小写</li>
+<li>关键字、软关键字、保留的标识符</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h4 id="数字字面值"><a href="#数字字面值" class="headerlink" title="数字字面值"></a>数字字面值</h4><p><em>（若要实现负数，则使一元运算符’-‘和字面值组成）</em><br>整数字面值，没有长度限制，甚至能占满内存：</p>
+<ul>
+<li>0   7    2156161          </li>
+<li>100_1515  _61_151_55101   #下划线会被忽略</li>
+<li>0xdea48151a   0X151aef9   #hex-digit</li>
+<li>0o125151      0O15121561  #oct-digit</li>
+<li>0b_1011_0111  #混用</li>
+</ul>
+<p>浮点数字面值:</p>
+<ul>
+<li>3.1415926</li>
+<li><ol start="10">
+<li>.001</li>
+</ol>
+</li>
+<li>3.14e-10  3.14_159_3</li>
+</ul>
+<h4 id="字符串或字符串字面值合并"><a href="#字符串或字符串字面值合并" class="headerlink" title="字符串或字符串字面值合并"></a>字符串或字符串字面值合并</h4><p> 以空白符分隔的多个相邻字符串或字节串字面值，可用不同引号标注，等同于合并操作。因此，”hello” ‘world’ 等价于 “helloworld”。此功能不需要反斜杠，即可将长字符串分为多个物理行，还可以为不同部分的字符串添加注释，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">re.<span class="built_in">compile</span>(<span class="string">&quot;[A-Za-z_]&quot;</span>    <span class="comment"># </span></span><br><span class="line">        <span class="string">&quot;[A-Za-z0-9_]*&quot;</span>   <span class="comment"># 注意，此功能在句法层面定义，在编译时实现</span></span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+
+<h4 id="格式字符串"><a href="#格式字符串" class="headerlink" title="格式字符串"></a>格式字符串</h4><p><em>暂时只记录例子</em></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>name = <span class="string">&quot;Fred&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;He said his name is <span class="subst">&#123;name!r&#125;</span>.&quot;</span></span><br><span class="line"><span class="string">&quot;He said his name is &#x27;Fred&#x27;.&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;He said his name is <span class="subst">&#123;<span class="built_in">repr</span>(name)&#125;</span>.&quot;</span>  <span class="comment"># repr() is equivalent to !r</span></span><br><span class="line"><span class="string">&quot;He said his name is &#x27;Fred&#x27;.&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>width = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>precision = <span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>value = decimal.Decimal(<span class="string">&quot;12.34567&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;result: <span class="subst">&#123;value:&#123;width&#125;</span>.<span class="subst">&#123;precision&#125;</span>&#125;&quot;</span>  <span class="comment"># nested fields</span></span><br><span class="line"><span class="string">&#x27;result:      12.35&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>today = datetime(year=<span class="number">2017</span>, month=<span class="number">1</span>, day=<span class="number">27</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;<span class="subst">&#123;today:%B %d, %Y&#125;</span>&quot;</span>  <span class="comment"># using date format specifier</span></span><br><span class="line"><span class="string">&#x27;January 27, 2017&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;<span class="subst">&#123;today=:%B %d, %Y&#125;</span>&quot;</span> <span class="comment"># using date format specifier and debugging</span></span><br><span class="line"><span class="string">&#x27;today=January 27, 2017&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number = <span class="number">1024</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;<span class="subst">&#123;number:#0x&#125;</span>&quot;</span>  <span class="comment"># using integer format specifier</span></span><br><span class="line"><span class="string">&#x27;0x400&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo = <span class="string">&quot;bar&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;<span class="subst">&#123; foo = &#125;</span>&quot;</span> <span class="comment"># preserves whitespace</span></span><br><span class="line"><span class="string">&quot; foo = &#x27;bar&#x27;&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>line = <span class="string">&quot;The mill&#x27;s closed&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;<span class="subst">&#123;line = &#125;</span>&quot;</span></span><br><span class="line"><span class="string">&#x27;line = &quot;The mill\&#x27;s closed&quot;&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;<span class="subst">&#123;line = :<span class="number">20</span>&#125;</span>&quot;</span></span><br><span class="line"><span class="string">&quot;line = The mill&#x27;s closed   &quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">f&quot;<span class="subst">&#123;line = !r:<span class="number">20</span>&#125;</span>&quot;</span></span><br><span class="line"><span class="string">&#x27;line = &quot;The mill\&#x27;s closed&quot; &#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="数据模型-x2F-执行模型-x2F-导入系统-x2F-表达式"><a href="#数据模型-x2F-执行模型-x2F-导入系统-x2F-表达式" class="headerlink" title="数据模型&#x2F;执行模型&#x2F;导入系统&#x2F;表达式"></a>数据模型&#x2F;执行模型&#x2F;导入系统&#x2F;表达式</h2><p><em>比较复杂，等看完基本语法部分后再看</em></p>
+]]></content>
+      <categories>
+        <category>通用类</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机科学一般知识记录</title>
     <url>/2022/07/12/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%80%E8%88%AC%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>记录一些常用的又零碎的计算机知识。<br><br>更新日志：</p>
@@ -526,7 +576,7 @@
 </ul>
 <span id="more"></span>
 
-<h1 id="《标准日本语》初级语法记录"><a href="#《标准日本语》初级语法记录" class="headerlink" title="《标准日本语》初级语法记录"></a>《标准日本语》初级语法记录</h1><h2 id="五十音"><a href="#五十音" class="headerlink" title="五十音"></a>五十音</h2><details class="note primary no-icon" >
+<h1 id="《标准日本语》初级语法记录"><a href="#《标准日本语》初级语法记录" class="headerlink" title="《标准日本语》初级语法记录"></a>《标准日本语》初级语法记录</h1><h2 id="五十音"><a href="#五十音" class="headerlink" title="五十音"></a>五十音</h2><details class="note primary no-icon" open="" >
 <summary><p><strong>平假名/片假名</strong></p></summary>
 
 <table>
@@ -907,6 +957,28 @@
 </tr>
 </tbody></table>
 </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

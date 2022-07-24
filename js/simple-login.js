@@ -257,13 +257,15 @@ function binl2b64(binarray)
 }
 
 /*=======================================================*/
-var authorization = "";
+var authorization = "abcdefg";
 
 while(true) {
     authorization = prompt('authorization:', '');
     var hex_md5_authorization = hex_md5(authorization);
     if(hex_md5_authorization=="e8883e37722dc2b6240f8853b0e40b6f"){
-        break;
+      return "1";
+    }else{
+      continue;
     }
 }
 
