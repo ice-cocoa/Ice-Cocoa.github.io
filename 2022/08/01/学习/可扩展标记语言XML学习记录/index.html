@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="更新日志：  2022-08-02 完成了“XML基础”的更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可扩展标记语言XML学习记录">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/08/01/%E5%AD%A6%E4%B9%A0/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80XML%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="更新日志：  2022-08-02 完成了“XML基础”的更新">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-04T06:49:58.618Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/08/01/%E5%AD%A6%E4%B9%A0/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80XML%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/08/01/%E5%AD%A6%E4%B9%A0/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80XML%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/","path":"2022/08/01/学习/可扩展标记语言XML学习记录/","title":"可扩展标记语言XML学习记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>可扩展标记语言XML学习记录 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XML"><span class="nav-number">1.</span> <span class="nav-text">XML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XML%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.</span> <span class="nav-text">XML基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">XML简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML%E6%A0%91%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">XML树结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.3.</span> <span class="nav-text">XML基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML%E5%85%83%E7%B4%A0%E5%92%8CXML%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.4.</span> <span class="nav-text">XML元素和XML属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML%E9%AA%8C%E8%AF%81"><span class="nav-number">1.1.5.</span> <span class="nav-text">XML验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML-JavaScript"><span class="nav-number">1.2.</span> <span class="nav-text">XML JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML-Http-Request"><span class="nav-number">1.2.1.</span> <span class="nav-text">XML Http Request</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML-%E8%BF%9B%E9%98%B6%E5%86%85%E5%AE%B9"><span class="nav-number">1.3.</span> <span class="nav-text">XML 进阶内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SOAP%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EXML%E7%9A%84%E5%BB%BA%E8%AE%AE%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">SOAP——基于XML的建议协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SOAP%E8%AF%AD%E6%B3%95"><span class="nav-number">2.0.1.</span> <span class="nav-text">SOAP语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SOAP-Envelope-%E5%85%83%E7%B4%A0"><span class="nav-number">2.0.2.</span> <span class="nav-text">SOAP Envelope 元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SOAP-Header-%E5%85%83%E7%B4%A0"><span class="nav-number">2.0.3.</span> <span class="nav-text">SOAP Header 元素</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/08/01/%E5%AD%A6%E4%B9%A0/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80XML%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="可扩展标记语言XML学习记录 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          可扩展标记语言XML学习记录
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-02T00:00:00+08:00">2022-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-04 14:49:58" itemprop="dateModified" datetime="2022-08-04T14:49:58+08:00">2022-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>更新日志：</p>
+<ul>
+<li>2022-08-02 完成了“XML基础”的更新<span id="more"></span></li>
+</ul>
+<h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><p>EXtensible Markup Language，XML被设计用来传输和存储数据，HTML被设计用来显示数据。</p>
+<h2 id="XML基础"><a href="#XML基础" class="headerlink" title="XML基础"></a>XML基础</h2><h3 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h3><ul>
+<li>XML文本内容是以标签描述的数据信息</li>
+<li>XML标签不是预先定义的，以纯文本格式进行存储，独立于软件和硬件，便于在不兼容的系统之间交换数据（这依赖于针对具体XML格式编写的程序）</li>
+<li>通过XML可以把数据从HTML中分离（这需要使用JS来读取XML文档）</li>
+<li>XML用于创建新的Internet语言：<ul>
+<li>WSDL - 用于描述可用的 web service </li>
+<li>RSS - 用于 RSS feed 的语言</li>
+</ul>
+</li>
+</ul>
+<h3 id="XML树结构"><a href="#XML树结构" class="headerlink" title="XML树结构"></a>XML树结构</h3><p>XML以数结构组织数据内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><span class="comment">&lt;!-- XML声明 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span> <span class="comment">&lt;!-- 根元素 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;COOKING&quot;</span>&gt;</span> <span class="comment">&lt;!-- 一级子元素，指定&quot;category&quot;自定义？属性 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>Everyday Italian<span class="tag">&lt;/<span class="name">title</span>&gt;</span>     <span class="comment">&lt;!-- 二级子元素，指定&quot;lang&quot;自定义？属性 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>Giada De Laurentiis<span class="tag">&lt;/<span class="name">author</span>&gt;</span>  <span class="comment">&lt;!-- 二级子元素 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span> <span class="comment">&lt;!-- 二级子元素 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>30.00<span class="tag">&lt;/<span class="name">price</span>&gt;</span>  <span class="comment">&lt;!-- 二级子元素 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;CHILDREN&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="XML基本语法"><a href="#XML基本语法" class="headerlink" title="XML基本语法"></a>XML基本语法</h3><ul>
+<li>所有XML元素必须有关闭标签；声明部分不属于XML本身，不需要关闭标签</li>
+<li>标签对大小写敏感</li>
+<li>必须要有根元素</li>
+<li>属性值必须加引号，如<note id="07">xxx</note></li>
+<li>部分特殊符号需要使用实体引用来替代<table>
+<thead>
+<tr>
+<th>实体引用</th>
+<th>特殊符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;lt;</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>&amp;gt;</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>&amp;amp;</td>
+<td>&amp;</td>
+</tr>
+<tr>
+<td>&amp;apos;</td>
+<td>&#39;</td>
+</tr>
+<tr>
+<td>&amp;quot;</td>
+<td>&quot;</td>
+</tr>
+</tbody></table>
+  在XML中，直接使用 &lt; 和 &amp; 确实是非法的，直接使用 &gt; 是合法的，但使用实体引用代替是个好习惯 </li>
+<li>注释语法  &lt;!– xxx –&gt;</li>
+<li>XML中多个空格会被保留，HTML则会把连续多个空格合并为一个</li>
+<li>XML以LF(换行符)表示新行</li>
+</ul>
+<h3 id="XML元素和XML属性"><a href="#XML元素和XML属性" class="headerlink" title="XML元素和XML属性"></a>XML元素和XML属性</h3><ul>
+<li>元素命名避免 -  .  :  等字符，支持下划线</li>
+<li>元素可扩展，扩展元素后的XML文档能够适应旧XML文档</li>
+<li>在XML中，除了 id&#x3D;’07’ 此类源数据应当存储为属性，其余数据应避免成为属性</li>
+<li>可以拆分的元素应拆分成子元素，如以下代码：  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">date</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">day</span>&gt;</span>02<span class="tag">&lt;/<span class="name">day</span>&gt;</span>       <span class="comment">&lt;!-- date=&#x27;2022/08/02&#x27;拆分为年月日三个子元素 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">month</span>&gt;</span>08<span class="tag">&lt;/<span class="name">month</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">year</span>&gt;</span>2022<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">date</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>属性值必须加引号，单引号双引号均可；如果属性值本身包含双引号，那么必须用单引号包围它（或使用实体引用）</li>
+</ul>
+<h3 id="XML验证"><a href="#XML验证" class="headerlink" title="XML验证"></a>XML验证</h3><p>W3C 的 XML 规范声明：如果 XML 文档存在错误，那么程序就不应当继续处理这个文档。理由是，XML 软件应当轻巧，快速，具有良好的兼容性。<br>如果浏览器打开了某个有错误的 XML 文件，那么它会报告错误</p>
+<p>XML文档可以声明用来遵守文档类型定义（DTD，Document Type Definition）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">note</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;Note.dtd&quot;</span>&gt;</span> <span class="comment">&lt;!-- DOCTYPE声明是对外部DTD文件的引用,其中note.dtd是自定义的DTD文件 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>此外，W3C 支持一种基于 XML 的 DTD 代替者，它名为 XML Schema：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">note</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3school.com.cn&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.w3school.com.cn note.xsd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--  对XML Schema 的引用，其中note.xsd是自定义的XML Schema文件 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="XML-JavaScript"><a href="#XML-JavaScript" class="headerlink" title="XML JavaScript"></a>XML JavaScript</h2><h3 id="XML-Http-Request"><a href="#XML-Http-Request" class="headerlink" title="XML Http Request"></a>XML Http Request</h3><p>XMLHttpRequest对象用于在后台与服务器交换数据，它能够:</p>
+<ul>
+<li>在不重新加载页面的情况下更新网页</li>
+<li>在页面已加载后从服务器请求数据</li>
+<li>在页面已加载后从服务器接收数据</li>
+<li>在后台向服务器发送数据</li>
+</ul>
+<h2 id="XML-进阶内容"><a href="#XML-进阶内容" class="headerlink" title="XML 进阶内容"></a>XML 进阶内容</h2><h1 id="SOAP——基于XML的建议协议"><a href="#SOAP——基于XML的建议协议" class="headerlink" title="SOAP——基于XML的建议协议"></a>SOAP——基于XML的建议协议</h1><p>SOAP 是基于 XML 的简易协议，可使应用程序在 HTTP 之上进行信息交换<br><strong>什么是 SOAP？</strong></p>
+<ul>
+<li>SOAP 指简易对象访问协议</li>
+<li>SOAP 是一种通信协议</li>
+<li>SOAP 用于应用程序之间的通信</li>
+<li>SOAP 是一种用于发送消息的格式</li>
+<li>SOAP 被设计用来通过因特网进行通信</li>
+<li>SOAP 独立于平台</li>
+<li>SOAP 独立于语言</li>
+<li>SOAP 基于 XML</li>
+<li>SOAP 很简单并可扩展</li>
+<li>SOAP 允许您绕过防火墙</li>
+<li>SOAP 将被作为 W3C 标准来发展</li>
+</ul>
+<h3 id="SOAP语法"><a href="#SOAP语法" class="headerlink" title="SOAP语法"></a>SOAP语法</h3><p>一条SOAP消息就是一个普通的XML文档，包含以下元素:</p>
+<ul>
+<li>必要的 Envelope 元素，可把此 XML 文档标识为一条 SOAP 消息</li>
+<li>可选的 Header 元素，包含头部信息</li>
+<li>必要的的 Body 元素，包含所有的调用和响应信息</li>
+<li>可选的 Fault 元素，提供有关在处理此消息所发生错误的信息</li>
+<li>不能包含 DTD 引用</li>
+<li>不能包含 XML 处理指令</li>
+</ul>
+<p>所有以上的元素均被声明于针对 SOAP 封装的默认命名空间中：<a target="_blank" rel="noopener" href="http://www.w3.org/2001/12/soap-envelope">http://www.w3.org/2001/12/soap-envelope</a><br>以及针对 SOAP 编码和数据类型的默认命名空间：<a target="_blank" rel="noopener" href="http://www.w3.org/2001/12/soap-encoding">http://www.w3.org/2001/12/soap-encoding</a></p>
+<p>SOAP消息基本结构</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Envelope</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:soap</span>=<span class="string">&quot;http://www.w3.org/2001/12/soap-envelope&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">soap:encodingStyle</span>=<span class="string">&quot;http://www.w3.org/2001/12/soap-encoding&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Header</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Body</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">soap:Fault</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">soap:Fault</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="SOAP-Envelope-元素"><a href="#SOAP-Envelope-元素" class="headerlink" title="SOAP Envelope 元素"></a>SOAP Envelope 元素</h3><p>添加命名空间  xmlns:soap&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2001/12/soap-envelope&quot;">http://www.w3.org/2001/12/soap-envelope&quot;</a><br>添加编码方式属性  soap:encodingStyle&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2001/12/soap-encoding&quot;&gt;">http://www.w3.org/2001/12/soap-encoding&quot;&gt;</a></p>
+<h3 id="SOAP-Header-元素"><a href="#SOAP-Header-元素" class="headerlink" title="SOAP Header 元素"></a>SOAP Header 元素</h3><p>如果 Header 元素被提供，则它必须是 Envelope 元素的第一个子元素。它可包含有关 SOAP 消息的应用程序专用信息（比如认证、支付等）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/01/%E9%98%85%E8%AF%BB/%E3%80%8A%E8%87%AA%E6%8E%A7%E5%8A%9B%E3%80%8B%E9%98%85%E8%AF%BB/" rel="prev" title="《自控力》阅读">
+                  <i class="fa fa-chevron-left"></i> 《自控力》阅读
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
