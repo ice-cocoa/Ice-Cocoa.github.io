@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>web自动化python+Selenium学习</title>
+    <url>/2022/08/18/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/web%E8%87%AA%E5%8A%A8%E5%8C%96python+Selenium%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>记录 python 下，使用 Selenuim 实现web自动化的基本语法<br>更新日志:</p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>测试工具</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown基础语法</title>
-    <url>/2022/08/21/%E5%AD%A6%E4%B9%A0/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
+    <url>/2022/08/15/%E5%AD%A6%E4%B9%A0/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>记录Markdown基本语法<br>更新日志:</p>
 <ul>
 <li>2022-07-13 <ul>
@@ -99,7 +113,7 @@
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的<span class="emphasis">*，或三个连续的下划线可作分隔线</span></span><br></pre></td></tr></table></figure>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com &quot;百度搜素&quot;</span>)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
-<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#102;&#x61;&#107;&#x65;&#x40;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#102;&#x61;&#107;&#x65;&#x40;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#102;&#97;&#x6b;&#101;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#111;&#109;">&#102;&#97;&#x6b;&#101;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#111;&#109;</a></p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://markdown.com.cn&gt;</span></span><br><span class="line"><span class="language-xml">&lt;fake@example.com&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 <span class="strong">**<span class="emphasis">*[<span class="string">中国天气</span>](<span class="link">http://www.weather.com.cn/</span>)*</span>**</span></span><br><span class="line">查看[<span class="string">`code`</span>](<span class="link">#code</span>)</span><br></pre></td></tr></table></figure>
@@ -248,19 +262,6 @@
 
 
 
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>web自动化python+Selenium学习</title>
-    <url>/2022/08/18/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/web%E8%87%AA%E5%8A%A8%E5%8C%96python+Selenium%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>记录 python 下，使用 Selenuim 实现web自动化的基本语法<br>更新日志:</p>
-<span id="more"></span>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -425,9 +426,11 @@
     <url>/2022/07/18/%E5%AD%A6%E4%B9%A0/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>更新日志：</p>
 <ul>
-<li>2022-08-05 记录python流程控制工具</li>
-<li>2022-08-19 <span id="more"></span></li>
+<li>2022-08-23 完成官方文档上，教程部分的初步记录</li>
 </ul>
+<span id="more"></span>
+
+
 <h1 id="Python教程文档整理"><a href="#Python教程文档整理" class="headerlink" title="Python教程文档整理"></a>Python教程文档整理</h1><h2 id="Python解释器"><a href="#Python解释器" class="headerlink" title="Python解释器"></a>Python解释器</h2><p>python源文件的开头建议指出调用解释器，声明默认编码</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: encoding -*-</span></span><br></pre></td></tr></table></figure>
 <h2 id="Python数字、字符、列表速览"><a href="#Python数字、字符、列表速览" class="headerlink" title="Python数字、字符、列表速览"></a>Python数字、字符、列表速览</h2><h3 id="数字用于计算"><a href="#数字用于计算" class="headerlink" title="数字用于计算"></a>数字用于计算</h3><ol>
@@ -845,7 +848,49 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">scope_test</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">do_local</span>():</span><br><span class="line">        spam = <span class="string">&quot;local spam&quot;</span>     <span class="comment"># 默认局部赋值没有改变对变量的绑定，这个赋值对外层无意义</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">do_nonlocal</span>():</span><br><span class="line">        <span class="keyword">nonlocal</span> spam           <span class="comment"># nonlocal 赋值改变了当前作用域对变量的绑定(绑定到了外层的同名变量)</span></span><br><span class="line">        spam = <span class="string">&quot;nonlocal spam&quot;</span>  <span class="comment"># 这个赋值影响了外一层的变量</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">do_global</span>():</span><br><span class="line">        <span class="keyword">global</span> spam             <span class="comment"># global 赋值给与变量全局的绑定(本身就没有对局部的绑定)</span></span><br><span class="line">        spam = <span class="string">&quot;global spam&quot;</span>    <span class="comment"># 这个赋值影响到了全局的变量，但不会影响外一层的变量</span></span><br><span class="line"></span><br><span class="line">    spam = <span class="string">&quot;test spam&quot;</span></span><br><span class="line">    do_local()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;After local assignment:&quot;</span>, spam)</span><br><span class="line">    do_nonlocal()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;After nonlocal assignment:&quot;</span>, spam)</span><br><span class="line">    do_global()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;After global assignment:&quot;</span>, spam)</span><br><span class="line"></span><br><span class="line">scope_test()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;In global scope:&quot;</span>, spam)</span><br></pre></td></tr></table></figure>
 <p>示例代码的输出是：</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">After local assignment: test spam</span><br><span class="line">After nonlocal assignment: nonlocal spam</span><br><span class="line">After global assignment: nonlocal spam</span><br><span class="line">In global scope: global spam</span><br></pre></td></tr></table></figure>
-<h3 id="初探类"><a href="#初探类" class="headerlink" title="初探类"></a>初探类</h3><p>待补充</p>
+<h3 id="初探类"><a href="#初探类" class="headerlink" title="初探类"></a>初探类</h3><h4 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h4><p>类定义(class语句)和函数定义(def)一样，必须先执行才能生效；如果类定义在条件语句和函数内部，没有进入内部前，类仍处于未定义。<br>当进入类定义时，将会创建一个新的命名空间，用作局部作用域。<br><strong>特别注意，当（从结尾处）正常离开类定义时，将创建一个类对象</strong></p>
+<p><strong>问题：创建类对象也会执行构造函数吗？</strong><br>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>类定义时应该包含一个构造函数，定义一个初始状态：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, i</span>):</span><br><span class="line">    self.i = i</span><br></pre></td></tr></table></figure>
+<p>注意，构造函数中的 self 参数不需要实例化时给出，它会自动赋为所在对象的引用</p>
+<h4 id="Class对象"><a href="#Class对象" class="headerlink" title="Class对象"></a>Class对象</h4><p>类对象支持两种操作：属性引用和实例化。</p>
+<p>假设定义这样的类:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;A simple example class&quot;&quot;&quot;</span></span><br><span class="line">    i = <span class="number">12345</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, i</span>):</span><br><span class="line">        self.i = i</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>类对象支持属性引用和实例化，MyClass.i 和 MyClass.f 就是有效的属性引用，分别返回一个整数对象和一个函数对象，此外属性引用也可以被赋值。</p>
+<p><strong>特别注意</strong>：如果定义时“自动”构建的类对象被赋值修改，那么之后使用这个类实例化的对象也会被赋予修改后的状态</p>
+<p>__doc__ 也是一个有效的属性，将返回所属类的文档字符串</p>
+<p>类的实例化使用函数表示方法:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x= MyClass()</span><br></pre></td></tr></table></figure>
+
+<h4 id="实例对象"><a href="#实例对象" class="headerlink" title="实例对象"></a>实例对象</h4><p><strong>注意</strong>： Class对象和实例对象不同，Class对象是定义类时，自动创建的一个“模板”对象；实例对象则是我们按照Class对象另外构建的一个新对象（即使创建完成后，它们之间仍会保持联系）</p>
+<p>实例对象所能理解的唯一操作是属性引用：对数据属性和对方法属性。</p>
+<h5 id="实例的数据引用"><a href="#实例的数据引用" class="headerlink" title="实例的数据引用"></a>实例的数据引用</h5><p>实例的数据属性像局部变量一样，在第一次赋值时产生，并且可以被 del 删除（此时再次使用该实例对象的引数据引用，会给出类对象的数据引用），如:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; x.i = 777</span><br><span class="line">&gt;&gt;&gt; x.i</span><br><span class="line">777</span><br><span class="line">&gt;&gt;&gt; del x.i</span><br><span class="line">&gt;&gt;&gt; x.i     # 删除实例对象的数据引用，再次使用时，会给出类对象的引用</span><br><span class="line">1123456 </span><br><span class="line">&gt;&gt;&gt; del MyClass.i</span><br><span class="line">&gt;&gt;&gt; x.i</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: &#x27;MyClass&#x27; object has no attribute &#x27;i&#x27;</span><br><span class="line">&gt;&gt;&gt; MyClass.i</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: type object &#x27;MyClass&#x27; has no attribute &#x27;i&#x27;</span><br><span class="line">&gt;&gt;&gt; MyClass.i=123456    # 类对象重新创建一个属性</span><br><span class="line">&gt;&gt;&gt; x.i                 # 此时甚至实例对象也可以使用类对象的属性引用</span><br><span class="line">123456</span><br></pre></td></tr></table></figure>
+<p>如此看来，实例对象创建后，仍然和类对象保持紧密联系，甚至像是“实例对象是类对象的继承”（当然，这种描述并不准确，但使用起来确实有这种感觉）</p>
+<p>由此可见，类变量是所有实例变量共享的，而实例变量是实例特有的，一旦实例变量出了问题(如没有引用已被删除)，就会交给类变量来解决。</p>
+<p><strong>特别注意，对于列表和字典类型的类变量，如在类中定义 list1&#x3D;[]， 任何实例化对象不会创建新的独属于本实例的这个属性；对本实例中list1的引用即是对类list1的引用。</strong></p>
+<p><strong>因此，如果需要属于本实例的列表引用，需要在类定义时在构造函数中定义list1&#x3D;[]</strong></p>
+<h5 id="实例的方法引用"><a href="#实例的方法引用" class="headerlink" title="实例的方法引用"></a>实例的方法引用</h5><p>方法的特殊指出在于，实例对象会作为类定义函数的第一个参数被传入，调用 x.f() 相当于 MyClass.f(x)</p>
+<h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><p>补充说明:</p>
+<ul>
+<li>python中没有任何东西能强制隐藏数据，它完全是基于约定的（除非使用C编写的python）</li>
+<li>客户端应该谨慎使用数据属性，直接操作可能破坏由方法维护的固定变量；python没有限制对实例对象的添加和修改数据属性</li>
+<li>每个值都是一个对象，因此也都具有类，并存储为 object.__class__</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DerivedClassName</span>(modname.BaseClassName):</span><br><span class="line">    ... ...</span><br></pre></td></tr></table></figure>
+<p>不详细记录，派生的基本特性暂时不需要了解详细</p>
+<h3 id="私有变量-仅是约定意义上的"><a href="#私有变量-仅是约定意义上的" class="headerlink" title="私有变量(仅是约定意义上的)"></a>私有变量(仅是约定意义上的)</h3><p>python并不存在仅限内部访问的真正的私有变量，但是大多数python代码都遵循这样的约定：带有一个下划线的名称（如 _spam）应该被当作是API的非公有部分</p>
+<p>python还带有，名称改写的功能。在基类中含有如 __spam 这样的含有两个下划线前缀的标识符，它的文本将会被替换为 _classname__spam<br>名称改写有助于让子类重载方法而不破坏类内方法调用，当前类只需要专注于当前类内私有变量的使用:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BaseNum</span>:</span><br><span class="line">     <span class="comment"># 义时这么写，定义外单独引用该变量时，需要使用 x._BaseNum__num</span></span><br><span class="line">    __num = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DrivedNum</span>:</span><br><span class="line">    <span class="comment"># 定义时这么写，定义外单独引用该变量时，需要使用 x._DrivedNum__num</span></span><br><span class="line">    __num = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = DrivedNum()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x._BaseNum__num</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="基于类的迭代器"><a href="#基于类的迭代器" class="headerlink" title="基于类的迭代器"></a>基于类的迭代器</h3><p>大多数容器对象都可以使用for语句；在幕后，for语句会在容器对象上调用 iter() ，该函数返回定义了 __next__() 方法的迭代器对象，此方法将逐一访问容器中元素。可以使用 next() 内置函数来调用 __next()__ 方法  </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>it = <span class="built_in">iter</span>(s)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>it</span><br><span class="line">&lt;str_iterator <span class="built_in">object</span> at <span class="number">0x10c90e650</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">next</span>(it)</span><br><span class="line"><span class="string">&#x27;a&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">next</span>(it)</span><br><span class="line"><span class="string">&#x27;b&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">next</span>(it)</span><br><span class="line"><span class="string">&#x27;c&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">next</span>(it)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="built_in">next</span>(it)</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure>
+
+<p>给自定义类添加迭代器行为，定义一个 __iter__() 方法来返回一个带有 __next__() 的对象</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Reverse</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Iterator for looping over a sequence backwards.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.data = data</span><br><span class="line">        self.index = <span class="built_in">len</span>(data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.index == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        self.index = self.index - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self.data[self.index]</span><br></pre></td></tr></table></figure>
+<p>这个类使用迭代器（实际使用中配合for语句）实现了伪翻转</p>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><p>可以用生成器完成的操作，同样可以使用基于类的迭代器来完成，但生成器的写法更为紧凑。</p>
+<p>此处不详细记录。</p>
 <h2 id="标准库简介-第一部分"><a href="#标准库简介-第一部分" class="headerlink" title="标准库简介-第一部分"></a>标准库简介-第一部分</h2><h3 id="操作系统接口–-os模块、shutil模块"><a href="#操作系统接口–-os模块、shutil模块" class="headerlink" title="操作系统接口– os模块、shutil模块"></a>操作系统接口– os模块、shutil模块</h3><h4 id="os-模块"><a href="#os-模块" class="headerlink" title="os 模块"></a>os 模块</h4><p>os 模块提供了许多与操作系统交互的函数<br>为避免内建函数 open 被 os.open 隐式替换，导入时一定要使用 improt os 而不是 from os import * </p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> os</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()      <span class="comment"># 获得当前目录</span></span><br><span class="line"><span class="string">&#x27;C:\\Python310&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.chdir(<span class="string">&#x27;/server/accesslogs&#x27;</span>)   <span class="comment"># 改变当前目录</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.system(<span class="string">&#x27;mkdir today&#x27;</span>)   <span class="comment"># 运行命令行指令</span></span><br></pre></td></tr></table></figure>
 <h4 id="shutil-模块"><a href="#shutil-模块" class="headerlink" title="shutil 模块"></a>shutil 模块</h4><p>shutil 模块，详写为 shell utility， 对于日常文件和目录管理提供了更高级别的接口</p>
@@ -1399,226 +1444,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JMeter学习笔记</title>
-    <url>/2022/07/10/%E5%AD%A6%E4%B9%A0/JMeter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>更新日志：</p>
-<ul>
-<li>2022-08-08<ul>
-<li>完成观看视频的同步学习记录</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<h1 id="初学笔记"><a href="#初学笔记" class="headerlink" title="初学笔记"></a>初学笔记</h1><h2 id="观看《JMeter-2021-Masterclass》学习并记录"><a href="#观看《JMeter-2021-Masterclass》学习并记录" class="headerlink" title="观看《JMeter 2021 Masterclass》学习并记录"></a>观看《JMeter 2021 Masterclass》学习并记录</h2><h3 id="开始一个JMeter测试计划"><a href="#开始一个JMeter测试计划" class="headerlink" title="开始一个JMeter测试计划"></a>开始一个JMeter测试计划</h3><ol>
-<li>点击根目录下&#x2F;bin&#x2F;jmeter.bat ，打开GUI界面</li>
-<li>右击Test Plan,添加Thread-Thread Group <ol>
-<li>设置线程数</li>
-<li>设置爬坡时间(Ramp-up period)</li>
-<li>设置循环次数</li>
-<li>其余默认</li>
-</ol>
-</li>
-<li>右击已创建线程组,添加Simpler-HTTP Request<ol>
-<li>Protocol留空，即默认http协议</li>
-<li>Server Name or IP 设置要测试的网站，不要添加http(s)的前缀</li>
-<li>Port Number留空</li>
-<li>选择需要测试url的方法和路径</li>
-<li>点击下方Add添加所需参数</li>
-</ol>
-</li>
-<li>右击已创建线程组,添加 Listener-View Results Tree和View Results Tree</li>
-<li>点击绿色箭头start,开始测试,测试结果可在两个监听器中看到</li>
-</ol>
-<h3 id="监听器Listener"><a href="#监听器Listener" class="headerlink" title="监听器Listener"></a>监听器Listener</h3><p>主要监听器:</p>
-<ul>
-<li>View Results in Table</li>
-<li>View Results Tree</li>
-<li>Aggregate Report</li>
-<li>Graph Results</li>
-<li>Summary Report</li>
-<li>Simple Data Writer</li>
-</ul>
-<h3 id="断言Assertions"><a href="#断言Assertions" class="headerlink" title="断言Assertions"></a>断言Assertions</h3><p><em>注意，不同位置的Assertion适用的采样器范围不同</em><br>当请求不满足断言条件，则会被判断为fail</p>
-<h3 id="HTTP-s-测试的脚本记录器"><a href="#HTTP-s-测试的脚本记录器" class="headerlink" title="HTTP(s)测试的脚本记录器"></a>HTTP(s)测试的脚本记录器</h3><!-- [脚本记录器debug]( /source/assets/WorkImages/JMeterScriptRecorder.png "脚本记录器") -->
-
-<p><img src="/assets/WorkImages/JMeterScriptRecorder.png" alt="脚本记录器" title="脚本记录器"><br>步骤:</p>
-<ol>
-<li>给测试计划添加测试脚本记录器Test Script Recorder，并在脚本记录器上添加监听器</li>
-<li>给测试计划添加线程组</li>
-<li>给线程组添加记录控制器Recording Controllor，配置端口和渔民，并添加监听器</li>
-<li>给火狐浏览器设置手动代理，并导入JMeter根目录的证书(如果没有则需要start一下会生成临时证书)</li>
-<li>开始测试计划</li>
-</ol>
-<p>模板的使用:</p>
-<h3 id="Blazemeter"><a href="#Blazemeter" class="headerlink" title="Blazemeter"></a>Blazemeter</h3><p><em>用于在云端运行性能测试的工具，相比使用JMeter内置脚本记录器，更加简便)</em></p>
-<p>视频内容:</p>
-<ol>
-<li>create Blazemeter account</li>
-<li>get Blazemeter extension</li>
-<li>login </li>
-<li>record test</li>
-<li>save jmx</li>
-<li>add JMX in JMeter and Run</li>
-</ol>
-<p>使用方法：</p>
-<ol>
-<li>使用扩展，开始记录，在网页上进行操作，完成记录，</li>
-<li>Run，然后自动跳转至Blazemeter Dashbord</li>
-<li>Edit</li>
-<li>Save，下载指定JMX文件，可以导入到JMeter文件，只要再加两个监听器即可直接运行</li>
-</ol>
-<h3 id="关联CSV数据"><a href="#关联CSV数据" class="headerlink" title="关联CSV数据"></a>关联CSV数据</h3><p>步骤：</p>
-<ol>
-<li>添加CSV Data Set Config，和线程组同级别意味着可以用于该线程组</li>
-<li>在CSV Data Set Config添加CSV文件，使之文件关联到JMeter</li>
-<li>使用语法${FeatureName}引用对应特征名的变量</li>
-<li>其他设置，如重命名特征名，文件编码，是否识别第一行，文件分隔符，到达EOF后停止或循环或结束线程</li>
-</ol>
-<h3 id="HTTP-Web测试中的设置元素-（其他类型的可到官方文档查看）"><a href="#HTTP-Web测试中的设置元素-（其他类型的可到官方文档查看）" class="headerlink" title="HTTP Web测试中的设置元素 （其他类型的可到官方文档查看）"></a>HTTP Web测试中的设置元素 （其他类型的可到官方文档查看）</h3><p><em>结果树监听器View Results Tree Listener消耗内存，调试测试测试计划时可以使用，但真正要测性能时要禁用</em></p>
-<p><em>使用Blazemeter录制完保存为jmx文件后，导入到JMeter，会生成完整的配置元素和采样器</em></p>
-<p>demo app - <a href="https://opensource-demo.orangehrmlive.com/">https://opensource-demo.orangehrmlive.com/</a></p>
-<p>有以下几种设置元素:</p>
-<ul>
-<li>用户定义变量</li>
-<li>HTTP头管理器</li>
-<li>HTTP请求默认设置</li>
-<li>DNS缓存管理器</li>
-<li>HTTP认证（Authorization）管理器</li>
-<li>HTTP Cookie管理器</li>
-<li>HTTP缓存管理器</li>
-</ul>
-<h3 id="一般设置元素"><a href="#一般设置元素" class="headerlink" title="一般设置元素"></a>一般设置元素</h3><ul>
-<li>Counter 可以存储迭代变量， ${num} 使用它，默认循环</li>
-<li>JDBC Connection Config 用于连接，JDBC Request不负责连接 </li>
-<li>Keystore 配置密钥，如何加载密钥，加载哪个由它配置</li>
-<li>Random Variable 产生随机值，有必要看看要不要配置随机值</li>
-<li>SImple Config Element 组建多对“变量名-值”的组合</li>
-<li>User Defined Variable</li>
-</ul>
-<h3 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h3><p>好处：</p>
-<ul>
-<li>没有图形界面的资源消耗</li>
-<li>能与任何外部CI&#x2F;CD进行整合在一起</li>
-</ul>
-<p>视频内容</p>
-<ol>
-<li><p>进入bin文件夹，在命令行运行测试	<br>jmeter -n -t “测试文件.jmx -l “结果文件.csv”<br>jmeter或jmeter.bat<br>-n  no gui<br>-t  必须给出测试计划的地址<br>-l  必须给出结果文件位置<br>sh jmeter -n -t “测试文件位置”  -l “结果文件位置”</p>
-</li>
-<li><p>查看命令行帮助和选项 jmeter -h</p>
-</li>
-<li><p>添加环境变量，在任何系统位置运行</p>
-</li>
-</ol>
-<h3 id="从命令行或GUI界面生成HTML报告"><a href="#从命令行或GUI界面生成HTML报告" class="headerlink" title="从命令行或GUI界面生成HTML报告"></a>从命令行或GUI界面生成HTML报告</h3><p>内容：</p>
-<ul>
-<li>从命令行创建html仪表盘报告</li>
-<li>从脱机的cvs结果文件创建html仪表盘报告</li>
-<li>学习html仪表盘报告</li>
-<li>GUI生成html仪表盘报告</li>
-</ul>
-<p>步骤：</p>
-<ol>
-<li><p>创建测试计划</p>
-</li>
-<li><p>在bin文件夹打开命令行</p>
-</li>
-<li><p>运行命令 jmeter -n -t “testfile.jmx” -l “resualtfile.csv”  -e -o “reports foler”<br> -e  生成html报告或仪表盘报告<br> -o  </p>
-<p> 使用已有csv结果文件生成报告<br> jmeter -g “resualtfile.csv”   -o “reports foler”</p>
-</li>
-<li><p>Tools-Gnenrate HTML report在可视化界面生成HTML报告</p>
-</li>
-</ol>
-<h3 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h3><p>内容:寻找、安装、卸载、升级插件</p>
-<ol>
-<li>从<a href="https://jmeter-plugins.org/wiki/PluginsManager/%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8jar%EF%BC%8C%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95/lib/ext">https://jmeter-plugins.org/wiki/PluginsManager/下载插件管理器jar，放到指定目录/lib/ext</a></li>
-<li>在GUI界面OPTIONS-Plugins Manager里可以管理JMeter</li>
-<li>寻找其他插件 <a href="https://jmeter-plugins.org/">https://jmeter-plugins.org/</a>   <a href="https://jmeter-plugins.org/wiki/Start/">https://jmeter-plugins.org/wiki/Start/</a></li>
-</ol>
-<h3 id="测试REST-API"><a href="#测试REST-API" class="headerlink" title="测试REST API"></a>测试REST API</h3><ul>
-<li>REST API：Representational State Transfer，需要了解一下概念</li>
-<li>网址reqres.in，这里有一些用于测试的简单 REST API</li>
-<li>REST API在浏览器上的表现形式似乎与一般HTTP报文并无区别，测试时当成普通HTTP报文即可（待日后研究）</li>
-<li>使用POST方法，交换的json数据需要编辑在在body</li>
-</ul>
-<h3 id="测试SOAP-API"><a href="#测试SOAP-API" class="headerlink" title="测试SOAP API"></a>测试SOAP API</h3><ol>
-<li>请求采样器</li>
-<li>添加Headers</li>
-<li>添加Authorisation</li>
-<li>添加body</li>
-<li>添加断言</li>
-<li>运行和检查结果</li>
-</ol>
-<p>测试网站 dneonline.com&#x2F;calculator.asmx<br>SOAP API 都是POST方式，内容为SOAP格式文档<br>可以扩展wizdler查看SOAP文档内容</p>
-<p>视频过程：</p>
-<ol>
-<li><p>使用模板 Building a SOAP WebService Test Plan 构建一个SOAP API测试<br> 其中 SOAP Request 的Body Data部分是SOAP格式文档<br> 需要调整HTTP头管理器<br> 可选添加Authorization管理器</p>
-</li>
-<li><p>不使用模板，自己手动建立一个SOAP API测试计划</p>
-<ol>
-<li>添加HTTP请求采样器，方法需要设置为POST，body需要添加SOAP格式内容<br> 视频中在body里添加了 SOAP Envelope 元素下内容(这里传送数据)</li>
-<li>添加头管理器，跳转其内容，包括 Content-Type , SOAPAction（这里告诉服务器对接收道德数据的进行什么行为）</li>
-<li>添加了Authorization管理器，但测试网站没有认证需要</li>
-<li>添加了Response断言，断言了 SOAP内容下的一个元素，如 <AddResult>5</AddResult></li>
-<li>添加监视器以查看结果，View Results Tree，Assertion Results</li>
-</ol>
-</li>
-</ol>
-<h3 id="函数-JMeter内置-和变量的使用"><a href="#函数-JMeter内置-和变量的使用" class="headerlink" title="函数(JMeter内置)和变量的使用"></a>函数(JMeter内置)和变量的使用</h3><p>Funtions句法:<br>    ${_funcName}<br>    ${_funcName(var1,var2,…)}<br>Variable句法:<br>    ${VarName}</p>
-<p>视频过程:</p>
-<ol>
-<li>添加Java Request</li>
-<li>点击 Function Helper Dialog	，可以找些一些JMeter的内置函数，如 log，time，threadNum等</li>
-<li>一个函数可以使用别的函数返回的变量，如 存在函数 ${_intSum(2,3,result)}，则在别的请求中可以使用 ${result}，也可以当作一个函数内的参数<br>所有函数可以参考官方文档 <a href="https://jmeter.apache.org/usermanual/functions.html">https://jmeter.apache.org/usermanual/functions.html</a></li>
-</ol>
-<h2 id="JMeter官方文档阅读笔记"><a href="#JMeter官方文档阅读笔记" class="headerlink" title="JMeter官方文档阅读笔记"></a>JMeter官方文档阅读笔记</h2><h3 id="线程组"><a href="#线程组" class="headerlink" title="线程组"></a>线程组</h3><ul>
-<li>线程组是测试计划的起点，所有控制器和采样器必须位于线程组下，监听器可以与线程组同级；</li>
-<li>每个线程完全独立；</li>
-<li>爬坡时间指定要用多少时间完成所有线程，一定程度上指定了延迟，下限必须足够长以免负载过大</li>
-<li>可以指定线程生存周期，包括持续时间和启动延迟</li>
-</ul>
-<h4 id="采样器"><a href="#采样器" class="headerlink" title="采样器"></a>采样器</h4><p>采样器告诉JMeter向服务器发送请求并等待响应。<br>包括 FTP、HTTP、JDBC、Java Object、JMS、JUnit Test、LDAP、Mail、OS Process、TCP 这些请求种类的采样器</p>
-<h4 id="逻辑控制器"><a href="#逻辑控制器" class="headerlink" title="逻辑控制器"></a>逻辑控制器</h4><p>逻辑控制器允许自定义如何发送请求，指定发送时间，发送顺序<br>测试计划</p>
-<ul>
-<li>线程组<ul>
-<li>仅一次控制器</li>
-<li>登录请求（HTTP 请求)</li>
-<li>加载搜索页面（HTTP 采样器）</li>
-<li>交错控制器</li>
-<li>搜索“A”（HTTP采样器）</li>
-<li>搜索“B”（HTTP采样器）</li>
-<li>HTTP 默认请求（配置元素）</li>
-<li>HTTP 默认请求（配置元素）</li>
-<li>饼干管理器（配置元素）</li>
-</ul>
-</li>
-</ul>
-<h4 id="特殊的控制器-测试片段"><a href="#特殊的控制器-测试片段" class="headerlink" title="特殊的控制器-测试片段"></a>特殊的控制器-测试片段</h4><p>这个元素仅仅用于测试计划中重用代码</p>
-<h3 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h3><p>所有的监听器都保存相同的数据，唯一的区别在于选择显示方式和选择的显示内容。</p>
-<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>指定其范围内采样器之间的延迟时间，多个计时器的时间会相加</p>
-<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>断言检验返回请求是否符合自定义规则（文本、返回头等），否则视为失败，记录于监听器</p>
-<h3 id="配置元素"><a href="#配置元素" class="headerlink" title="配置元素"></a>配置元素</h3><p>配置元素与采样器紧密协作，它可以添加或修改请求，作用范围为所在控制器内部；<br>子分支中的配置元素优先级高于父分支中配置元素</p>
-<h3 id="预处理后处理元件"><a href="#预处理后处理元件" class="headerlink" title="预处理后处理元件"></a>预处理后处理元件</h3><p>在发出采样器请求之前和之后执行某些操作</p>
-<h2 id="组件作用范围与执行顺序"><a href="#组件作用范围与执行顺序" class="headerlink" title="组件作用范围与执行顺序"></a>组件作用范围与执行顺序</h2><h3 id="范围界定规则"><a href="#范围界定规则" class="headerlink" title="范围界定规则"></a>范围界定规则</h3><p>分层结构（监听器、配置元素、预处理器、后处理器、断言、计时器内部）<br>同级有序结构（逻辑控制器、采样器之间）<br>同级无序结构（监听器、配置元素、预处理器、后处理器、断言、计时器之间）</p>
-<p><img src="/assets/WorkImages/scoping-rules.png" alt="范围界定示例" title="范围界定示例"></p>
-<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>单个采样器运行的前后环境顺序：</p>
-<ol>
-<li>配置元素</li>
-<li>预处理器</li>
-<li>定时器</li>
-<li>采样器</li>
-<li>后处理器</li>
-<li>断言</li>
-<li>监听器</li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>日语基本语法学习与整理</title>
     <url>/2022/07/10/%E5%AD%A6%E4%B9%A0/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>记录《中日交流标准日本语》初级、中级常用语法</p>
@@ -2045,6 +1870,227 @@
       </tags>
   </entry>
   <entry>
+    <title>JMeter学习笔记</title>
+    <url>/2022/07/10/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/JMeter%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>更新日志：</p>
+<ul>
+<li>2022-08-08<ul>
+<li>完成观看视频的同步学习记录</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h1 id="初学笔记"><a href="#初学笔记" class="headerlink" title="初学笔记"></a>初学笔记</h1><h2 id="观看《JMeter-2021-Masterclass》学习并记录"><a href="#观看《JMeter-2021-Masterclass》学习并记录" class="headerlink" title="观看《JMeter 2021 Masterclass》学习并记录"></a>观看《JMeter 2021 Masterclass》学习并记录</h2><h3 id="开始一个JMeter测试计划"><a href="#开始一个JMeter测试计划" class="headerlink" title="开始一个JMeter测试计划"></a>开始一个JMeter测试计划</h3><ol>
+<li>点击根目录下&#x2F;bin&#x2F;jmeter.bat ，打开GUI界面</li>
+<li>右击Test Plan,添加Thread-Thread Group <ol>
+<li>设置线程数</li>
+<li>设置爬坡时间(Ramp-up period)</li>
+<li>设置循环次数</li>
+<li>其余默认</li>
+</ol>
+</li>
+<li>右击已创建线程组,添加Simpler-HTTP Request<ol>
+<li>Protocol留空，即默认http协议</li>
+<li>Server Name or IP 设置要测试的网站，不要添加http(s)的前缀</li>
+<li>Port Number留空</li>
+<li>选择需要测试url的方法和路径</li>
+<li>点击下方Add添加所需参数</li>
+</ol>
+</li>
+<li>右击已创建线程组,添加 Listener-View Results Tree和View Results Tree</li>
+<li>点击绿色箭头start,开始测试,测试结果可在两个监听器中看到</li>
+</ol>
+<h3 id="监听器Listener"><a href="#监听器Listener" class="headerlink" title="监听器Listener"></a>监听器Listener</h3><p>主要监听器:</p>
+<ul>
+<li>View Results in Table</li>
+<li>View Results Tree</li>
+<li>Aggregate Report</li>
+<li>Graph Results</li>
+<li>Summary Report</li>
+<li>Simple Data Writer</li>
+</ul>
+<h3 id="断言Assertions"><a href="#断言Assertions" class="headerlink" title="断言Assertions"></a>断言Assertions</h3><p><em>注意，不同位置的Assertion适用的采样器范围不同</em><br>当请求不满足断言条件，则会被判断为fail</p>
+<h3 id="HTTP-s-测试的脚本记录器"><a href="#HTTP-s-测试的脚本记录器" class="headerlink" title="HTTP(s)测试的脚本记录器"></a>HTTP(s)测试的脚本记录器</h3><!-- [脚本记录器debug]( /source/assets/WorkImages/JMeterScriptRecorder.png "脚本记录器") -->
+
+<p><img src="/assets/WorkImages/JMeterScriptRecorder.png" alt="脚本记录器" title="脚本记录器"><br>步骤:</p>
+<ol>
+<li>给测试计划添加测试脚本记录器Test Script Recorder，并在脚本记录器上添加监听器</li>
+<li>给测试计划添加线程组</li>
+<li>给线程组添加记录控制器Recording Controllor，配置端口和渔民，并添加监听器</li>
+<li>给火狐浏览器设置手动代理，并导入JMeter根目录的证书(如果没有则需要start一下会生成临时证书)</li>
+<li>开始测试计划</li>
+</ol>
+<p>模板的使用:</p>
+<h3 id="Blazemeter"><a href="#Blazemeter" class="headerlink" title="Blazemeter"></a>Blazemeter</h3><p><em>用于在云端运行性能测试的工具，相比使用JMeter内置脚本记录器，更加简便)</em></p>
+<p>视频内容:</p>
+<ol>
+<li>create Blazemeter account</li>
+<li>get Blazemeter extension</li>
+<li>login </li>
+<li>record test</li>
+<li>save jmx</li>
+<li>add JMX in JMeter and Run</li>
+</ol>
+<p>使用方法：</p>
+<ol>
+<li>使用扩展，开始记录，在网页上进行操作，完成记录，</li>
+<li>Run，然后自动跳转至Blazemeter Dashbord</li>
+<li>Edit</li>
+<li>Save，下载指定JMX文件，可以导入到JMeter文件，只要再加两个监听器即可直接运行</li>
+</ol>
+<h3 id="关联CSV数据"><a href="#关联CSV数据" class="headerlink" title="关联CSV数据"></a>关联CSV数据</h3><p>步骤：</p>
+<ol>
+<li>添加CSV Data Set Config，和线程组同级别意味着可以用于该线程组</li>
+<li>在CSV Data Set Config添加CSV文件，使之文件关联到JMeter</li>
+<li>使用语法${FeatureName}引用对应特征名的变量</li>
+<li>其他设置，如重命名特征名，文件编码，是否识别第一行，文件分隔符，到达EOF后停止或循环或结束线程</li>
+</ol>
+<h3 id="HTTP-Web测试中的设置元素-（其他类型的可到官方文档查看）"><a href="#HTTP-Web测试中的设置元素-（其他类型的可到官方文档查看）" class="headerlink" title="HTTP Web测试中的设置元素 （其他类型的可到官方文档查看）"></a>HTTP Web测试中的设置元素 （其他类型的可到官方文档查看）</h3><p><em>结果树监听器View Results Tree Listener消耗内存，调试测试测试计划时可以使用，但真正要测性能时要禁用</em></p>
+<p><em>使用Blazemeter录制完保存为jmx文件后，导入到JMeter，会生成完整的配置元素和采样器</em></p>
+<p>demo app - <a href="https://opensource-demo.orangehrmlive.com/">https://opensource-demo.orangehrmlive.com/</a></p>
+<p>有以下几种设置元素:</p>
+<ul>
+<li>用户定义变量</li>
+<li>HTTP头管理器</li>
+<li>HTTP请求默认设置</li>
+<li>DNS缓存管理器</li>
+<li>HTTP认证（Authorization）管理器</li>
+<li>HTTP Cookie管理器</li>
+<li>HTTP缓存管理器</li>
+</ul>
+<h3 id="一般设置元素"><a href="#一般设置元素" class="headerlink" title="一般设置元素"></a>一般设置元素</h3><ul>
+<li>Counter 可以存储迭代变量， ${num} 使用它，默认循环</li>
+<li>JDBC Connection Config 用于连接，JDBC Request不负责连接 </li>
+<li>Keystore 配置密钥，如何加载密钥，加载哪个由它配置</li>
+<li>Random Variable 产生随机值，有必要看看要不要配置随机值</li>
+<li>SImple Config Element 组建多对“变量名-值”的组合</li>
+<li>User Defined Variable</li>
+</ul>
+<h3 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h3><p>好处：</p>
+<ul>
+<li>没有图形界面的资源消耗</li>
+<li>能与任何外部CI&#x2F;CD进行整合在一起</li>
+</ul>
+<p>视频内容</p>
+<ol>
+<li><p>进入bin文件夹，在命令行运行测试	<br>jmeter -n -t “测试文件.jmx -l “结果文件.csv”<br>jmeter或jmeter.bat<br>-n  no gui<br>-t  必须给出测试计划的地址<br>-l  必须给出结果文件位置<br>sh jmeter -n -t “测试文件位置”  -l “结果文件位置”</p>
+</li>
+<li><p>查看命令行帮助和选项 jmeter -h</p>
+</li>
+<li><p>添加环境变量，在任何系统位置运行</p>
+</li>
+</ol>
+<h3 id="从命令行或GUI界面生成HTML报告"><a href="#从命令行或GUI界面生成HTML报告" class="headerlink" title="从命令行或GUI界面生成HTML报告"></a>从命令行或GUI界面生成HTML报告</h3><p>内容：</p>
+<ul>
+<li>从命令行创建html仪表盘报告</li>
+<li>从脱机的cvs结果文件创建html仪表盘报告</li>
+<li>学习html仪表盘报告</li>
+<li>GUI生成html仪表盘报告</li>
+</ul>
+<p>步骤：</p>
+<ol>
+<li><p>创建测试计划</p>
+</li>
+<li><p>在bin文件夹打开命令行</p>
+</li>
+<li><p>运行命令 jmeter -n -t “testfile.jmx” -l “resualtfile.csv”  -e -o “reports foler”<br> -e  生成html报告或仪表盘报告<br> -o  </p>
+<p> 使用已有csv结果文件生成报告<br> jmeter -g “resualtfile.csv”   -o “reports foler”</p>
+</li>
+<li><p>Tools-Gnenrate HTML report在可视化界面生成HTML报告</p>
+</li>
+</ol>
+<h3 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h3><p>内容:寻找、安装、卸载、升级插件</p>
+<ol>
+<li>从<a href="https://jmeter-plugins.org/wiki/PluginsManager/%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8jar%EF%BC%8C%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95/lib/ext">https://jmeter-plugins.org/wiki/PluginsManager/下载插件管理器jar，放到指定目录/lib/ext</a></li>
+<li>在GUI界面OPTIONS-Plugins Manager里可以管理JMeter</li>
+<li>寻找其他插件 <a href="https://jmeter-plugins.org/">https://jmeter-plugins.org/</a>   <a href="https://jmeter-plugins.org/wiki/Start/">https://jmeter-plugins.org/wiki/Start/</a></li>
+</ol>
+<h3 id="测试REST-API"><a href="#测试REST-API" class="headerlink" title="测试REST API"></a>测试REST API</h3><ul>
+<li>REST API：Representational State Transfer，需要了解一下概念</li>
+<li>网址reqres.in，这里有一些用于测试的简单 REST API</li>
+<li>REST API在浏览器上的表现形式似乎与一般HTTP报文并无区别，测试时当成普通HTTP报文即可（待日后研究）</li>
+<li>使用POST方法，交换的json数据需要编辑在在body</li>
+</ul>
+<h3 id="测试SOAP-API"><a href="#测试SOAP-API" class="headerlink" title="测试SOAP API"></a>测试SOAP API</h3><ol>
+<li>请求采样器</li>
+<li>添加Headers</li>
+<li>添加Authorisation</li>
+<li>添加body</li>
+<li>添加断言</li>
+<li>运行和检查结果</li>
+</ol>
+<p>测试网站 dneonline.com&#x2F;calculator.asmx<br>SOAP API 都是POST方式，内容为SOAP格式文档<br>可以扩展wizdler查看SOAP文档内容</p>
+<p>视频过程：</p>
+<ol>
+<li><p>使用模板 Building a SOAP WebService Test Plan 构建一个SOAP API测试<br> 其中 SOAP Request 的Body Data部分是SOAP格式文档<br> 需要调整HTTP头管理器<br> 可选添加Authorization管理器</p>
+</li>
+<li><p>不使用模板，自己手动建立一个SOAP API测试计划</p>
+<ol>
+<li>添加HTTP请求采样器，方法需要设置为POST，body需要添加SOAP格式内容<br> 视频中在body里添加了 SOAP Envelope 元素下内容(这里传送数据)</li>
+<li>添加头管理器，跳转其内容，包括 Content-Type , SOAPAction（这里告诉服务器对接收道德数据的进行什么行为）</li>
+<li>添加了Authorization管理器，但测试网站没有认证需要</li>
+<li>添加了Response断言，断言了 SOAP内容下的一个元素，如 <AddResult>5</AddResult></li>
+<li>添加监视器以查看结果，View Results Tree，Assertion Results</li>
+</ol>
+</li>
+</ol>
+<h3 id="函数-JMeter内置-和变量的使用"><a href="#函数-JMeter内置-和变量的使用" class="headerlink" title="函数(JMeter内置)和变量的使用"></a>函数(JMeter内置)和变量的使用</h3><p>Funtions句法:<br>    ${_funcName}<br>    ${_funcName(var1,var2,…)}<br>Variable句法:<br>    ${VarName}</p>
+<p>视频过程:</p>
+<ol>
+<li>添加Java Request</li>
+<li>点击 Function Helper Dialog	，可以找些一些JMeter的内置函数，如 log，time，threadNum等</li>
+<li>一个函数可以使用别的函数返回的变量，如 存在函数 ${_intSum(2,3,result)}，则在别的请求中可以使用 ${result}，也可以当作一个函数内的参数<br>所有函数可以参考官方文档 <a href="https://jmeter.apache.org/usermanual/functions.html">https://jmeter.apache.org/usermanual/functions.html</a></li>
+</ol>
+<h2 id="JMeter官方文档阅读笔记"><a href="#JMeter官方文档阅读笔记" class="headerlink" title="JMeter官方文档阅读笔记"></a>JMeter官方文档阅读笔记</h2><h3 id="线程组"><a href="#线程组" class="headerlink" title="线程组"></a>线程组</h3><ul>
+<li>线程组是测试计划的起点，所有控制器和采样器必须位于线程组下，监听器可以与线程组同级；</li>
+<li>每个线程完全独立；</li>
+<li>爬坡时间指定要用多少时间完成所有线程，一定程度上指定了延迟，下限必须足够长以免负载过大</li>
+<li>可以指定线程生存周期，包括持续时间和启动延迟</li>
+</ul>
+<h4 id="采样器"><a href="#采样器" class="headerlink" title="采样器"></a>采样器</h4><p>采样器告诉JMeter向服务器发送请求并等待响应。<br>包括 FTP、HTTP、JDBC、Java Object、JMS、JUnit Test、LDAP、Mail、OS Process、TCP 这些请求种类的采样器</p>
+<h4 id="逻辑控制器"><a href="#逻辑控制器" class="headerlink" title="逻辑控制器"></a>逻辑控制器</h4><p>逻辑控制器允许自定义如何发送请求，指定发送时间，发送顺序<br>测试计划</p>
+<ul>
+<li>线程组<ul>
+<li>仅一次控制器</li>
+<li>登录请求（HTTP 请求)</li>
+<li>加载搜索页面（HTTP 采样器）</li>
+<li>交错控制器</li>
+<li>搜索“A”（HTTP采样器）</li>
+<li>搜索“B”（HTTP采样器）</li>
+<li>HTTP 默认请求（配置元素）</li>
+<li>HTTP 默认请求（配置元素）</li>
+<li>饼干管理器（配置元素）</li>
+</ul>
+</li>
+</ul>
+<h4 id="特殊的控制器-测试片段"><a href="#特殊的控制器-测试片段" class="headerlink" title="特殊的控制器-测试片段"></a>特殊的控制器-测试片段</h4><p>这个元素仅仅用于测试计划中重用代码</p>
+<h3 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h3><p>所有的监听器都保存相同的数据，唯一的区别在于选择显示方式和选择的显示内容。</p>
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p>指定其范围内采样器之间的延迟时间，多个计时器的时间会相加</p>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>断言检验返回请求是否符合自定义规则（文本、返回头等），否则视为失败，记录于监听器</p>
+<h3 id="配置元素"><a href="#配置元素" class="headerlink" title="配置元素"></a>配置元素</h3><p>配置元素与采样器紧密协作，它可以添加或修改请求，作用范围为所在控制器内部；<br>子分支中的配置元素优先级高于父分支中配置元素</p>
+<h3 id="预处理后处理元件"><a href="#预处理后处理元件" class="headerlink" title="预处理后处理元件"></a>预处理后处理元件</h3><p>在发出采样器请求之前和之后执行某些操作</p>
+<h2 id="组件作用范围与执行顺序"><a href="#组件作用范围与执行顺序" class="headerlink" title="组件作用范围与执行顺序"></a>组件作用范围与执行顺序</h2><h3 id="范围界定规则"><a href="#范围界定规则" class="headerlink" title="范围界定规则"></a>范围界定规则</h3><p>分层结构（监听器、配置元素、预处理器、后处理器、断言、计时器内部）<br>同级有序结构（逻辑控制器、采样器之间）<br>同级无序结构（监听器、配置元素、预处理器、后处理器、断言、计时器之间）</p>
+<p><img src="/assets/WorkImages/scoping-rules.png" alt="范围界定示例" title="范围界定示例"></p>
+<h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>单个采样器运行的前后环境顺序：</p>
+<ol>
+<li>配置元素</li>
+<li>预处理器</li>
+<li>定时器</li>
+<li>采样器</li>
+<li>后处理器</li>
+<li>断言</li>
+<li>监听器</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>测试工具</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>/2022/07/08/%E9%80%9A%E7%94%A8%E7%B1%BB/%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<p>更新日志：</p>
@@ -2070,136 +2116,5 @@
       <categories>
         <category>通用类</category>
       </categories>
-  </entry>
-  <entry>
-    <title>从建站到自动部署</title>
-    <url>/2022/07/07/%E9%80%9A%E7%94%A8%E7%B1%BB/%E4%BB%8E%E5%BB%BA%E7%AB%99%E5%88%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<p>使用本主题发帖的基本说明，包括创建帖子文件，编辑帖子内容，本地测试发布效果，正式发布帖子，自动部署。万一忘了，或者哪天需要新建网站的时候再看看。<br>更新日志:</p>
-<ul>
-<li>2022-07-11 <ul>
-<li>完成了我能够理解和复现的“从建站到自动部署”的流程整理</li>
-</ul>
-</li>
-</ul>
-<p>计划更新:</p>
-<ul>
-<li>2022-07-*	<ul>
-<li>完成hexo-next主题下我个人的详细配置记录</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-
-<h1 id="第一类发布方式"><a href="#第一类发布方式" class="headerlink" title="第一类发布方式"></a>第一类发布方式</h1><p>使用VScode编辑帖子内容，代码提交到github的博客代码仓库，利用工作流自动部署到github的博客页面仓库。<br>具体流程如下：</p>
-<h2 id="配置github，克隆代码到本地"><a href="#配置github，克隆代码到本地" class="headerlink" title="配置github，克隆代码到本地"></a>配置github，克隆代码到本地</h2><ol>
-<li><p>登录<a href="https://github.com/" title="github">github网站</a>，创建账号</p>
-</li>
-<li><p>创建名为”MyBlogCode”的私人仓库，这个仓库保存了相关代码和帖子;这个仓库名字可以自己起</p>
-</li>
-<li><p>创建名为”你的用户名.github.io”的公开仓库，这个仓库保存了博客页面</p>
-</li>
-<li><p>安装<a href="https://git-scm.com/downloads" title="Git工具">Git工具</a>，这个工具能够本地代码直接上传到仓库，或者从仓库拉去代码</p>
-</li>
-<li><p>安装好Git工具后，右击桌面空白处，点击”Git Bash here”,进行以下配置</p>
-<pre><code> git config --global user.name &quot;github用户名&quot;
- git config --global user.email &quot;github邮箱&quot;
-</code></pre>
-</li>
-<li><p>在本机上生成密钥</p>
-<pre><code> ssh-keygen -t rsa -c &quot;github邮箱&quot;
-</code></pre>
-<p> 公钥文件：~&#x2F;.ssh&#x2F;id_rsa.pub     </p>
-<p> 私钥文件：~&#x2F;.ssh&#x2F;id_rsa</p>
-<p> ~表示用户文件夹，Windows平台中指的是 C:&#x2F;Users&#x2F;用户名&#x2F;</p>
-</li>
-<li><p>登录github，点击右上角头像下拉框-Settings-SSH and GPG keys-New SSH key,把刚刚生成密钥中的公钥内容复制进去，Title自起一个名字</p>
-</li>
-<li><p>检验密钥是否配置成功：右击空白处，打开Git Bash，输入下方代码第一行检验密钥，若全文显示如下则表示密钥配置成功</p>
-<pre><code> $ ssh -T git@github.com
- Enter passphrase for key &#39;/c/Users/王宇晨/.ssh/id_rsa&#39;:
- Hi Ice-Cocoa! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
-</code></pre>
-</li>
-<li><p>使用git命令获取博客代码仓库</p>
-<pre><code> $ git init  
- $ git remote add origin &lt;代码仓库地址&gt;
- $ git clone &lt;代码仓库地址&gt;
-</code></pre>
-</li>
-</ol>
-<h2 id="使用VScode代码编辑器编辑帖子内容，管理分支"><a href="#使用VScode代码编辑器编辑帖子内容，管理分支" class="headerlink" title="使用VScode代码编辑器编辑帖子内容，管理分支"></a>使用VScode代码编辑器编辑帖子内容，管理分支</h2><ol>
-<li><p>安装<a href="https://code.visualstudio.com/Download" title="VScode代码编辑器">VScode代码编辑器</a></p>
-</li>
-<li><p>使用VScode打开拉取的项目文件夹；或者使用VScode重新拉取一次代码仓库，打开这个项目文件夹</p>
-</li>
-<li><p>进行hexo主题配置，我的hexo-next主题个性化修改包括:</p>
-<ol>
-<li>根目录下_config.yml配置：网页信息(title,author,copyright,language)，repo仓库地址配，本地搜索</li>
-<li>主题目录下_config.yml配置：各类图标，显示方案和模式，侧边栏项目等</li>
-<li>首页置顶配置，</li>
-<li>首页只展示标签post</li>
-<li>音乐外链配置</li>
-<li>首页文章截取</li>
-</ol>
-</li>
-<li><p>打开文件夹下  &#x2F;source&#x2F;_posts&#x2F; ，在这里新建一个空的txt文件，重命名为 “帖子1.md” （名字随意，但后缀.md不能改变）</p>
-</li>
-<li><p>用VScode打开该文件，复制以下内容到.md文件内，并相应修改</p>
-<pre><code> title: 帖子1
- categories:
-     - 父类名称
-     - 子类名称  #如不需要该子类可删除本行
-     - 子类名称  #根据需要再新建子类
- tags: 展示    #设置任意值后，本贴会在首页展示，若不需要展示则在tags:后留空
- discription: #简短描述本帖意义或内容
- top: 0       #只有在首页展示top才有设置意义，取值0~100
-                 #其中设置为1~100会置顶，同样的置顶文章，值越大越上面
- date: 2022-07-07 14:31:05  #帖子创建时间，不设定也不影响正常发帖
- ---
- 前言部分，会在首页展示中预览
- &lt;!-- more --&gt;
- 正文部分，需要使用Markdown语法编辑
-</code></pre>
-</li>
-<li><p>进行本地部署、远程部署</p>
-</li>
-<li><p>右击项目文件夹打开git bash，运行以下代码，开启本地服务器</p>
-<pre><code> hexo service # shell里可能需要开头加上npx，在shell开发人员设置里可设置
-</code></pre>
-</li>
-<li><p>根据提示，在浏览器网址栏输入 <a href="http://localhost:4000/">http://localhost:4000/</a> ，完成了本地部署，现在在服务器运行期间在本地计算机查看网页</p>
-</li>
-<li><p>右击项目文件夹打开git bash，运行以下代码，部署到github页面仓库</p>
-<pre><code> hexo clean
- hexo generate
- hexo deploy	#注意，这一步成功的前提是hexo已经配置完成
- #可能需要登录github
- #若配置密钥时设置密码，需要输入密码
-</code></pre>
-</li>
-<li><p>在浏览器网址栏输入 github用户名.github.io , 若部署成功就可以查看博客页面</p>
-</li>
-</ol>
-<h2 id="设置一旦触发推送博客就自动部署的功能"><a href="#设置一旦触发推送博客就自动部署的功能" class="headerlink" title="设置一旦触发推送博客就自动部署的功能"></a>设置一旦触发推送博客就自动部署的功能</h2><ol>
-<li><p>生成博客代码仓库和博客页面仓库的密钥</p>
-<pre><code> ssh-keygen -f hexo-deploy-key -t rsa -C &quot;github邮箱&quot; 
- 
-</code></pre>
-<p> 以上代码分别在项目文件夹下生成 hexo-deploy-key私钥文件,  hexo-deploy-key.pub公钥文件</p>
-</li>
-<li><p>在博客代码仓库 Setting-Secrets-Actions添加新密钥，使用hexo-deploy-key私钥文件内容配置</p>
-</li>
-<li><p>在博客页面仓库 Setting-Deploy Keys添加新密钥，使用hexo-deploy-key.pub公钥文件内容配置</p>
-</li>
-<li><p>在.github&#x2F;workflows 目录下新建 <a href="/assets/downloads/deploy.txt" title="部署工作流">deploy.yml</a> 来编写GitHub Actions 工作流程，设置触发push就在docker里完成生成和部署的工作,注意文件内容在密钥名的适配</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>通用类</category>
-      </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
   </entry>
 </search>
