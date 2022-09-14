@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="更新日志：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ice-Cocoa">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="更新日志：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-14T08:44:33.715Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/","path":"2022/09/08/学习/web前端/笔记--CSS设计Web/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E8%AE%BE%E8%AE%A1Web"><span class="nav-number">1.</span> <span class="nav-text">CSS设计Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.</span> <span class="nav-text">层叠与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.1.</span> <span class="nav-text">理解继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%B1%82%E5%8F%A0"><span class="nav-number">1.1.2.</span> <span class="nav-text">理解层叠</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">资源顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%A8%8B%E5%BA%A6"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">重要程度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS%E4%BD%8D%E7%BD%AE%E5%BD%B1%E5%93%8D"><span class="nav-number">1.1.3.</span> <span class="nav-text">CSS位置影响</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">CSS选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">类型选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.2.</span> <span class="nav-text">通配符选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.4.</span> <span class="nav-text">ID选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.5.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E5%B1%9E%E6%80%A7%E3%80%81%E5%B1%9E%E6%80%A7%E5%80%BC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">存在属性、属性值选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">属性子字符串匹配选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E5%A4%A7%E5%B0%8F%E5%86%99%E6%95%8F%E6%84%9F"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">设定大小写敏感</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.6.</span> <span class="nav-text">伪类和伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E5%92%8C%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E4%BC%AA%E7%B1%BB"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">伪类和用户行为伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">伪元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0-before%E5%92%8C-after%E8%AE%BE%E7%BD%AE%E7%89%B9%E6%AE%8A%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.6.3.</span> <span class="nav-text">伪元素::before和::after设置特殊内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%BC%AA%E7%B1%BB%E6%88%96%E4%BC%AA%E5%85%83%E7%B4%A0%E5%8F%82%E8%80%83"><span class="nav-number">1.2.6.4.</span> <span class="nav-text">其他伪类或伪元素参考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.7.</span> <span class="nav-text">关系选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E4%BB%A3%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">子代关系选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.7.3.</span> <span class="nav-text">邻接兄弟选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.7.4.</span> <span class="nav-text">通用兄弟选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.8.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%90%84%E9%83%A8%E5%88%86"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">盒模型各部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">外边距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%B9%E6%A1%86"><span class="nav-number">1.2.8.3.</span> <span class="nav-text">边框</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-09T00:00:00+08:00">2022-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-14 16:44:33" itemprop="dateModified" datetime="2022-09-14T16:44:33+08:00">2022-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>更新日志：</p>
+<span id="more"></span>
+
+<h1 id="CSS设计Web"><a href="#CSS设计Web" class="headerlink" title="CSS设计Web"></a>CSS设计Web</h1><h2 id="层叠与继承"><a href="#层叠与继承" class="headerlink" title="层叠与继承"></a>层叠与继承</h2><h3 id="理解继承"><a href="#理解继承" class="headerlink" title="理解继承"></a>理解继承</h3><p>元素样式的继承比较符合直觉，比如，字体很容易被子元素自然继承，但是周围设置的边框就不会被自然继承</p>
+<p>CSS 为控制继承提供了五个特殊的属性值，每个 CSS属性都能接收这些值:</p>
+<ul>
+<li>inherit 开启继承，使子元素和父元素相同</li>
+<li>initial 设置属性的初始值</li>
+<li>revert 应用于选定元素的属性重置为浏览器默认样式</li>
+<li>revert-layer 应用于选定元素的属性重置为上一个层叠层中建立的值</li>
+<li>unset 将属性重置为自然值，如果属性是自然继承那就是 inherit，否则和 initial 一样</li>
+</ul>
+<p> 此外，除了针对某个具体的属性应用以上这些控制继承的值，还可以使用简写属性 all 接收它们，直接应用于选择元素的所有属性；这种方法十分适合撤销样式，如 all&#x3D;unset;</p>
+<h3 id="理解层叠"><a href="#理解层叠" class="headerlink" title="理解层叠"></a>理解层叠</h3><p>影响层叠的有三个因素：资源顺序、优先级、重要程度</p>
+<h4 id="资源顺序"><a href="#资源顺序" class="headerlink" title="资源顺序"></a>资源顺序</h4><p>资源顺序的影响是：如果有权重相同的两条规则都适用于某类元素，那么后出现的规则会覆盖前面的规则，实际控制这类元素。这是容易理解的</p>
+<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><p>优先级的影响是：不同选择器同时控制某元素，那么优先级高的选择器会实际控制这类元素。</p>
+<p>一个选择器的优先级可以说是由三个不同的分量相加:</p>
+<ul>
+<li>ID– 选择器中包含ID选择器则百位得一分</li>
+<li>类– 选择器包含类选择器、属性选择器或伪类则十位得一分</li>
+<li>元素– 选择器中包含元素、伪元素选择器则个位得一分</li>
+</ul>
+<p>特殊地，内嵌的优先级总是最高</p>
+<p>备注：通用选择符(*)，组合符(+  &gt;  ~  ‘’) 和 调整优先级得选择器( :where() ) 不会影响优先级</p>
+<p>否定(:not()) 和 任意匹配 (:is()) 伪类本身对优先级没有影响，但是它们得参数会带来影响</p>
+<p>以下是几个实际的例子:</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>ID</th>
+<th>类</th>
+<th>元素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>h1 + p::first-letter</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>li &gt; a[href*&#x3D;”en-US”] &gt; .inline-warning</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>#identifier</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>button:not(#mainBtn, .cta)</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4 id="重要程度"><a href="#重要程度" class="headerlink" title="重要程度"></a>重要程度</h4><p>更特殊地， 在属性值后面添加 空格和!important 能够覆盖普通规则的层叠，通常不应该使用它</p>
+<h3 id="CSS位置影响"><a href="#CSS位置影响" class="headerlink" title="CSS位置影响"></a>CSS位置影响</h3><p>CSS声明的优先级取决于定义它的样式表和级联层</p>
+<p>这让用户有机会设定样式表来覆盖开发人员定义的样式（这对视力受损的用户特别有效）</p>
+<p>也可以在级联层中声明开发人员定义的样式：让非分层样式覆盖分层样式，或者让后面层声明的样式覆盖先前层的样式（例如，导入外部的样式表到级联层中，以覆盖无法修改的第三方样式表）</p>
+<p>覆盖声明的顺序如下，越往后优先级越高:</p>
+<ol>
+<li>用户代理样式表中的声明，如浏览器默认样式</li>
+<li>用户样式表中的常规声明</li>
+<li>作者样式表中的常规声明，这是由web开发人员设置的样式</li>
+<li>作者样式表中的 !important 声明</li>
+<li>用户样式表中的 !important 声明</li>
+<li>用户代理样式表中的 !important 声明</li>
+</ol>
+<h2 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h2><p>类型(元素)选择器、全局选择器、类选择器、ID选择器、属性选择器、子字符串匹配选择器、伪类选择器</p>
+<p>可以使用选择器列表的方式，用逗号隔开选择器们，这让一条规则包含多个选择器；如果这条规则某个选择器出现语法错误，则这条规则里所有选择器都不会应用规则</p>
+<p>选择器大概有以下几种分类:</p>
+<ul>
+<li>类型（元素）选择器</li>
+<li>通配符选择器</li>
+<li>类选择器</li>
+<li>ID选择器</li>
+<li>标签属性选择器，选中的是含有这个属性的标签（元素）</li>
+<li>伪类选择器</li>
+<li>伪元素选择器</li>
+<li>后代选择器</li>
+<li>子代选择器</li>
+<li>相邻兄弟选择器</li>
+<li>通用兄弟选择器</li>
+<li></li>
+</ul>
+<h3 id="类型选择器"><a href="#类型选择器" class="headerlink" title="类型选择器"></a>类型选择器</h3><p>类型选择器也被叫做“标签名选择器”，或者是“元素选择器”</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span>, <span class="selector-tag">strong</span>, <span class="selector-tag">p</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h3><p>通配符选择器是由一个星号指代的，选中了文档中所有的内容（或者父元素中所有内容，这发生在它紧随其他元素以及邻带元素之后的时候）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*选择了作为其他元素的，第一子元素的&lt;article&gt;*/</span></span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:first</span>-child&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*选择了article元素的任何第一子元素*/</span></span><br><span class="line"><span class="selector-tag">article</span> *<span class="selector-pseudo">:first</span>-child&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p>类选择器以点号（.）开头，加上类名，点号前可以添加特定元素，那么会选择这个元素类型的这个类；一个元素可以标记多个类，那么可以使用连续“点类点类”的方法，具体地指定属于多类的元素（这是否有点像连续赋值）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* &lt;p class=&quot;class1&quot;&gt; */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.class1</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* &lt;article class=&quot;class1 class2&quot;&gt; */</span></span><br><span class="line"><span class="selector-class">.class1</span><span class="selector-class">.class2</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h3><p>ID选择器以井号（#）开头，再加上ID名；一篇文档中，一个ID只会用到一次</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* &lt;p id=&quot;one&quot;&gt; */</span></span><br><span class="line"><span class="selector-id">#one</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p>属性选择器有两种匹配属性值的方法：是否存在某个属性、以各种方式判断属性值是否符合要求。</p>
+<h4 id="存在属性、属性值选择器"><a href="#存在属性、属性值选择器" class="headerlink" title="存在属性、属性值选择器"></a>存在属性、属性值选择器</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* &lt;a title=&quot;mylink&quot; href=&quot;https://exmaple.com&quot;&gt; */</span></span><br><span class="line"><span class="comment">/* 选择含有这个属性的元素 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[title]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 选择属性值为指定值得元素 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;https://example.com&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* &lt;li class=&quot;apple basic circle&quot;&gt; */</span></span><br><span class="line"><span class="comment">/* 选择指定值能够匹配至少一个属性的得元素；如果仅仅是  class=&quot;apple&quot; ，则不会选择到 */</span></span><br><span class="line"><span class="selector-tag">li</span><span class="selector-attr">[class~=<span class="string">&quot;apple&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="属性子字符串匹配选择器"><a href="#属性子字符串匹配选择器" class="headerlink" title="属性子字符串匹配选择器"></a>属性子字符串匹配选择器</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* &lt;div lang=&quot;zh-CN&quot;&gt; */</span></span><br><span class="line"><span class="comment">/* 匹配属性值开始部分为指定值，后面紧随连字符的元素，也可以直接等于指定值本身 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[lang|=<span class="string">&quot;zh&quot;</span>]</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[lang|=<span class="string">&quot;zh-CN&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 匹配属性值开始部分为指定值的元素 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[lang^=<span class="string">&quot;z&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 匹配属性值结束部分为指定值的元素 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[lang$=<span class="string">&quot;N&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 匹配属性值存在以部分为指定值的元素 */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[lang*=<span class="string">&quot;h&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="设定大小写敏感"><a href="#设定大小写敏感" class="headerlink" title="设定大小写敏感"></a>设定大小写敏感</h4><p>在属性值后添加一个标记 i ，如 li[class^&#x3D;”a”i] ，可以匹配类名为 “Abc”</p>
+<h3 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h3><h4 id="伪类和用户行为伪类"><a href="#伪类和用户行为伪类" class="headerlink" title="伪类和用户行为伪类"></a>伪类和用户行为伪类</h4><p>伪类就是开头为冒号( : )的关键字。它用于处于特定状态的元素，比如某个元素是这一类型的第一个元素，某个鼠标正悬停的元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 选择 &lt;article&gt; 元素下第一个 &lt;p&gt; 元素 */</span></span><br><span class="line"><span class="selector-tag">article</span> <span class="selector-tag">p</span><span class="selector-pseudo">:first</span>-child</span><br></pre></td></tr></table></figure>
+<p>此外，还可以有 :last-child, :only-child, :invalid （未通过验证的 input 和 form 元素）</p>
+<p>一些伪类应用于用户以某种方式和文档交互，这些被称为用户伪类，有时也被叫做动态伪类</p>
+<p>常见的用户行为伪类有:</p>
+<ul>
+<li>:hover – 用户将指针挪到元素上才会激活，一般就是链接元素</li>
+<li>:focous – 只会在用户使用键盘，选定元素的时候激活</li>
+</ul>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>伪元素选择器以双冒号开头( :: )；伪元素并没有额外添加新的元素，而是在选择器中以一定规则选取部分内容，这样的选取让被选内容看上去就像元素一样</p>
+<p><em>注意，一些早期的伪元素曾使用单冒号的语法，现代浏览器为保持兼容扔支持它们</em></p>
+<p>如 ::first-line 伪元素选择器会选中第一行内容，即使第一行内容发生变化，甚至是拉伸窗口导致的行长度变化，也会被伪元素选择器捕捉</p>
+<p>伪元素和伪类可以组合使用，并不冲突，如:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> <span class="selector-tag">p</span><span class="selector-pseudo">:first</span>-child<span class="selector-pseudo">::first-line</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">120%</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="伪元素-before和-after设置特殊内容"><a href="#伪元素-before和-after设置特殊内容" class="headerlink" title="伪元素::before和::after设置特殊内容"></a>伪元素::before和::after设置特殊内容</h4><p>::before和::after这组特别地伪元素，和 content 属性一起使用，将内容插到文档中；它们的推荐用法是插入一个视觉性的提示，示例如下:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* &lt;p class=&quot;box&quot;&gt;Content in the box in my HTML page.&lt;/p&gt; */</span></span><br><span class="line"><span class="comment">/* 这些伪元素的更推荐的用法是插入一个图标，例如下面的示例加入的一个小箭头，作为一个视觉性的提示，而且我们并不希望屏幕阅读器读出它。 */</span></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot; ➥&quot;</span></span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<p>在表单中经常使用这种方法做出红色的星号提示，以及检验不通过后文本框后的红色小字；当然，如果要这么做，仅仅设置content是不够的</p>
+<p>下个示例，我们已经用 ::before伪元素加入了个空字符串。我们把它设为了display: block，以让它可以用 width 和 height 进行样式化，这样会在文本内容前面出现个方块</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* &lt;p class=&quot;box&quot;&gt;Content in the box in my HTML page.&lt;/p&gt; */</span></span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: rebeccapurple;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+
+<h4 id="其他伪类或伪元素参考"><a href="#其他伪类或伪元素参考" class="headerlink" title="其他伪类或伪元素参考"></a>其他伪类或伪元素参考</h4><p>伪类:</p>
+<ul>
+<li>:active–用户激活时匹配，用鼠标交互时代表用户按下和松开之间的时间</li>
+<li>:cheked–匹配选择状态的单选或者复选框</li>
+<li>:default–匹配一组元素中默认的UI元素</li>
+<li>:enabled–匹配处于开启状态的用户界面元素，如没有diable的input元素</li>
+<li>:first-child–（也有last版本）选择在一组兄弟元素中的第一个元素</li>
+<li>:first-of-type–（也有last版本）选择在父元素中第一个出该这种类型的元素，如 p::first-of-type 表示父元素下第一个p元素</li>
+<li>:focus–表示获得焦点的元素，如表单输入，用户点击它是会被触发</li>
+<li>:hover–用户悬浮到一个元素之上的时候匹配</li>
+<li>:invalid–（也有valid版本）匹配诸如input的未通过校验的元素</li>
+<li>:link–匹配未曾访问的链接</li>
+<li>:visited–匹配已访问链接</li>
+<li>:not()–反伪类，匹配不符合一组选择器的元素，如 :not(p) 则选择所有不是p的元素，里面的一组选择器可以是 元素和类，但不能是伪元素</li>
+<li>:nth-child(an+b)–按一定顺序匹配，如 2n+1 匹配一组兄弟元素的第1、3、5、7…个元素</li>
+<li>:read-only–匹配用户不可更改的元素</li>
+<li>:required–匹配必填form元素</li>
+</ul>
+<p>伪元素:</p>
+<ul>
+<li>::after – 匹配出现在原有元素的实际内容之后的一个可样式化元素（实际为在样式表中新添的content）</li>
+<li>::before – 匹配出现在原有元素的实际内容之前的一个可样式化元素（实际为在样式表中新添的content）</li>
+<li>其余似乎不怎么常用</li>
+</ul>
+<h3 id="关系选择器"><a href="#关系选择器" class="headerlink" title="关系选择器"></a>关系选择器</h3><h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>用单个空格(“ “)组合前后多个选择器，如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 匹配类名为 .box 的元素的子、孙和更下代的元素p */</span></span><br><span class="line"><span class="comment">/* &lt;div class=&quot;box&quot;&gt; &lt;article&gt; &lt;p&gt;xxxxxx&lt;/p&gt; &lt;/article&gt; &lt;/div&gt; */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 以下两个都选择到了内容为xxxxxx的p元素 */</span> </span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">article</span> <span class="selector-tag">p</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">p</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="子代关系选择器"><a href="#子代关系选择器" class="headerlink" title="子代关系选择器"></a>子代关系选择器</h4><p>用大于号(&gt;)组合前后选择器，相比后代选择器，它只限定了直接子元素:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 匹配类名为 .box 的元素的子、孙和更下代的元素p */</span></span><br><span class="line"><span class="comment">/* &lt;div class=&quot;box&quot;&gt; &lt;article&gt; &lt;p&gt;xxxxxx&lt;/p&gt; &lt;/article&gt; &lt;/div&gt; */</span></span><br><span class="line"><span class="selector-tag">article</span> &gt; <span class="selector-tag">p</span></span><br></pre></td></tr></table></figure>
+<h4 id="邻接兄弟选择器"><a href="#邻接兄弟选择器" class="headerlink" title="邻接兄弟选择器"></a>邻接兄弟选择器</h4><p>用加号(+)组合两个选择器，如:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*&lt;article&gt;</span></span><br><span class="line"><span class="comment">    &lt;h1&gt;A heading&lt;/h1&gt;</span></span><br><span class="line"><span class="comment">    &lt;p&gt;段落1&lt;/p&gt;</span></span><br><span class="line"><span class="comment">    &lt;p&gt;段落2&lt;/p&gt;</span></span><br><span class="line"><span class="comment">  &lt;/article&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/* 这个指挥选择内容为“段落1”的p元素 */</span></span><br><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> </span><br></pre></td></tr></table></figure>
+<h4 id="通用兄弟选择器"><a href="#通用兄弟选择器" class="headerlink" title="通用兄弟选择器"></a>通用兄弟选择器</h4><p>用(~)组合兄弟元素，它们可以不直接相邻</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h1 ~ p </span><br></pre></td></tr></table></figure>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>在css种广泛使用**块级盒子(block box)<strong>和</strong>内联盒子(inline box)<strong>，这两种盒子会在</strong>页面流(page flow)**和元素之间表现不同行为</p>
+<p>定义为块级(block)盒子会表现以下行为：</p>
+<ul>
+<li>每个盒子换行</li>
+<li>width 和 height 属性可发挥作用</li>
+<li>在内联方向上扩展，占据父容器在该方向的所有控空间，这意味着绝大数情况下，盒子与父容器一样宽</li>
+<li>内边距padding、外边距margin、边框border会将其他元素推开</li>
+</ul>
+<p>如果一个盒子对外显示为inline，那么它的行为如下：</p>
+<ul>
+<li>盒子不会产生换行</li>
+<li>width 和 height 属性不会发挥作用</li>
+<li>垂直方向的边距边框会被应用，但是不会推开其他inline盒子</li>
+<li>水平方向的边距边框会被应用，且会把其他inline盒子推开</li>
+</ul>
+<p>&lt;a&gt;、&lt;span&gt;、&lt;em&gt;、&lt;strong&gt; 都默认处于 inline 状态</p>
+<p>如果设置 display: flex，在一个元素上，外部显示类型是 block，但是内部显示类型修改为 flex。该盒子的所有直接子元素都会成为 flex 元素，会根据弹性盒子（Flexbox）规则进行布局</p>
+<h4 id="盒模型各部分"><a href="#盒模型各部分" class="headerlink" title="盒模型各部分"></a>盒模型各部分</h4><p>CSS中组成一个块级盒子需要：内容盒子、内边距盒子、边框盒子、外边距盒子；边框也可以拥有宽度，所有也应该是是盒子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+----------------------------------+</span><br><span class="line">|                           margin |</span><br><span class="line">|                                  |</span><br><span class="line">|  =============================   |</span><br><span class="line">|  ||               padding   ||   |</span><br><span class="line">|  ||   +-------------+       ||&lt;--|--border</span><br><span class="line">|  ||   |    content  |       ||   |</span><br><span class="line">|  ||   |             |       ||   |</span><br><span class="line">|  ||   +-------------+       ||   |</span><br><span class="line">|  ||                         ||   |</span><br><span class="line">|  =============================   | </span><br><span class="line">+----------------------------------+  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>内容盒子、内边距盒子、外边距盒子可以设置属于它区域的上下左右的“距离”，边框盒子可以设置厚度和边框样式等</p>
+<p>以上讲述的都是标准盒模型，此外，还有一个替代(IE)盒模型，这个模型中所有宽度都是可见宽度，此处不详细介绍</p>
+<h4 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h4><p>可以使用 margin 属性一次性设置，指定一个值会设置四个方向，指定两个值会 设置垂直方向和水平方向，也可以分别设置<br>，可以使用这些属性 margin-top、margin-right、margin-bottom、margin-left 设置<strong>外边距宽度</strong></p>
+<p>指定四个值分别设置上右下左；这些值可以是 长度（1px，1em）、百分比(5%，相当于包含快的宽度)、auto(让浏览器选择，一般使元素居中)；此外，外边距允许负值</p>
+<p>外边距还有<strong>折叠</strong>的特性，两个水平或垂直相邻的盒子，取它们最大的外边距作为公共外边距，如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+----------------------------------+</span><br><span class="line">|                          margin1 |</span><br><span class="line">|                                  |</span><br><span class="line">|  ==========================      |</span><br><span class="line">|  ||              padding ||      |</span><br><span class="line">|  ||   +-------------+    ||&lt;-----|--border</span><br><span class="line">|  ||   |    content  |    ||      |</span><br><span class="line">|  ||   |             |    ||      |</span><br><span class="line">|  ||   +-------------+    ||      |</span><br><span class="line">|  ||                      ||      |</span><br><span class="line">|  ==========================      | </span><br><span class="line">|                ^                 |</span><br><span class="line">|  max(margin1-buttom,margin2-top) |</span><br><span class="line">|                v                 |</span><br><span class="line">|  =============================   |</span><br><span class="line">|  ||               padding   ||   |</span><br><span class="line">|  ||   +-------------+       ||&lt;--|--border</span><br><span class="line">|  ||   |    content  |       ||   |</span><br><span class="line">|  ||   |             |       ||   |</span><br><span class="line">|  ||   +-------------+       ||   |</span><br><span class="line">|  ||                         ||   |</span><br><span class="line">|  =============================   | </span><br><span class="line">|                        margin2   |</span><br><span class="line">+----------------------------------+ </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h4><p>可以使用 border 属性一次性设置四个边框的宽度、颜色和样式，也可以分别设置。</p>
+<p>可以使用这些属性设置所有边的颜色、样式或宽度  border-width、border-style、border-color ；<br>也可以</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--Web%E5%85%A5%E9%97%A8/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/13/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Selenium%E7%AC%94%E8%AE%B0--python%E5%AE%9E%E7%8E%B0/" rel="next" title="Selenium笔记--python实现">
+                  Selenium笔记--python实现 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

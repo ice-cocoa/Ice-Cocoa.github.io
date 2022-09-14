@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录使用 Selenuim 实现web自动化的基本语法，使用python语言 更新日志:  2022-09-14 完成浏览器控制下，除窗口控制的整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selenium笔记--python实现">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/13/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Selenium%E7%AC%94%E8%AE%B0--python%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="记录使用 Selenuim 实现web自动化的基本语法，使用python语言 更新日志:  2022-09-14 完成浏览器控制下，除窗口控制的整理">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-14T08:44:33.719Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/13/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Selenium%E7%AC%94%E8%AE%B0--python%E5%AE%9E%E7%8E%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/13/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Selenium%E7%AC%94%E8%AE%B0--python%E5%AE%9E%E7%8E%B0/","path":"2022/09/13/学习/测试工具/Selenium笔记--python实现/","title":"Selenium笔记--python实现"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Selenium笔记--python实现 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Selenium-WebDriver"><span class="nav-number">1.</span> <span class="nav-text">Selenium WebDriver</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取网页信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%BC%E8%88%AA"><span class="nav-number">1.2.2.</span> <span class="nav-text">浏览器导航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E5%BC%B9%E7%AA%97"><span class="nav-number">1.2.3.</span> <span class="nav-text">消息弹窗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookies"><span class="nav-number">1.2.4.</span> <span class="nav-text">Cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%B5%8C%E6%A1%86%E6%9E%B6"><span class="nav-number">1.2.5.</span> <span class="nav-text">内嵌框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%92%8C%E6%A0%87%E7%AD%BE"><span class="nav-number">1.2.6.</span> <span class="nav-text">窗口和标签</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/13/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Selenium%E7%AC%94%E8%AE%B0--python%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Selenium笔记--python实现 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          Selenium笔记--python实现
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-09-14 00:00:00 / 修改时间：16:44:33" itemprop="dateCreated datePublished" datetime="2022-09-14T00:00:00+08:00">2022-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">测试工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>记录使用 Selenuim 实现web自动化的基本语法，使用python语言</p>
+<p>更新日志:</p>
+<ul>
+<li>2022-09-14 完成浏览器控制下，除窗口控制的整理</li>
+</ul>
+<span id="more"></span>
+
+
+<h1 id="Selenium-WebDriver"><a href="#Selenium-WebDriver" class="headerlink" title="Selenium WebDriver"></a>Selenium WebDriver</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li><p>安装类库</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install selenium</span><br></pre></td></tr></table></figure></li>
+<li><p>在Selenuim官网下载浏览器驱动，确保这个驱动可以被找到（可知的相对路径，或者设置环境变量）</p>
+</li>
+<li><p>初始化驱动程序</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">service = webdriver.chrome.service.Service(executable_path=<span class="string">&quot;PythonTests/browser-drivers/chromedriver.exe&quot;</span>)</span><br><span class="line">driver = webdriver.Chrome(service=service)</span><br></pre></td></tr></table></figure></li>
+<li><p>进入webdriver操控的网站</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">driver.get(<span class="string">&quot;https://www.selenium.dev/selenium/web/web-form.html&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p>本节代码基于 driver 已成功初始化(见上一章准备工作)</p>
+<h3 id="获取网页信息"><a href="#获取网页信息" class="headerlink" title="获取网页信息"></a>获取网页信息</h3><p>获取网页信息：</p>
+<ul>
+<li>获取当前页面的标题  driver.title</li>
+<li>从浏览器地址栏获取URL  driver.current_url</li>
+</ul>
+<h3 id="浏览器导航"><a href="#浏览器导航" class="headerlink" title="浏览器导航"></a>浏览器导航</h3><p>浏览器导航操作：</p>
+<ul>
+<li>打开网站   driver.get(<em>url</em>)</li>
+<li>前进      drver.forward()</li>
+<li>后退      driver.back()</li>
+<li>刷新      driver.refresh()</li>
+</ul>
+<h3 id="消息弹窗"><a href="#消息弹窗" class="headerlink" title="消息弹窗"></a>消息弹窗</h3><p>Javascript有三种元素消息弹窗</p>
+<p>以下的代码实现可以需要导入这些包:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Alerts警告框，警告框弹出后（绝大多数浏览器下）会给出一个“确认”按钮</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 等待弹窗跳出，并存储</span></span><br><span class="line">alert = wait.until(expected_conditions.alert_is_present())</span><br><span class="line"><span class="comment"># 获取文本</span></span><br><span class="line">text = alert.text</span><br><span class="line"><span class="comment"># “按下”确认按钮</span></span><br><span class="line">alert.accept()</span><br></pre></td></tr></table></figure>
+
+<p>Confirm 确认框，相比警告框，用户还可以选择取消消息，即多一个“取消”按钮；下面的例子还呈现了警告的另一种实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 等待弹窗跳出</span></span><br><span class="line">wait.until(expected_conditions.alert_is_present())</span><br><span class="line"><span class="comment"># 把警告实体存储到变量</span></span><br><span class="line">alert = driver.switch_to.alert</span><br><span class="line"><span class="comment"># 获取并存储文本信息</span></span><br><span class="line">text = alert.text</span><br><span class="line"><span class="comment"># 按下“取消”按钮</span></span><br><span class="line">alert.dismiss()</span><br></pre></td></tr></table></figure>
+
+<p>Prompt 提示框，相比确认框，多了文本输入等功能，这与处理表单元素类似，按下取消按钮将不会提交文本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 等待弹窗跳出</span></span><br><span class="line">wait.until(expected_conditions.alert_is_present())</span><br><span class="line"><span class="comment"># 把警告实体存储到变量</span></span><br><span class="line">alert = Alert(driver)</span><br><span class="line"><span class="comment"># 键入信息</span></span><br><span class="line">alert.send_keys(<span class="string">&quot;ceshi ceshi&quot;</span>)</span><br><span class="line"><span class="comment"># 按下“确认”按钮</span></span><br><span class="line">alert.accept()</span><br></pre></td></tr></table></figure>
+
+<p>官方文档里记录了三种保存警告实体的方法，不知道它们实际有什么区别，分别为：</p>
+<ul>
+<li>alert &#x3D; wait.until(expected_conditions.alert_is_present())</li>
+<li>alert &#x3D; driver.switch_to.alert</li>
+<li>alert &#x3D; Alert(driver)</li>
+</ul>
+<h3 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h3><p>Cookie是从网站发送并存储在计算机中的一小段数据，主要用于识别用户并加载存储的信息</p>
+<p>WebDriver API提供了一种内置的方法与Cookie进行交互</p>
+<p>添加Cookie</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">driver.get(<span class="string">&quot;http://www.example.com&quot;</span>)</span><br><span class="line"><span class="comment"># 在当前浏览器环境添加一条cookie信息</span></span><br><span class="line">driver.add_cookie(&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;value&quot;</span>: <span class="string">&quot;bar&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>获取Cookie</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取一条指定名称的cookie的数据</span></span><br><span class="line"><span class="built_in">print</span>(driver.get_cookie(<span class="string">&quot;foo&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取全部可获取cookies</span></span><br><span class="line"><span class="built_in">print</span>(driver.get_cookies())</span><br></pre></td></tr></table></figure>
+
+
+<p>删除Cookie</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除指定名称的一条cookie</span></span><br><span class="line">driver.delete_cookie(<span class="string">&quot;foo&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除当前访问上下文的所有cookie</span></span><br><span class="line">driver.delete_all_cookies()</span><br></pre></td></tr></table></figure>
+
+<p>设置sameSite属性，控制是否会和来自第三方网站的请求一起发送，引入这个是为了防止CSRF（跨站请求伪造）攻击。值为 “Strict” 则不允许一起发送，值为 “Lax” 则允许cookie和第三方网站发起的get请求一起发送</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">driver.get(<span class="string">&quot;http://www.example.com&quot;</span>)</span><br><span class="line"><span class="comment"># 添加cookie时，设置这条cookie的sameSite属性</span></span><br><span class="line">driver.add_cookie(&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;foo&quot;</span>, <span class="string">&quot;value&quot;</span>: <span class="string">&quot;value&quot;</span>, <span class="string">&#x27;sameSite&#x27;</span>: <span class="string">&#x27;Strict&#x27;</span>&#125;)</span><br><span class="line">driver.add_cookie(&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;foo1&quot;</span>, <span class="string">&quot;value&quot;</span>: <span class="string">&quot;value&quot;</span>, <span class="string">&#x27;sameSite&#x27;</span>: <span class="string">&#x27;Lax&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="内嵌框架"><a href="#内嵌框架" class="headerlink" title="内嵌框架"></a>内嵌框架</h3><p> frame 是一种已经舍弃的方法（不支持HTML5），iframe仍然普遍使用，本节讲述内嵌框架iframe的自动化方法</p>
+<p>无法通过 driver.find_element(By.TAG_NAME, ‘button’) 找到在iframe里面的元素，因为Selenium只知道顶层文档中的元素，为了与按钮交互，首先要切换到框架</p>
+<p>切换框架首先要选择到框架，框架的“框子”仍然属于原来的文档，这个选择的过程和普通的元素选择没有区别。之后在使用switch_to_frame 方法切换到框架</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择id为modal的元素的直接子元素中的iframe元素；也可以通过iframe的id找到它；</span></span><br><span class="line">selected_iframe = driver.find_element(By.CSS_SELECTOR, <span class="string">&quot;#modal &gt; iframe&quot;</span>)</span><br><span class="line"><span class="comment"># 也可以通过选择的iframe索引找到它</span></span><br><span class="line">selected_iframe = driver.find_elements(By.TAG_NAME,<span class="string">&#x27;iframe&#x27;</span>)[<span class="number">0</span>] </span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到选择的 iframe</span></span><br><span class="line">driver.switch_to.frame(selected_iframe)</span><br><span class="line"><span class="comment"># 离开框架，切回到默认内容</span></span><br><span class="line">driver.switch_to.default_content()</span><br></pre></td></tr></table></figure>
+
+<h3 id="窗口和标签"><a href="#窗口和标签" class="headerlink" title="窗口和标签"></a>窗口和标签</h3><p>WebDriver没有区分窗口和标签页。Selenium允许使用窗口句柄来处理标签页或窗口，它们都有一个唯一的标识符，这个标识符在单个会话中保持持久性</p>
+<p>获取当前窗口的窗口句柄</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.current_windows_handle</span><br></pre></td></tr></table></figure>
+
+<p>创建新的窗口并自动切换到它</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
