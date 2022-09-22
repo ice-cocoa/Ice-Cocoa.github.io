@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="更新日志：">
+    <meta name="description" content="2022-09-19 完成CSS构建基础的整理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS设计Web">
-<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/index.html">
+<meta property="og:title" content="CSS构建基础">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Ice-Cocoa">
-<meta property="og:description" content="更新日志：">
+<meta property="og:description" content="2022-09-19 完成CSS构建基础的整理">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-09-19T00:32:47.991Z">
+<meta property="article:modified_time" content="2022-09-22T05:36:45.803Z">
 <meta property="article:author" content="Ice-Cocoa">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/">
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/","path":"2022/09/08/学习/web前端/笔记--CSS设计Web/","title":"CSS设计Web"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80/","path":"2022/09/08/学习/web前端/笔记--CSS构建基础/","title":"CSS构建基础"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CSS设计Web | Ice-Cocoa</title>
+<title>CSS构建基础 | Ice-Cocoa</title>
   
 
 
@@ -93,7 +93,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">1.</span> <span class="nav-text">层叠与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.</span> <span class="nav-text">理解继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%B1%82%E5%8F%A0"><span class="nav-number">1.2.</span> <span class="nav-text">理解层叠</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">资源顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.2.2.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%A8%8B%E5%BA%A6"><span class="nav-number">1.2.3.</span> <span class="nav-text">重要程度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E4%BD%8D%E7%BD%AE%E5%BD%B1%E5%93%8D"><span class="nav-number">1.3.</span> <span class="nav-text">CSS位置影响</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">CSS选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">类型选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">通配符选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.3.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">ID选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.5.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E5%B1%9E%E6%80%A7%E3%80%81%E5%B1%9E%E6%80%A7%E5%80%BC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.5.1.</span> <span class="nav-text">存在属性、属性值选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.5.2.</span> <span class="nav-text">属性子字符串匹配选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E5%A4%A7%E5%B0%8F%E5%86%99%E6%95%8F%E6%84%9F"><span class="nav-number">2.5.3.</span> <span class="nav-text">设定大小写敏感</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">2.6.</span> <span class="nav-text">伪类和伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E5%92%8C%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E4%BC%AA%E7%B1%BB"><span class="nav-number">2.6.1.</span> <span class="nav-text">伪类和用户行为伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">2.6.2.</span> <span class="nav-text">伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0-before%E5%92%8C-after%E8%AE%BE%E7%BD%AE%E7%89%B9%E6%AE%8A%E5%86%85%E5%AE%B9"><span class="nav-number">2.6.3.</span> <span class="nav-text">伪元素::before和::after设置特殊内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%BC%AA%E7%B1%BB%E6%88%96%E4%BC%AA%E5%85%83%E7%B4%A0%E5%8F%82%E8%80%83"><span class="nav-number">2.6.4.</span> <span class="nav-text">其他伪类或伪元素参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.</span> <span class="nav-text">关系选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.1.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E4%BB%A3%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.2.</span> <span class="nav-text">子代关系选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.3.</span> <span class="nav-text">邻接兄弟选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.4.</span> <span class="nav-text">通用兄弟选择器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%90%84%E9%83%A8%E5%88%86"><span class="nav-number">3.1.</span> <span class="nav-text">盒模型各部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%BE%B9%E8%B7%9D"><span class="nav-number">3.1.1.</span> <span class="nav-text">内边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="nav-number">3.1.2.</span> <span class="nav-text">外边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E6%A1%86"><span class="nav-number">3.1.3.</span> <span class="nav-text">边框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-display-inline-block"><span class="nav-number">3.2.</span> <span class="nav-text">使用 display: inline-block</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E4%B8%8E%E8%BE%B9%E6%A1%86"><span class="nav-number">4.</span> <span class="nav-text">背景与边框</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">4.1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">4.1.1.</span> <span class="nav-text">背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">4.1.2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF"><span class="nav-number">4.1.3.</span> <span class="nav-text">渐变背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8background%E7%AE%80%E5%86%99"><span class="nav-number">4.1.4.</span> <span class="nav-text">使用background简写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%B9%E6%A1%86-1"><span class="nav-number">4.2.</span> <span class="nav-text">边框</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E4%B8%8D%E5%90%8C%E6%96%B9%E5%90%91%E6%96%87%E6%9C%AC"><span class="nav-number">5.</span> <span class="nav-text">处理不同方向文本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%A9%E7%90%86%E5%B1%9E%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">逻辑属性和物理属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BA%A2%E5%87%BA%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">6.</span> <span class="nav-text">溢出的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#overflow-%E5%B1%9E%E6%80%A7"><span class="nav-number">6.1.</span> <span class="nav-text">overflow 属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E5%80%BC"><span class="nav-number">7.</span> <span class="nav-text">CSS值</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">1.</span> <span class="nav-text">层叠与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.</span> <span class="nav-text">理解继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%B1%82%E5%8F%A0"><span class="nav-number">1.2.</span> <span class="nav-text">理解层叠</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">资源顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.2.2.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%A8%8B%E5%BA%A6"><span class="nav-number">1.2.3.</span> <span class="nav-text">重要程度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E4%BD%8D%E7%BD%AE%E5%BD%B1%E5%93%8D"><span class="nav-number">1.3.</span> <span class="nav-text">CSS位置影响</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">CSS选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">类型选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">通配符选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.3.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">ID选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.5.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E5%B1%9E%E6%80%A7%E3%80%81%E5%B1%9E%E6%80%A7%E5%80%BC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.5.1.</span> <span class="nav-text">存在属性、属性值选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.5.2.</span> <span class="nav-text">属性子字符串匹配选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E5%A4%A7%E5%B0%8F%E5%86%99%E6%95%8F%E6%84%9F"><span class="nav-number">2.5.3.</span> <span class="nav-text">设定大小写敏感</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">2.6.</span> <span class="nav-text">伪类和伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E5%92%8C%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E4%BC%AA%E7%B1%BB"><span class="nav-number">2.6.1.</span> <span class="nav-text">伪类和用户行为伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">2.6.2.</span> <span class="nav-text">伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0-before%E5%92%8C-after%E8%AE%BE%E7%BD%AE%E7%89%B9%E6%AE%8A%E5%86%85%E5%AE%B9"><span class="nav-number">2.6.3.</span> <span class="nav-text">伪元素::before和::after设置特殊内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E4%BC%AA%E7%B1%BB%E6%88%96%E4%BC%AA%E5%85%83%E7%B4%A0%E5%8F%82%E8%80%83"><span class="nav-number">2.6.4.</span> <span class="nav-text">其他伪类或伪元素参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.</span> <span class="nav-text">关系选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.1.</span> <span class="nav-text">后代选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E4%BB%A3%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.2.</span> <span class="nav-text">子代关系选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.3.</span> <span class="nav-text">邻接兄弟选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.7.4.</span> <span class="nav-text">通用兄弟选择器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%90%84%E9%83%A8%E5%88%86"><span class="nav-number">3.1.</span> <span class="nav-text">盒模型各部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%BE%B9%E8%B7%9D"><span class="nav-number">3.1.1.</span> <span class="nav-text">内边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="nav-number">3.1.2.</span> <span class="nav-text">外边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E6%A1%86"><span class="nav-number">3.1.3.</span> <span class="nav-text">边框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-display-inline-block"><span class="nav-number">3.2.</span> <span class="nav-text">使用 display: inline-block</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E4%B8%8E%E8%BE%B9%E6%A1%86"><span class="nav-number">4.</span> <span class="nav-text">背景与边框</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">4.1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">4.1.1.</span> <span class="nav-text">背景颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="nav-number">4.1.2.</span> <span class="nav-text">背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF"><span class="nav-number">4.1.3.</span> <span class="nav-text">渐变背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8background%E7%AE%80%E5%86%99"><span class="nav-number">4.1.4.</span> <span class="nav-text">使用background简写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%B9%E6%A1%86-1"><span class="nav-number">4.2.</span> <span class="nav-text">边框</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E4%B8%8D%E5%90%8C%E6%96%B9%E5%90%91%E6%96%87%E6%9C%AC"><span class="nav-number">5.</span> <span class="nav-text">处理不同方向文本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%A9%E7%90%86%E5%B1%9E%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">逻辑属性和物理属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BA%A2%E5%87%BA%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">6.</span> <span class="nav-text">溢出的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#overflow-%E5%B1%9E%E6%80%A7"><span class="nav-number">6.1.</span> <span class="nav-text">overflow 属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E5%80%BC"><span class="nav-number">7.</span> <span class="nav-text">CSS值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B"><span class="nav-number">7.1.</span> <span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2"><span class="nav-number">7.2.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">7.3.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE"><span class="nav-number">7.4.</span> <span class="nav-text">位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%BB%84%E5%90%88CSS%E5%80%BC"><span class="nav-number">7.5.</span> <span class="nav-text">使用函数组合CSS值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E5%AE%B9%E5%99%A8%E5%B0%BA%E5%AF%B8"><span class="nav-number">8.</span> <span class="nav-text">调整容器尺寸</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%B0%BA%E5%AF%B8%EF%BC%88%E5%9B%BA%E6%9C%89%E5%B0%BA%E5%AF%B8%EF%BC%89"><span class="nav-number">8.1.</span> <span class="nav-text">原始尺寸（固有尺寸）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%B0%BA%E5%AF%B8"><span class="nav-number">8.2.</span> <span class="nav-text">具体尺寸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E5%92%8C%E6%9C%80%E5%A4%A7%E5%B0%BA%E5%AF%B8"><span class="nav-number">8.3.</span> <span class="nav-text">最小和最大尺寸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%8F%A3%E5%8D%95%E4%BD%8D"><span class="nav-number">8.4.</span> <span class="nav-text">视口单位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E5%8C%96%E8%A1%A8%E6%A0%BC"><span class="nav-number">9.</span> <span class="nav-text">样式化表格</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,13 +165,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -231,7 +231,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E8%AE%BE%E8%AE%A1Web/">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -244,7 +244,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="CSS设计Web | Ice-Cocoa">
+      <meta itemprop="name" content="CSS构建基础 | Ice-Cocoa">
       <meta itemprop="description" content="">
     </span>
 
@@ -252,7 +252,7 @@
       <header class="post-header">
 
 <h1 class="post-title" itemprop="name headline"  >
-          CSS设计Web
+          CSS构建基础
         </h1>
 
 
@@ -273,7 +273,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-19 08:32:47" itemprop="dateModified" datetime="2022-09-19T08:32:47+08:00">2022-09-19</time>
+      <time title="修改时间：2022-09-22 13:36:45" itemprop="dateModified" datetime="2022-09-22T13:36:45+08:00">2022-09-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -299,7 +299,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>更新日志：</p>
+        <ul>
+<li>2022-09-19 完成CSS构建基础的整理</li>
+</ul>
 <span id="more"></span>
 
 
@@ -588,7 +590,120 @@
 <p> overflow: scroll; 能让盒子附加一个滚动条（内容没有溢出时也会显示）。 overflow-y: scroll; 能更准确地仅附加垂直方向的滚动条（或者使用 overflow: visible scroll;）</p>
 <p> overflow: auto; 能让盒子仅在内容溢出的情况下附加滚动条</p>
 <p>在使用诸如scroll或者auto的时候，会建立了一个块级排版上下文</p>
-<h1 id="CSS值"><a href="#CSS值" class="headerlink" title="CSS值"></a>CSS值</h1>
+<h1 id="CSS值"><a href="#CSS值" class="headerlink" title="CSS值"></a>CSS值</h1><h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><p>CSS的数值类型有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th>数值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;integer&gt;</td>
+<td>一个整数；某些属性允许负数</td>
+</tr>
+<tr>
+<td>&lt;number&gt;</td>
+<td>一个小数，如 -1.2 ;它也可能仅有整数部分</td>
+</tr>
+<tr>
+<td>&lt;dimension&gt;</td>
+<td>这算是一个附加单位的&lt;number&gt;，如 45px</td>
+</tr>
+<tr>
+<td>&lt;percentage&gt;</td>
+<td>百分数，它总是有一个参照量</td>
+</tr>
+</tbody></table>
+<p>绝对长度单位：</p>
+<table>
+<thead>
+<tr>
+<th>单位</th>
+<th>名称</th>
+<th>等价换算</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>px</td>
+<td>像素</td>
+<td></td>
+</tr>
+<tr>
+<td>cm</td>
+<td>厘米</td>
+<td>1cm&#x3D;96px&#x2F;2.54</td>
+</tr>
+<tr>
+<td>in</td>
+<td>英寸</td>
+<td>1in&#x3D;2.54cm&#x3D;96px</td>
+</tr>
+<tr>
+<td>pt</td>
+<td>点</td>
+<td>1pt&#x3D;1in&#x2F;72</td>
+</tr>
+<tr>
+<td>在这里像素px最有用，且一般只使用这个</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>相对长度单位：</p>
+<table>
+<thead>
+<tr>
+<th>单位</th>
+<th>相对于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>em</td>
+<td>在font-size中相对于父元素，其他属性中相对于自身字体的大小（如width中使用是相对于字体大小）</td>
+</tr>
+<tr>
+<td>lh</td>
+<td>元素的line-height</td>
+</tr>
+<tr>
+<td>rem</td>
+<td>根元素的字体大小</td>
+</tr>
+<tr>
+<td>vw</td>
+<td>视窗宽度的 1%</td>
+</tr>
+<tr>
+<td>vh</td>
+<td>视窗高度的 1%</td>
+</tr>
+<tr>
+<td>···</td>
+<td>···</td>
+</tr>
+<tr>
+<td>一般常使用em，网页顶部横幅之类的，应该用vw（且可能是100vw）</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>现代计算机的标准颜色系统是24位，允许通过红、绿、蓝通道的组合显示，每个通道有256个不同的值；此外还有alpha通道能控制透明度</p>
+<p>颜色数据类型可以使用颜色关键字，也可以使用16进制rgb值和函数（或者rgba值和函数）</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>图片数据类型可以是一个 url() 函数，也可以是一个渐变函数</p>
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>位置数据源类型表示一组2D坐标，用以定位一个元素，可以使用关键字（如top、left、bottom、right、center）和像素指定，如 background-position: right 10px; 指定了背景图片的位置</p>
+<h2 id="使用函数组合CSS值"><a href="#使用函数组合CSS值" class="headerlink" title="使用函数组合CSS值"></a>使用函数组合CSS值</h2><p>calc()函数能够对CSS值进行简单计算，如 width: calc(20% + 100px);</p>
+<h1 id="调整容器尺寸"><a href="#调整容器尺寸" class="headerlink" title="调整容器尺寸"></a>调整容器尺寸</h1><h2 id="原始尺寸（固有尺寸）"><a href="#原始尺寸（固有尺寸）" class="headerlink" title="原始尺寸（固有尺寸）"></a>原始尺寸（固有尺寸）</h2><p>HTML元素有原始的尺寸。对于图像元素，它的长和宽由文件自身确定；对于一个空的div元素，它是没有尺寸的，高度为0</p>
+<h2 id="具体尺寸"><a href="#具体尺寸" class="headerlink" title="具体尺寸"></a>具体尺寸</h2><p>给元素指定具体尺寸时，实际指定的是外部尺寸，如我们指定width和height，此后不论放里面是什么内容，容器都都会不改变它的尺寸（这也许会导致内容溢出）</p>
+<p>在使用百分数指定尺寸时，百分数是以包含盒子的块为根据解析的，如果一个盒子指定一个百分数作为宽度，那么它的百分比依据是父容器的宽度</p>
+<p>在使用百分数指定内外边距时，百分数是以包含快的内联尺寸进行计算的，它的百分比依据是元素的水平宽度</p>
+<h2 id="最小和最大尺寸"><a href="#最小和最大尺寸" class="headerlink" title="最小和最大尺寸"></a>最小和最大尺寸</h2><p>对于容量可以变化的盒子，可以设置最大、最小尺寸。这个在避免溢出的同时处理变化容量很有用，在制作适应屏幕大小的响应式网页布局也十分有用</p>
+<p>可以使用如 max-width:100%; 限定得图像可以变小，但不会变大（默认是按照图像原文件大小，设定后在较小容器中的图片会自动缩小以展示全貌）；如 min-height：20px; 限定的文档内容的盒子即使是空内容也会占据空间</p>
+<p>这个技术不会改变下载的原始图片，对于大尺寸原始图片，应该在img标签内就指定下载的图像大小</p>
+<h2 id="视口单位"><a href="#视口单位" class="headerlink" title="视口单位"></a>视口单位</h2><p>视口是浏览器中的“可见屏幕”，可以使用视口单位，制作随用户视口改变而改变的效果</p>
+<p>1vw为视口宽度的百分之一，1vh为视口高度的百分之一</p>
+<p>特殊地，对于嵌入在iframe中内容，它的视口大小是外部观察的iframe元素的尺寸</p>
+<h1 id="样式化表格"><a href="#样式化表格" class="headerlink" title="样式化表格"></a>样式化表格</h1><p>暂时省略记录，等有确实需要再整理</p>
+
     </div>
 
     
@@ -601,13 +716,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--HTML%E6%9E%84%E5%BB%BAWeb/" rel="prev" title="">
-                  <i class="fa fa-chevron-left"></i> 
+                <a href="/2022/08/01/%E5%AD%A6%E4%B9%A0/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80XML%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="prev" title="可扩展标记语言XML学习记录">
+                  <i class="fa fa-chevron-left"></i> 可扩展标记语言XML学习记录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--Web%E5%85%A5%E9%97%A8/" rel="next" title="">
-                   <i class="fa fa-chevron-right"></i>
+                <a href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--HTML%E6%9E%84%E5%BB%BAWeb/" rel="next" title="HTML构建Web">
+                  HTML构建Web <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
