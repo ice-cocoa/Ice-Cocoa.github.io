@@ -20,25 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="笑口常开，喜从天降">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ice-Cocoa">
-<meta property="og:url" content="https://www.ice-cocoa.net/archives/2022/index.html">
+    <meta name="description" content="2022-09-23 暂时搁置CSS排版的整理，预计几天后重启">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS排版">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/21/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%8E%92%E7%89%88/index.html">
 <meta property="og:site_name" content="Ice-Cocoa">
-<meta property="og:description" content="笑口常开，喜从天降">
+<meta property="og:description" content="2022-09-23 暂时搁置CSS排版的整理，预计几天后重启">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-23T06:02:20.110Z">
 <meta property="article:author" content="Ice-Cocoa">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.ice-cocoa.net/archives/2022/">
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/21/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%8E%92%E7%89%88/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2022/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/21/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%8E%92%E7%89%88/","path":"2022/09/21/学习/web前端/笔记--CSS排版/","title":"CSS排版"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | Ice-Cocoa</title>
+<title>CSS排版 | Ice-Cocoa</title>
   
 
 
@@ -75,7 +77,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Ice-Cocoa</h1>
+      <p class="site-title">Ice-Cocoa</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
@@ -135,7 +137,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -148,6 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E5%B8%83%E5%B1%80"><span class="nav-number">1.</span> <span class="nav-text">介绍布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%B8%B8%E5%B8%83%E5%B1%80%E6%B5%81"><span class="nav-number">1.1.</span> <span class="nav-text">正常布局流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#display%E5%B1%9E%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">display属性</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -217,232 +220,137 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 16 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/21/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%8E%92%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CSS排版 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          CSS排版
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-22 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-22T00:00:00+08:00">2022-09-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-23 14:02:20" itemprop="dateModified" datetime="2022-09-23T14:02:20+08:00">2022-09-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/Web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>2022-09-23 暂时搁置CSS排版的整理，预计几天后重启<span id="more"></span></li>
+</ul>
+<p><strong>引导：</strong></p>
+<ol>
+<li>介绍布局<br> 重述CSS中关于布局的重要知识点，如display值</li>
+<li>正常布局流<br> 没有改变默认布局规则下的页面元素布局方式</li>
+<li>弹性盒<br> 弹性盒是一种新技术，允许快速创建实现一些复杂灵活的布局和功能</li>
+<li>网格<br> 网格是一个成熟的设计工具，许多现代网站布局是基于规则网格</li>
+<li>浮动<br> float属性已经称为在网页上创建多个列布局的最常用工具</li>
+<li>定位<br> 定位语序从常规文档布局中取出元素，并使它们有不同的行为</li>
+<li>多列布局<br> 提供了一种多列组织方式</li>
+<li>响应式设计  </li>
+<li>媒体查询入门指南<br> 媒体查询是响应式 Web 设计的一个关键部分，允许根据视区的大小创建不同的布局</li>
+<li>传统布局方法</li>
+<li>支持旧浏览器</li>
+</ol>
+<h1 id="介绍布局"><a href="#介绍布局" class="headerlink" title="介绍布局"></a>介绍布局</h1><p>本节设计正常布局流、display属性、弹性盒子、网格、浮动、定位、CSS表格布局、多列布局。它们各有优缺点</p>
+<h2 id="正常布局流"><a href="#正常布局流" class="headerlink" title="正常布局流"></a>正常布局流</h2><p>不对页面进行任何布局控制，完全按照源码中出现的先后次序显示元素</p>
+<h2 id="display属性"><a href="#display属性" class="headerlink" title="display属性"></a>display属性</h2><p>在CSS中实现页面布局的主要方法是设定display属性的值。正常流中所有内容都有一个display值，表现为块级设置display:block; ，表现为内联设置为display:inline; </p>
+<p>此外 dispaly:flex 可以设置弹性盒子布局模块 </p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-27T00:00:00+08:00"
-              content="2022-09-27">
-          09-27
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/26/%E5%AD%A6%E4%B9%A0/Linux/%E4%B8%8B%E8%BD%BD%E5%8C%85%E5%B9%B6%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" itemprop="url">
-            <span itemprop="name">在centos下载包并编译安装</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/18/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%A0%B7%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC/" rel="prev" title="CSS样式化文本">
+                  <i class="fa fa-chevron-left"></i> CSS样式化文本
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/23/%E5%AD%A6%E4%B9%A0/Linux/vsftpd%E5%9C%A8centos%E4%B8%8A%E9%85%8D%E7%BD%AE/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-26T00:00:00+08:00"
-              content="2022-09-26">
-          09-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/25/%E5%AD%A6%E4%B9%A0/Linux/firewall%E5%9C%A8centos7%E4%B8%8A%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">firewall在centos7上配置</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-23T16:20:49+08:00"
-              content="2022-09-23">
-          09-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/23/%E5%AD%A6%E4%B9%A0/Linux/vsftpd%E5%9C%A8centos%E4%B8%8A%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-22T00:00:00+08:00"
-              content="2022-09-22">
-          09-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/21/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%8E%92%E7%89%88/" itemprop="url">
-            <span itemprop="name">CSS排版</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-19T00:00:00+08:00"
-              content="2022-09-19">
-          09-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/18/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%A0%B7%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC/" itemprop="url">
-            <span itemprop="name">CSS样式化文本</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-14T00:00:00+08:00"
-              content="2022-09-14">
-          09-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/13/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Selenium%E7%AC%94%E8%AE%B0--python%E5%AE%9E%E7%8E%B0/" itemprop="url">
-            <span itemprop="name">Selenium笔记--python实现</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-09T00:00:00+08:00"
-              content="2022-09-09">
-          09-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--Web%E5%85%A5%E9%97%A8/" itemprop="url">
-            <span itemprop="name">Web入门</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-09T00:00:00+08:00"
-              content="2022-09-09">
-          09-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--HTML%E6%9E%84%E5%BB%BAWeb/" itemprop="url">
-            <span itemprop="name">HTML构建Web</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-09T00:00:00+08:00"
-              content="2022-09-09">
-          09-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--CSS%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80/" itemprop="url">
-            <span itemprop="name">CSS构建基础</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-08-15T15:58:44+08:00"
-              content="2022-08-15">
-          08-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/08/15/%E5%AD%A6%E4%B9%A0/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/" itemprop="url">
-            <span itemprop="name">Markdown基础语法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2022/page/2/">2</a><a class="extend next" rel="next" href="/archives/2022/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+
+
+
 
 </div>
   </main>
