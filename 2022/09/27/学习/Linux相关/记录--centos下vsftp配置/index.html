@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="firewalld简介firewalld 是由红帽开发的防火墙守护进程， 默认使用 nftables（一个网络过滤器），从centos7开始，默认使用firewalld来配置防火墙（旧版的默认安装iptables） firewalld支持动态管理（无需关闭用户连接即可更新），支持使用区域zone来标识可信等级，使用分离的运行时配置和永久设置。 firewall配置文件存储在 &#x2F;usr">
+    <meta name="description" content="为方便不懂计算机的朋友配置一个博客，启用一个ftp服务来传输文件。配置过程中发现 Xshell + Xftp 工具及其方便（而且更安全），最终没有采用ftp方法，但还是简要记录一下关键地方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="firewall在centos7上配置">
-<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/25/%E5%AD%A6%E4%B9%A0/Linux/firewall%E5%9C%A8centos7%E4%B8%8A%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="记录--centos下vsftpd配置">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/27/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/%E8%AE%B0%E5%BD%95--centos%E4%B8%8Bvsftp%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Ice-Cocoa">
-<meta property="og:description" content="firewalld简介firewalld 是由红帽开发的防火墙守护进程， 默认使用 nftables（一个网络过滤器），从centos7开始，默认使用firewalld来配置防火墙（旧版的默认安装iptables） firewalld支持动态管理（无需关闭用户连接即可更新），支持使用区域zone来标识可信等级，使用分离的运行时配置和永久设置。 firewall配置文件存储在 &#x2F;usr">
+<meta property="og:description" content="为方便不懂计算机的朋友配置一个博客，启用一个ftp服务来传输文件。配置过程中发现 Xshell + Xftp 工具及其方便（而且更安全），最终没有采用ftp方法，但还是简要记录一下关键地方">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-09-27T03:16:58.472Z">
+<meta property="article:published_time" content="2022-09-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-09T08:44:53.001Z">
 <meta property="article:author" content="Ice-Cocoa">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/25/%E5%AD%A6%E4%B9%A0/Linux/firewall%E5%9C%A8centos7%E4%B8%8A%E9%85%8D%E7%BD%AE/">
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/27/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/%E8%AE%B0%E5%BD%95--centos%E4%B8%8Bvsftp%E9%85%8D%E7%BD%AE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/25/%E5%AD%A6%E4%B9%A0/Linux/firewall%E5%9C%A8centos7%E4%B8%8A%E9%85%8D%E7%BD%AE/","path":"2022/09/25/学习/Linux/firewall在centos7上配置/","title":"firewall在centos7上配置"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/27/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/%E8%AE%B0%E5%BD%95--centos%E4%B8%8Bvsftp%E9%85%8D%E7%BD%AE/","path":"2022/09/27/学习/Linux相关/记录--centos下vsftp配置/","title":"记录--centos下vsftpd配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>firewall在centos7上配置 | Ice-Cocoa</title>
+<title>记录--centos下vsftpd配置 | Ice-Cocoa</title>
   
 
 
@@ -93,7 +93,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">16</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">18</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#firewalld%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">firewalld简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#centos%E4%B8%8B%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">centos下安装和基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F"><span class="nav-number">4.</span> <span class="nav-text">区域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text">区域命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-NerworkManager-%E7%AE%A1%E7%90%86%E5%8C%BA%E5%9F%9F"><span class="nav-number">4.2.</span> <span class="nav-text">使用 NerworkManager 管理区域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="nav-number">5.</span> <span class="nav-text">参数名词解释</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vsftpd"><span class="nav-number">1.</span> <span class="nav-text">安装vsftpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">修改配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEvdftp-conf"><span class="nav-number">2.1.</span> <span class="nav-text">配置vdftp.conf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">用户和文件管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84pam%E4%BF%AE%E6%94%B9"><span class="nav-number">2.3.</span> <span class="nav-text">需要注意的pam修改</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,13 +165,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -231,7 +231,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/25/%E5%AD%A6%E4%B9%A0/Linux/firewall%E5%9C%A8centos7%E4%B8%8A%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/27/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/%E8%AE%B0%E5%BD%95--centos%E4%B8%8Bvsftp%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -244,7 +244,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="firewall在centos7上配置 | Ice-Cocoa">
+      <meta itemprop="name" content="记录--centos下vsftpd配置 | Ice-Cocoa">
       <meta itemprop="description" content="">
     </span>
 
@@ -252,7 +252,7 @@
       <header class="post-header">
 
 <h1 class="post-title" itemprop="name headline"  >
-          firewall在centos7上配置
+          记录--centos下vsftpd配置
         </h1>
 
 
@@ -266,14 +266,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-26T00:00:00+08:00">2022-09-26</time>
+      <time title="创建时间：2022-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-28T00:00:00+08:00">2022-09-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-27 11:16:58" itemprop="dateModified" datetime="2022-09-27T11:16:58+08:00">2022-09-27</time>
+      <time title="修改时间：2022-10-09 16:44:53" itemprop="dateModified" datetime="2022-10-09T16:44:53+08:00">2022-10-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -281,7 +281,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+          <a href="/categories/Linux%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">Linux相关</span></a>
         </span>
     </span>
 
@@ -295,52 +295,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
+        <p>为方便不懂计算机的朋友配置一个博客，启用一个ftp服务来传输文件。配置过程中发现 Xshell + Xftp 工具及其方便（而且更安全），最终没有采用ftp方法，但还是简要记录一下关键地方</p>
+<span id="more"></span>
+<h1 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vsftp</span><br></pre></td></tr></table></figure>
 
-<h1 id="firewalld简介"><a href="#firewalld简介" class="headerlink" title="firewalld简介"></a>firewalld简介</h1><p>firewalld 是由红帽开发的防火墙守护进程， 默认使用 nftables（一个网络过滤器），从centos7开始，默认使用firewalld来配置防火墙（旧版的默认安装iptables）</p>
-<p>firewalld支持动态管理（无需关闭用户连接即可更新），支持使用区域zone来标识可信等级，使用分离的运行时配置和永久设置。</p>
-<p>firewall配置文件存储在 &#x2F;usr&#x2F;lib&#x2F;firewalld&#x2F; 和 &#x2F;etc&#x2F;firewall&#x2F; 目录中：</p>
-<ol>
-<li>系统配置目录，目录中存放定义好的网络服务和端口参数，系统参数，不要修改 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 /usr/lib/firewalld/</span><br><span class="line">2 /usr/lib/firewalld/services</span><br><span class="line">3 /usr/lib/firewalld/zones</span><br></pre></td></tr></table></figure></li>
-<li>用户配置目录 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 /etc/firewalld/</span><br><span class="line">2 /etc/firewalld/services</span><br><span class="line">3 /etc/firewalld/zones</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="centos下安装和基本使用"><a href="#centos下安装和基本使用" class="headerlink" title="centos下安装和基本使用"></a>centos下安装和基本使用</h1><ul>
-<li>yum install firewalld</li>
-<li>启用服务 systemctl start firewalld.service</li>
-<li>可以使用控制台工具 firewall-cmd 来控制防火墙规则，firewall-offline-cmd是服务离线时的配置工具</li>
-<li>firewall-config命令提供了一个图形界面</li>
-</ul>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>使用 firewall-cmd 可用于运行时更改配置，这些大部分配置会在重启后失效，使用–permanent参数可以永久配置（这不会更改运行时配置，可以使用–reload重载规则）</p>
-<h1 id="区域"><a href="#区域" class="headerlink" title="区域"></a>区域</h1><h2 id="区域命令"><a href="#区域命令" class="headerlink" title="区域命令"></a>区域命令</h2><p>一些命令需要传递区域参数 –zone&#x3D;<em>zone_name</em> ，若不指定则使用默认区域</p>
-<p>有关区域的命令：</p>
-<ul>
-<li>查看当前区域机器应用的接口  firewall-cmd –get-active-zone</li>
-<li>列出所有区域的配置  firewall-cmd –list-all-zone</li>
-<li>列出指定区域的配置  firewall-cmd –info-zone&#x3D;<em>zonename</em></li>
-<li>更改接口的区域  firewall-cmd –zone&#x3D;<em>zone_name</em> –change-interface&#x3D;<em>interface_name</em></li>
-</ul>
-<h2 id="使用-NerworkManager-管理区域"><a href="#使用-NerworkManager-管理区域" class="headerlink" title="使用 NerworkManager 管理区域"></a>使用 NerworkManager 管理区域</h2><p>NetworkManager 能够为不同的连接分配不同的区域。例如：将一个家庭 WiFi 分配到 “home” 区域， 将工作室 WiFi 分配到 “work” 区域，并将剩余 WiFi 分配到 “public” 区域。</p>
-<p>区域zone特性的规则集为：</p>
-<ul>
-<li>drop：丢弃任何接收的网络数据包，仅有能发送出的去网络连接</li>
-<li>block：任何接收的网络连接都被ipv4的cmp-host-prohibited信息和ipv6的icmp6-adm-prohibited信息拒绝</li>
-<li>public：这个是firewalld的默认值，不相信网络内其他计算机，只能接受经过选取的连接</li>
-<li>external：似乎与public（，目前查到的资料对这一点描述混乱）</li>
-<li>dmz：非军事区</li>
-<li>work：可以基本相信网络内其他计算机，仅仅接收经过选择的连接</li>
-<li>home：基本相信网络内其他计算机，仅仅接收经过选择的连接</li>
-<li>internal：内部，基本相信网络内其他计算机，仅仅接受经过选择的连接</li>
-<li>trusted：可接受所有网络连接</li>
-</ul>
-<h1 id="参数名词解释"><a href="#参数名词解释" class="headerlink" title="参数名词解释"></a>参数名词解释</h1><p>有以下重要名词：</p>
-<ul>
-<li>target：默认行为，有<ul>
-<li>default</li>
-<li>ACCRPT</li>
-<li>%%</li>
-</ul>
-</li>
-</ul>
+<h1 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h1><h2 id="配置vdftp-conf"><a href="#配置vdftp-conf" class="headerlink" title="配置vdftp.conf"></a>配置vdftp.conf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/vsftpd/vsftpd.conf</span><br></pre></td></tr></table></figure>
+<p>修改以下字段：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable=NO #禁止匿名登录</span><br><span class="line"></span><br><span class="line">local_unmask=750 #便于用户修改</span><br><span class="line"></span><br><span class="line">chroot_local_users=YES #启用这个会让 local_users 文件里的用户无法在ftp客户端更改目录</span><br><span class="line">chroot_list_enable=NO #设置为NO会让 user_list 里的用户无法登录</span><br><span class="line"></span><br><span class="line">local_root=/var/www/ftphome #指定访问ftp时的默认目录</span><br><span class="line"></span><br><span class="line">#配置被动模式</span><br><span class="line">pasv_enabl=YES</span><br><span class="line">pasv_address=服务器的公网ip</span><br><span class="line">pasv_min_port=允许的最小高位端口 #需要在安全组上通过</span><br><span class="line">pasv_min_port=允许的最高高位端口 #需要在安全组上通过</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户和文件管理"><a href="#用户和文件管理" class="headerlink" title="用户和文件管理"></a>用户和文件管理</h2><p>添加用户、修改文件权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">groupadd -g 1001 ftpusers</span><br><span class="line">mkdir /var/www</span><br><span class="line">mkdir /var/www/ftphome</span><br><span class="line">useradd -d /var/www/ftphome -g ftpusers -s /sbin/nologin fuser</span><br><span class="line">passwd fuser</span><br><span class="line"></span><br><span class="line">chown -R fuser:ftpusers /var/www/ftphome</span><br><span class="line">chmod -R 770 /var/www/ftphome</span><br></pre></td></tr></table></figure>
+
+<h2 id="需要注意的pam修改"><a href="#需要注意的pam修改" class="headerlink" title="需要注意的pam修改"></a>需要注意的pam修改</h2><p>注意，由于设置了用户无法登录shell，则要修改pam的认证方式：<br>编辑相关文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim  /etc/pam.d/vsftpd</span><br></pre></td></tr></table></figure>
+<p>修改配置a uth required pam_shells.so修改为-&gt;auth required pam_nologin.so </p>
 
     </div>
 
@@ -354,13 +322,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/23/%E5%AD%A6%E4%B9%A0/Linux/vsftpd%E5%9C%A8centos%E4%B8%8A%E9%85%8D%E7%BD%AE/" rel="prev" title="">
-                  <i class="fa fa-chevron-left"></i> 
+                <a href="/2022/09/25/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/firewall%E5%9C%A8centos7%E4%B8%8A%E9%85%8D%E7%BD%AE/" rel="prev" title="简单介绍firewalld配置">
+                  <i class="fa fa-chevron-left"></i> 简单介绍firewalld配置
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/26/%E5%AD%A6%E4%B9%A0/Linux/%E4%B8%8B%E8%BD%BD%E5%8C%85%E5%B9%B6%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" rel="next" title="在centos下载包并编译安装">
-                  在centos下载包并编译安装 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/09/29/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/git%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/" rel="next" title="客户端git配置与使用">
+                  客户端git配置与使用 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JavaScript 是一种轻量级解释型语言，可以用来创建动态更新的内容，控制多媒体，制作图像动画，其他等等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/10/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--JavaScript%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="JavaScript 是一种轻量级解释型语言，可以用来创建动态更新的内容，控制多媒体，制作图像动画，其他等等">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-09T08:44:53.001Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/10/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--JavaScript%E5%9F%BA%E7%A1%80/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/10/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--JavaScript%E5%9F%BA%E7%A1%80/","path":"2022/10/08/学习/web前端/笔记--JavaScript基础/","title":"JavaScript基础"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript基础 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">18</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">JavaScript基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript%E7%9A%84API"><span class="nav-number">1.1.</span> <span class="nav-text">JavaScript的API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%8A%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">JavaScript在页面上工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%A1%B5%E9%9D%A2%E6%B7%BB%E5%8A%A0JavaScript"><span class="nav-number">1.3.</span> <span class="nav-text">向页面添加JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E8%84%9A%E6%9C%AC%E8%B0%83%E7%94%A8%E7%AD%96%E7%95%A5"><span class="nav-number">1.3.1.</span> <span class="nav-text">内部脚本调用策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E8%84%9A%E6%9C%AC%E8%B0%83%E7%94%A8%E7%AD%96%E7%95%A5"><span class="nav-number">1.3.2.</span> <span class="nav-text">外部脚本调用策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">1.4.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">1.5.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="nav-number">1.6.</span> <span class="nav-text">声明变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%9B%B4%E6%96%B0"><span class="nav-number">1.7.</span> <span class="nav-text">变量初始化与更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="nav-number">1.8.</span> <span class="nav-text">变量提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.9.</span> <span class="nav-text">变量类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.10.</span> <span class="nav-text">数字与运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86"><span class="nav-number">1.11.</span> <span class="nav-text">字符串与文本处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BD%93%E4%BD%9C%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.11.1.</span> <span class="nav-text">把字符串当作对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.12.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">1.12.1.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84"><span class="nav-number">1.12.2.</span> <span class="nav-text">访问和修改数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A%E6%95%B0%E7%BB%84%E5%BD%93%E4%BD%9C%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.12.3.</span> <span class="nav-text">把数组当作对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E5%9F%BA%E7%A1%80%E8%A6%81%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">JavaScript基础要件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.</span> <span class="nav-text">条件语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-else%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.1.</span> <span class="nav-text">if-else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.2.</span> <span class="nav-text">switch语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E6%88%96%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.1.3.</span> <span class="nav-text">三元或条件运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.2.</span> <span class="nav-text">循环语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">浏览器内置函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.2.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%B2%E7%AA%81"><span class="nav-number">2.3.3.</span> <span class="nav-text">函数作用域和冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.4.</span> <span class="nav-text">函数内部的函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.4.</span> <span class="nav-text">事件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.4.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/10/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--JavaScript%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript基础 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          JavaScript基础
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-09 00:00:00 / 修改时间：16:44:53" itemprop="dateCreated datePublished" datetime="2022-10-09T00:00:00+08:00">2022-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>JavaScript 是一种轻量级解释型语言，可以用来创建动态更新的内容，控制多媒体，制作图像动画，其他等等</p>
+<span id="more"></span>
+
+<h1 id="JavaScript基础介绍"><a href="#JavaScript基础介绍" class="headerlink" title="JavaScript基础介绍"></a>JavaScript基础介绍</h1><h2 id="JavaScript的API"><a href="#JavaScript的API" class="headerlink" title="JavaScript的API"></a>JavaScript的API</h2><p>JavaScript的应用程序接口API通常分为两类：</p>
+<ul>
+<li>浏览器API<br>  浏览器API内建与web浏览器中。有：<ul>
+<li>文档对象模型（DOM，Document Object Model）API、</li>
+<li>地理位置API </li>
+<li>画布（Canvas）和WebGL API可以创建生动的2D和3D图像</li>
+<li>影音类API</li>
+</ul>
+</li>
+<li>第三方API（笔记中不会涉及这些知识）<br>  如Twitter API可以在网站上显示最新的推文，谷歌地图API 可以在网站上嵌入定制的地图</li>
+</ul>
+<h2 id="JavaScript在页面上工作"><a href="#JavaScript在页面上工作" class="headerlink" title="JavaScript在页面上工作"></a>JavaScript在页面上工作</h2><p>在HTML和CSS集合组装成一个网页后，浏览器的JavaScript引擎将执行JavaScript代码。这样的顺序是比较合理的，因为JavaScript的普遍用处是通过DOM API动态修改HTML和CSS。</p>
+<p>实际上在未加载完HTML时就执行Javascript代码是可能的，应要妥善安排脚本调用策略来避免这种情况</p>
+<p>每个浏览器标签页就是其自身用来运行代码的独立容器，大多数情况下代码是独立运行的 <em>（以安全方式在不同标签页中传输代码和数据的方式是存在的，笔记中不会涉及）</em></p>
+<h2 id="向页面添加JavaScript"><a href="#向页面添加JavaScript" class="headerlink" title="向页面添加JavaScript"></a>向页面添加JavaScript</h2><p>可以像添加CSS一样，用相似的方法添加。CSS使用&lt;link&gt;元素连接外部样式表，用&lt;style&gt;添加内嵌样式表，而JavaScript只需要一个元素&lt;script&gt;</p>
+<p>内部JavaScript写在HTML文件中，代码内容包围在 &lt;script&gt; 元素中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>...<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>外部JavaScript的代码放在一个外部文件中，在HTML文件中使用内容为空但含有src属性的&lt;script&gt;来引用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;script.js&quot;</span> <span class="attr">async</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="内部脚本调用策略"><a href="#内部脚本调用策略" class="headerlink" title="内部脚本调用策略"></a>内部脚本调用策略</h3><p>内部JavaScript使用以下结构，实现DOM加载完再执行代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这是一个事件监听器，它监听浏览器的“DOMContentLoaded”事件（即HTML文档提加载、解释完毕），这个事件触发时，才会调用function内的代码。</p>
+<h3 id="外部脚本调用策略"><a href="#外部脚本调用策略" class="headerlink" title="外部脚本调用策略"></a>外部脚本调用策略</h3><p>外部JavaScript使用了一项现代技术–async异步属性，它告诉浏览器遇到&lt;script&gt;标签时不要中断后续HTML内容的加载。</p>
+<p>但是，async属性仅仅是解决了“顺序调用”问题，与内部代码的“DOMContentLoaded”的意义不同，对于可能引起文档体改变的代码，应该放在body标签的底部</p>
+<p>此外，对于相对独立的脚本而言async属性是合适的选择，它不会保证脚本会顺序执行，而对于需要顺序执行的脚本，需要使用defer属性</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行注释，使用双斜杠添加单行注释</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+<p>多行注释，在 /* 和 */ 之间添加多行注释</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是存储值的容器，可以是数字、字符串、函数等</p>
+<p>JavaScript是一种“动态类型语言”，这句话的意思是，不需要指定变量包含是什么类型，它会根据<strong>最新的赋值</strong>自动推断</p>
+<p>这意味着，即使初始化时赋予了字符串类型，再次赋值时可以赋数值类型，同时变量类型也会变成数值类型</p>
+<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><p>JavaScript有两种声明变量的方法，使用var关键字和使用let关键字</p>
+<p>现在推荐使用let，因为let不会引起变量提升，也不允许重复声明一个变量</p>
+<h2 id="变量初始化与更新"><a href="#变量初始化与更新" class="headerlink" title="变量初始化与更新"></a>变量初始化与更新</h2><p>声明变量的同时或者之后，使用赋值符号（&#x3D;）即可对变量初始化</p>
+<p><em>可以在控制台通过输入变量名的方式，来验证这个变量是否存在，值是什么。空值的变量会返回 undefined，不存在的变量会得到一个报错信息</em></p>
+<h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><p>由于变量声明（以及其他声明）总是在任意代码执行之前处理的，所以在代码中任意位置声明总是等效于在代码开头声明。<strong>这意味着变量可以在声明之前使用</strong>，这个行为叫做变量提升（hoisting）。</p>
+<p>注意，变量提升不会影响变量初始化</p>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>在Javascript中，声明时不需要指定变量类型</p>
+<p>变量类型有：</p>
+<ul>
+<li>Number<br>  数值类型，包括整数和浮点数</li>
+<li>String<br>  字符串类型，需要单引号或双引号包围，会视为别的变量名</li>
+<li>Boolean<br>  逻辑值类型</li>
+<li>Array<br>  数组类型，用方括号括起来，用逗号分隔多个值</li>
+<li>Object<br>  对象类型，它是一种代码结构<br>  let dog&#x3D;{name:’Spot’,shout:’wangwang’};  定义了一个对象实例</li>
+</ul>
+<h2 id="数字与运算符"><a href="#数字与运算符" class="headerlink" title="数字与运算符"></a>数字与运算符</h2><p>以后再更新记录</p>
+<h2 id="字符串与文本处理"><a href="#字符串与文本处理" class="headerlink" title="字符串与文本处理"></a>字符串与文本处理</h2><p>关于字符串的创建，引号包围字符串文本，字符串中的转义字符就不介绍了</p>
+<h3 id="把字符串当作对象"><a href="#把字符串当作对象" class="headerlink" title="把字符串当作对象"></a>把字符串当作对象</h3><p>字符串连接— join()方法，字符串字面值和字符串变量之间可以用 + 操作符随意连接。此外，数字也可以和字符串连接</p>
+<p>数字转化成字符串— Number对象把传递给它的任何东西试图转换成一个数字，如果不可转化则返回 NaN （这也是一个数字类型的值），如 Number(price)</p>
+<p>字符串与数字的转化— toString() 方法</p>
+<p>获取长度— length 属性，如 str1.length</p>
+<p>查找子字符串— indexOf() 方法，会返回子字符串的索引，如 str1.indexOf(‘apple’)</p>
+<p>提取子字符串— slice() 方法，如 str1.slice(0,3); str1.slice(2);</p>
+<p>转换大小写— toLowerCase() 方法、 toUpperCase() 方法，将所有字符串分别转为小写或大写，如 str1.toLowerCase();</p>
+<p>替换字符串某部分— replace() 方法，这个方法只会替换第一次符合匹配条件的地方，如 str1&#x3D;str1.replace(‘beforeStr’,’afterStr’);</p>
+<p>字符串分割为数组— split() 方法，参数为分隔符号，如 let myArray&#x3D;myData.split(‘,’); </p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><p>数组用方括号包围，内部用逗号分隔元素。数组内的元素不要求类型相同，甚至数组也可以作为元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> randomArr = [<span class="string">&#x27;milk&#x27;</span>, <span class="number">89</span>, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]];</span><br></pre></td></tr></table></figure>
+<h3 id="访问和修改数组"><a href="#访问和修改数组" class="headerlink" title="访问和修改数组"></a>访问和修改数组</h3><p>使用索引可以访问和修改数组中的元素，如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//访问</span></span><br><span class="line">shopping[<span class="number">0</span>];<span class="comment">//控制台会返回该元素值</span></span><br><span class="line"><span class="comment">//修改</span></span><br><span class="line">shopping[<span class="number">0</span>]=<span class="string">&#x27;milk&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组中数组的修改</span></span><br><span class="line">fruitMap[<span class="number">2</span>][<span class="number">2</span>]=<span class="string">&#x27;apple&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="把数组当作对象"><a href="#把数组当作对象" class="headerlink" title="把数组当作对象"></a>把数组当作对象</h3><p>获取数组长度— length属性</p>
+<p>把数组组合为字符串— toString() 方法，如 dogNames.toString(); 这个方法会自动产生一个逗号分隔符</p>
+<p>把数组组合为字符串，并指定分隔符— join()方法，如 let myNewString &#x3D; myArray.join(‘;’); </p>
+<p>添加和删除数组项：</p>
+<ul>
+<li>push()方法— 如 myArray.push(‘milk’); </li>
+<li>pop()方法— 如 let removedItem &#x3D; myArray.pop()</li>
+<li>unshift()方法— 作用于数组开始的添加元素</li>
+<li>shift()方法— 作用域数组开始的删除元素</li>
+</ul>
+<h1 id="JavaScript基础要件"><a href="#JavaScript基础要件" class="headerlink" title="JavaScript基础要件"></a>JavaScript基础要件</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><h3 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if-else语句"></a>if-else语句</h3><p>JavaScript中的条件判断语句 if…else… 与C外观一致</p>
+<p><em>Javascript中判断是否相等使用 &#x3D;&#x3D;&#x3D; 和 ！&#x3D;&#x3D; ，此处与C不同</em></p>
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>在JavaScript中switch的用处应该比较多，因为在网页中可能有大量的列表存在，形如以下伪代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (choice) &#123; <span class="comment">//expression可以是表达式或值</span></span><br><span class="line">  <span class="keyword">case</span> <span class="attr">choice1</span>: <span class="comment">//choice1可以是一个表达式或值</span></span><br><span class="line">    run <span class="variable language_">this</span> code;</span><br><span class="line">    <span class="keyword">break</span>; <span class="comment">//跳出switch语句，否则继续往下匹配</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="attr">choice2</span>:</span><br><span class="line">    run <span class="variable language_">this</span> code instead;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attr">default</span>: <span class="comment">//如果没有break，则default总会执行；default句子可以省略</span></span><br><span class="line">    actually, just run <span class="variable language_">this</span> code;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>switch语句中的 choice（上面伪代码中的）经常是一个列表中选择的值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> select = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;select&#x27;</span>);</span><br><span class="line">select.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, onChangeFunction);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">onChangeFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> choice = select.<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">switch</span> (choice)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三元或条件运算符"><a href="#三元或条件运算符" class="headerlink" title="三元或条件运算符"></a>三元或条件运算符</h3><p>三元或条件运算符适用于只有true和else的条件选择，可以向像表达式一样给变量赋值，也可以向代码一样独立成行（这取决于它的返回类型），形如以下伪代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">( condition ) ? (run <span class="variable language_">this</span> code) : (run <span class="variable language_">this</span> code instead);</span><br></pre></td></tr></table></figure>
+<p><em>三元或条件运算符的第二、三个操作数可以是表达式或代码块(末尾不带分号)，这会由JavaScript解释器来识别和处理。显然C是无法这样的</em></p>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><p>JavaScript中for、while、do-while语句循环与C外观一致，只有for语句在初始化迭代变量时使用var&#x2F;let关键字 ，而C中一般用int等具体类型声明</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="浏览器内置函数"><a href="#浏览器内置函数" class="headerlink" title="浏览器内置函数"></a>浏览器内置函数</h3><p>JavaScript有许多内置的函数，它们大多数不是由JavaScript实现的，更像是C++这样更低级的系统语言编写的</p>
+<p>这些内置浏览器函数并非JavaScript语言的一部分，而是浏览器API的一部分</p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>形如 function() {…} 的是一个匿名函数，没有名字，自己也不会做任何事情</p>
+<p>匿名函数通常与事件处理程序一起使用，如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myButton.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>匿名函数也被称为函数表达式，它与函数声明有一些区别，不会进行声明提升</em></p>
+<h3 id="函数作用域和冲突"><a href="#函数作用域和冲突" class="headerlink" title="函数作用域和冲突"></a>函数作用域和冲突</h3><p>所有函数的最外层被称为全局作用域，全局作用域定义的值可以在任意地方访问</p>
+<p>调用外部脚本可能会产生问题，可能会因为外部脚本与本处脚本用同一个名字定义变量。因此将代码所在函数中可以极力避免这个问题</p>
+<h3 id="函数内部的函数"><a href="#函数内部的函数" class="headerlink" title="函数内部的函数"></a>函数内部的函数</h3><p>定义函数时，可以调用函数，这可能会导致函数作用域的复杂化，如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myBigFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> myValue;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">subFunction1</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">subFunction1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(myValue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面这个例子观察，在定义函数时，内部调用函数还是比较安全的。这个定义的函数不会通过调用函数来访问到不属于它作用域的变量</p>
+<p>换一种方式理解，就像一个C语言实现的系统里，相对于系统入口而言的外部功能可以用一个文件去封装，需要的时候，声明一下，再由这个系统的main函数去调用；JavaScript则类似地从让函数可以封装文件级别的内容</p>
+<p><em>实际上大量的JavaScript代码都是通过“函数内部的函数”来实现封装</em></p>
+<h2 id="事件介绍"><a href="#事件介绍" class="headerlink" title="事件介绍"></a>事件介绍</h2><p>在Web中可能发生很多事件，如：在某个元素上鼠标点击或悬停，用户按下某个按键，用户调整浏览器大小，一个网页停止加载，提交表单，播放视频，关闭错误</p>
+<p><em>网络事件不是JavaScript语言的核心，它们被定义成内置于浏览器的APIs</em></p>
+<p>每个可用的事件都会有一个事件处理器，也就是事件触发时会运行的代码块</p>
+<p><em>事件处理器也会被叫做事件监听器，因为这块代码既监听事件也处理事件</em></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/29/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/git%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/" rel="prev" title="客户端git配置与使用">
+                  <i class="fa fa-chevron-left"></i> 客户端git配置与使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/09/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
