@@ -1,272 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Markdown基础语法</title>
-    <url>/2022/10/09/%E5%AD%A6%E4%B9%A0/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>记录Markdown基本语法</p>
-<ul>
-<li>2022-07-13 <ul>
-<li>重新整理了一些不标准和不合适的markdown语法</li>
-<li>试图更新table样式，发现table样式似乎写死，指定样式无用。</li>
-</ul>
-</li>
-</ul>
+    <title>Linux常见命令记录</title>
+    <url>/2022/10/12/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>暂时没有开始记录，先创建一下</p>
 <span id="more"></span>
-
-
-
-
-
-
-<h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="Heading-level-1"><a href="#Heading-level-1" class="headerlink" title="Heading level 1"></a>Heading level 1</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading level 1//一级标题，注意井号后面有个空格</span></span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 1</span></span><br><span class="line"><span class="section">========</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Heading-level-2"><a href="#Heading-level-2" class="headerlink" title="Heading level 2"></a>Heading level 2</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## Heading level 2//二级标题</span></span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 2</span></span><br><span class="line"><span class="section">---------</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Heading-level-3"><a href="#Heading-level-3" class="headerlink" title="Heading level 3"></a>Heading level 3</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### Heading level 3//三级标题，增加井号数量可继续增加子标题等级</span></span><br></pre></td></tr></table></figure>
-<h1 id="段落语法"><a href="#段落语法" class="headerlink" title="段落语法"></a>段落语法</h1><p>今天天气不错，<br>午饭吃了吗</p>
-<p>还没有吃</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，</span><br><span class="line">午饭吃了吗</span><br><span class="line"></span><br><span class="line">还没有吃</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">段落，用空白行隔开段落，段落前不要用空格或制表符缩进段落</span><br></pre></td></tr></table></figure>
-<h1 id="换行语法"><a href="#换行语法" class="headerlink" title="换行语法"></a>换行语法</h1><p>这是第一行<br><br>这是第二行<br><br>这是第三行</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是第一行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第二行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第三行</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">也在行尾使用两个空格作为换行符</span><br></pre></td></tr></table></figure>
-<h1 id="强调单词或句子"><a href="#强调单词或句子" class="headerlink" title="强调单词或句子"></a>强调单词或句子</h1><p>今天<strong>天气</strong>真不错啊<br><br>今天<em>天气</em>真不错啊<br><br>今天<em><strong>天气</strong></em>真不错啊<br><br>今天~~ 天气 ~~真不错啊</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗体：   </span><br><span class="line"><span class="code">    今天**天气**真不错啊</span></span><br><span class="line"><span class="code">斜体：</span></span><br><span class="line"><span class="code">    今天*天气*真不错啊</span></span><br><span class="line"><span class="code">斜粗体：</span></span><br><span class="line"><span class="code">    今天***天气***真不错啊</span></span><br><span class="line"><span class="code">删去线：</span></span><br><span class="line"><span class="code">    今天~~ 天气 ~~真不错啊</span></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h1><blockquote>
-<p>第一段落：撅草棍儿抽长短</p>
-<p>第二段落：谁长谁先干</p>
-<blockquote>
-<p>这里是子嵌套的</p>
-</blockquote>
-</blockquote>
-<blockquote><p>今天天气不错</p>
-</blockquote>
-
-
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;第一段落：撅草棍儿抽长短</span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt;第二段落：谁长谁先干</span></span><br><span class="line">&gt;&gt;这里是子嵌套的</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">多个段落的块引用间，空行也要加&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">今天天气不错</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项<ol>
-<li>子项</li>
-<li>子项</li>
-</ol>
-</li>
-<li>第四项<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项 //注意点后有空格</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br><span class="line"><span class="bullet">    1.</span> 子项</span><br><span class="line"><span class="bullet">    2.</span> 子项</span><br><span class="line"><span class="bullet">4.</span> 第四项</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
-<li><p>第一项</p>
-<blockquote>
-<p>今天天气不错</p>
-</blockquote>
-</li>
-<li><p>第二项</p>
-<ul>
-<li>子项</li>
-<li>子项</li>
-<li>子项</li>
-</ul>
-</li>
-<li><p>第三项</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 第一项</span><br><span class="line"></span><br><span class="line"><span class="code">    &gt;今天天气不错 //列表中可嵌套其他元素</span></span><br><span class="line"><span class="code">- 第二项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">- 第三项</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h1><p>代码语法的作用是让代码在下面这样的框里显示</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<p>编辑代码内容</p>
-<pre><code><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束   </span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>或者<br></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock  %&#125;</span><br><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><p>第一行</p>
-<hr>
-<p>第二行</p>
-<hr>
-<p>第三行</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">第一行</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第二行</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">___</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第三行</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的<span class="emphasis">*，或三个连续的下划线可作分隔线</span></span><br></pre></td></tr></table></figure>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com &quot;百度搜素&quot;</span>)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
-<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#97;&#107;&#x65;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#111;&#109;">&#x66;&#97;&#107;&#x65;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://markdown.com.cn&gt;</span></span><br><span class="line"><span class="language-xml">&lt;fake@example.com&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 <span class="strong">**<span class="emphasis">*[<span class="string">中国天气</span>](<span class="link">http://www.weather.com.cn/</span>)*</span>**</span></span><br><span class="line">查看[<span class="string">`code`</span>](<span class="link">#code</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p><img src="/../../themes/next_a/source/images/avatars/aoba.jpg" alt="图片1" title="aoba"><br></p>
-<p><img src="/assets/images/aoba.jpg" alt="青叶" title="aoba"></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>  //以该post的地址作为起始地址，这样的链接是错误的</span><br><span class="line"></span><br><span class="line">![<span class="string">青叶</span>](<span class="link">/assets/images/aoba.jpg &quot;aoba&quot;</span>)  //运行时相对地址的起始为博客的根目录文件夹，这样的链接是正确的</span><br></pre></td></tr></table></figure>
-
-<h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a href="http://newgame-anime.com/assets/character/c4.png" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="hifumi"></a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![日富美</span>](<span class="link">/assets/images/hifumi.jpg &quot;hifumi&quot;</span>)](<span class="link">http://newgame-anime.com/assets/character/c4.png &quot;hifumi&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><h2 id="可做转义的字符"><a href="#可做转义的字符" class="headerlink" title="可做转义的字符"></a>可做转义的字符</h2><p>以下列出的字符都可以通过使用反斜杠字符从而达到转义目的。</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>\</td>
-<td>反斜线</td>
-</tr>
-<tr>
-<td>&#96;</td>
-<td>反引号</td>
-</tr>
-<tr>
-<td>_</td>
-<td>下划线</td>
-</tr>
-<tr>
-<td>{}</td>
-<td>花括号</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>方括号</td>
-</tr>
-<tr>
-<td>()</td>
-<td>圆括号</td>
-</tr>
-<tr>
-<td>#</td>
-<td>井号</td>
-</tr>
-<tr>
-<td>+</td>
-<td>加号</td>
-</tr>
-<tr>
-<td>-</td>
-<td>减号，连字符</td>
-</tr>
-<tr>
-<td>.</td>
-<td>圆点</td>
-</tr>
-<tr>
-<td>!</td>
-<td>感叹号</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="特殊字符自动转义"><a href="#特殊字符自动转义" class="headerlink" title="特殊字符自动转义"></a>特殊字符自动转义</h2><p>如果你使用 &amp; 符号的作为 HTML 实体的一部分，那么它不会被转换，而在其它情况下，它则会被转换成 &amp;amp;。</p>
-<h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1><h2 id="lt-ruby-gt"><a href="#lt-ruby-gt" class="headerlink" title="&lt;ruby&gt;"></a>&lt;ruby&gt;</h2><p><ruby>拼音<rt>pinyin</rt></ruby></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">ruby</span>&gt;</span></span>拼音<span class="language-xml"><span class="tag">&lt;<span class="name">rt</span>&gt;</span></span>pinyin<span class="language-xml"><span class="tag">&lt;/<span class="name">rt</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">ruby</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="lt-detail-gt"><a href="#lt-detail-gt" class="headerlink" title="&lt;detail&gt;"></a>&lt;detail&gt;</h2><details class="note primary no-icon" open="">
-<summary><p><strong>总描述</strong></p>
-</summary>
-
-<table>
-<thead>
-<tr>
-<th align="left">栏目1</th>
-<th align="center">栏目2</th>
-<th align="left">栏目 3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">\</td>
-<td align="center">反斜线</td>
-<td align="left">\</td>
-</tr>
-<tr>
-<td align="left">&#96;</td>
-<td align="center">反引号</td>
-<td align="left">&#96;</td>
-</tr>
-<tr>
-<td align="left">_</td>
-<td align="center">下划线</td>
-<td align="left">_</td>
-</tr>
-</tbody></table>
-</details>
-
-
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">strong</span>&gt;</span></span>总描述<span class="language-xml"><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">| 栏目1 | 栏目2 | 栏目 3|</span><br><span class="line">| :--- | :----: |:---|  //对齐方式</span><br><span class="line">| \  | 反斜线 | \ |</span><br><span class="line">| <span class="code">`  | 反引号 | `</span> |</span><br><span class="line">| <span class="emphasis">_  | 下划线 | _</span> |</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<details class="note primary no-icon" open="">
-<summary><p><strong>总体介绍</strong></p></summary>
-<table>
-<caption style="text-align: left;">表格标题</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;">栏目1</th>
-<th style="text-align: center;">栏目2</th>
-<th style="text-align: center;">栏目3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">a</td>
-<td style="text-align: center;">aa</td>
-<td style="text-align: center;">aaa</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">b</td>
-<td style="text-align: center;">bb</td>
-<td style="text-align: center;">bbb</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">b</td>
-<td style="text-align: center;">bb</td>
-<td style="text-align: center;">bbb</td>
-</tr>
-</tbody>
-</table>
-</details>
-
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">summary</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>总体介绍<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span> <span class="comment">&lt;!--hexo这里css文件似乎有问题，无法指定格式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">caption</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left;&quot;</span>&gt;</span>表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>a<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;even&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
+<p>linux命令大全<br><a href="https://www.runoob.com/linux/linux-command-manual.html">https://www.runoob.com/linux/linux-command-manual.html</a></p>
+<p><a href="https://www.runoob.com/linux/linux-comm-chmod.html">https://www.runoob.com/linux/linux-comm-chmod.html</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
+        <category>Linux相关</category>
       </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/10/09/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>linux命令大全<br><a href="https://www.runoob.com/linux/linux-command-manual.html">https://www.runoob.com/linux/linux-command-manual.html</a></p>
-<p><a href="https://www.runoob.com/linux/linux-comm-chmod.html">https://www.runoob.com/linux/linux-comm-chmod.html</a></p>
-]]></content>
   </entry>
   <entry>
     <title>JavaScript基础</title>
     <url>/2022/10/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--JavaScript%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>JavaScript 是一种轻量级解释型语言，可以用来创建动态更新的内容，控制多媒体，制作图像动画，其他等等</p>
+<ul>
+<li>2022-10-17 完成JavaScript基础部分的整理</li>
+</ul>
 <span id="more"></span>
 
 <h1 id="JavaScript基础介绍"><a href="#JavaScript基础介绍" class="headerlink" title="JavaScript基础介绍"></a>JavaScript基础介绍</h1><h2 id="JavaScript的API"><a href="#JavaScript的API" class="headerlink" title="JavaScript的API"></a>JavaScript的API</h2><p>JavaScript的应用程序接口API通常分为两类：</p>
@@ -313,23 +66,25 @@
 <h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>在Javascript中，声明时不需要指定变量类型</p>
 <p>变量类型有：</p>
 <ul>
-<li>Number<br>  数值类型，包括整数和浮点数</li>
-<li>String<br>  字符串类型，需要单引号或双引号包围，会视为别的变量名</li>
-<li>Boolean<br>  逻辑值类型</li>
-<li>Array<br>  数组类型，用方括号括起来，用逗号分隔多个值</li>
-<li>Object<br>  对象类型，它是一种代码结构<br>  let dog&#x3D;{name:’Spot’,shout:’wangwang’};  定义了一个对象实例</li>
+<li>Number：数值类型，包括整数和浮点数</li>
+<li>String：字符串类型，需要单引号或双引号包围，会视为别的变量名</li>
+<li>Boolean：逻辑值类型</li>
+<li>Array：数组类型，用方括号括起来，用逗号分隔多个值</li>
+<li>Object：对象类型，它是一种代码结构，如 let dog&#x3D;{name:’Spot’,shout:’wangwang’};  定义了一个对象实例</li>
 </ul>
-<h2 id="数字与运算符"><a href="#数字与运算符" class="headerlink" title="数字与运算符"></a>数字与运算符</h2><p>以后再更新记录</p>
+<h2 id="数字与运算符"><a href="#数字与运算符" class="headerlink" title="数字与运算符"></a>数字与运算符</h2><p><em>以后再更新记录</em></p>
 <h2 id="字符串与文本处理"><a href="#字符串与文本处理" class="headerlink" title="字符串与文本处理"></a>字符串与文本处理</h2><p>关于字符串的创建，引号包围字符串文本，字符串中的转义字符就不介绍了</p>
-<h3 id="把字符串当作对象"><a href="#把字符串当作对象" class="headerlink" title="把字符串当作对象"></a>把字符串当作对象</h3><p>字符串连接— join()方法，字符串字面值和字符串变量之间可以用 + 操作符随意连接。此外，数字也可以和字符串连接</p>
-<p>数字转化成字符串— Number对象把传递给它的任何东西试图转换成一个数字，如果不可转化则返回 NaN （这也是一个数字类型的值），如 Number(price)</p>
-<p>字符串与数字的转化— toString() 方法</p>
-<p>获取长度— length 属性，如 str1.length</p>
-<p>查找子字符串— indexOf() 方法，会返回子字符串的索引，如 str1.indexOf(‘apple’)</p>
-<p>提取子字符串— slice() 方法，如 str1.slice(0,3); str1.slice(2);</p>
-<p>转换大小写— toLowerCase() 方法、 toUpperCase() 方法，将所有字符串分别转为小写或大写，如 str1.toLowerCase();</p>
-<p>替换字符串某部分— replace() 方法，这个方法只会替换第一次符合匹配条件的地方，如 str1&#x3D;str1.replace(‘beforeStr’,’afterStr’);</p>
-<p>字符串分割为数组— split() 方法，参数为分隔符号，如 let myArray&#x3D;myData.split(‘,’); </p>
+<h3 id="把字符串当作对象"><a href="#把字符串当作对象" class="headerlink" title="把字符串当作对象"></a>把字符串当作对象</h3><ul>
+<li>字符串连接<br>join()方法，字符串字面值和字符串变量之间可以用 + 操作符随意连接。此外，数字也可以和字符串连接</li>
+<li>数字转化成字符串<br>Number对象把传递给它的任何东西试图转换成一个数字，如果不可转化则返回 NaN （这也是一个数字类型的值），如 Number(price)</li>
+<li>字符串与数字的转化<br>toString() 方法</li>
+<li>获取长度<br>length 属性，如 str1.length</li>
+<li>查找子字符串<br>indexOf() 方法，会返回子字符串的索引，如 str1.indexOf(‘apple’)</li>
+<li>提取子字符串<br>slice() 方法，如 str1.slice(0,3); str1.slice(2);</li>
+<li>转换大小写<br>toLowerCase() 方法、 toUpperCase() 方法，将所有字符串分别转为小写或大写，如 str1.toLowerCase();</li>
+<li>替换字符串某部分<br>replace() 方法，这个方法只会替换第一次符合匹配条件的地方，如 str1&#x3D;str1.replace(‘beforeStr’,’afterStr’);</li>
+<li>字符串分割为数组<br>split() 方法，参数为分隔符号，如 let myArray&#x3D;myData.split(‘,’);</li>
+</ul>
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><p>数组用方括号包围，内部用逗号分隔元素。数组内的元素不要求类型相同，甚至数组也可以作为元素</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> randomArr = [<span class="string">&#x27;milk&#x27;</span>, <span class="number">89</span>, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]];</span><br></pre></td></tr></table></figure>
 <h3 id="访问和修改数组"><a href="#访问和修改数组" class="headerlink" title="访问和修改数组"></a>访问和修改数组</h3><p>使用索引可以访问和修改数组中的元素，如</p>
@@ -369,13 +124,115 @@
 <h3 id="函数内部的函数"><a href="#函数内部的函数" class="headerlink" title="函数内部的函数"></a>函数内部的函数</h3><p>定义函数时，可以调用函数，这可能会导致函数作用域的复杂化，如：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myBigFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> myValue;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">subFunction1</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">subFunction1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(myValue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从上面这个例子观察，在定义函数时，内部调用函数还是比较安全的。这个定义的函数不会通过调用函数来访问到不属于它作用域的变量</p>
-<p>换一种方式理解，就像一个C语言实现的系统里，相对于系统入口而言的外部功能可以用一个文件去封装，需要的时候，声明一下，再由这个系统的main函数去调用；JavaScript则类似地从让函数可以封装文件级别的内容</p>
-<p><em>实际上大量的JavaScript代码都是通过“函数内部的函数”来实现封装</em></p>
+<p>看上去，JavaScript似乎让函数具有了封装文件级别内容的能力，实际上大量的JavaScript代码都是通过“函数内部的函数”来实现封装</p>
 <h2 id="事件介绍"><a href="#事件介绍" class="headerlink" title="事件介绍"></a>事件介绍</h2><p>在Web中可能发生很多事件，如：在某个元素上鼠标点击或悬停，用户按下某个按键，用户调整浏览器大小，一个网页停止加载，提交表单，播放视频，关闭错误</p>
 <p><em>网络事件不是JavaScript语言的核心，它们被定义成内置于浏览器的APIs</em></p>
 <p>每个可用的事件都会有一个事件处理器，也就是事件触发时会运行的代码块</p>
 <p><em>事件处理器也会被叫做事件监听器，因为这块代码既监听事件也处理事件</em></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+<h3 id="添加事件处理器"><a href="#添加事件处理器" class="headerlink" title="添加事件处理器"></a>添加事件处理器</h3><p>事件处理器代码的“入口地址”可以被赋给元素对象的特定属性并实现监听效果，这样的属性被称为<strong>事件处理属性</strong>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> btn=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">btn.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>它明显的缺点是不能添加做个处理器</p>
+<p>另一种触发机制是使用监听函数，更建议使用这种方式：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> btn=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">cliFun</span>(<span class="params"></span>)&#123;...&#125;;</span><br><span class="line">btn,<span class="title function_">addEvebtListener</span>(<span class="string">&#x27;click&#x27;</span>,cliFun);</span><br></pre></td></tr></table></figure>
+<p>这种方法在比较大的项目中可以更清楚地添加和删除事件处理器，此外，还能给同一个监听器触发多个处理器</p>
+<h3 id="移除处理器"><a href="#移除处理器" class="headerlink" title="移除处理器"></a>移除处理器</h3><p>对于使用事件处理器属性，移除处理器只要对该属性赋空即可</p>
+<p>对于使用监听函数添加的处理器，使用removeEventListener函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">removeEventListener</span>(<span class="string">&#x27;click&#x27;</span>,cliFun);</span><br><span class="line"><span class="comment">//这里的cliFun表示的是处理器函数，至于究竟是怎样匹配到它的，这里不做研究</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>有时候在事件处理函数内部，会加上一个固定指定名称的参数，例如 event、evt、e或自定义的其他名称，它们的意思是相同的，表示一个<strong>事件对象</strong></p>
+<p>e的值是刚刚发生这个事件的元素转化成的JavaScript对象（被称做<strong>事件对象</strong>）</p>
+<p>如果要表示一个标签本身，使用 e.taregt ，假如它表示按钮本身，那么 e.target.style.backgroundColor&#x3D;’red’ 就是修改这个按钮的背景色为红色</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">bgChange</span>(<span class="params">e</span>) &#123; <span class="comment">//e这个参数会自动传递到函数这里</span></span><br><span class="line">  <span class="keyword">const</span> rndCol = <span class="string">&#x27;rgb(&#x27;</span> + <span class="title function_">random</span>(<span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> + <span class="title function_">random</span>(<span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> + <span class="title function_">random</span>(<span class="number">255</span>) + <span class="string">&#x27;)&#x27;</span>;</span><br><span class="line">  e.<span class="property">target</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = rndCol;<span class="comment">//修改触发事件的按钮的背景色</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e);<span class="comment">//输出这个对象的信息</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, bgChange);</span><br></pre></td></tr></table></figure>
+
+<h3 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h3><p>有些浏览器支持自动的表单验证功能，但这很可能不是想要的，因此需要自己添加一个事件处理程序</p>
+<p>在这个处理程序里面，要先显示调用e.preventDefault()来阻止默认行为，然后再写上自定义行为：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">form.<span class="property">onsubmit</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>();</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>现代浏览器中，默认情况下，所有事件处理程序都是在冒泡阶段注册的。冒泡是先执行本身事件处理程序，再执行外部的</p>
+<p>这会引起讨厌的行为，标准事件对象具有名为 stopPropagation() 的函数，它只会让当前事件处理程序允许，不会再冒泡链上进一步扩大：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">video.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">  e.<span class="title function_">stopPropagation</span>();</span><br><span class="line">  video.<span class="title function_">play</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>子节点的事件可以委托父节点监听，让这个事件冒泡到父节点上</p>
+<p>常用的情形是，想要让每个列表项&lt;li&gt;点击时弹出信息，则可以将click单击事件监听器放在父元素上，这样事件就会冒泡到父元素&lt;ul&gt;上了</p>
+<h1 id="JavaScript对象介绍"><a href="#JavaScript对象介绍" class="headerlink" title="JavaScript对象介绍"></a>JavaScript对象介绍</h1><h2 id="创建对象并访问"><a href="#创建对象并访问" class="headerlink" title="创建对象并访问"></a>创建对象并访问</h2><p>创建一个对象的方式为：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">  name : &#123;</span><br><span class="line">    firstName : <span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">    lastName : <span class="string">&#x27;Smith&#x27;</span>, </span><br><span class="line">  &#125;,</span><br><span class="line">  age : <span class="number">32</span>,</span><br><span class="line">  greeting : <span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;,</span><br><span class="line">  intersts : [<span class="string">&#x27;music&#x27;</span>, <span class="string">&#x27;skiing&#x27;</span>]</span><br><span class="line">  all</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问对象可以使用点表示法和括号表示法，如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//访问一般变量</span></span><br><span class="line">person.<span class="property">age</span></span><br><span class="line">person[<span class="string">&#x27;age&#x27;</span>]</span><br><span class="line"><span class="comment">//访问数组</span></span><br><span class="line">person.<span class="property">intersts</span>[<span class="number">0</span>]</span><br><span class="line">person[intersts][<span class="number">0</span>]</span><br><span class="line"><span class="comment">//访问对象</span></span><br><span class="line">person.<span class="property">name</span>.<span class="property">first</span></span><br><span class="line">person[<span class="string">&#x27;name&#x27;</span>][<span class="string">&#x27;first&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p><em>使用括号表示法看上去很像数组–对象做了字符串到值得映射，数组做的是数字到值得映射</em></p>
+<p>设置成员对象时，如果该成员本不存在，那么会自动创建</p>
+<h2 id="基于原型"><a href="#基于原型" class="headerlink" title="基于原型"></a>基于原型</h2><p>JavaScript的每个对象都拥有一个原型对象，对象以其原型为模板，继承其方法和属性（通过链接）。原型对象也可能拥有一个原型，一层一层继承，形成原型链</p>
+<p>JavaScript中，函数可以有属性，且每个函数都有一个特殊属性–原型（prototype）</p>
+<p>（更多部分暂时不记录）</p>
+<h2 id="JavaScript中的类"><a href="#JavaScript中的类" class="headerlink" title="JavaScript中的类"></a>JavaScript中的类</h2><p>在函数一节中，提到过在JavaScript中，函数具有封装能力。然而类更具有典型的封装能力，本节记录的类的封装和函数实现的封装有何不同，需要细细观察</p>
+<p>已经理解的是，函数是一个具体的对象，可以被别的函数继承，别的函数可以通过委托的方式沿着原型链调用函数；类则是一类对象的抽象</p>
+<h3 id="声明一个类"><a href="#声明一个类" class="headerlink" title="声明一个类"></a>声明一个类</h3><p>声明一个类有多种方法，一种是是用class关键字声明一个类，进行比较严格的封装；另一种是在“外部环境”下，定义一个与类名相同的构造器函数</p>
+<p>在“外部环境”下定义一个构造器，以此定义一个类：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个构造器，来实现声明一个类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Ball</span>(<span class="params">x,y</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在“外部环境”使用prototype，定义这个类的方法</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">drawBall</span>=<span class="keyword">function</span>&#123;...&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用class关键字，定义一个类：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  some variables</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  name;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//实现一个构造函数</span></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">personName</span>)&#123;...&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  some functions</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="类的构造函数"><a href="#类的构造函数" class="headerlink" title="类的构造函数"></a>类的构造函数</h3><p>在class关键字定义一个类时，构造函数使用constructor关键字声明，执行这个函数时，它会：</p>
+<ul>
+<li>创建一个新的对象</li>
+<li>将this绑定到这个对象上，然后再构造函数代码中就可以使用this来引用这个对象</li>
+<li>执行构造函数中的代码</li>
+<li>返回这个新对象</li>
+</ul>
+<p>使用类的构造函数，创建一个实例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用类的名字来调用构造函数</span></span><br><span class="line"><span class="keyword">const</span> jojo = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;jojo&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果不需要特殊的初始内容，可以省略构造函数，而默认的构造函数会被自动生成</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>可以使用extends关键字声明这个类继承自另一个类，注意子类的构造函数的定义：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Professor</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">  teaches;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">personName, professorTeaches</span>)&#123;</span><br><span class="line">    <span class="variable language_">super</span>(personName);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">teaches</span> = professorTeaches;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类的构造函数的第一件事情，是使用super()来调用父类的构造方法，然后再设置仅属于子类的部分</p>
+<h3 id="封装–定义私有变量"><a href="#封装–定义私有变量" class="headerlink" title="封装–定义私有变量"></a>封装–定义私有变量</h3><p>JavaScript定义一个私有变量的方法，是从命名规则上实现的，对于以井号(#)开头的属性或函数，都会被定义为私有的：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">  #somePrivateVar;</span><br><span class="line"></span><br><span class="line">  #<span class="title function_">somePrivateMethod</span>(<span class="params"></span>)&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用JSON数据"><a href="#使用JSON数据" class="headerlink" title="使用JSON数据"></a>使用JSON数据</h2><p>注意事项：</p>
+<ul>
+<li>JSON是一种纯数据格式，只包含属性，没有方法；</li>
+<li>JSON要求属性名和字符串用双引号包围，单引号无效</li>
+<li>JSON文件的容错较低，一个错位的逗号或分号就会导致JSON文件出错</li>
+</ul>
+<h3 id="在HTML页面中加载json对象"><a href="#在HTML页面中加载json对象" class="headerlink" title="在HTML页面中加载json对象"></a>在HTML页面中加载json对象</h3><p>为了载入json到页面中，需要使用一个名为XMLRequset的API（常称为XHR）</p>
+<p>XHR是一个非常有用的JavaScript对象，能够通过代码向服务器请求资源文件（图片、文本、JSON、HTML片段）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> requestURL = <span class="string">&#x27;https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">request.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,requestURL);</span><br><span class="line">request.<span class="property">responseType</span>=<span class="string">&#x27;json&#x27;</span>;</span><br><span class="line"><span class="comment">//上面都在设置这个请求的参数</span></span><br><span class="line"><span class="comment">//send方法发送请求</span></span><br><span class="line">request.<span class="title function_">send</span>();</span><br><span class="line"><span class="comment">//处理返回的数据</span></span><br><span class="line"><span class="comment">//onload事件是浏览器解析完页面之后就会自动触发的</span></span><br><span class="line">request.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> aJsonObj = request.<span class="property">response</span>;<span class="comment">//获得json对象</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  现在已经获取到请求响应的json格式数据</span></span><br><span class="line"><span class="comment">  可以用它修改页面显示，或做其他操作</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，onload事件触发的时机是浏览器解析完页面之后（有个问题，响应的接收和onload代码的触发的时间有无先后关系？）</p>
+<h3 id="在HTML页面上显示json数据"><a href="#在HTML页面上显示json数据" class="headerlink" title="在HTML页面上显示json数据"></a>在HTML页面上显示json数据</h3><p>上面的步骤中已经获得了一个json对象，利用它在页面的上添加数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> header = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;header&#x27;</span>);</span><br><span class="line"><span class="comment">//在html页面添加一个h1标签，标签内容为获得的json数据的某部分</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">addJsonData</span>(<span class="params">aJsonObj</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> myHearder=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">  myHeader.<span class="property">textContent</span>=aJsonObj[<span class="string">&#x27;foo&#x27;</span>];</span><br><span class="line">  header.<span class="title function_">append</span>(myHeader)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON对象和文本的转换"><a href="#JSON对象和文本的转换" class="headerlink" title="JSON对象和文本的转换"></a>JSON对象和文本的转换</h3><p>对于一个XHR而言，获得json对象只需要设定这个请求的返回格式是json，然后获取“返回报文”即可（此时返回值自动设定为是json对象类型）</p>
+<p>但是，有时需要将一些字符串转为json数据，或者把一些数据转为json对象，这时需要使用浏览器内置的两个方法：</p>
+<ul>
+<li>JSON.parse()：以文本字符串形式接收json数据，返回一个json对象</li>
+<li>JSON.stringify()：接受一个对象作为参数，返回一个对应的json字符串</li>
+</ul>
+<h1 id="对象构建实验–彩色弹球"><a href="#对象构建实验–彩色弹球" class="headerlink" title="对象构建实验–彩色弹球"></a>对象构建实验–彩色弹球</h1><p>（暂时省略）</p>
+<h2 id="页面构造"><a href="#页面构造" class="headerlink" title="页面构造"></a>页面构造</h2><p>包含内容为：</p>
+<ol>
+<li>一个简单的HTML文档，内容包一个h1元素、一个canvas元素</li>
+<li>一个简单的CSS样式文件，定位h1元素，填充画面背景</li>
+<li>一个JS文件，设置canvas元素</li>
+</ol>
+<h2 id="HTML页面"><a href="#HTML页面" class="headerlink" title="HTML页面"></a>HTML页面</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>实验之彩色弹球<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>彩色弹球<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span>&gt;</span> <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="css部分"><a href="#css部分" class="headerlink" title="css部分"></a>css部分</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*设定标题样式：</span></span><br><span class="line"><span class="comment">标题位于右上角，字体颜色为白*/</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">letter-spacing</span>: -<span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">5px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">color</span>: transparent;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">4px</span> white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="JS部分"><a href="#JS部分" class="headerlink" title="JS部分"></a>JS部分</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 设置画布</span></span><br><span class="line"><span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;canvas&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> width = canvas.<span class="property">width</span> = <span class="variable language_">window</span>.<span class="property">innerWidth</span>;</span><br><span class="line"><span class="keyword">const</span> height = canvas.<span class="property">height</span> = <span class="variable language_">window</span>.<span class="property">innerHeight</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成随机数的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">random</span>(<span class="params">min,max</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> num = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * (max - min)) + min;</span><br><span class="line">  <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成随机颜色值的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">randomColor</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> color = <span class="string">&#x27;rgb(&#x27;</span> +</span><br><span class="line">                <span class="title function_">random</span>(<span class="number">0</span>, <span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> +</span><br><span class="line">                <span class="title function_">random</span>(<span class="number">0</span>, <span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> +</span><br><span class="line">                <span class="title function_">random</span>(<span class="number">0</span>, <span class="number">255</span>) + <span class="string">&#x27;)&#x27;</span>;</span><br><span class="line">  <span class="keyword">return</span> color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 Ball 构造器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Ball</span>(<span class="params">x, y, velX, velY, color, size</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">velX</span> = velX;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">velY</span> = velY;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">size</span> = size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义彩球绘制函数</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">draw</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  ctx.<span class="title function_">beginPath</span>();</span><br><span class="line">  ctx.<span class="property">fillStyle</span> = <span class="variable language_">this</span>.<span class="property">color</span>;</span><br><span class="line">  ctx.<span class="title function_">arc</span>(<span class="variable language_">this</span>.<span class="property">x</span>, <span class="variable language_">this</span>.<span class="property">y</span>, <span class="variable language_">this</span>.<span class="property">size</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="title class_">Math</span>.<span class="property">PI</span>);</span><br><span class="line">  ctx.<span class="title function_">fill</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义彩球更新函数</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">update</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">x</span> + <span class="variable language_">this</span>.<span class="property">size</span>) &gt;= width) &#123;<span class="variable language_">this</span>.<span class="property">velX</span> = -(<span class="variable language_">this</span>.<span class="property">velX</span>);&#125;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">x</span> - <span class="variable language_">this</span>.<span class="property">size</span>) &lt;= <span class="number">0</span>) &#123;<span class="variable language_">this</span>.<span class="property">velX</span> = -(<span class="variable language_">this</span>.<span class="property">velX</span>);&#125;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">y</span> + <span class="variable language_">this</span>.<span class="property">size</span>) &gt;= height) &#123;<span class="variable language_">this</span>.<span class="property">velY</span> = -(<span class="variable language_">this</span>.<span class="property">velY</span>);&#125;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">y</span> - <span class="variable language_">this</span>.<span class="property">size</span>) &lt;= <span class="number">0</span>) &#123;<span class="variable language_">this</span>.<span class="property">velY</span> = -(<span class="variable language_">this</span>.<span class="property">velY</span>);&#125;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> += <span class="variable language_">this</span>.<span class="property">velX</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> += <span class="variable language_">this</span>.<span class="property">velY</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义碰撞检测函数</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">collisionDetect</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; balls.<span class="property">length</span>; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span> !== balls[j]) &#123;</span><br><span class="line">      <span class="keyword">const</span> dx = <span class="variable language_">this</span>.<span class="property">x</span> - balls[j].<span class="property">x</span>;</span><br><span class="line">      <span class="keyword">const</span> dy = <span class="variable language_">this</span>.<span class="property">y</span> - balls[j].<span class="property">y</span>;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title class_">Math</span>.<span class="title function_">sqrt</span>(dx * dx + dy * dy);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (distance &lt; <span class="variable language_">this</span>.<span class="property">size</span> + balls[j].<span class="property">size</span>) &#123;</span><br><span class="line">        balls[j].<span class="property">color</span> = <span class="variable language_">this</span>.<span class="property">color</span> = <span class="title function_">randomColor</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个数组，生成并保存所有的球</span></span><br><span class="line"><span class="keyword">let</span> balls = [];</span><br><span class="line"><span class="keyword">while</span>(balls.<span class="property">length</span> &lt; <span class="number">25</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> size = <span class="title function_">random</span>(<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">  <span class="keyword">let</span> ball = <span class="keyword">new</span> <span class="title class_">Ball</span>(</span><br><span class="line">    <span class="comment">// 为避免绘制错误，球至少离画布边缘球本身一倍宽度的距离</span></span><br><span class="line">    <span class="title function_">random</span>(<span class="number">0</span> + size, width - size),</span><br><span class="line">    <span class="title function_">random</span>(<span class="number">0</span> + size, height - size),</span><br><span class="line">    <span class="title function_">random</span>(-<span class="number">7</span>, <span class="number">7</span>),</span><br><span class="line">    <span class="title function_">random</span>(-<span class="number">7</span>, <span class="number">7</span>),</span><br><span class="line">    <span class="title function_">randomColor</span>(),</span><br><span class="line">    size</span><br><span class="line">  );</span><br><span class="line">  balls.<span class="title function_">push</span>(ball);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个循环来不停地播放</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loop</span>(<span class="params"></span>) &#123;</span><br><span class="line">  ctx.<span class="property">fillStyle</span> = <span class="string">&#x27;rgba(0,0,0,0.25)&#x27;</span>;</span><br><span class="line">  ctx.<span class="title function_">fillRect</span>(<span class="number">0</span>,<span class="number">0</span>,width,height);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; balls.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    balls[i].<span class="title function_">draw</span>();</span><br><span class="line">    balls[i].<span class="title function_">update</span>();</span><br><span class="line">    balls[i].<span class="title function_">collisionDetect</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">requestAnimationFrame</span>(loop);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">loop</span>();</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="异步JavaScript"><a href="#异步JavaScript" class="headerlink" title="异步JavaScript"></a>异步JavaScript</h1><h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p>事件处理程序实际上就是异步编程的一种形式，函数会在事件发生的时候调用，而非立即调用</p>
+<p>XMLHttpRequest（简称为XHR） API是JavaScript早期的异步API，可以发起HTTP请求，并通过给XHR对象附加事件监视器（以及配套的处理程序），在请求进展、最终完成、或其他时刻执行某些行为</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 假定有这样的html文件</span></span><br><span class="line"><span class="comment">&lt;button id=&quot;xhr&quot;&gt;点击发起请求&lt;/button&gt;</span></span><br><span class="line"><span class="comment">&lt;pre readonly class=&quot;event-log&quot;&gt;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> log=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.event-log&#x27;</span>);</span><br><span class="line"><span class="comment">//给点击事件加上监听。（异步）如果点击则发起发起一个http请求</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#xhr&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  log.<span class="property">textContent</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> xhr=<span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">  <span class="comment">//给xhr对象加上监听。（异步）如果获取到返回，则输出相关信息</span></span><br><span class="line">  xhr.<span class="title function_">addEventListener</span>(<span class="string">&#x27;loadend&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    log.<span class="property">textContent</span>=<span class="string">&#x27;$&#123;log.textcont&#125;完成！状态码：$&#123;xhr.status&#125;&#x27;</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//发送一个http请求</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&#x27;www.baidu.com&#x27;</span>);</span><br><span class="line">  xhr.<span class="title function_">send</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用Promise"><a href="#使用Promise" class="headerlink" title="使用Promise"></a>使用Promise</h2><p>Promise是现代JavaScript异步编程的基础，是一个由异步函数返回的对象，这个对象可以指示当前操作所处的状态</p>
+<h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><p>fetch API是一个基于Promise的，用以替代XMLHttpRequest的方法（XHR是早期实现异步编程的API）</p>
+]]></content>
       <categories>
         <category>web前端</category>
       </categories>
@@ -384,20 +241,191 @@
     <title>客户端git配置与使用</title>
     <url>/2022/09/29/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/git%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>这篇文章主要记录一些客户端用户使用git的方法</p>
+<ul>
+<li>2022-10-13 记录了学习的git基础操作，包括：<ul>
+<li>git安装与配置</li>
+<li>创建仓库和获取仓库</li>
+<li>查看当前仓库的状态，是否存在未提交和已修改文件</li>
+<li><strong>使用git记录更新</strong>：文件启用和取消追踪，三种文件状态（未修改、已修改、已暂存）的切换，主要涉及add、commit操作</li>
+<li>设置忽略追踪</li>
+<li>远程仓库的使用，包括设置远程仓库、查看远程仓库、抓取和拉取、推送</li>
+<li>打标签，关于标签的创建、查看、共享到远程仓库、删除等</li>
+</ul>
+</li>
+</ul>
+<p>关于分支的内容还没有开始记录</p>
 <span id="more"></span>
+<h1 id="安装和初次配置git"><a href="#安装和初次配置git" class="headerlink" title="安装和初次配置git"></a>安装和初次配置git</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><em>以git 2.8.0为准</em><br>在CentOS上安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
 
+<p>注意，下文给出的例子中有些命令已经被替代，以新命令为准（存在新旧差异的命令一般会给出新命令的提示）</p>
+<h2 id="初次运行前配置"><a href="#初次运行前配置" class="headerlink" title="初次运行前配置"></a>初次运行前配置</h2><p>git自带一个 git config 工具，帮助设置外观和行为的配置变量。这些变量存储在：</p>
+<ol>
+<li>&#x2F;etc&#x2F;gitconfig文件：包含系统上每一个用户及他们仓库的通用配置。传递–system参数会读写该文件</li>
+<li>~&#x2F;.gitconfig 或 ~&#x2F;.git&#x2F;.gitconfig文件，只针对当前用户。传递–global参数会读写该文件，对系统上当前用户的所有仓库生效</li>
+<li>当前使用仓库的的.git&#x2F;config文件，只针对该仓库，传递–local参数会让git强制读写该文件（默认情况下用的就是它）</li>
+</ol>
+<p>低层配置变量会覆盖上层</p>
+<p>可以使用以下命令查看所有配置，以及所在文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --list --show-origin</span><br></pre></td></tr></table></figure>
 
+<h3 id="配置用户信息"><a href="#配置用户信息" class="headerlink" title="配置用户信息"></a>配置用户信息</h3><p>设置用户名和邮件地址，每一个git提交都会使用这些信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.name &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
+<p><em>通常情况下git config使用–global参数，除非需要对特定项目使用特别的配置</em></p>
+<h3 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h3><p>配置默认文本编辑器，当git需要用户输入信息时会调用它，如配置Emacs:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global core.editor emacs</span><br></pre></td></tr></table></figure>
 
+<h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><p>列出git当前可以找到的配置：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+<p>git会从不同层级的文件读取配置，最终使用的是低层配置</p>
+<p>检查git的某一项配置：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">git config &lt;key&gt;</span></span><br><span class="line">git config user.name</span><br></pre></td></tr></table></figure>
 
+<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><p>查看快速参考:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add -h</span><br></pre></td></tr></table></figure>
 
+<h1 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h1><h2 id="获取仓库"><a href="#获取仓库" class="headerlink" title="获取仓库"></a>获取仓库</h2><p>通常有两种获取git仓库的方式：</p>
+<ol>
+<li>将尚未进行版本控制的本地目录转换为git仓库</li>
+<li>从其他服务器克隆一个已经存在的git仓库</li>
+</ol>
+<h3 id="在本地目录中初始化仓库"><a href="#在本地目录中初始化仓库" class="headerlink" title="在本地目录中初始化仓库"></a>在本地目录中初始化仓库</h3><p>初始化仓库：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">先进入项目文件夹，然后再执行初始化命令</span></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>这样会创.git子目录，包含git仓库的所有必须文件。此时项目里的文件还未被追踪</p>
+<p>追踪文件并进行初始提交：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add *.c</span><br><span class="line">git add LICENSE</span><br><span class="line">git commit -m &#x27;initial project version&#x27;</span><br></pre></td></tr></table></figure>
+<p>（这些指令后续再解释）现在已经得到了文件被追踪的仓库</p>
+<h3 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h3><p>克隆仓库：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">git <span class="built_in">clone</span> &lt;url&gt; [&lt;自定义本地仓库名称&gt;]</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">比如克隆git的链接库libgit2</span></span><br><span class="line">git clone https://github.com/libgit2/libgit2</span><br></pre></td></tr></table></figure>
+<p>这会在当前目录下创建一个名为libgit2的目录，在其中初始化一个.git文件夹，并<strong>从远程仓库拉取所有数据</strong>放入.git文件夹，然后从中读取最新版本的文件的拷贝放到libgit2目录下</p>
+<p>拉取使用的url可以是https://协议、git://协议、SSH传输协议</p>
+<h2 id="记录更新"><a href="#记录更新" class="headerlink" title="记录更新"></a>记录更新</h2><p>工作目录下的每一个文件只有两种状态：<strong>已跟踪</strong>或<strong>未跟踪</strong>，已跟踪的文件有三种状态：未修改（unmodified），已修改（modifeid），已暂存（staged）</p>
+<p>文件的状态变化周期：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Untracked    Unmodified    Modified     Staged</span><br><span class="line">    |            |            |           |</span><br><span class="line">    |===add=============================&gt; |</span><br><span class="line">    |            |==edit====&gt; |           |</span><br><span class="line">    |            |            |==stage==&gt; |</span><br><span class="line">    | &lt;==remove==|            |           |</span><br><span class="line">    |            | &lt;============commit====|</span><br><span class="line">    |            |            |           |</span><br></pre></td></tr></table></figure>
 
+<h3 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h3><p>可以使用git status命令查看哪些文件处于什么状态：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 
+<p>可能会有这样的输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
+<p>这样的输出表示工作目录“相当干净”：</p>
+<ol>
+<li>显示当前所在分支</li>
+<li>同远程服务器对应分支没有偏离（现在是默认分支master）</li>
+<li>上次提交后未出现更改，且没有未追踪状态的新文件</li>
+</ol>
+<p>如果有未追踪的文件，则会给出提示，并列出那些未被追踪的文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&#x27;some message&#x27;</span> &gt; README</span></span><br><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line"></span><br><span class="line">    README</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
 
+<p>使用选项-s或–short会得到更紧凑的一种格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git status -s</span><br><span class="line"> M README</span><br><span class="line">MM Rakefile</span><br><span class="line">A  lib/git.rb</span><br><span class="line">M  lib/simplegit.rb</span><br><span class="line">?? LICENSE.txt</span><br></pre></td></tr></table></figure>
+<p>新添加的未跟踪文件前面有??标记；<br>新添加到暂存区中的文件前面有A标记（原先未追踪，这是第一次添加）；<br>修改过的文件有M标记，左栏M标记表示已修改并暂存（即暂存区有它的已修改文件），右栏M标记表示在工作区中已修改，但未暂存</p>
+<h3 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h3><p>使用命令 git add 开始追踪一个文件，或递归地追踪一个目录下所有文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add README</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git status</span></span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with &#x27;origin/master&#x27;.</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">    new file:   README</span><br></pre></td></tr></table></figure>
+<p>只要是在Changes to be committed这行下的，就说明是已暂存状态</p>
+<h3 id="暂存已修改文件"><a href="#暂存已修改文件" class="headerlink" title="暂存已修改文件"></a>暂存已修改文件</h3><p>如果修改了一个已被跟踪的文件，那么此时检查文件状态（git status），会有如下输入：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    modified:   README.md</span><br></pre></td></tr></table></figure>
+<p>Changes not staged for commit这行下面列出了还未暂存的文件，现在使用git add命令就能够实现文件的提交</p>
+<p><em>git add是一个多功能命令，可以跟踪新文件，暂存已修改文件，还能把有冲突的文件标记为已解决等。因此这个命令应该理解为“精确地将文件添加到下一次提交中”</em></p>
+<p><em>如果同一个文件再提交前进行了两次暂存，那么最终只会提交最新暂存的版本</em></p>
+<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>有些无需纳入git管理的文件，如日志文件和编译过程中的临时文件，可以创建名为 .gitignore的文件，列出要忽略的文件模式:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">cat</span> .gitignore</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略所有的 .a 文件</span></span><br><span class="line">*.a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件</span></span><br><span class="line">!lib.a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO</span></span><br><span class="line">/TODO</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略任何目录下名为 build 的文件夹</span></span><br><span class="line">build/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略 doc/notes.txt，但不忽略 doc/server/arch.txt</span></span><br><span class="line">doc/*.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span></span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
+<p>（规则就不介绍了）</p>
+<h3 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h3><p>命令行中的git diff输出看上去有些繁杂，不记录</p>
+<h3 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h3><p><em>每次提交前建议使用git status查看是否有未暂行的文件，若不暂存它们，则提交时不会记录这些尚未暂存的变化</em></p>
+<p>提交命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git commit</span><br></pre></td></tr></table></figure>
+<p>运行提交命令后，会启动选择的文本编辑器来输入提交说明</p>
+<p>另外也可以在commit命令后添加-m选项，在命令中添加提交信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&quot;commit message&quot;</span></span></span><br><span class="line">[master 463dc4f] Story 182: Fix benchmarks for speed</span><br><span class="line"> 2 files changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 README</span><br></pre></td></tr></table></figure>
+<p>提交后会显示当前提交的分支，完整SHA-1校验和，修改了多少文件，多少行添加和修改过</p>
+<h3 id="跳过使用暂存区"><a href="#跳过使用暂存区" class="headerlink" title="跳过使用暂存区"></a>跳过使用暂存区</h3><p>在提交时加上-a选项，git会自动把所有跟踪的文件暂存并提交，省略手动git add的步骤：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git commit -a</span><br></pre></td></tr></table></figure>
 
+<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>可以使用git rm命令完成移除文件的工作，并连带从工作目录中删除指定文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm README.md</span><br></pre></td></tr></table></figure>
+<p>下次提交时，该文件就不会纳入版本管理</p>
+<p>如果已经暂存过该文件，则必须使用-f选项强制删除；如果仅是放弃追踪，希望保留工作目录上的文件，则使用–cached选项</p>
+<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><p>git对于移动文件使用git rm命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git mv file_from file_to</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等价于</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">mv</span> README.md README</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git <span class="built_in">rm</span> README.md</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git add README</span></span><br></pre></td></tr></table></figure>
+<p>甚至也使用git rm命令完成文件的重命名</p>
+<p>注意理解，git rm的行为git是可以理解为一个移动操作的，但是新位置文件却不存在“旧版本”（严格上说，每次提交都是一个版本，是不存在单独的一个文件的版本记录的，所以对于git来说，它知道迁移行为并且保存了迁移的记录。但是，对于新位置文件而言，它并不知晓旧位置文件的版本记录）</p>
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><p>查看提交历史的工具为git log命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+<p>不传入任何参数的情况下，git log会按照时间先后顺序列出所有的提交</p>
+<p>git log的常用选项如下：</p>
+<ul>
+<li>选项–stat，额外显示每次提交的简略统计信息</li>
+<li>选项-p或–patch，以补丁形式显示差异</li>
+<li>选项–pretty&#x3D;format:”…” ，可以定制输出格式</li>
+<li>更多的限制输出选项：<ul>
+<li>选项-<n>，显示最近n条提交</li>
+<li>选项–since,–after，如 –since&#x3D;2.weeks</li>
+<li>选项–until,–before</li>
+<li>选项–author,–committer ，</li>
+<li>选项–grep，显示提交说明中包含指定字符串的提交</li>
+<li>选项-S，显示添加或删除内容匹配指定字符串的提交</li>
+<li>其他</li>
+</ul>
+</li>
+</ul>
+<h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><p>git中任何提交过的东西都是可以恢复的，但是对于在已暂存文件、已修改文件，如果没有妥善操作，丢失后可能再也找不到了</p>
+<h3 id="补提交（修改上次提交）"><a href="#补提交（修改上次提交）" class="headerlink" title="补提交（修改上次提交）"></a>补提交（修改上次提交）</h3><p>运行带有–amend选项的提交命令可以重新提交：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">发现漏了一个文件，或需要修改提交信息</span></span><br><span class="line">git add forgotten_file</span><br><span class="line">git commit --amend -m &quot;amend commit&quot;</span><br></pre></td></tr></table></figure>
+<p>这个“修补提交”命令，是对上一次提交的补充和覆盖，如果带上-m选项，则会覆盖旧提交信息。</p>
+<p>在提交记录里只会存在经过修补的提交记录（更像是一个新提交），旧提交的存在不会被记录</p>
+<p><em>这个操作若使用不当，会造成代码丢失</em></p>
+<h3 id="取消暂存文件"><a href="#取消暂存文件" class="headerlink" title="取消暂存文件"></a>取消暂存文件</h3><p>取消暂存文件使用git reset命令，注意参考git status给出的提示（不同版本命令不同，以提示为准）：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">参考给出的提示： git reset HEAD &lt;file&gt;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">执行取消暂存命令，取消一个已暂存文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">输出当取消暂存后文件状态，这里显示“已修改“</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git reset HEAD CONTRIBUTING.md</span></span><br><span class="line">Unstaged changes after reset:</span><br><span class="line">M	CONTRIBUTING.md</span><br></pre></td></tr></table></figure>
+<p><em>git reset是一个很危险的命令，如果加上–hard选项更是如此。当在修改了工作目录的文件，又取消了暂存的时候，那么这个暂存的内容将会丢失</em></p>
+<h3 id="撤销对文件的修改"><a href="#撤销对文件的修改" class="headerlink" title="撤销对文件的修改"></a>撤销对文件的修改</h3><p>撤销对文件的修改，注意参考git status给出的提示（不同版本命令不同，以提示为准）：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">参考给出提示，git restore &lt;file&gt;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">执行撤销文件修改的命令</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore file2.txt</span></span><br></pre></td></tr></table></figure>
+<p><em>撤销对文件修改命令是一个很危险的命令，工作目录的文件会被最近的旧版本覆盖，不会留有记录</em></p>
+<h2 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h2><h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p>使用git remote命令，可以查看已经配置的远程仓库服务器。加上-v选项可以查看对应的url</p>
+<p><em>如果使用clone命令克隆了一个仓库，会自动将其添加为远程仓库，并以orgin简写</em></p>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>使用git remote add命令添加一个新的远程git仓库：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add &lt;shortname&gt; &lt;url&gt; </span><br></pre></td></tr></table></figure>
+<p>shortname是在本机上自定义的远程仓库名称，以后在拉去和推送代码时，可以使用该名称</p>
+<h3 id="从远程仓库抓取与拉取"><a href="#从远程仓库抓取与拉取" class="headerlink" title="从远程仓库抓取与拉取"></a>从远程仓库抓取与拉取</h3><p>命令git fetch &lt;remote&gt;会访问远程仓库，拉取本地仓库还没有的数据。这些数据下载到本地后，需要用户手动合入当前工作</p>
+<p>如果你的当前分支设置了跟踪远程分支，命令git pull会自动抓取远程分支并合并到当前分支。默认情况下git clone会自动设置本地master追踪远程仓库master</p>
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p>使用git push &lt;remote&gt; &lt;branch&gt;将分支推送至远程服务器。执行这条命令需要的条件是，当前用户具有写入权限，且上次拉取前没有人推送过</p>
+<h3 id="查看某个远程仓库的详情"><a href="#查看某个远程仓库的详情" class="headerlink" title="查看某个远程仓库的详情"></a>查看某个远程仓库的详情</h3><p>查看某个远程仓库使用git remote show &lt;remote&gt; 命令</p>
+<p>这个命令会列出服务器的分支状态（new、tracked、stale），使用git push推送的目标远程分支，使用git pull拉取后自动合并的目标本地分支</p>
+<h3 id="远程仓库的重名"><a href="#远程仓库的重名" class="headerlink" title="远程仓库的重名"></a>远程仓库的重名</h3><p>可以使用git remote rename来修改远程仓库的简写名：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote rename pb ppbb</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote</span></span><br><span class="line">origin</span><br><span class="line">ppdd</span><br></pre></td></tr></table></figure>
 
+<h3 id="远程仓库的移除"><a href="#远程仓库的移除" class="headerlink" title="远程仓库的移除"></a>远程仓库的移除</h3><p>可以使用git remote remove移除一个远程仓库：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote remove ppdd</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote</span></span><br><span class="line">orgin</span><br></pre></td></tr></table></figure>
 
+<h2 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h2><p>git可以给仓库历史中某一个提交打上标签，比较有代表性的是，标记发布节点（v1.0、v2.0等）</p>
+<h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><p>git tag命令可以列出已有标签，可以带上选项-l或–list：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此时有无-l选项效果一样</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git tag</span></span><br><span class="line">v1.0</span><br><span class="line">v1.1</span><br><span class="line">v1.2</span><br><span class="line">v2.0</span><br><span class="line">v2.1</span><br><span class="line">v3.0</span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">带上-l选项，后面提供一个统配模式</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git tag -l <span class="string">&quot;v2.*&quot;</span></span></span><br><span class="line">v2.0</span><br><span class="line">v2.1</span><br></pre></td></tr></table></figure>
 
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>git支持两种标签：轻量标签（lightweight）和附注标签（annotated），通常建议创建附注标签</p>
+<p>轻量标签项一个不会改变的分支–它只是某个特定提交的引用</p>
+<p>附注标签是储存在git数据库中的一个完整对象，是可以被校验的，其中包含打标签者名字、电子邮件、日期时间、标签信息，并且可以使用GPG签名验证</p>
+<p>创建<strong>附注标签</strong>最简单的方式是，运行git tag时指定-a选项：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加附注标签时-m选项指定标签信息是必须的</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">否则git会打开编辑器要求输入信息</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">给当前工作目录所在版本da<span class="string">&#x27;biao&#x27;</span>qian</span></span><br><span class="line">git tag -a v1.4 -m &quot;my version 1.4&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">显示标签信息，以及对应的提交信息（打标签者名字、电子邮件、日期时间）</span></span><br><span class="line">git show v1.4</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
+<p>创建<strong>轻量标签</strong>只需要提供标签名字，轻量标签的本质是将“提交检验和”存储到一个文件中：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git tag v1.4-light</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">显示提交信息，没有额外的标签信息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="后期打标签"><a href="#后期打标签" class="headerlink" title="后期打标签"></a>后期打标签</h3><p>可以对过去的提交打标签：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">假设有这样的提交历史</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> --pretty=online</span></span><br><span class="line">6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch &#x27;experiment&#x27;</span><br><span class="line">0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc added a commit function</span><br><span class="line">9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile</span><br><span class="line">964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">假设要在 updated rakefile处补打标签</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">需要在命令的末尾指定提交的检验和（或部分检验和）</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git tag -a v1.2 9fceb02</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h3><p>默认情况下，git push命令不会传送标签到远程服务器上，需要使用git push &lt;remote&gt; &lt;tagname&gt;来显示推送标签：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">推送一个标签</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin v1.3</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">加上参数--tags，推送所有不在远程服务器上的标签</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin --tags</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><p>要删除本地仓库上的标签，可以使用git tag -d &lt;tagname&gt;命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除一个轻量标签</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git tag -d v1.4</span></span><br><span class="line">Deleted tag &#x27;v1.4&#x27; (was e7d5add)</span><br></pre></td></tr></table></figure>
+
+<p>上述命令不会移除远程仓库中的标签，有两种方式可以删除远程仓库的分支：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">第一种方式，将冒号前面的空值推送到远程标签名，</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin :refs/tags/v1.4</span></span><br><span class="line">To /git@github.com:xxx/xxx.git</span><br><span class="line">- [deleted]         v1.4</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">第二种更直观的删除远程标签</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin --delete v1.5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="检出标签"><a href="#检出标签" class="headerlink" title="检出标签"></a>检出标签</h3><p>如果想查看某个标签所指向的文件版本，可以使用git checkout，但这个命令有不少副作用，如分离头指针，因此最好搭配创建分支：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout -b branchVersion2 v2.0</span></span><br><span class="line">Switched to a new branch &#x27;branchVersion2&#x27; </span><br></pre></td></tr></table></figure>
+
+<h1 id="分支模型"><a href="#分支模型" class="headerlink" title="分支模型"></a>分支模型</h1><p>git保存的不是文件的变化或者差异，而是一系列不同时刻的<strong>快照</strong></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -981,121 +1009,6 @@
       <tags>
         <tag>展示</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Web入门</title>
-    <url>/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--Web%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<span id="more"></span>
-
-
-<h1 id="Web入门"><a href="#Web入门" class="headerlink" title="Web入门"></a>Web入门</h1><h2 id="HTML-基础"><a href="#HTML-基础" class="headerlink" title="HTML 基础"></a>HTML 基础</h2><p>index.html 示例:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>说明:</p>
-<ul>
-<li><!DOCTYPE> 指明文档类型；当今仅用于保证文档正常读取</li>
-<li>根元素<html></html>，包含住整个也没内容</li>
-<li>头部元素<head><head/>，对用户不可见，包含一些元数据(meta)</li>
-<li>head内<meta charset="utf-8">，指明编码</li>
-<li>head内<title></title>，设置页面标题，也作为浏览器标签显示</li>
-<li>主体元素<body></body></li>
-</ul>
-<h3 id="图像–-元素"><a href="#图像–-元素" class="headerlink" title="图像– 元素"></a>图像– <img>元素</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>属性 src 可以指定地址嵌入图像；属性 alt 是文件的描述内容，在图像不可见时显示</p>
-<h3 id="标记文本–-标题、段落、列表"><a href="#标记文本–-标题、段落、列表" class="headerlink" title="标记文本– 标题、段落、列表"></a>标记文本– 标题、段落、列表</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>主标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>顶层标题<span class="tag">&lt;<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>子标题<span class="tag">&lt;<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>次子标题<span class="tag">&lt;<span class="name">h4</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>标题对于无障碍访问和搜索引擎优化非常有意义</p>
-<h4 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>无序列表(Unorderd List)、有序列表(Ordered List)内使用列表项目元素(List Item)元素包围:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>科学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>哲学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>建筑家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>链接赋予 Web 网络属性，使用元素 &lt;a&gt; (anchor的缩写)来植入链接</p>
-<p>将链接植入到文本需要以下步骤:</p>
-<ol>
-<li>选择文本</li>
-<li>把文本包围在 &lt;a&gt;&lt;/a&gt; 元素内，给予文本“锚”的特征</li>
-<li>给&lt;a&gt;添加一个 herf (代表hypertext reference)属性，把值设置为所需网址</li>
-</ol>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>综合以上，应该实现了以下代码:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>以下是一个列表<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>科学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>哲学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>建筑家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>阅读<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.mozilla.org/zh-CN/about/manifesto/&quot;</span>&gt;</span>Mozilla 宣言<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，了解更多<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="CSS-基础"><a href="#CSS-基础" class="headerlink" title="CSS 基础"></a>CSS 基础</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个示例中，整个结构称为“规则集”，各个部分释义如下:</p>
-<ul>
-<li>选择器(Selector)<br>  </br> 选择了需要添加样式的元素(如本例中的 p 元素)，给不同元素添加样式只需要更改选择器</li>
-<li>声明(Declaration)–一个单独的规则，如 color: red; </br> 声明与声明之间用“分号”隔开 </li>
-<li>属性(Properties)，如 color，是改变 HTML 元素样式的途径</li>
-<li>属性的值(Property Value)，它从指定属性的众多外观中指定一个值</li>
-</ul>
-<p>下面是常用的选择器类型:</p>
-<ul>
-<li>元素选择器– 指定类型的HTML元素<br>  </br>如: 选择器值为 <em>p, li, h1</em> 这三个用逗号隔开的元素，<strong>同时</strong>选择了 &lt;p&gt; &lt;li&gt; &lt;h1&gt; </li>
-<li>ID选择器– 指定具有特定ID的元素<br>  </br>如: 选择器值为 <em>#my-id</em>，可以选择 &lt;p id&#x3D;”my-id”&gt; </li>
-<li>类选择器– 指定具有特定类的元素<br>  </br>如：选择器值为 <em>.my-class</em>， 可以选择 &lt;p class&#x3D;’&#x3D;”my-class”&gt;， &lt;a class&#x3D;”my-class”&gt;</li>
-<li>元素属性选择器– 指定拥有特定属性的元素<br>  </br>如：选择器值为 *img[src]*， 可以选择 &lt;img src&#x3D;”myimage.png”&gt;这样的含有 src 属性的元素</li>
-<li>伪类选择器– 特定状态下的特定元素，如鼠标指针所悬停的链接<br>  </br>如：选择器为 <em>a:hover</em>, 可以选择有鼠标悬停的&lt;a&gt;</li>
-<li>其他</li>
-</ul>
-<h3 id="字体和文本"><a href="#字体和文本" class="headerlink" title="字体和文本"></a>字体和文本</h3><p>备注:中文字体文件不适合直接用于 Web Font </p>
-<ol>
-<li>为当前网页下载字体，从而使自定义CSS可以对HTML元素应用这个字体，在头部添加如下代码:</br> <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://fonts.font.im/css?family=Open+Sans&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>删除 style.css 中已有规则</li>
-<li>在 style.css ，替代 font family 占位行，并给其他元素也设置样式代码如下:</br> <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*备注: 注释不可以嵌套，并且不接受单行//注释 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*给整个页面设置字体格式*/</span></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="comment">/* px 表示“像素（pixels）”: 基础字号为 10 像素 */</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="comment">/* Google fonts 输出的 CSS */</span></span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;Open Sans&#x27;</span>, sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*给部分元素设置字体格式*/</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line"><span class="attribute">font-size</span>: <span class="number">60px</span>;</span><br><span class="line"><span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span>, <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="comment">/* line-height 后面可以跟不同的参数，如果是数字，就是当前字体大小乘上数字 */</span></span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">letter-spacing</span>: <span class="number">1px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h3><p>CSS布局主要就是基于盒子模型的，页面里大部分HTML元素都可以被看作是若干层堆叠的盒子</p>
-<p>每个占据页面空间的块都有这样的属性:</p>
-<ul>
-<li>padding– 内边距</li>
-<li>border– 边框</li>
-<li>margin– 外边距<br><img src="/box-model.png" alt="CSS盒模型示意图"></li>
-</ul>
-<p>在这里还使用了:</p>
-<ul>
-<li>width– 元素宽度</li>
-<li>background-color– 背景色</li>
-<li>color– 元素内容颜色，一般是文本颜色</li>
-<li>display– 元素的演示模式</li>
-</ul>
-<h4 id="文档体格式设置"><a href="#文档体格式设置" class="headerlink" title="文档体格式设置"></a>文档体格式设置</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid black;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#FF9500</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以下解释 &lt;body&gt; 元素的css设置:</p>
-<ul>
-<li>width:600px; – 强制页面保持600像素</li>
-<li>margin:0 auto; – 为margin(或padding等属性)设置两个值时，第一个值设置元素上方和下方，第二个值设置左边和右边；这里auto表示水平方向上左右对称</li>
-<li>padding:0 20px 20px 20px; – 给出四个值，设置内边距上下左右的像素距离</li>
-<li>border:5px solid black; – 直接为body设置5像素的黑色实线边框</li>
-<li>background-color: #FF9500; – 为body设置背景色</li>
-</ul>
-<h4 id="定位页面主题并添加样式"><a href="#定位页面主题并添加样式" class="headerlink" title="定位页面主题并添加样式"></a>定位页面主题并添加样式</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#00539F</span>;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">1px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>text-shadow: 3px 3px 1px black; 中，分别表示阴影的右移像素数、下移像素数、模糊半径、基色</p>
-<h4 id="图像居中"><a href="#图像居中" class="headerlink" title="图像居中"></a>图像居中</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&lt;body&gt; 元素是块级元素，意味着它占据页面的空间，并且能够赋予间距值；而图片是内联的，必须使用 display:block 给予块级行为，才能使图像有外边距</p>
-<h2 id="JavaScript-基础"><a href="#JavaScript-基础" class="headerlink" title="JavaScript 基础"></a>JavaScript 基础</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>let 和 var 关键字声明变量。注意， let 关键词只可以声明一次同名变量； var 关键字遇到第二次声明时，会执行赋值行为</p>
-<p>变量有以下几种数据类型:</p>
-<ul>
-<li>String – 值需要用单引号或双引号括起来，let v&#x3D;’李雷’;</li>
-<li>Number – let v&#x3D;10;</li>
-<li>Boolean – true&#x2F;false</li>
-<li>Array – let v&#x3D;[1, ‘李雷’, 30]; 引用方法为 v[0], v[1], …</li>
-<li>Object – JavaScript一切皆对象，包括上面几个类型</li>
-</ul>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>JavaScript 允许单行注释和多行注释:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这里的所有内容</span></span><br><span class="line"><span class="comment">都是注释。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> v=<span class="string">&#x27;李雷&#x27;</span>;</span><br><span class="line"><span class="comment">// 这是一条注释</span></span><br></pre></td></tr></table></figure>
-<p>注意，CSS与JS一样使用相同的多行注释，但CSS没有单行注释</p>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
-<li>+</li>
-<li>-,*,/</li>
-<li>=  </li>
-<li>===  测试两个值是否相等，返回布尔值</li>
-<li>!=&#x3D;   测时两个值是否不相等，返回布尔值</li>
-<li>!    逻辑非</li>
-</ul>
-<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fav = <span class="string">&#x27;chocolate&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (fav === <span class="string">&#x27;chocolate&#x27;</span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;我最喜欢巧克力&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;我的最爱不是巧克力&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">multiply</span>(<span class="params">num1, num2</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> result = num1 * num2;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">multiply</span>(<span class="number">4</span>, <span class="number">7</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>事件能为网页添加交互能力；最简单的事件是点击事件</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匿名函数的行为绑定(赋值)到 html 的 onclick 属性</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;html&#x27;</span>).<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;别戳我，我怕疼。&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">等价于下面的代码，但前者更简洁</span></span><br><span class="line"><span class="comment">let myHTML = document.querySelector(&#x27;html&#x27;);</span></span><br><span class="line"><span class="comment">myHTML.onclick = function() &#123; alert(&#x27;别戳我，我怕疼。&#x27;);&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">箭头函数写法，与上面等价</span></span><br><span class="line"><span class="comment">document.querySelector(&#x27;html&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span></span><br><span class="line"><span class="comment">  alert(&#x27;别戳我，我怕疼。&#x27;);</span></span><br><span class="line"><span class="comment">&#125;);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-        <category>Web前端</category>
-      </categories>
   </entry>
   <entry>
     <title>CSS构建基础</title>
@@ -1723,6 +1636,377 @@
         <category>学习</category>
         <category>Web前端</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Web入门</title>
+    <url>/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--Web%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<span id="more"></span>
+
+
+<h1 id="Web入门"><a href="#Web入门" class="headerlink" title="Web入门"></a>Web入门</h1><h2 id="HTML-基础"><a href="#HTML-基础" class="headerlink" title="HTML 基础"></a>HTML 基础</h2><p>index.html 示例:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>说明:</p>
+<ul>
+<li><!DOCTYPE> 指明文档类型；当今仅用于保证文档正常读取</li>
+<li>根元素<html></html>，包含住整个也没内容</li>
+<li>头部元素<head><head/>，对用户不可见，包含一些元数据(meta)</li>
+<li>head内<meta charset="utf-8">，指明编码</li>
+<li>head内<title></title>，设置页面标题，也作为浏览器标签显示</li>
+<li>主体元素<body></body></li>
+</ul>
+<h3 id="图像–-元素"><a href="#图像–-元素" class="headerlink" title="图像– 元素"></a>图像– <img>元素</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>属性 src 可以指定地址嵌入图像；属性 alt 是文件的描述内容，在图像不可见时显示</p>
+<h3 id="标记文本–-标题、段落、列表"><a href="#标记文本–-标题、段落、列表" class="headerlink" title="标记文本– 标题、段落、列表"></a>标记文本– 标题、段落、列表</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>主标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>顶层标题<span class="tag">&lt;<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>子标题<span class="tag">&lt;<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>次子标题<span class="tag">&lt;<span class="name">h4</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>标题对于无障碍访问和搜索引擎优化非常有意义</p>
+<h4 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>无序列表(Unorderd List)、有序列表(Ordered List)内使用列表项目元素(List Item)元素包围:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>科学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>哲学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>建筑家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>链接赋予 Web 网络属性，使用元素 &lt;a&gt; (anchor的缩写)来植入链接</p>
+<p>将链接植入到文本需要以下步骤:</p>
+<ol>
+<li>选择文本</li>
+<li>把文本包围在 &lt;a&gt;&lt;/a&gt; 元素内，给予文本“锚”的特征</li>
+<li>给&lt;a&gt;添加一个 herf (代表hypertext reference)属性，把值设置为所需网址</li>
+</ol>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>综合以上，应该实现了以下代码:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>以下是一个列表<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>科学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>哲学家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>建筑家<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>阅读<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.mozilla.org/zh-CN/about/manifesto/&quot;</span>&gt;</span>Mozilla 宣言<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，了解更多<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="CSS-基础"><a href="#CSS-基础" class="headerlink" title="CSS 基础"></a>CSS 基础</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个示例中，整个结构称为“规则集”，各个部分释义如下:</p>
+<ul>
+<li>选择器(Selector)<br>  </br> 选择了需要添加样式的元素(如本例中的 p 元素)，给不同元素添加样式只需要更改选择器</li>
+<li>声明(Declaration)–一个单独的规则，如 color: red; </br> 声明与声明之间用“分号”隔开 </li>
+<li>属性(Properties)，如 color，是改变 HTML 元素样式的途径</li>
+<li>属性的值(Property Value)，它从指定属性的众多外观中指定一个值</li>
+</ul>
+<p>下面是常用的选择器类型:</p>
+<ul>
+<li>元素选择器– 指定类型的HTML元素<br>  </br>如: 选择器值为 <em>p, li, h1</em> 这三个用逗号隔开的元素，<strong>同时</strong>选择了 &lt;p&gt; &lt;li&gt; &lt;h1&gt; </li>
+<li>ID选择器– 指定具有特定ID的元素<br>  </br>如: 选择器值为 <em>#my-id</em>，可以选择 &lt;p id&#x3D;”my-id”&gt; </li>
+<li>类选择器– 指定具有特定类的元素<br>  </br>如：选择器值为 <em>.my-class</em>， 可以选择 &lt;p class&#x3D;’&#x3D;”my-class”&gt;， &lt;a class&#x3D;”my-class”&gt;</li>
+<li>元素属性选择器– 指定拥有特定属性的元素<br>  </br>如：选择器值为 *img[src]*， 可以选择 &lt;img src&#x3D;”myimage.png”&gt;这样的含有 src 属性的元素</li>
+<li>伪类选择器– 特定状态下的特定元素，如鼠标指针所悬停的链接<br>  </br>如：选择器为 <em>a:hover</em>, 可以选择有鼠标悬停的&lt;a&gt;</li>
+<li>其他</li>
+</ul>
+<h3 id="字体和文本"><a href="#字体和文本" class="headerlink" title="字体和文本"></a>字体和文本</h3><p>备注:中文字体文件不适合直接用于 Web Font </p>
+<ol>
+<li>为当前网页下载字体，从而使自定义CSS可以对HTML元素应用这个字体，在头部添加如下代码:</br> <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://fonts.font.im/css?family=Open+Sans&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>删除 style.css 中已有规则</li>
+<li>在 style.css ，替代 font family 占位行，并给其他元素也设置样式代码如下:</br> <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*备注: 注释不可以嵌套，并且不接受单行//注释 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*给整个页面设置字体格式*/</span></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="comment">/* px 表示“像素（pixels）”: 基础字号为 10 像素 */</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="comment">/* Google fonts 输出的 CSS */</span></span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;Open Sans&#x27;</span>, sans-serif;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*给部分元素设置字体格式*/</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line"><span class="attribute">font-size</span>: <span class="number">60px</span>;</span><br><span class="line"><span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span>, <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="comment">/* line-height 后面可以跟不同的参数，如果是数字，就是当前字体大小乘上数字 */</span></span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">letter-spacing</span>: <span class="number">1px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h3><p>CSS布局主要就是基于盒子模型的，页面里大部分HTML元素都可以被看作是若干层堆叠的盒子</p>
+<p>每个占据页面空间的块都有这样的属性:</p>
+<ul>
+<li>padding– 内边距</li>
+<li>border– 边框</li>
+<li>margin– 外边距<br><img src="/box-model.png" alt="CSS盒模型示意图"></li>
+</ul>
+<p>在这里还使用了:</p>
+<ul>
+<li>width– 元素宽度</li>
+<li>background-color– 背景色</li>
+<li>color– 元素内容颜色，一般是文本颜色</li>
+<li>display– 元素的演示模式</li>
+</ul>
+<h4 id="文档体格式设置"><a href="#文档体格式设置" class="headerlink" title="文档体格式设置"></a>文档体格式设置</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid black;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#FF9500</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以下解释 &lt;body&gt; 元素的css设置:</p>
+<ul>
+<li>width:600px; – 强制页面保持600像素</li>
+<li>margin:0 auto; – 为margin(或padding等属性)设置两个值时，第一个值设置元素上方和下方，第二个值设置左边和右边；这里auto表示水平方向上左右对称</li>
+<li>padding:0 20px 20px 20px; – 给出四个值，设置内边距上下左右的像素距离</li>
+<li>border:5px solid black; – 直接为body设置5像素的黑色实线边框</li>
+<li>background-color: #FF9500; – 为body设置背景色</li>
+</ul>
+<h4 id="定位页面主题并添加样式"><a href="#定位页面主题并添加样式" class="headerlink" title="定位页面主题并添加样式"></a>定位页面主题并添加样式</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#00539F</span>;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">1px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>text-shadow: 3px 3px 1px black; 中，分别表示阴影的右移像素数、下移像素数、模糊半径、基色</p>
+<h4 id="图像居中"><a href="#图像居中" class="headerlink" title="图像居中"></a>图像居中</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt;body&gt; 元素是块级元素，意味着它占据页面的空间，并且能够赋予间距值；而图片是内联的，必须使用 display:block 给予块级行为，才能使图像有外边距</p>
+<h2 id="JavaScript-基础"><a href="#JavaScript-基础" class="headerlink" title="JavaScript 基础"></a>JavaScript 基础</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>let 和 var 关键字声明变量。注意， let 关键词只可以声明一次同名变量； var 关键字遇到第二次声明时，会执行赋值行为</p>
+<p>变量有以下几种数据类型:</p>
+<ul>
+<li>String – 值需要用单引号或双引号括起来，let v&#x3D;’李雷’;</li>
+<li>Number – let v&#x3D;10;</li>
+<li>Boolean – true&#x2F;false</li>
+<li>Array – let v&#x3D;[1, ‘李雷’, 30]; 引用方法为 v[0], v[1], …</li>
+<li>Object – JavaScript一切皆对象，包括上面几个类型</li>
+</ul>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>JavaScript 允许单行注释和多行注释:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这里的所有内容</span></span><br><span class="line"><span class="comment">都是注释。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> v=<span class="string">&#x27;李雷&#x27;</span>;</span><br><span class="line"><span class="comment">// 这是一条注释</span></span><br></pre></td></tr></table></figure>
+<p>注意，CSS与JS一样使用相同的多行注释，但CSS没有单行注释</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ul>
+<li>+</li>
+<li>-,*,/</li>
+<li>=  </li>
+<li>===  测试两个值是否相等，返回布尔值</li>
+<li>!=&#x3D;   测时两个值是否不相等，返回布尔值</li>
+<li>!    逻辑非</li>
+</ul>
+<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fav = <span class="string">&#x27;chocolate&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (fav === <span class="string">&#x27;chocolate&#x27;</span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;我最喜欢巧克力&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;我的最爱不是巧克力&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">multiply</span>(<span class="params">num1, num2</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> result = num1 * num2;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">multiply</span>(<span class="number">4</span>, <span class="number">7</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>事件能为网页添加交互能力；最简单的事件是点击事件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//匿名函数的行为绑定(赋值)到 html 的 onclick 属性</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;html&#x27;</span>).<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;别戳我，我怕疼。&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">等价于下面的代码，但前者更简洁</span></span><br><span class="line"><span class="comment">let myHTML = document.querySelector(&#x27;html&#x27;);</span></span><br><span class="line"><span class="comment">myHTML.onclick = function() &#123; alert(&#x27;别戳我，我怕疼。&#x27;);&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">箭头函数写法，与上面等价</span></span><br><span class="line"><span class="comment">document.querySelector(&#x27;html&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; &#123;</span></span><br><span class="line"><span class="comment">  alert(&#x27;别戳我，我怕疼。&#x27;);</span></span><br><span class="line"><span class="comment">&#125;);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>Web前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Markdown基础语法</title>
+    <url>/2022/08/15/%E5%AD%A6%E4%B9%A0/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>记录Markdown基本语法</p>
+<ul>
+<li>2022-07-13 <ul>
+<li>重新整理了一些不标准和不合适的markdown语法</li>
+<li>试图更新table样式，发现table样式似乎写死，指定样式无用。</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+
+
+
+
+
+<h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="Heading-level-1"><a href="#Heading-level-1" class="headerlink" title="Heading level 1"></a>Heading level 1</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading level 1//一级标题，注意井号后面有个空格</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 1</span></span><br><span class="line"><span class="section">========</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Heading-level-2"><a href="#Heading-level-2" class="headerlink" title="Heading level 2"></a>Heading level 2</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## Heading level 2//二级标题</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 2</span></span><br><span class="line"><span class="section">---------</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Heading-level-3"><a href="#Heading-level-3" class="headerlink" title="Heading level 3"></a>Heading level 3</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### Heading level 3//三级标题，增加井号数量可继续增加子标题等级</span></span><br></pre></td></tr></table></figure>
+<h1 id="段落语法"><a href="#段落语法" class="headerlink" title="段落语法"></a>段落语法</h1><p>今天天气不错，<br>午饭吃了吗</p>
+<p>还没有吃</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，</span><br><span class="line">午饭吃了吗</span><br><span class="line"></span><br><span class="line">还没有吃</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">段落，用空白行隔开段落，段落前不要用空格或制表符缩进段落</span><br></pre></td></tr></table></figure>
+<h1 id="换行语法"><a href="#换行语法" class="headerlink" title="换行语法"></a>换行语法</h1><p>这是第一行<br><br>这是第二行<br><br>这是第三行</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是第一行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第二行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第三行</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">也在行尾使用两个空格作为换行符</span><br></pre></td></tr></table></figure>
+<h1 id="强调单词或句子"><a href="#强调单词或句子" class="headerlink" title="强调单词或句子"></a>强调单词或句子</h1><p>今天<strong>天气</strong>真不错啊<br><br>今天<em>天气</em>真不错啊<br><br>今天<em><strong>天气</strong></em>真不错啊<br><br>今天~~ 天气 ~~真不错啊</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗体：   </span><br><span class="line"><span class="code">    今天**天气**真不错啊</span></span><br><span class="line"><span class="code">斜体：</span></span><br><span class="line"><span class="code">    今天*天气*真不错啊</span></span><br><span class="line"><span class="code">斜粗体：</span></span><br><span class="line"><span class="code">    今天***天气***真不错啊</span></span><br><span class="line"><span class="code">删去线：</span></span><br><span class="line"><span class="code">    今天~~ 天气 ~~真不错啊</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h1><blockquote>
+<p>第一段落：撅草棍儿抽长短</p>
+<p>第二段落：谁长谁先干</p>
+<blockquote>
+<p>这里是子嵌套的</p>
+</blockquote>
+</blockquote>
+<blockquote><p>今天天气不错</p>
+</blockquote>
+
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;第一段落：撅草棍儿抽长短</span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt;第二段落：谁长谁先干</span></span><br><span class="line">&gt;&gt;这里是子嵌套的</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">多个段落的块引用间，空行也要加&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">今天天气不错</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项<ol>
+<li>子项</li>
+<li>子项</li>
+</ol>
+</li>
+<li>第四项<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项 //注意点后有空格</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br><span class="line"><span class="bullet">    1.</span> 子项</span><br><span class="line"><span class="bullet">    2.</span> 子项</span><br><span class="line"><span class="bullet">4.</span> 第四项</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
+<li><p>第一项</p>
+<blockquote>
+<p>今天天气不错</p>
+</blockquote>
+</li>
+<li><p>第二项</p>
+<ul>
+<li>子项</li>
+<li>子项</li>
+<li>子项</li>
+</ul>
+</li>
+<li><p>第三项</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 第一项</span><br><span class="line"></span><br><span class="line"><span class="code">    &gt;今天天气不错 //列表中可嵌套其他元素</span></span><br><span class="line"><span class="code">- 第二项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">- 第三项</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h1><p>代码语法的作用是让代码在下面这样的框里显示</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p>编辑代码内容</p>
+<pre><code><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束   </span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>或者<br></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock  %&#125;</span><br><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><p>第一行</p>
+<hr>
+<p>第二行</p>
+<hr>
+<p>第三行</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">第一行</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第二行</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">___</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第三行</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的<span class="emphasis">*，或三个连续的下划线可作分隔线</span></span><br></pre></td></tr></table></figure>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com &quot;百度搜素&quot;</span>)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
+<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#97;&#107;&#101;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#109;">&#x66;&#97;&#107;&#101;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#109;</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://markdown.com.cn&gt;</span></span><br><span class="line"><span class="language-xml">&lt;fake@example.com&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 <span class="strong">**<span class="emphasis">*[<span class="string">中国天气</span>](<span class="link">http://www.weather.com.cn/</span>)*</span>**</span></span><br><span class="line">查看[<span class="string">`code`</span>](<span class="link">#code</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p><img src="/../../themes/next_a/source/images/avatars/aoba.jpg" alt="图片1" title="aoba"><br></p>
+<p><img src="/assets/images/aoba.jpg" alt="青叶" title="aoba"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>  //以该post的地址作为起始地址，这样的链接是错误的</span><br><span class="line"></span><br><span class="line">![<span class="string">青叶</span>](<span class="link">/assets/images/aoba.jpg &quot;aoba&quot;</span>)  //运行时相对地址的起始为博客的根目录文件夹，这样的链接是正确的</span><br></pre></td></tr></table></figure>
+
+<h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a href="http://newgame-anime.com/assets/character/c4.png" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="hifumi"></a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![日富美</span>](<span class="link">/assets/images/hifumi.jpg &quot;hifumi&quot;</span>)](<span class="link">http://newgame-anime.com/assets/character/c4.png &quot;hifumi&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><h2 id="可做转义的字符"><a href="#可做转义的字符" class="headerlink" title="可做转义的字符"></a>可做转义的字符</h2><p>以下列出的字符都可以通过使用反斜杠字符从而达到转义目的。</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\</td>
+<td>反斜线</td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td>反引号</td>
+</tr>
+<tr>
+<td>_</td>
+<td>下划线</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>花括号</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>方括号</td>
+</tr>
+<tr>
+<td>()</td>
+<td>圆括号</td>
+</tr>
+<tr>
+<td>#</td>
+<td>井号</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加号</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减号，连字符</td>
+</tr>
+<tr>
+<td>.</td>
+<td>圆点</td>
+</tr>
+<tr>
+<td>!</td>
+<td>感叹号</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="特殊字符自动转义"><a href="#特殊字符自动转义" class="headerlink" title="特殊字符自动转义"></a>特殊字符自动转义</h2><p>如果你使用 &amp; 符号的作为 HTML 实体的一部分，那么它不会被转换，而在其它情况下，它则会被转换成 &amp;amp;。</p>
+<h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1><h2 id="lt-ruby-gt"><a href="#lt-ruby-gt" class="headerlink" title="&lt;ruby&gt;"></a>&lt;ruby&gt;</h2><p><ruby>拼音<rt>pinyin</rt></ruby></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">ruby</span>&gt;</span></span>拼音<span class="language-xml"><span class="tag">&lt;<span class="name">rt</span>&gt;</span></span>pinyin<span class="language-xml"><span class="tag">&lt;/<span class="name">rt</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">ruby</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="lt-detail-gt"><a href="#lt-detail-gt" class="headerlink" title="&lt;detail&gt;"></a>&lt;detail&gt;</h2><details class="note primary no-icon" open="">
+<summary><p><strong>总描述</strong></p>
+</summary>
+
+<table>
+<thead>
+<tr>
+<th align="left">栏目1</th>
+<th align="center">栏目2</th>
+<th align="left">栏目 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\</td>
+<td align="center">反斜线</td>
+<td align="left">\</td>
+</tr>
+<tr>
+<td align="left">&#96;</td>
+<td align="center">反引号</td>
+<td align="left">&#96;</td>
+</tr>
+<tr>
+<td align="left">_</td>
+<td align="center">下划线</td>
+<td align="left">_</td>
+</tr>
+</tbody></table>
+</details>
+
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">strong</span>&gt;</span></span>总描述<span class="language-xml"><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">| 栏目1 | 栏目2 | 栏目 3|</span><br><span class="line">| :--- | :----: |:---|  //对齐方式</span><br><span class="line">| \  | 反斜线 | \ |</span><br><span class="line">| <span class="code">`  | 反引号 | `</span> |</span><br><span class="line">| <span class="emphasis">_  | 下划线 | _</span> |</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<details class="note primary no-icon" open="">
+<summary><p><strong>总体介绍</strong></p></summary>
+<table>
+<caption style="text-align: left;">表格标题</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">栏目1</th>
+<th style="text-align: center;">栏目2</th>
+<th style="text-align: center;">栏目3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">aa</td>
+<td style="text-align: center;">aaa</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">bb</td>
+<td style="text-align: center;">bbb</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">bb</td>
+<td style="text-align: center;">bbb</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">summary</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>总体介绍<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span> <span class="comment">&lt;!--hexo这里css文件似乎有问题，无法指定格式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">caption</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left;&quot;</span>&gt;</span>表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>a<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;even&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>可扩展标记语言XML学习记录</title>
