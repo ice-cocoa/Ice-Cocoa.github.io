@@ -230,12 +230,60 @@
 <p>XMLHttpRequest（简称为XHR） API是JavaScript早期的异步API，可以发起HTTP请求，并通过给XHR对象附加事件监视器（以及配套的处理程序），在请求进展、最终完成、或其他时刻执行某些行为</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 假定有这样的html文件</span></span><br><span class="line"><span class="comment">&lt;button id=&quot;xhr&quot;&gt;点击发起请求&lt;/button&gt;</span></span><br><span class="line"><span class="comment">&lt;pre readonly class=&quot;event-log&quot;&gt;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> log=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.event-log&#x27;</span>);</span><br><span class="line"><span class="comment">//给点击事件加上监听。（异步）如果点击则发起发起一个http请求</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#xhr&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  log.<span class="property">textContent</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> xhr=<span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">  <span class="comment">//给xhr对象加上监听。（异步）如果获取到返回，则输出相关信息</span></span><br><span class="line">  xhr.<span class="title function_">addEventListener</span>(<span class="string">&#x27;loadend&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    log.<span class="property">textContent</span>=<span class="string">&#x27;$&#123;log.textcont&#125;完成！状态码：$&#123;xhr.status&#125;&#x27;</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//发送一个http请求</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&#x27;www.baidu.com&#x27;</span>);</span><br><span class="line">  xhr.<span class="title function_">send</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用Promise"><a href="#使用Promise" class="headerlink" title="使用Promise"></a>使用Promise</h2><p>Promise是现代JavaScript异步编程的基础，是一个由异步函数返回的对象，这个对象可以指示当前操作所处的状态</p>
-<h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><p>fetch API是一个基于Promise的，用以替代XMLHttpRequest的方法（XHR是早期实现异步编程的API）</p>
+
+<h2 id="使用Promise"><a href="#使用Promise" class="headerlink" title="使用Promise"></a>使用Promise</h2><p><del>Promise是现代JavaScript异步编程的基础，是一个由异步函数返回的对象，这个对象可以指示当前操作所处的状态</del>(比较晦涩，不看它)</p>
+<p>Promise是一个对象，往往使用它的then方法、catch方法等来实现异步调用</p>
+<p>⭐注意，异步函数总是返回一个Promise，哪怕return的就是一个非常常见的变量。如果有一个返回json变量的函数，加了async关键字，那么它的返回值也会是Promise。如果想要使用这个变量，必须在 .then()中的作为参数的函数内使用，如 xxx.then(json&#x3D;&gt;{console.log(json[0]);}); </p>
+<h3 id="fetch-API返回一个Promise"><a href="#fetch-API返回一个Promise" class="headerlink" title="fetch API返回一个Promise"></a>fetch API返回一个Promise</h3><p>fetch API是一个基于Promise的，用以替代XMLHttpRequest的方法（XHR是早期实现异步编程的API）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line">fetchPromise.<span class="title function_">then</span>(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;已收到响应：$&#123;reponse.status&#125;&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;已发送请求&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在这里的输出应该是这样的:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">已发送请求</span><br><span class="line">已收到响应：200</span><br></pre></td></tr></table></figure>
+
+<h3 id="链式使用Promise和错误处理"><a href="#链式使用Promise和错误处理" class="headerlink" title="链式使用Promise和错误处理"></a>链式使用Promise和错误处理</h3><p>一个异步操作往往需要由多个函数构成，为了避免在一个then参数内嵌套多个then，可以使用链式调用的方法</p>
+<p>Promise的方便在于，它的方法then本身也会返回一个Promise，并且这个Promise还会指示出作为then参数的函数的完成状态</p>
+<p>Promise还有用于错误处理的catch方法，catch往往位于Promise链的最后一个</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line">fetchPromise</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">json</span>();<span class="comment">//函数返回一个json对象，这个对象之后又会被then构造成一个Promise</span></span><br><span class="line">    <span class="keyword">if</span> (!response.<span class="property">ok</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`error：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">json</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span>=&gt;</span>&#123;<span class="comment">//捕获错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise术语"><a href="#Promise术语" class="headerlink" title="Promise术语"></a>Promise术语</h3><p>Promise有三种状态：</p>
+<ul>
+<li><strong>待定pending</strong>：这是调用fetch返回的Promise状态，此时请求刚刚发起，不知道能否成功返回</li>
+<li><strong>已实现fulfilled</strong>：意味着操作成功“完成”，此时调用then方法，其中的resolved参数对应的函数会被调用</li>
+<li><strong>已拒绝rejected</strong>：意味着操作“失败”，此时调用then方法，其中的rejected参数对应的函数会被调用；或者直接被catch捕获</li>
+</ul>
+<p>注意，这里“成功”或“失败”的含义取决于使用的API，如fetch认为服务器返回404时成功，网络错误为失败</p>
+<h3 id="合并使用多个Promise"><a href="#合并使用多个Promise" class="headerlink" title="合并使用多个Promise"></a>合并使用多个Promise</h3><p>如果几个Promise相互间没有依赖关系，那么可以使用all方法，它接收一个Promise数组作为一个参数，返回单一的Promise</p>
+<p>这个all方法返回的Promise使用then方法，给予处理函数的参数是一个响应数组（顺序与传入all的Promise的顺序相同）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//省略三个fetch</span></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([fetchPromise1, fetchPromise2, fetchPromise3])</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">responses</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> response <span class="keyword">of</span> responses) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`status：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">//只要有一个fetch失败就会触发错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`获取失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h3><p>同步变异步：async关键字能够让自定义的一个普通函数成为异步函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunc</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>异步变同步：await关键字能够使得代码在该点上等待，直到Promise被完成</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> response=<span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://ceshiceshi.com/ceshi.json&#x27;</span>)</span><br><span class="line">  <span class="comment">//下面的代码会在fetch完成后再执行</span></span><br><span class="line">  <span class="keyword">if</span>(!response.<span class="property">ok</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;请求错误：$&#123;response.status&#125;&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//注意，json方法也是异步的</span></span><br><span class="line">  <span class="keyword">const</span> ceshiJson=<span class="keyword">await</span> response.<span class="title function_">json</span>(); </span><br><span class="line">  <span class="comment">//添加了await关键字后，ceshiJson是一个普通的json对象；不然它仍然是一个Promise对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise构造器"><a href="#Promise构造器" class="headerlink" title="Promise构造器"></a>Promise构造器</h2><p>Promise构造器使用单个函数作为参数，这个函数被称为执行器，当创建一个新的Promise的时候需要实现这个执行器</p>
+<p>执行器本身采用两个参数，这两个参数都是函数，通常称作resolve和reject</p>
+<p>执行器本身实现一个异步函数，如果异步函数成功，则会执行在执行器内调用的resolve；如果异步函数失败（包括执行器内的代码），如fetch时网络阻止，主动的throw，，则会<strong>自动</strong>调用reject</p>
+<p><em>注意一下理解，作为执行器作为参数，本身是个函数，执行器的两个参数也是函数</em></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> flag=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#flag&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> a=<span class="keyword">new</span> <span class="title class_">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(flag&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;someting wrong&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">resolve</span>(para1,para2);<span class="comment">//如果之前的异步函数，以及执行器内前面的代码没有出现问题，这里调用了resolve</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="worker简介"><a href="#worker简介" class="headerlink" title="worker简介"></a>worker简介</h2><p>为了避免多线程环境下的同步问题（尤其是对相同变量的访问），主代码和worker代码永远不能直接访问彼此的变量。这一为了workers不能访问DOM</p>
+<p>有三种不同类型的workkers：</p>
+<ul>
+<li>dedicated workers</li>
+<li>shared workers</li>
+<li>service workers</li>
+</ul>
 ]]></content>
       <categories>
+        <category>学习</category>
         <category>web前端</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>客户端git配置与使用</title>
@@ -431,6 +479,9 @@
         <category>学习</category>
         <category>Linux相关</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>记录--centos下vsftpd配置</title>
@@ -451,8 +502,12 @@
 <p>修改配置a uth required pam_shells.so修改为-&gt;auth required pam_nologin.so </p>
 ]]></content>
       <categories>
+        <category>学习</category>
         <category>Linux相关</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>简单介绍firewalld配置</title>
@@ -555,6 +610,9 @@
         <category>学习</category>
         <category>Web前端</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>CSS样式化文本</title>
@@ -719,6 +777,9 @@
         <category>学习</category>
         <category>Web前端</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>Selenium笔记--python实现</title>
@@ -1422,6 +1483,9 @@
         <category>学习</category>
         <category>Web前端</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>HTML构建Web</title>
@@ -1636,6 +1700,9 @@
         <category>学习</category>
         <category>Web前端</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>Web入门</title>
@@ -1751,6 +1818,9 @@
         <category>学习</category>
         <category>Web前端</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>Markdown基础语法</title>
