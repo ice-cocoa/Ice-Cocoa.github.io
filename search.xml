@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>插柳成荫</title>
+    <url>/2022/10/19/%E9%98%85%E8%AF%BB/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/</url>
+    <content><![CDATA[<p>记录一些偶然间了解的道理</p>
+<ol>
+<li>有感“虽千万人，吾往矣”</li>
+</ol>
+<span id="more"></span>
+
+<h1 id="虽千万人，吾往矣"><a href="#虽千万人，吾往矣" class="headerlink" title="虽千万人，吾往矣"></a>虽千万人，吾往矣</h1><p>公孙丑问曰：“夫子加齐之卿相，得行道焉，虽由此霸王，不异矣。如此则动心否乎？”孟子曰：“否！我四十不动心。”曰：“若是，则夫子过孟贲远矣。”曰：“是不难，告子先我不动心。”曰：“不动心有道乎？”曰：“有。北宫黝之养勇也，不肤挠，不目逃，思以一豪挫于人，若挞之于市朝，不受于褐宽博，亦不受于万乘之君；视刺万乘之君，若刺褐夫，无严诸侯，恶声至，必反之。孟施舍之所养勇也，曰：‘视不胜犹胜也；量敌而后进，虑胜而后会，是畏三军者也。舍岂能为必胜哉？能无惧而已矣。’孟施舍似曾子，北宫黝似子夏。夫二子之勇，未知其孰贤，然而孟施舍守约也。昔者曾子谓子襄曰：‘子好勇乎？吾尝闻大勇于夫子矣。自反而不缩，虽褐宽博，吾不惴焉；自反而缩，虽千万人，吾往矣。’孟施舍之守气，又不如曾子之守约也。”</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">公孙丑问道：“如果让您担任齐国的卿相，能够实行您的主张了，那么即使因此而建立了霸业或王业，也不必感到奇怪的了。如果这样，您动心不动心呢？”孟子说：“不，我四十岁起就不动心了。”公孙丑说：“如果这样，老师就远远超过孟贲了。孟子说：“做到这点不难，告子在我之前就做到不动心了。”公孙丑问：“做到不动心有什么方法吗？”孟子说：“有。北宫黝这样培养勇气：肌肤被刺不退缩，双目被刺不转睛；但他觉得，受了他人一点小委屈，就像在大庭广众之中被人鞭打了一般；既不受平民百姓的羞辱，也不受大国君主的羞辱；把行刺大国君主看得跟行刺普通百姓一样；毫不畏惧诸侯，听了恶言，一定回击。孟施舍这样培养勇气，他说：‘把不能取胜看作能够取胜；估量了势力相当才前进，考虑到能够取胜再交战，这是畏惧强大的敌人。我哪能做到必胜呢？能无所畏惧罢了。’（培养勇气的方法，）孟施舍像曾子，北宫黝像子夏。这两人的勇气，不知道谁强些，但孟施舍是把握住了要领。从前，曾子对子襄说：‘你勇敢吗？我曾经在孔子那里听到过关于大勇的道理：反省自己觉得理亏，那么即使对普通百姓，我难道就不害怕吗？反省自己觉得理直，纵然面对千万人，我也勇往直前。’孟施舍的保持勇气，又不如曾子能把握住要领。”</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux常见命令记录</title>
     <url>/2022/10/12/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>暂时没有开始记录，先创建一下</p>
@@ -269,13 +290,70 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> flag=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#flag&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> a=<span class="keyword">new</span> <span class="title class_">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(flag&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;someting wrong&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">resolve</span>(para1,para2);<span class="comment">//如果之前的异步函数，以及执行器内前面的代码没有出现问题，这里调用了resolve</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="worker简介"><a href="#worker简介" class="headerlink" title="worker简介"></a>worker简介</h2><p>为了避免多线程环境下的同步问题（尤其是对相同变量的访问），主代码和worker代码永远不能直接访问彼此的变量。这一为了workers不能访问DOM</p>
-<p>有三种不同类型的workkers：</p>
+<h2 id="worker简介"><a href="#worker简介" class="headerlink" title="worker简介"></a>worker简介</h2><p>Web Worker 的作用，就是为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运行。为了避免资源消耗，worker一旦使用完成应该即时关闭</p>
+<p>为了避免多线程环境下的同步问题（尤其是对相同变量的访问），主代码和worker代码永远不能直接访问彼此的变量。这一为了workers不能访问DOM</p>
+<p>（暂时没有使用worker的需求和水平，暂时搁置整理）</p>
+<h1 id="客户端API"><a href="#客户端API" class="headerlink" title="客户端API"></a>客户端API</h1><p>常见浏览器API：</p>
 <ul>
-<li>dedicated workers</li>
-<li>shared workers</li>
-<li>service workers</li>
+<li>操作文档的API。典型的是DOM（文档对象模型）API，它允许像操作HTML和CSS完成对HTML的创建、移除、修改，以及动态的将样式应用于页面</li>
+<li>从服务器获取数据的API。典型的是XHR API和Fetch API</li>
+<li>用于绘制和操作图像的API。典型的是Canvas和WebGL，它们在&lt;canvas&gt;元素范围内创建2D和3D场景</li>
+<li>音频和视频API。诸如HTMLMediaElement，Web Audio API和WebRTC</li>
+<li>设备API。用以访问如地理位置等</li>
+<li>客户端存储API。如Web Storege API</li>
 </ul>
+<h2 id="web-API–DOM"><a href="#web-API–DOM" class="headerlink" title="web API–DOM"></a>web API–DOM</h2><p>web API允许我们访问window（载入浏览器的标签）、navigator（浏览器的状态和表示）、document（DOM），其中最常用的是DOM</p>
+<h3 id="DOM树"><a href="#DOM树" class="headerlink" title="DOM树"></a>DOM树</h3><p>一个文档对象模型的每个元素和文本，在构成的DOM树中都可被称为节点。有以下节点概念：</p>
+<ul>
+<li>元素节点：任何标签都是元素节点</li>
+<li>文本节点：往往是某个元素的文本内容（如果一个文本段中间隔了其他行内元素，那么被分隔的文本段各自成为一个文本节点）</li>
+<li>子节点</li>
+<li>后代节点</li>
+<li>父节点</li>
+<li>兄弟节点：在DOM树中同是一个元素的子节点，位于同一等级</li>
+</ul>
+<h3 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h3><p><em>前提操作：在闭合的&lt;body&gt;标签上加入&lt;script&gt;&lt;/script&gt;元素</em></p>
+<h3 id="选择元素并存储引用："><a href="#选择元素并存储引用：" class="headerlink" title="选择元素并存储引用："></a>选择元素并存储引用：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取第一个链接元素</span></span><br><span class="line"><span class="keyword">var</span> link=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;a&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>querySelector和querySelectorAll允许使用CSS选择器获取元素，是最常用的方法</p>
+<h3 id="修改元素的已知属性："><a href="#修改元素的已知属性：" class="headerlink" title="修改元素的已知属性："></a>修改元素的已知属性：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">link.<span class="property">textContent</span>=<span class="string">&#x27;moe moe cute&#x27;</span>;</span><br><span class="line">link.<span class="property">href</span>=<span class="string">&#x27;https://moemoecute.com&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建并放置新的节点"><a href="#创建并放置新的节点" class="headerlink" title="创建并放置新的节点"></a>创建并放置新的节点</h3><p>document.createElement(x)会创建一个元素节点x， parentNode.appendChild(x)会把节点x追加到这个parentNode下面</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*在在一个section元素里添加一个p元素，并设置p的文本内容*/</span></span><br><span class="line"><span class="comment">//获取一个section元素的引用</span></span><br><span class="line"><span class="keyword">var</span> sect=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;section&#x27;</span>);</span><br><span class="line"><span class="comment">//创建一个段落元素，并修改它的文本内容</span></span><br><span class="line"><span class="keyword">var</span> para=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">para.<span class="property">textContene</span>=<span class="string">&#x27;order a rabbit&#x27;</span>;</span><br><span class="line"><span class="comment">//把刚刚创建的段落元素作为子元素，追加到sect里</span></span><br><span class="line">sect.<span class="title function_">appendChild</span>(para);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*给p元素再添加一个子文本节点*/</span></span><br><span class="line"><span class="comment">//创建文本节点</span></span><br><span class="line"><span class="keyword">var</span> endText=<span class="variable language_">document</span>.<span class="title function_">createTextNode</span>(<span class="string">&#x27;--the end of a paragraph!&#x27;</span>);</span><br><span class="line"><span class="comment">//获取段落元素的引用</span></span><br><span class="line"><span class="keyword">var</span> para=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line"><span class="comment">//把文本追加到段落上。</span></span><br><span class="line">para.<span class="title function_">appendChild</span>(endText);</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动和删除节点"><a href="#移动和删除节点" class="headerlink" title="移动和删除节点"></a>移动和删除节点</h3><p>document.appendChild(x)方法不仅仅可以追加一个新的、未被添加进DOM的节点，还可以移动一个已经存在于DOM的节点，这并不会创建一个新的副本</p>
+<p>parentNode.removeChild(x)方法会删除parentNode的子节点x。特别地，如果要从节点x开始删除节点x，需要时先获得它父元素的引用才（这个方法无法自己删除自己）</p>
+<h3 id="操作样式"><a href="#操作样式" class="headerlink" title="操作样式"></a>操作样式</h3><p>第一种方法是，直接添加元素内联样式，这是用HTMLElement.style属性实现的，这个属性包含文档每个元素的内联样式信息</p>
+<p>这些这个脚本后，内联样式会添加到元素中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> para=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">para.<span class="property">style</span>.<span class="property">color</span>=<span class="string">&#x27;while&#x27;</span></span><br><span class="line">para.<span class="property">style</span>.<span class="property">backgroundColor</span>=<span class="string">&#x27;black&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>第二种方法是，事先定义好需要目的样式类，使用Element.setAttribute()来修改元素的类，这种方法更加正统：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//highlightClass需要事先在CSS文件里定义好并导入，或直接定义在html的head元素里</span></span><br><span class="line"><span class="keyword">var</span> para=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">para.<span class="title function_">setAttribute</span>(<span class="string">&#x27;class&#x27;</span>,<span class="string">&#x27;highlightClass&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="web-API–window-API"><a href="#web-API–window-API" class="headerlink" title="web API–window API"></a>web API–window API</h2><p>获取视窗（显示文档的内部窗口）的宽度和高度：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">WIDTH</span>=<span class="variable language_">window</span>.<span class="property">innerWidth</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">HEIGHT</span>=<span class="variable language_">window</span>.<span class="property">innerHeight</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用获取的视窗长宽，动态改变元素的长宽：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">div.<span class="property">style</span>.<span class="property">width</span>=<span class="variable constant_">WIDTH</span>+<span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">div.<span class="property">style</span>.<span class="property">width</span>=<span class="variable constant_">HEIGHT</span>+<span class="string">&#x27;px&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用windows对象的onresize事件，每次调整窗口大小都会触发该事件：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable constant_">WIDTH</span> = <span class="variable language_">window</span>.<span class="property">innerWidth</span>;</span><br><span class="line">  <span class="variable constant_">HEIGHT</span> = <span class="variable language_">window</span>.<span class="property">innerHeight</span>;</span><br><span class="line">  div.<span class="property">style</span>.<span class="property">width</span> = <span class="variable constant_">WIDTH</span> + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">  div.<span class="property">style</span>.<span class="property">height</span> = <span class="variable constant_">HEIGHT</span> + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="从服务器获取数据API"><a href="#从服务器获取数据API" class="headerlink" title="从服务器获取数据API"></a>从服务器获取数据API</h2><p>早期允许网页请求小数据块和仅在需要时显示的技术，被称为Ajax(Asynchronous JavaScript and XML)。现在常用XMLHttpRequest或Fetch来请求JSON数据，但仍然使用术语Ajax来描述</p>
+<h3 id="使用XHR向服务器请求数据"><a href="#使用XHR向服务器请求数据" class="headerlink" title="使用XHR向服务器请求数据"></a>使用XHR向服务器请求数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个XHR对象</span></span><br><span class="line"><span class="keyword">let</span> request=<span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"><span class="comment">//设置请求的方法，这里是GET</span></span><br><span class="line">request.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,url);</span><br><span class="line"><span class="comment">//设置请求的期望响应内容，这里是text</span></span><br><span class="line">request.<span class="property">reponseType</span>=<span class="string">&#x27;text&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用设置事件属性的方法，创造一个监听：一旦onload（响应已经返回），就触发</span></span><br><span class="line">request.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  poemDisplay.<span class="property">textContent</span>=request.<span class="property">response</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//执行请求发送</span></span><br><span class="line">request.<span class="title function_">send</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用Fetch向服务器请求数据"><a href="#使用Fetch向服务器请求数据" class="headerlink" title="使用Fetch向服务器请求数据"></a>使用Fetch向服务器请求数据</h3><p>Fetch API是XHR的一个现代替代品，它使异步HTTP请求更容易在JavaScript中实现：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>)&#123;</span><br><span class="line">  response.<span class="title function_">text</span>().<span class="title function_">then</span>(<span class="params"><span class="keyword">function</span>(text)</span>)&#123;</span><br><span class="line">    poemDisplay.<span class="property">textContent</span>=text;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>基于promise.then方法也返回一个promise的特点，可以有以下等价写法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(url)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">response</span>=&gt;</span>&#123;<span class="keyword">return</span> response.<span class="title function_">text</span>()&#125;)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">text</span>=&gt;</span>&#123;<span class="keyword">return</span> poemDisplay.<span class="property">textContent</span>=text;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>代码理解：fetch会发出一个请求，返回一个priomise对象，这个promise会解析从服务器返回的响应。一个promise对象调用then方法时，会自动传递自身所“包装”的那个对象，来作为then里面的执行函数的参数</p>
+<p>使用then方法很像是加上了一个监听器</p>
+<h2 id="客户端存储API"><a href="#客户端存储API" class="headerlink" title="客户端存储API"></a>客户端存储API</h2><p>传统方式cookies有些过时、存在各种安全问题，而且无法存储复杂数据。现在应该使用新的方法：</p>
+<ul>
+<li>Web Storage API：用于存储和检索较小的键值对，如存储用户名、用户是否登录、屏幕背景色等</li>
+<li>IndexedDB API：提供了一个完整的数据库系统来存储复杂数据，除了用户记录以外，还可以是音频或视频文件</li>
+</ul>
+<p>（暂时用不到，以后再仔细学习）</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -610,9 +688,6 @@
         <category>学习</category>
         <category>Web前端</category>
       </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
   </entry>
   <entry>
     <title>CSS样式化文本</title>
@@ -1707,7 +1782,8 @@
   <entry>
     <title>Web入门</title>
     <url>/2022/09/08/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/%E7%AC%94%E8%AE%B0--Web%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>初学了解，简要复习时可参考</p>
+<span id="more"></span>
 
 
 <h1 id="Web入门"><a href="#Web入门" class="headerlink" title="Web入门"></a>Web入门</h1><h2 id="HTML-基础"><a href="#HTML-基础" class="headerlink" title="HTML 基础"></a>HTML 基础</h2><p>index.html 示例:</p>
