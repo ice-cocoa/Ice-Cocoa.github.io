@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="2022-09-22 完成CSS样式化文本的整理 2022-11-01 又大概重新整理和复习了一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS专题1-样式化文本">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/09/18/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/CSS%E4%B8%93%E9%A2%981-%E6%A0%B7%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="2022-09-22 完成CSS样式化文本的整理 2022-11-01 又大概重新整理和复习了一下">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-02T07:22:59.595Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/09/18/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/CSS%E4%B8%93%E9%A2%981-%E6%A0%B7%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/09/18/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/CSS%E4%B8%93%E9%A2%981-%E6%A0%B7%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC/","path":"2022/09/18/学习/web前端/CSS专题1-样式化文本/","title":"CSS专题1-样式化文本"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS专题1-样式化文本 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">7</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">21</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%9C%AC%E5%92%8C%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">基本文本和字体样式化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-number">1.1.</span> <span class="nav-text">字体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2"><span class="nav-number">1.1.1.</span> <span class="nav-text">字体颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%A7%8D%E7%B1%BB"><span class="nav-number">1.1.2.</span> <span class="nav-text">字体种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%AD%97%E4%BD%93"><span class="nav-number">1.1.3.</span> <span class="nav-text">默认字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.1.4.</span> <span class="nav-text">字体的大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F%E3%80%81%E6%96%87%E5%AD%97%E7%B2%97%E7%BB%86%E3%80%81%E6%96%87%E6%9C%AC%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2%E3%80%81%E6%96%87%E6%9C%AC%E8%A3%85%E9%A5%B0"><span class="nav-number">1.1.5.</span> <span class="nav-text">字体样式、文字粗细、文本大小写转换、文本装饰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E9%98%B4%E5%BD%B1"><span class="nav-number">1.1.6.</span> <span class="nav-text">文本阴影</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%B8%83%E5%B1%80"><span class="nav-number">1.2.</span> <span class="nav-text">文本布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%AF%B9%E9%BD%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">文本对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E9%AB%98"><span class="nav-number">1.2.2.</span> <span class="nav-text">行高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E5%92%8C%E5%8D%95%E8%AF%8D%E9%97%B4%E8%B7%9D"><span class="nav-number">1.2.3.</span> <span class="nav-text">字母和单词间距</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E5%8C%96%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">样式化列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%89%B9%E5%AE%9A%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">列表特定样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8html%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%A7%8D%E8%AE%BE%E7%BD%AE%E9%A1%B9%E7%9B%AE%E8%AE%A1%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">在html列表元素种设置项目计数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">样式化链接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E7%8A%B6%E6%80%81"><span class="nav-number">3.1.</span> <span class="nav-text">链接状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%93%BE%E6%8E%A5%E5%9B%BE%E6%A0%87"><span class="nav-number">3.2.</span> <span class="nav-text">设置链接图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E5%8C%96%E9%93%BE%E6%8E%A5%E4%BD%9C%E4%B8%BA%E6%8C%89%E9%92%AE"><span class="nav-number">3.3.</span> <span class="nav-text">样式化链接作为按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web%E5%AD%97%E4%BD%93"><span class="nav-number">3.4.</span> <span class="nav-text">Web字体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%BA%BF%E4%B8%8B%E8%BD%BD%E5%AD%97%E4%BD%93"><span class="nav-number">3.4.1.</span> <span class="nav-text">在线下载字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8"><span class="nav-number">3.4.2.</span> <span class="nav-text">打包字体使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%A8%E7%BA%BF%E5%AD%97%E4%BD%93%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.4.3.</span> <span class="nav-text">使用在线字体服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%80%E6%9E%AA%E4%B8%8D%E5%85%A5%E7%9A%84-font-face%E8%AF%AD%E6%B3%95"><span class="nav-number">3.4.4.</span> <span class="nav-text">刀枪不入的@font-face语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E8%A1%A5%E5%85%85-%E8%87%AA%E5%AE%9A%E4%B9%89css-at-rule%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">额外补充-自定义css-at-rule样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#counter-style"><span class="nav-number">4.1.</span> <span class="nav-text">@counter-style</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/09/18/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/CSS%E4%B8%93%E9%A2%981-%E6%A0%B7%E5%BC%8F%E5%8C%96%E6%96%87%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CSS专题1-样式化文本 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          CSS专题1-样式化文本
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-19T00:00:00+08:00">2022-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-02 15:22:59" itemprop="dateModified" datetime="2022-11-02T15:22:59+08:00">2022-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>2022-09-22 完成CSS样式化文本的整理</li>
+<li>2022-11-01 又大概重新整理和复习了一下<span id="more"></span></li>
+</ul>
+<p><strong>引导：</strong></p>
+<ul>
+<li>基本文本和字体样式化<br>  文本和字体样式的所有基础，包括设置字体粗细（font weight）、字体系列及样式（family and style）、字体缩写（font shorthand）、文本排列（text alignment）和其他的效果，还有行（line）以及字符间距（letter spacing）</li>
+<li>样式化列表<br>  了解一些专门用于列表的样式</li>
+<li>样式化链接<br>  理解有效使用伪类取修饰链接的状态，以及怎么去修复不同的接口功能（例如导航菜单所有用的链接）</li>
+<li>网络字体<br>  下载自定义字体，实现更为不同的个性化字体样式</li>
+</ul>
+<h1 id="基本文本和字体样式化"><a href="#基本文本和字体样式化" class="headerlink" title="基本文本和字体样式化"></a>基本文本和字体样式化</h1><p>用于样式文本的CSS属性通常可以分为两类：字体样式和文本布局风格</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><h3 id="字体颜色"><a href="#字体颜色" class="headerlink" title="字体颜色"></a>字体颜色</h3><p>color属性设置选择元素的前景内容的颜色，通常就是文本，或者是使用 text-decoration 属性放置在文本下方活上方的线，或者是其他东西</p>
+<h3 id="字体种类"><a href="#字体种类" class="headerlink" title="字体种类"></a>字体种类</h3><p>font-family属性为浏览器指定一个字体或字体列表。浏览器只会用当前机器上可用的字体应用到当前正在访问的网站上，如果字体不可用则会替代为默认字体</p>
+<p>字体栈，形如 font-family: “Trebuchet MS”, Verdana, sans-serif;  从前往后查看是否可用，第一个可用的字体会被应用选中的元素</p>
+<h3 id="默认字体"><a href="#默认字体" class="headerlink" title="默认字体"></a>默认字体</h3><p>CSS定义了5个常用的字体名称：serif、sans-serif、 monospace、cursive、fantasy</p>
+<p>即使是这些默认字体，实际的使用效果也取决于浏览器。其中 serif、sans-serif 和 monospace 是比较好预测的，默认情况比较合理</p>
+<h3 id="字体的大小"><a href="#字体的大小" class="headerlink" title="字体的大小"></a>字体的大小</h3><p>字体大小通过font-size属性设置，常用单位是：</p>
+<ul>
+<li>px 像素</li>
+<li>em 在这里1em等于当前元素的父元素字体大小</li>
+<li>rem 在这里1rem等于根元素的字体大小</li>
+</ul>
+<p>元素的font-size属性是从该元素的父元素继承的，所有所有都是从整个文档的根元素&lt;\html&gt;开始，浏览器的font-size标准设置的值为16px，其他元素如&lt;h1&gt;也许有一个2em（它的最终值为32px）的默认大小</p>
+<h3 id="字体样式、文字粗细、文本大小写转换、文本装饰"><a href="#字体样式、文字粗细、文本大小写转换、文本装饰" class="headerlink" title="字体样式、文字粗细、文本大小写转换、文本装饰"></a>字体样式、文字粗细、文本大小写转换、文本装饰</h3><p>CSS提供4种常用的属性来改变文本的样子：</p>
+<ul>
+<li>font-style 用来打开和关闭文本的斜体，很少使用</li>
+<li>font-weight 设置文字粗细，可选值有 normal、bold、lighter、bolder，也可使用 100-900 的数字来控制，具体效果视所选字体而定</li>
+<li>text-transform 设置转换字体<ul>
+<li>none：防止任何转型</li>
+<li>uppercase：所有文本转为大写</li>
+<li>lowercase：所有文本转为小写</li>
+<li>cappitalize 转换所有单词首字母为大写</li>
+<li>full-width：所有字形转为全角，即固定宽度的正方形，允许拉丁字符和亚洲字形对齐</li>
+</ul>
+</li>
+<li>text-decoration 设置或取消文本装饰，可一次性接收多个值<ul>
+<li>none：取消已存在的文本装饰</li>
+<li>underline：文本下划线</li>
+<li>overline：文本上划线</li>
+<li>line-throuh：穿过文本的线（对于删除线，应该用元素指定，而非样式）</li>
+</ul>
+</li>
+</ul>
+<h3 id="文本阴影"><a href="#文本阴影" class="headerlink" title="文本阴影"></a>文本阴影</h3><p>为文本应用阴影，使用text-shadow属性，最多可以使用四个值，如 text-shadow: 4px 4px 5px red;<br>这四个值的意义为：</p>
+<ol>
+<li>第一值指定阴影与原始文本水平偏移，必须指定；</li>
+<li>第二值指定垂直偏移</li>
+<li>第三值指定模糊半径</li>
+<li>第四值指定阴影的基础颜色</li>
+</ol>
+<p>甚至可以应用多个阴影，秩序将它们用逗号分隔</p>
+<h2 id="文本布局"><a href="#文本布局" class="headerlink" title="文本布局"></a>文本布局</h2><h3 id="文本对齐"><a href="#文本对齐" class="headerlink" title="文本对齐"></a>文本对齐</h3><p>使用text-align属性来控制文本如何和它所在的内容盒子对齐，可用值如下：</p>
+<ul>
+<li>left：左对齐</li>
+<li>right：右对齐</li>
+<li>center：文字居中</li>
+<li>justify：使文本展开，使所有文本行宽度相同（我认为这并不美观）</li>
+</ul>
+<h3 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h3><p>使用line-height属性设置文本每行之间的高，它接收一般长度单位，也可设置一个无单位数作为乘数，这也是推荐做法，如 line-height: 1.5; </p>
+<h3 id="字母和单词间距"><a href="#字母和单词间距" class="headerlink" title="字母和单词间距"></a>字母和单词间距</h3><p>可以使用letter-spacing设置字母间距，word-spacing设置单词间距</p>
+<h1 id="样式化列表"><a href="#样式化列表" class="headerlink" title="样式化列表"></a>样式化列表</h1><p>列表大体上和其他文本一样，此外还有一些特殊属性</p>
+<h2 id="列表特定样式"><a href="#列表特定样式" class="headerlink" title="列表特定样式"></a>列表特定样式</h2><p>以下三个列表的特定属性可以在&lt;ul&gt;和&lt;ol&gt;元素上设置：</p>
+<ul>
+<li>list-style-type 设置列表项目符号类型，以下列举几个常用的：<ul>
+<li>upper-roman：大罗马数字</li>
+<li>circle：空心原点</li>
+<li>didc：实心远点</li>
+<li>none：不显示项目符号</li>
+<li>使用@counter-style 自定义的counter样式</li>
+</ul>
+</li>
+<li>list-style-position 设置项目符号是出现在列表项内还是列表项外，直观的表现在和父级列表项的对齐方式，可以去值 inside 和 outside</li>
+<li>list-style-image 允许为项目符号设置自定义图片  <dd>相比使用自定义图片使用的图片标记，缺少“项目标记”的意义；相比设置none后定义背景background系列，缺少控制效果/dd></li>
+</ul>
+<p>列表样式简便写法： </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 又指定type又设置image，能够在无法加载图像的情况下使用type */</span></span><br><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: square <span class="built_in">url</span>(<span class="string">example.png</span>) inside;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="在html列表元素种设置项目计数"><a href="#在html列表元素种设置项目计数" class="headerlink" title="在html列表元素种设置项目计数"></a>在html列表元素种设置项目计数</h2><p>在列表元素种可以添加额外属性以设置样式：</p>
+<ul>
+<li>属性start，它允许从1以外地数字开始计数，如 &lt;ol start&#x3D;”4”&gt; </li>
+<li>布尔属性reversed，它启动列表倒计数</li>
+<li>属性value，它能够为列表项目指定计数，如 &lt;li value&#x3D;”3”&gt;</li>
+</ul>
+<h1 id="样式化链接"><a href="#样式化链接" class="headerlink" title="样式化链接"></a>样式化链接</h1><h2 id="链接状态"><a href="#链接状态" class="headerlink" title="链接状态"></a>链接状态</h2><p>链接存在不同状态，每一种状态都可以用一种<strong>伪类</strong>表示：</p>
+<ul>
+<li>Link 这是链接地默认状态，属于未被访问状态</li>
+<li>Visited 这个链接已被访问（存在于浏览器地历史记录），使用 :visited 伪类来应用样式</li>
+<li>Hover 用户地鼠标刚好停留在这个链接上，使用 :hover 伪类来应用样式；链接默认地悬停样式是鼠标光标变成小手</li>
+<li>Active 一个链接被激活时，比如被点击时，可以使用 :active 伪类来应用样式</li>
+</ul>
+<p>链接应该设置以下特征：</p>
+<ol>
+<li>链接有下划线，这是默认地链接格式</li>
+<li>悬停或聚焦于链接上时，链接有相应变化，默认地悬停为鼠标变成小手</li>
+<li>color 文字颜色，用户可以自定义，默认设置也足够使用</li>
+<li>cursor 鼠标光标样式</li>
+<li>outline 文字的轮廓，默认设置于悬停伪类</li>
+</ol>
+<p>注意链接伪类的选择顺序，比如一个链接被激活的时候，也很可能处于悬停状态，所以在添加样式时，要按照 :link –&gt; :visited –&gt; :hover –&gt; :active 的顺序</p>
+<h2 id="设置链接图标"><a href="#设置链接图标" class="headerlink" title="设置链接图标"></a>设置链接图标</h2><p>链接图标与为图片元素创建链接不同，链接图标是作为一个链接的背景设置的，如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 为http开头（https也符合条件）的链接创建一个背景图片 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href*=<span class="string">&quot;http&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">&#x27;https://mdn.mozillademos.org/files/12982/external-link-52.png&#x27;</span>) no-repeat <span class="number">100%</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">16px</span> <span class="number">16px</span>;<span class="comment">/*对于响应式网页有必要调整一下*/</span></span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">19px</span>;<span class="comment">/*为背景图片留出空间，这样不会和文本重叠*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="样式化链接作为按钮"><a href="#样式化链接作为按钮" class="headerlink" title="样式化链接作为按钮"></a>样式化链接作为按钮</h2><p>把链接应用样式，使效果和按钮差不多，这对于设计网站导航菜单十分有用；下面是一个例子</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*对于横向导航栏，设置宽度为外部容器body的100%很有必要*/</span></span><br><span class="line"><span class="selector-tag">ul</span> &#123;<span class="attribute">padding</span>: <span class="number">0</span>; <span class="attribute">width</span>: <span class="number">100%</span>;&#125;</span><br><span class="line"><span class="comment">/*对于横向导航栏，设置内联展示很有必要*/</span></span><br><span class="line"><span class="selector-tag">li</span> &#123;<span class="attribute">display</span>: inline;&#125; </span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">outline</span>: none;    </span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;<span class="comment">/*设置它能够确保控制内容不超出外部盒子*/</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">19.5%</span>;<span class="comment">/*容纳5个盒子，适当留出空隙*/</span></span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">0.625%</span>;<span class="comment">/*为每个盒子的右侧留出少量空隙*/</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">3</span>;<span class="comment">/*让盒子有一些高度*/</span></span><br><span class="line">  <span class="attribute">color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*删除最右侧按钮的右侧空隙*/</span></span><br><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span> <span class="selector-tag">a</span> &#123;<span class="attribute">margin-right</span>: <span class="number">0</span>;&#125; </span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>, <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>, <span class="selector-tag">a</span><span class="selector-pseudo">:focus</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;<span class="attribute">background</span>: orange;&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;<span class="attribute">background</span>: red;<span class="attribute">color</span>: white;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Web字体"><a href="#Web字体" class="headerlink" title="Web字体"></a>Web字体</h2><h3 id="在线下载字体"><a href="#在线下载字体" class="headerlink" title="在线下载字体"></a>在线下载字体</h3><p>在CSS的开始处，有一个 @font-face ，可以指定要下载的字体文件：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;myFont&quot;</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&quot;myFont.ttf&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这之后，可以使应用 @font-face 中的字体</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;myFont&quot;</span>, <span class="string">&quot;Bitstream Vera Serif&quot;</span>, serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，Web字体一般都不能自由使用，不应当在没有授权的情况下使用字体</p>
+<h3 id="打包字体使用"><a href="#打包字体使用" class="headerlink" title="打包字体使用"></a>打包字体使用</h3><ol>
+<li>下载字体套件到本地放置到CSS同级目录，并重命名为简易的目录，如 fonts 文件夹</li>
+<li>打开 stylesheet.css 文件，把包含在网页中的 @font-face 块复制到你的 web-font-start.css 文件，并放在最上面</li>
+<li>每个url()函数指向需要导入到CSS的字体文件夹，确保路径正确</li>
+<li>现在可以在字体栈中添加这些字体，就像任何web安全或默认的系统字体一样</li>
+</ol>
+<h3 id="使用在线字体服务"><a href="#使用在线字体服务" class="headerlink" title="使用在线字体服务"></a>使用在线字体服务</h3><p>在线字体服务通常会为你存储和服务字体，这样你就不用担心写@font-face代码了</p>
+<p>使用 Google Fonts 在线字体服务：</p>
+<ol>
+<li>前往 <a target="_blank" rel="noopener" href="https://www.google.com/fonts" title=" Google Fonts">Google Fonts</a></li>
+<li>选择并添加喜欢的字体</li>
+<li>在生成的屏幕中，复制所显示的HTML代码行，置于现有&#x2F;<link/>元素之上</li>
+<li>将CSS声明复制到CSS文件中</li>
+</ol>
+<h3 id="刀枪不入的-font-face语法"><a href="#刀枪不入的-font-face语法" class="headerlink" title="刀枪不入的@font-face语法"></a>刀枪不入的@font-face语法</h3><p>下面是一个例子：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="comment">/*想要引用的字体名称*/</span></span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;ciclefina&#x27;</span>;</span><br><span class="line">  <span class="comment">/*这些行是指定导入的字体文件路径，以及每种提提文件的格式format（这一部分不是必要，但能让浏览器更快找到）*/</span></span><br><span class="line">  <span class="comment">/*对于eot的两行不太明白意思，但实际使用应该可以忽略它们*/</span></span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&#x27;fonts/cicle_fina-webfont.eot&#x27;</span>);</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&#x27;fonts/cicle_fina-webfont.eot?#iefix&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;embedded-opentype&#x27;</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">&#x27;fonts/cicle_fina-webfont.woff2&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;woff2&#x27;</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">&#x27;fonts/cicle_fina-webfont.woff&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;woff&#x27;</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">&#x27;fonts/cicle_fina-webfont.ttf&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;truetype&#x27;</span>),</span><br><span class="line">         <span class="built_in">url</span>(<span class="string">&#x27;fonts/cicle_fina-webfont.svg#ciclefina&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;svg&#x27;</span>);</span><br><span class="line">  <span class="attribute">font-weight</span>: normal;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h1 id="额外补充-自定义css-at-rule样式"><a href="#额外补充-自定义css-at-rule样式" class="headerlink" title="额外补充-自定义css-at-rule样式"></a>额外补充-自定义css-at-rule样式</h1><h2 id="counter-style"><a href="#counter-style" class="headerlink" title="@counter-style"></a>@counter-style</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@counter-style" title="MDN上关于@counter-style的使用介绍">MDN上关于@counter-style的使用介绍</a></p>
+<p>下面的 @counter-style 规则使用图片标记，这也许在制作导航栏时十分有用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@counter-style</span> winners-list &#123;</span><br><span class="line">  system: fixed; <span class="comment">/*指定算法*/</span></span><br><span class="line">  symbols: <span class="built_in">url</span>(<span class="string">pic1.svg</span>) <span class="built_in">url</span>(<span class="string">pic2.svg</span>) <span class="built_in">url</span>(<span class="string">pic3.svg</span>);</span><br><span class="line">  suffix: <span class="string">&quot; &quot;</span>; <span class="comment">/*指定一个符号添加在标记后面*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/13/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Selenium%E7%AC%94%E8%AE%B0--python%E5%AE%9E%E7%8E%B0/" rel="prev" title="Selenium笔记--python实现">
+                  <i class="fa fa-chevron-left"></i> Selenium笔记--python实现
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/21/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/CSS%E4%B8%93%E9%A2%982-%E9%A1%B5%E9%9D%A2%E6%8E%92%E7%89%88/" rel="next" title="CSS专题2-页面排版">
+                  CSS专题2-页面排版 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

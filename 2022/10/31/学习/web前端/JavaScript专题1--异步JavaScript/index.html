@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录异步JavaScript API，重点是用于和服务器交换报文的Promise API 。关于Worker的部分则省略">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript专题1--异步JavaScript">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/10/31/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/JavaScript%E4%B8%93%E9%A2%981--%E5%BC%82%E6%AD%A5JavaScript/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="记录异步JavaScript API，重点是用于和服务器交换报文的Promise API 。关于Worker的部分则省略">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-02T07:22:59.595Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/10/31/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/JavaScript%E4%B8%93%E9%A2%981--%E5%BC%82%E6%AD%A5JavaScript/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/10/31/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/JavaScript%E4%B8%93%E9%A2%981--%E5%BC%82%E6%AD%A5JavaScript/","path":"2022/10/31/学习/web前端/JavaScript专题1--异步JavaScript/","title":"JavaScript专题1--异步JavaScript"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript专题1--异步JavaScript | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">7</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">21</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">事件处理程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Promise"><span class="nav-number">2.</span> <span class="nav-text">使用Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fetch-API%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AAPromise"><span class="nav-number">2.1.</span> <span class="nav-text">fetch API返回一个Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E5%BC%8F%E4%BD%BF%E7%94%A8Promise%E5%92%8C%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">链式使用Promise和错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise%E6%9C%AF%E8%AF%AD"><span class="nav-number">2.3.</span> <span class="nav-text">Promise术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AAPromise"><span class="nav-number">2.4.</span> <span class="nav-text">合并使用多个Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async%E5%92%8Cawait"><span class="nav-number">2.5.</span> <span class="nav-text">async和await</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">2.6.</span> <span class="nav-text">Promise构造器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#worker%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">worker简介</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/10/31/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/JavaScript%E4%B8%93%E9%A2%981--%E5%BC%82%E6%AD%A5JavaScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript专题1--异步JavaScript | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          JavaScript专题1--异步JavaScript
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-11-01T00:00:00+08:00">2022-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-02 15:22:59" itemprop="dateModified" datetime="2022-11-02T15:22:59+08:00">2022-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>记录异步JavaScript API，重点是用于和服务器交换报文的Promise API 。关于Worker的部分则省略</p>
+<span id="more"></span>
+
+<h1 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h1><p>事件处理程序实际上就是异步编程的一种形式，函数会在事件发生的时候调用，而非立即调用</p>
+<p>XMLHttpRequest（简称为XHR） API是JavaScript早期的异步API，可以发起HTTP请求，并通过给XHR对象附加事件监视器（以及配套的处理程序），在请求进展、最终完成、或其他时刻执行某些行为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 假定有这样的html文件</span></span><br><span class="line"><span class="comment">&lt;button id=&quot;xhr&quot;&gt;点击发起请求&lt;/button&gt;</span></span><br><span class="line"><span class="comment">&lt;pre readonly class=&quot;event-log&quot;&gt;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> log=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.event-log&#x27;</span>);</span><br><span class="line"><span class="comment">//给点击事件加上监听。（异步）如果点击则发起发起一个http请求</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#xhr&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  log.<span class="property">textContent</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> xhr=<span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">  <span class="comment">//给xhr对象加上监听。（异步）如果获取到返回，则输出相关信息</span></span><br><span class="line">  xhr.<span class="title function_">addEventListener</span>(<span class="string">&#x27;loadend&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    log.<span class="property">textContent</span>=<span class="string">&#x27;$&#123;log.textcont&#125;完成！状态码：$&#123;xhr.status&#125;&#x27;</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//发送一个http请求</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&#x27;www.baidu.com&#x27;</span>);</span><br><span class="line">  xhr.<span class="title function_">send</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="使用Promise"><a href="#使用Promise" class="headerlink" title="使用Promise"></a>使用Promise</h1><p>Promise是一个对象，往往使用它的then方法、catch方法等来实现异步调用</p>
+<p>⭐注意，异步函数总是返回一个Promise，哪怕return的就是一个非常常见的变量。如果有一个返回json变量的函数，加了async关键字，那么它的返回值也会是Promise。如果想要使用这个变量，必须在 .then()中的作为参数的函数内使用，如 xxx.then(json&#x3D;&gt;{console.log(json[0]);}); </p>
+<h2 id="fetch-API返回一个Promise"><a href="#fetch-API返回一个Promise" class="headerlink" title="fetch API返回一个Promise"></a>fetch API返回一个Promise</h2><p>fetch API是一个基于Promise的，用以替代XMLHttpRequest的方法（XHR是早期实现异步编程的API）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line">fetchPromise.<span class="title function_">then</span>(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;已收到响应：$&#123;reponse.status&#125;&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;已发送请求&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在这里的输出应该是这样的:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">已发送请求</span><br><span class="line">已收到响应：200</span><br></pre></td></tr></table></figure>
+
+<h2 id="链式使用Promise和错误处理"><a href="#链式使用Promise和错误处理" class="headerlink" title="链式使用Promise和错误处理"></a>链式使用Promise和错误处理</h2><p>一个异步操作往往需要由多个函数构成，为了避免在一个then参数内嵌套多个then，可以使用链式调用的方法</p>
+<p>Promise的方便在于，它的方法then本身也会返回一个Promise，并且这个Promise还会指示出作为then参数的函数的完成状态</p>
+<p>Promise还有用于错误处理的catch方法，catch往往位于Promise链的最后一个</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line">fetchPromise</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">json</span>();<span class="comment">//函数返回一个json对象，这个对象之后又会被then构造成一个Promise</span></span><br><span class="line">    <span class="keyword">if</span> (!response.<span class="property">ok</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`error：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">json</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span>=&gt;</span>&#123;<span class="comment">//捕获错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise术语"><a href="#Promise术语" class="headerlink" title="Promise术语"></a>Promise术语</h2><p>Promise有三种状态：</p>
+<ul>
+<li><strong>待定pending</strong>：这是调用fetch返回的Promise状态，此时请求刚刚发起，不知道能否成功返回</li>
+<li><strong>已实现fulfilled</strong>：意味着操作成功“完成”，此时调用then方法，其中的resolved参数对应的函数会被调用</li>
+<li><strong>已拒绝rejected</strong>：意味着操作“失败”，此时调用then方法，其中的rejected参数对应的函数会被调用；或者直接被catch捕获</li>
+</ul>
+<p>注意，这里“成功”或“失败”的含义取决于使用的API，如fetch认为服务器返回404时成功，网络错误为失败</p>
+<h2 id="合并使用多个Promise"><a href="#合并使用多个Promise" class="headerlink" title="合并使用多个Promise"></a>合并使用多个Promise</h2><p>如果几个Promise相互间没有依赖关系，那么可以使用all方法，它接收一个Promise数组作为一个参数，返回单一的Promise</p>
+<p>这个all方法返回的Promise使用then方法，给予处理函数的参数是一个响应数组（顺序与传入all的Promise的顺序相同）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//省略三个fetch</span></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([fetchPromise1, fetchPromise2, fetchPromise3])</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">responses</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> response <span class="keyword">of</span> responses) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`status：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">//只要有一个fetch失败就会触发错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`获取失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h2><p>同步变异步：async关键字能够让自定义的一个普通函数成为异步函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunc</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>异步变同步：await关键字能够使得代码在该点上等待，直到Promise被完成</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> response=<span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://ceshiceshi.com/ceshi.json&#x27;</span>)</span><br><span class="line">  <span class="comment">//下面的代码会在fetch完成后再执行</span></span><br><span class="line">  <span class="keyword">if</span>(!response.<span class="property">ok</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;请求错误：$&#123;response.status&#125;&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//注意，json方法也是异步的</span></span><br><span class="line">  <span class="keyword">const</span> ceshiJson=<span class="keyword">await</span> response.<span class="title function_">json</span>(); </span><br><span class="line">  <span class="comment">//添加了await关键字后，ceshiJson是一个普通的json对象；不然它仍然是一个Promise对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise构造器"><a href="#Promise构造器" class="headerlink" title="Promise构造器"></a>Promise构造器</h2><p>Promise构造器使用单个函数作为参数，这个函数被称为执行器，当创建一个新的Promise的时候需要实现这个执行器</p>
+<p>执行器本身采用两个参数，这两个参数都是函数，通常称作resolve和reject</p>
+<p>执行器本身实现一个异步函数，如果异步函数成功，则会执行在执行器内调用的resolve；如果异步函数失败（包括执行器内的代码），如fetch时网络阻止，主动的throw，，则会<strong>自动</strong>调用reject</p>
+<p><em>注意一下理解，作为执行器作为参数，本身是个函数，执行器的两个参数也是函数</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> flag=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#flag&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> a=<span class="keyword">new</span> <span class="title class_">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(flag&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;someting wrong&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">resolve</span>(para1,para2);<span class="comment">//如果之前的异步函数，以及执行器内前面的代码没有出现问题，这里调用了resolve</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="worker简介"><a href="#worker简介" class="headerlink" title="worker简介"></a>worker简介</h1><p>Web Worker 的作用，就是为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运行。为了避免资源消耗，worker一旦使用完成应该即时关闭</p>
+<p>为了避免多线程环境下的同步问题（尤其是对相同变量的访问），主代码和worker代码永远不能直接访问彼此的变量。这一为了workers不能访问DOM</p>
+<p>（暂时没有使用worker的需求和水平，暂时搁置整理）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/19/%E9%98%85%E8%AF%BB/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/" rel="prev" title="插柳成荫">
+                  <i class="fa fa-chevron-left"></i> 插柳成荫
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/01/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/JavaScript%E4%B8%93%E9%A2%982--%E5%AE%A2%E6%88%B7%E7%AB%AFAPI/" rel="next" title="JavaScript专题2--客户端API">
+                  JavaScript专题2--客户端API <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

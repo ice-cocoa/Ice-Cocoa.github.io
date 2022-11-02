@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录Markdown基本语法  2022-07-13  重新整理了一些不标准和不合适的markdown语法 试图更新table样式，发现table样式似乎写死，指定样式无用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown基础语法">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/11/02/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="记录Markdown基本语法  2022-07-13  重新整理了一些不标准和不合适的markdown语法 试图更新table样式，发现table样式似乎写死，指定样式无用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.ice-cocoa.net/themes/next_a/source/images/avatars/aoba.jpg">
+<meta property="og:image" content="https://www.ice-cocoa.net/assets/images/aoba.jpg">
+<meta property="og:image" content="https://www.ice-cocoa.net/assets/images/hifumi.jpg">
+<meta property="article:published_time" content="2022-11-02T07:22:59.595Z">
+<meta property="article:modified_time" content="2022-11-02T07:22:59.595Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.ice-cocoa.net/themes/next_a/source/images/avatars/aoba.jpg">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/11/02/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/11/02/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/","path":"2022/11/02/学习/其他/Markdown语法记录/","title":"Markdown基础语法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Markdown基础语法 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">7</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">21</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">标题语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Heading-level-1"><span class="nav-number">2.</span> <span class="nav-text">Heading level 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Heading-level-2"><span class="nav-number">2.1.</span> <span class="nav-text">Heading level 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heading-level-3"><span class="nav-number">2.1.1.</span> <span class="nav-text">Heading level 3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">段落语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%A2%E8%A1%8C%E8%AF%AD%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">换行语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%BA%E8%B0%83%E5%8D%95%E8%AF%8D%E6%88%96%E5%8F%A5%E5%AD%90"><span class="nav-number">5.</span> <span class="nav-text">强调单词或句子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">引用语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">列表语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">7.1.</span> <span class="nav-text">有序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-number">7.2.</span> <span class="nav-text">无序列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">代码语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E9%9A%94%E7%BA%BF"><span class="nav-number">9.</span> <span class="nav-text">分隔线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">10.</span> <span class="nav-text">链接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0title%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="nav-number">10.1.</span> <span class="nav-text">加title的链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E5%9D%80%E5%92%8C%E9%82%AE%E7%AE%B1%E5%9C%B0%E5%9D%80"><span class="nav-number">10.2.</span> <span class="nav-text">网址和邮箱地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A6%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="nav-number">10.3.</span> <span class="nav-text">带格式化的链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E8%AF%AD%E6%B3%95"><span class="nav-number">11.</span> <span class="nav-text">图片语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87"><span class="nav-number">11.1.</span> <span class="nav-text">添加图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E5%9B%BE%E7%89%87%E6%B7%BB%E5%8A%A0%E9%93%BE%E6%8E%A5"><span class="nav-number">11.2.</span> <span class="nav-text">给图片添加链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">12.</span> <span class="nav-text">转义字符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E5%81%9A%E8%BD%AC%E4%B9%89%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="nav-number">12.1.</span> <span class="nav-text">可做转义的字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%87%AA%E5%8A%A8%E8%BD%AC%E4%B9%89"><span class="nav-number">12.2.</span> <span class="nav-text">特殊字符自动转义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%B5%8CHTML%E6%A0%87%E7%AD%BE"><span class="nav-number">13.</span> <span class="nav-text">内嵌HTML标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-ruby-gt"><span class="nav-number">13.1.</span> <span class="nav-text">&lt;ruby&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-detail-gt"><span class="nav-number">13.2.</span> <span class="nav-text">&lt;detail&gt;</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/11/02/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Markdown基础语法 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          Markdown基础语法
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-02 15:22:59" itemprop="dateCreated datePublished" datetime="2022-11-02T15:22:59+08:00">2022-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>记录Markdown基本语法</p>
+<ul>
+<li>2022-07-13 <ul>
+<li>重新整理了一些不标准和不合适的markdown语法</li>
+<li>试图更新table样式，发现table样式似乎写死，指定样式无用。</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+
+
+
+
+
+<h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="Heading-level-1"><a href="#Heading-level-1" class="headerlink" title="Heading level 1"></a>Heading level 1</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Heading level 1//一级标题，注意井号后面有个空格</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">Heading level 1</span></span><br><span class="line"><span class="section">========</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Heading-level-2"><a href="#Heading-level-2" class="headerlink" title="Heading level 2"></a>Heading level 2</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## Heading level 2//二级标题</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">Heading level 2</span></span><br><span class="line"><span class="section">---------</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Heading-level-3"><a href="#Heading-level-3" class="headerlink" title="Heading level 3"></a>Heading level 3</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### Heading level 3//三级标题，增加井号数量可继续增加子标题等级</span></span><br></pre></td></tr></table></figure>
+<h1 id="段落语法"><a href="#段落语法" class="headerlink" title="段落语法"></a>段落语法</h1><p>今天天气不错，<br>午饭吃了吗</p>
+<p>还没有吃</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">今天天气不错，</span><br><span class="line">午饭吃了吗</span><br><span class="line"></span><br><span class="line">还没有吃</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">段落，用空白行隔开段落，段落前不要用空格或制表符缩进段落</span><br></pre></td></tr></table></figure>
+<h1 id="换行语法"><a href="#换行语法" class="headerlink" title="换行语法"></a>换行语法</h1><p>这是第一行<br><br>这是第二行<br><br>这是第三行</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是第一行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第二行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第三行</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也在行尾使用两个空格作为换行符</span><br></pre></td></tr></table></figure>
+<h1 id="强调单词或句子"><a href="#强调单词或句子" class="headerlink" title="强调单词或句子"></a>强调单词或句子</h1><p>今天<strong>天气</strong>真不错啊<br><br>今天<em>天气</em>真不错啊<br><br>今天<em><strong>天气</strong></em>真不错啊<br><br>今天~~ 天气 ~~真不错啊</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">粗体：   </span><br><span class="line"><span class="code">    今天**天气**真不错啊</span></span><br><span class="line"><span class="code">斜体：</span></span><br><span class="line"><span class="code">    今天*天气*真不错啊</span></span><br><span class="line"><span class="code">斜粗体：</span></span><br><span class="line"><span class="code">    今天***天气***真不错啊</span></span><br><span class="line"><span class="code">删去线：</span></span><br><span class="line"><span class="code">    今天~~ 天气 ~~真不错啊</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h1><blockquote>
+<p>第一段落：撅草棍儿抽长短</p>
+<p>第二段落：谁长谁先干</p>
+<blockquote>
+<p>这里是子嵌套的</p>
+</blockquote>
+</blockquote>
+<blockquote><p>今天天气不错</p>
+</blockquote>
+
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;第一段落：撅草棍儿抽长短</span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt;第二段落：谁长谁先干</span></span><br><span class="line">&gt;&gt;这里是子嵌套的</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多个段落的块引用间，空行也要加&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">今天天气不错</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项<ol>
+<li>子项</li>
+<li>子项</li>
+</ol>
+</li>
+<li>第四项<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项 //注意点后有空格</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br><span class="line"><span class="bullet">    1.</span> 子项</span><br><span class="line"><span class="bullet">    2.</span> 子项</span><br><span class="line"><span class="bullet">4.</span> 第四项</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
+<li><p>第一项</p>
+<blockquote>
+<p>今天天气不错</p>
+</blockquote>
+</li>
+<li><p>第二项</p>
+<ul>
+<li>子项</li>
+<li>子项</li>
+<li>子项</li>
+</ul>
+</li>
+<li><p>第三项</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 第一项</span><br><span class="line"></span><br><span class="line"><span class="code">    &gt;今天天气不错 //列表中可嵌套其他元素</span></span><br><span class="line"><span class="code">- 第二项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">- 第三项</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h1><p>代码语法的作用是让代码在下面这样的框里显示</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p>编辑代码内容</p>
+<pre><code><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束   </span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>或者<br></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock  %&#125;</span><br><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><p>第一行</p>
+<hr>
+<p>第二行</p>
+<hr>
+<p>第三行</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第一行</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第二行</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">___</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第三行</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">独立成行的三个连续的<span class="emphasis">*，或三个连续的下划线可作分隔线</span></span><br></pre></td></tr></table></figure>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com &quot;百度搜素&quot;</span>)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
+<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a target="_blank" rel="noopener" href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#x61;&#107;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#111;&#109;">&#x66;&#x61;&#107;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#111;&#109;</a></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://markdown.com.cn&gt;</span></span><br><span class="line"><span class="language-xml">&lt;fake@example.com&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a target="_blank" rel="noopener" href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">今天天气不错，查看 <span class="strong">**<span class="emphasis">*[<span class="string">中国天气</span>](<span class="link">http://www.weather.com.cn/</span>)*</span>**</span></span><br><span class="line">查看[<span class="string">`code`</span>](<span class="link">#code</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p><img src="/../../themes/next_a/source/images/avatars/aoba.jpg" alt="图片1" title="aoba"><br></p>
+<p><img src="/assets/images/aoba.jpg" alt="青叶" title="aoba"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>  //以该post的地址作为起始地址，这样的链接是错误的</span><br><span class="line"></span><br><span class="line">![<span class="string">青叶</span>](<span class="link">/assets/images/aoba.jpg &quot;aoba&quot;</span>)  //运行时相对地址的起始为博客的根目录文件夹，这样的链接是正确的</span><br></pre></td></tr></table></figure>
+
+<h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a target="_blank" rel="noopener" href="http://newgame-anime.com/assets/character/c4.png" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="hifumi"></a></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">![日富美</span>](<span class="link">/assets/images/hifumi.jpg &quot;hifumi&quot;</span>)](<span class="link">http://newgame-anime.com/assets/character/c4.png &quot;hifumi&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><h2 id="可做转义的字符"><a href="#可做转义的字符" class="headerlink" title="可做转义的字符"></a>可做转义的字符</h2><p>以下列出的字符都可以通过使用反斜杠字符从而达到转义目的。</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\</td>
+<td>反斜线</td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td>反引号</td>
+</tr>
+<tr>
+<td>_</td>
+<td>下划线</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>花括号</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>方括号</td>
+</tr>
+<tr>
+<td>()</td>
+<td>圆括号</td>
+</tr>
+<tr>
+<td>#</td>
+<td>井号</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加号</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减号，连字符</td>
+</tr>
+<tr>
+<td>.</td>
+<td>圆点</td>
+</tr>
+<tr>
+<td>!</td>
+<td>感叹号</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="特殊字符自动转义"><a href="#特殊字符自动转义" class="headerlink" title="特殊字符自动转义"></a>特殊字符自动转义</h2><p>如果你使用 &amp; 符号的作为 HTML 实体的一部分，那么它不会被转换，而在其它情况下，它则会被转换成 &amp;amp;。</p>
+<h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1><h2 id="lt-ruby-gt"><a href="#lt-ruby-gt" class="headerlink" title="&lt;ruby&gt;"></a>&lt;ruby&gt;</h2><p><ruby>拼音<rt>pinyin</rt></ruby></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">ruby</span>&gt;</span></span>拼音<span class="language-xml"><span class="tag">&lt;<span class="name">rt</span>&gt;</span></span>pinyin<span class="language-xml"><span class="tag">&lt;/<span class="name">rt</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">ruby</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="lt-detail-gt"><a href="#lt-detail-gt" class="headerlink" title="&lt;detail&gt;"></a>&lt;detail&gt;</h2><details class="note primary no-icon" open="">
+<summary><p><strong>总描述</strong></p>
+</summary>
+
+<table>
+<thead>
+<tr>
+<th align="left">栏目1</th>
+<th align="center">栏目2</th>
+<th align="left">栏目 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\</td>
+<td align="center">反斜线</td>
+<td align="left">\</td>
+</tr>
+<tr>
+<td align="left">&#96;</td>
+<td align="center">反引号</td>
+<td align="left">&#96;</td>
+</tr>
+<tr>
+<td align="left">_</td>
+<td align="center">下划线</td>
+<td align="left">_</td>
+</tr>
+</tbody></table>
+</details>
+
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">strong</span>&gt;</span></span>总描述<span class="language-xml"><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">| 栏目1 | 栏目2 | 栏目 3|</span><br><span class="line">| :--- | :----: |:---|  //对齐方式</span><br><span class="line">| \  | 反斜线 | \ |</span><br><span class="line">| <span class="code">`  | 反引号 | `</span> |</span><br><span class="line">| <span class="emphasis">_  | 下划线 | _</span> |</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<details class="note primary no-icon" open="">
+<summary><p><strong>总体介绍</strong></p></summary>
+<table>
+<caption style="text-align: left;">表格标题</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">栏目1</th>
+<th style="text-align: center;">栏目2</th>
+<th style="text-align: center;">栏目3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">aa</td>
+<td style="text-align: center;">aaa</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">bb</td>
+<td style="text-align: center;">bbb</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">bb</td>
+<td style="text-align: center;">bbb</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">summary</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>总体介绍<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span> <span class="comment">&lt;!--hexo这里css文件似乎有问题，无法指定格式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">caption</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left;&quot;</span>&gt;</span>表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>a<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;even&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/01/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/JavaScript%E4%B8%93%E9%A2%982--%E5%AE%A2%E6%88%B7%E7%AB%AFAPI/" rel="prev" title="JavaScript专题2--客户端API">
+                  <i class="fa fa-chevron-left"></i> JavaScript专题2--客户端API
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
