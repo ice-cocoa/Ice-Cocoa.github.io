@@ -1,257 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Markdown基础语法</title>
-    <url>/2022/11/02/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>记录Markdown基本语法</p>
-<ul>
-<li>2022-07-13 <ul>
-<li>重新整理了一些不标准和不合适的markdown语法</li>
-<li>试图更新table样式，发现table样式似乎写死，指定样式无用。</li>
-</ul>
-</li>
-</ul>
+    <title>go语言之旅初读</title>
+    <url>/2022/11/07/%E5%AD%A6%E4%B9%A0/golang/go%E8%AF%AD%E8%A8%80%E4%B9%8B%E6%97%85%E5%88%9D%E8%AF%BB/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>golang</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web表单</title>
+    <url>/2022/11/07/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/Web%E8%A1%A8%E5%8D%95/</url>
+    <content><![CDATA[<p>和用户数据打交道</p>
 <span id="more"></span>
 
+<h1 id="Web表单元素"><a href="#Web表单元素" class="headerlink" title="Web表单元素"></a>Web表单元素</h1><h2 id="form元素"><a href="#form元素" class="headerlink" title="form元素"></a>form元素</h2><p>所有表单以一个form元素开始，这个元素元素正式定义了一个表单，是一个人容器元素。它的所有表单都是可选的，但最好设置action属性（指定url）和method属性（通常是get或post）</p>
+<p>其他表单内元素（如label、input、textarea）都要包裹在form元素中，并且最好用列表布局：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/my-handling-form-page&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;name&quot;</span>&gt;</span>Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;name&quot;</span> <span class="attr">name</span>=<span class="string">&quot;user_name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;请输入姓名&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;msg&quot;</span>&gt;</span>Message:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;msg&quot;</span> <span class="attr">name</span>=<span class="string">&quot;user_message&quot;</span>&gt;</span>xxxxxxxxxxx<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>Send your message<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- button元素的type可以是：submit、reset、button（专用于JavaScript定制按钮） --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="Heading-level-1"><a href="#Heading-level-1" class="headerlink" title="Heading level 1"></a>Heading level 1</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading level 1//一级标题，注意井号后面有个空格</span></span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 1</span></span><br><span class="line"><span class="section">========</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Heading-level-2"><a href="#Heading-level-2" class="headerlink" title="Heading level 2"></a>Heading level 2</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## Heading level 2//二级标题</span></span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 2</span></span><br><span class="line"><span class="section">---------</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Heading-level-3"><a href="#Heading-level-3" class="headerlink" title="Heading level 3"></a>Heading level 3</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### Heading level 3//三级标题，增加井号数量可继续增加子标题等级</span></span><br></pre></td></tr></table></figure>
-<h1 id="段落语法"><a href="#段落语法" class="headerlink" title="段落语法"></a>段落语法</h1><p>今天天气不错，<br>午饭吃了吗</p>
-<p>还没有吃</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，</span><br><span class="line">午饭吃了吗</span><br><span class="line"></span><br><span class="line">还没有吃</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">段落，用空白行隔开段落，段落前不要用空格或制表符缩进段落</span><br></pre></td></tr></table></figure>
-<h1 id="换行语法"><a href="#换行语法" class="headerlink" title="换行语法"></a>换行语法</h1><p>这是第一行<br><br>这是第二行<br><br>这是第三行</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是第一行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第二行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第三行</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">也在行尾使用两个空格作为换行符</span><br></pre></td></tr></table></figure>
-<h1 id="强调单词或句子"><a href="#强调单词或句子" class="headerlink" title="强调单词或句子"></a>强调单词或句子</h1><p>今天<strong>天气</strong>真不错啊<br><br>今天<em>天气</em>真不错啊<br><br>今天<em><strong>天气</strong></em>真不错啊<br><br>今天~~ 天气 ~~真不错啊</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗体：   </span><br><span class="line"><span class="code">    今天**天气**真不错啊</span></span><br><span class="line"><span class="code">斜体：</span></span><br><span class="line"><span class="code">    今天*天气*真不错啊</span></span><br><span class="line"><span class="code">斜粗体：</span></span><br><span class="line"><span class="code">    今天***天气***真不错啊</span></span><br><span class="line"><span class="code">删去线：</span></span><br><span class="line"><span class="code">    今天~~ 天气 ~~真不错啊</span></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h1><blockquote>
-<p>第一段落：撅草棍儿抽长短</p>
-<p>第二段落：谁长谁先干</p>
-<blockquote>
-<p>这里是子嵌套的</p>
-</blockquote>
-</blockquote>
-<blockquote><p>今天天气不错</p>
-</blockquote>
-
-
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;第一段落：撅草棍儿抽长短</span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt;第二段落：谁长谁先干</span></span><br><span class="line">&gt;&gt;这里是子嵌套的</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">多个段落的块引用间，空行也要加&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">今天天气不错</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项<ol>
-<li>子项</li>
-<li>子项</li>
-</ol>
-</li>
-<li>第四项<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项 //注意点后有空格</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br><span class="line"><span class="bullet">    1.</span> 子项</span><br><span class="line"><span class="bullet">    2.</span> 子项</span><br><span class="line"><span class="bullet">4.</span> 第四项</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
-<li><p>第一项</p>
-<blockquote>
-<p>今天天气不错</p>
-</blockquote>
-</li>
-<li><p>第二项</p>
-<ul>
-<li>子项</li>
-<li>子项</li>
-<li>子项</li>
-</ul>
-</li>
-<li><p>第三项</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 第一项</span><br><span class="line"></span><br><span class="line"><span class="code">    &gt;今天天气不错 //列表中可嵌套其他元素</span></span><br><span class="line"><span class="code">- 第二项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">- 第三项</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h1><p>代码语法的作用是让代码在下面这样的框里显示</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<p>编辑代码内容</p>
-<pre><code><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束   </span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>或者<br></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock  %&#125;</span><br><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><p>第一行</p>
-<hr>
-<p>第二行</p>
-<hr>
-<p>第三行</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">第一行</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第二行</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">___</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第三行</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的<span class="emphasis">*，或三个连续的下划线可作分隔线</span></span><br></pre></td></tr></table></figure>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com &quot;百度搜素&quot;</span>)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
-<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#x61;&#107;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#111;&#109;">&#x66;&#x61;&#107;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#111;&#109;</a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://markdown.com.cn&gt;</span></span><br><span class="line"><span class="language-xml">&lt;fake@example.com&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 <span class="strong">**<span class="emphasis">*[<span class="string">中国天气</span>](<span class="link">http://www.weather.com.cn/</span>)*</span>**</span></span><br><span class="line">查看[<span class="string">`code`</span>](<span class="link">#code</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p><img src="/../../themes/next_a/source/images/avatars/aoba.jpg" alt="图片1" title="aoba"><br></p>
-<p><img src="/assets/images/aoba.jpg" alt="青叶" title="aoba"></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>  //以该post的地址作为起始地址，这样的链接是错误的</span><br><span class="line"></span><br><span class="line">![<span class="string">青叶</span>](<span class="link">/assets/images/aoba.jpg &quot;aoba&quot;</span>)  //运行时相对地址的起始为博客的根目录文件夹，这样的链接是正确的</span><br></pre></td></tr></table></figure>
-
-<h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a href="http://newgame-anime.com/assets/character/c4.png" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="hifumi"></a></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![日富美</span>](<span class="link">/assets/images/hifumi.jpg &quot;hifumi&quot;</span>)](<span class="link">http://newgame-anime.com/assets/character/c4.png &quot;hifumi&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><h2 id="可做转义的字符"><a href="#可做转义的字符" class="headerlink" title="可做转义的字符"></a>可做转义的字符</h2><p>以下列出的字符都可以通过使用反斜杠字符从而达到转义目的。</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>\</td>
-<td>反斜线</td>
-</tr>
-<tr>
-<td>&#96;</td>
-<td>反引号</td>
-</tr>
-<tr>
-<td>_</td>
-<td>下划线</td>
-</tr>
-<tr>
-<td>{}</td>
-<td>花括号</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>方括号</td>
-</tr>
-<tr>
-<td>()</td>
-<td>圆括号</td>
-</tr>
-<tr>
-<td>#</td>
-<td>井号</td>
-</tr>
-<tr>
-<td>+</td>
-<td>加号</td>
-</tr>
-<tr>
-<td>-</td>
-<td>减号，连字符</td>
-</tr>
-<tr>
-<td>.</td>
-<td>圆点</td>
-</tr>
-<tr>
-<td>!</td>
-<td>感叹号</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="特殊字符自动转义"><a href="#特殊字符自动转义" class="headerlink" title="特殊字符自动转义"></a>特殊字符自动转义</h2><p>如果你使用 &amp; 符号的作为 HTML 实体的一部分，那么它不会被转换，而在其它情况下，它则会被转换成 &amp;amp;。</p>
-<h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1><h2 id="lt-ruby-gt"><a href="#lt-ruby-gt" class="headerlink" title="&lt;ruby&gt;"></a>&lt;ruby&gt;</h2><p><ruby>拼音<rt>pinyin</rt></ruby></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">ruby</span>&gt;</span></span>拼音<span class="language-xml"><span class="tag">&lt;<span class="name">rt</span>&gt;</span></span>pinyin<span class="language-xml"><span class="tag">&lt;/<span class="name">rt</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">ruby</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="lt-detail-gt"><a href="#lt-detail-gt" class="headerlink" title="&lt;detail&gt;"></a>&lt;detail&gt;</h2><details class="note primary no-icon" open="">
-<summary><p><strong>总描述</strong></p>
-</summary>
-
-<table>
-<thead>
-<tr>
-<th align="left">栏目1</th>
-<th align="center">栏目2</th>
-<th align="left">栏目 3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">\</td>
-<td align="center">反斜线</td>
-<td align="left">\</td>
-</tr>
-<tr>
-<td align="left">&#96;</td>
-<td align="center">反引号</td>
-<td align="left">&#96;</td>
-</tr>
-<tr>
-<td align="left">_</td>
-<td align="center">下划线</td>
-<td align="left">_</td>
-</tr>
-</tbody></table>
-</details>
-
-
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">strong</span>&gt;</span></span>总描述<span class="language-xml"><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">| 栏目1 | 栏目2 | 栏目 3|</span><br><span class="line">| :--- | :----: |:---|  //对齐方式</span><br><span class="line">| \  | 反斜线 | \ |</span><br><span class="line">| <span class="code">`  | 反引号 | `</span> |</span><br><span class="line">| <span class="emphasis">_  | 下划线 | _</span> |</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<details class="note primary no-icon" open="">
-<summary><p><strong>总体介绍</strong></p></summary>
-<table>
-<caption style="text-align: left;">表格标题</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;">栏目1</th>
-<th style="text-align: center;">栏目2</th>
-<th style="text-align: center;">栏目3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">a</td>
-<td style="text-align: center;">aa</td>
-<td style="text-align: center;">aaa</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">b</td>
-<td style="text-align: center;">bb</td>
-<td style="text-align: center;">bbb</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">b</td>
-<td style="text-align: center;">bb</td>
-<td style="text-align: center;">bbb</td>
-</tr>
-</tbody>
-</table>
-</details>
-
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">summary</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>总体介绍<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span> <span class="comment">&lt;!--hexo这里css文件似乎有问题，无法指定格式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">caption</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left;&quot;</span>&gt;</span>表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>a<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;even&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
 ]]></content>
       <categories>
         <category>学习</category>
-        <category>其他</category>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>谷歌浏览器扩展开发简单记录</title>
+    <url>/2022/11/03/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/chrome%E6%89%A9%E5%B1%95%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>记录一下谷歌扩展开发的一些要点，预期制作一个辅助测试的简单插件</p>
+<span id="more"></span>
+
+<h1 id="开发与调试"><a href="#开发与调试" class="headerlink" title="开发与调试"></a>开发与调试</h1><p>chrome扩展没有严格的项目结构要求，只需本目录有一个 manifest.json 即可。从chrome浏览器“右上角菜单-&gt;更多工具-&gt;扩展程序”进入扩展程序管理界面，勾选开发者模式，即可以文件夹形式直接加载</p>
+<h1 id="核心介绍"><a href="#核心介绍" class="headerlink" title="核心介绍"></a>核心介绍</h1><h2 id="manifest-json文件"><a href="#manifest-json文件" class="headerlink" title="manifest.json文件"></a>manifest.json文件</h2><p>必须放置于根目录，用来设置所有相关配置，完整配置文档见<a href="https://developer.chrome.com/extensions/manifest">谷歌官方文档</a>。其中，manifest_version、name、version 必不可少</p>
+<h2 id="content-script"><a href="#content-script" class="headerlink" title="content-script"></a>content-script</h2><p>content-script是扩展程序向页面注入脚本（还有css）的一种形式，它们本身是普通的JS文件，没有被赋予特殊的权限。可以实现通过配置它们方式，向指定页面注入JS和CSS。最常见的用处是广告屏蔽和页面CSS定制</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在manifest.json文件中</span></span><br><span class="line">  <span class="comment">// 需要直接注入页面的JS</span></span><br><span class="line">  <span class="attr">&quot;content_scripts&quot;</span><span class="punctuation">:</span> </span><br><span class="line">  <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="comment">//&quot;matches&quot;: [&quot;http://*/*&quot;, &quot;https://*/*&quot;],</span></span><br><span class="line">      <span class="comment">// &quot;&lt;all_urls&gt;&quot; 表示匹配所有地址</span></span><br><span class="line">      <span class="attr">&quot;matches&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;&lt;all_urls&gt;&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="comment">// 多个JS按顺序注入</span></span><br><span class="line">      <span class="attr">&quot;js&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;js/jquery-1.8.3.js&quot;</span><span class="punctuation">,</span> <span class="string">&quot;js/content-script.js&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="comment">// JS的注入可以随便一点，但是CSS的注意就要千万小心了，因为一不小心就可能影响全局样式</span></span><br><span class="line">      <span class="attr">&quot;css&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;css/custom.css&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="comment">// 代码注入的时间，可选值： &quot;document_start&quot;, &quot;document_end&quot;, or &quot;document_idle&quot;，最后一个表示页面空闲时，默认document_idle</span></span><br><span class="line">      <span class="comment">//特别地，如果涉及“DOM加载结束事件”的监听，只能用&quot;document_start&quot;</span></span><br><span class="line">      <span class="attr">&quot;run_at&quot;</span><span class="punctuation">:</span> <span class="string">&quot;document_start&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>content-script和原始页面共享DOM，但是不共享JS，如果要访问页面JS（如某个页面的JS变量），只能通过injected-js实现。</p>
+<p>content-script仅可以访问4个chrome.xxx 类型的API：</p>
+<ul>
+<li>chrome.extension(getURL , inIncognitoContext , lastError , onRequest , sendRequest)</li>
+<li>chrome.i18n</li>
+<li>chrome.runtime(connect,getManifest, getURL , id , onConnect , onMessage , sendMessage)</li>
+<li>chrome.storage</li>
+</ul>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>background是一个常驻页面，它的生命周期随着浏览器打开而打开，随着浏览器关闭而关闭。所以需要把一直运行的、启动就运行的全局代码放在background-js里，所谓background-js是指background页面的JS部分</p>
+<p>background-js的权限非常高，几乎可以调用所有chrome扩展API（除了devtools），而且可以无限制跨域（无需对方设置CORS。通过chrome-extension:&#x2F;&#x2F;id&#x2F;xx.html方式打开的网页也可以无限制跨域）</p>
+<p>background可以是一个html页面，也可以是一个js脚本（chrome会自动为它生成一个默认网页）：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在mainifest.json文件中</span></span><br><span class="line">  <span class="comment">// 会一直常驻的后台JS或后台页面，通过设置打开</span></span><br><span class="line">  <span class="comment">//手动打开的指定页面没有background效果</span></span><br><span class="line">  <span class="attr">&quot;background&quot;</span><span class="punctuation">:</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 2种指定方式，如果指定JS，那么会自动生成一个背景页</span></span><br><span class="line">    <span class="attr">&quot;page&quot;</span><span class="punctuation">:</span> <span class="string">&quot;background.html&quot;</span></span><br><span class="line">    <span class="comment">//&quot;scripts&quot;: [&quot;js/background.js&quot;]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="popup"><a href="#popup" class="headerlink" title="popup"></a>popup</h2><p>popup（它仅能是一个html网页）是点击browser_action或page_action图标时打开的一个小窗口网页。popup可以包含任意你想要的HTML内容，并且会自适应大小</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在manifest.json文件中</span></span><br><span class="line">  <span class="attr">&quot;browser_action&quot;</span><span class="punctuation">:</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;default_icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;img/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 图标悬停时的标题，可选</span></span><br><span class="line">    <span class="attr">&quot;default_title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这是一个示例Chrome插件&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 也可以调用setPopup()方法设置popup页面</span></span><br><span class="line">    <span class="attr">&quot;default_popup&quot;</span><span class="punctuation">:</span> <span class="string">&quot;popup.html&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在权限上，popup页面和background页面十分类似，它们最大的不同时声明周期的不同。popup-js（popup页面的JS部分）中可以直接通过chrome.extension.getBackgroundPage()获取background的windows对象</p>
+<h2 id="“injected-script”"><a href="#“injected-script”" class="headerlink" title="“injected-script”"></a>“injected-script”</h2><p>“injected-script”是一种注入方式，它可以弥补原始网页无法访问content-script中JS的缺陷。虽然content-script可以操作DOM，但是DOM却不能调用它，这导致无法在DOM中绑定content-script中的代码</p>
+<p>这种注入方式似乎并无难度（从示例代码来看），但目前没有需要，为降低难度暂时忽略</p>
+<h2 id="homepage-url"><a href="#homepage-url" class="headerlink" title="homepage_url"></a>homepage_url</h2><p>可以设置“开发者网站”，是自己网站的“免费广告位”：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在manifest.json文件中</span></span><br><span class="line">  <span class="attr">&quot;homepage_url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://www.ice-cooca.net&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Chrome插件的8种展现形式"><a href="#Chrome插件的8种展现形式" class="headerlink" title="Chrome插件的8种展现形式"></a>Chrome插件的8种展现形式</h1><h2 id="browserAction-浏览器右上角"><a href="#browserAction-浏览器右上角" class="headerlink" title="browserAction(浏览器右上角)"></a>browserAction(浏览器右上角)</h2><p>配置browser_action可以在浏览器右上角增加一组显示设置:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在manifest.json文件中</span></span><br><span class="line">  <span class="attr">&quot;browser_action&quot;</span><span class="punctuation">:</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">//默认图标。会被自动缩小到19px</span></span><br><span class="line">    <span class="attr">&quot;default_icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;img/icon.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">//焦点放置时现实的文字</span></span><br><span class="line">    <span class="attr">&quot;default_title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;这是一个示例Chrome插件&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">//点击时跳出的小窗口网页</span></span><br><span class="line">    <span class="attr">&quot;default_popup&quot;</span><span class="punctuation">:</span> <span class="string">&quot;popup.html&quot;</span></span><br><span class="line">    <span class="comment">//此外，还可以设置badge，就是在图标上显示文本，但是只支持4个英文字符，也可以设置它的背景，但必须通过代码实现</span></span><br><span class="line">    <span class="comment">//实现代码需要放在background：</span></span><br><span class="line">    <span class="comment">//chrome.browserAction.setBadgeText(&#123;text: &#x27;new&#x27;&#125;);</span></span><br><span class="line">    <span class="comment">//chrome.browserAction.setBadgeBackgroundColor(&#123;color: [255, 0, 0, 255]&#125;);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="options（选项页）"><a href="#options（选项页）" class="headerlink" title="options（选项页）"></a>options（选项页）</h2><p>options页时插件的设置页面，可以通过“右键插件图标-选项”来进入这个自适应缩小的页面。建议的数据存储使用chrome.storage，这回随用户自动同步</p>
+<h2 id="pageAction（地址栏右侧）"><a href="#pageAction（地址栏右侧）" class="headerlink" title="pageAction（地址栏右侧）"></a>pageAction（地址栏右侧）</h2><p>只有当打开特定页面时，才点亮图标，默认置灰（早期版本是隐去）。使用这种方法除了在manifest.json中设置pageAction，还需要在background中添加一个监听器</p>
+<p>（没有需要，忽略）</p>
+<h2 id="其他没有需要，暂时忽略的功能"><a href="#其他没有需要，暂时忽略的功能" class="headerlink" title="其他没有需要，暂时忽略的功能"></a>其他没有需要，暂时忽略的功能</h2><ul>
+<li>自定义浏览器右键菜单</li>
+<li>使用override页覆盖特定页</li>
+<li>自定义devtools工具</li>
+<li>omnibox向用户提供搜索建议</li>
+<li>桌面通知</li>
+</ul>
+<h1 id="扩展的几种JS对比"><a href="#扩展的几种JS对比" class="headerlink" title="扩展的几种JS对比"></a>扩展的几种JS对比</h1><h2 id="权限对比"><a href="#权限对比" class="headerlink" title="权限对比"></a>权限对比</h2><table>
+<thead>
+<tr>
+<th>JS种类</th>
+<th>API访问</th>
+<th>DOM访问</th>
+<th>原始JS访问</th>
+<th>直接跨域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>background-js</td>
+<td>除devtools绝大部分API</td>
+<td>不可直接访问</td>
+<td>不可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>popup-js</td>
+<td>除devtools绝大部分API</td>
+<td>不可直接访问</td>
+<td>不可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>content-script</td>
+<td>只能访问extension、runtime等部分API</td>
+<td>可以访问</td>
+<td>不可以</td>
+<td>不可以</td>
+</tr>
+<tr>
+<td>“injected-script”</td>
+<td>和普通JS无任何差别，不能访问任何扩展API</td>
+<td>可以访问</td>
+<td>可以访问</td>
+<td>不可以</td>
+</tr>
+<tr>
+<td>（省略了devtool js）</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="调试方式对比"><a href="#调试方式对比" class="headerlink" title="调试方式对比"></a>调试方式对比</h2><table>
+<thead>
+<tr>
+<th>JS种类</th>
+<th>调试方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>background</td>
+<td>插件管理中，点击背景页</td>
+</tr>
+<tr>
+<td>popup-js</td>
+<td>popup页面，右键审查元素</td>
+</tr>
+<tr>
+<td>content-script</td>
+<td>打开Console,如图切换</td>
+</tr>
+<tr>
+<td>“injected-script”</td>
+<td>直接普通的F12</td>
+</tr>
+<tr>
+<td>devtools-js</td>
+<td>省略</td>
+</tr>
+</tbody></table>
+<h1 id="消息通信"><a href="#消息通信" class="headerlink" title="消息通信"></a>消息通信</h1><h2 id="详细通信介绍"><a href="#详细通信介绍" class="headerlink" title="详细通信介绍"></a>详细通信介绍</h2><h3 id="popup和background互相通信"><a href="#popup和background互相通信" class="headerlink" title="popup和background互相通信"></a>popup和background互相通信</h3><p> popup可以直接调用background中的JS方法和DOM（如果获取不到，可能是background的js报错，但不主动查看可能不会提示出）：<br> <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//popup-js</span></span><br><span class="line"><span class="keyword">var</span> bg = chrome.<span class="property">extension</span>.<span class="title function_">getBackgroundPage</span>();</span><br><span class="line">bg.<span class="title function_">test</span>(); <span class="comment">// 访问bg的函数，这个test函数是在background.js中定义的</span></span><br><span class="line"><span class="title function_">alert</span>(bg.<span class="property">document</span>.<span class="property">body</span>.<span class="property">innerHTML</span>); <span class="comment">// 访问bg的DOM</span></span><br></pre></td></tr></table></figure></p>
+<p>background访问popup的前提是popup已经打开(即已经在网页中执行)：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> views = chrome.<span class="property">extension</span>.<span class="title function_">getViews</span>(&#123;<span class="attr">type</span>:<span class="string">&#x27;popup&#x27;</span>&#125;);</span><br><span class="line"><span class="keyword">if</span>(views.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(views[<span class="number">0</span>].<span class="property">location</span>.<span class="property">href</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="popup、background向content主动发送信息"><a href="#popup、background向content主动发送信息" class="headerlink" title="popup、background向content主动发送信息"></a>popup、background向content主动发送信息</h3><p>background-js或者popup-js：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sendMessageToContentScript</span>(<span class="params">message, callback</span>)</span><br><span class="line">&#123;</span><br><span class="line">  chrome.<span class="property">tabs</span>.<span class="title function_">query</span>(&#123;<span class="attr">active</span>: <span class="literal">true</span>, <span class="attr">currentWindow</span>: <span class="literal">true</span>&#125;, <span class="keyword">function</span>(<span class="params">tabs</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    chrome.<span class="property">tabs</span>.<span class="title function_">sendMessage</span>(tabs[<span class="number">0</span>].<span class="property">id</span>, message, <span class="keyword">function</span>(<span class="params">response</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span>(callback) <span class="title function_">callback</span>(response);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sendMessageToContentScript</span>(&#123;<span class="attr">cmd</span>:<span class="string">&#x27;test&#x27;</span>, <span class="attr">value</span>:<span class="string">&#x27;你好，我是popup！&#x27;</span>&#125;, <span class="keyword">function</span>(<span class="params">response</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;来自content的回复：&#x27;</span>+response);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>content-script主动接收：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">chrome.<span class="property">runtime</span>.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span>(<span class="params">request, sender, sendResponse</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// console.log(sender.tab ?&quot;from a content script:&quot; + sender.tab.url :&quot;from the extension&quot;);</span></span><br><span class="line">  <span class="keyword">if</span>(request.<span class="property">cmd</span> == <span class="string">&#x27;test&#x27;</span>) <span class="title function_">alert</span>(request.<span class="property">value</span>);</span><br><span class="line">  <span class="title function_">sendResponse</span>(<span class="string">&#x27;我收到了你的消息！&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>双方通信直接发送的都是JSON对象，不是JSON字符串，所以无需解析，很方便（当然也可以直接发送字符串）。</p>
+<h3 id="content-script主动发消息给后台"><a href="#content-script主动发消息给后台" class="headerlink" title="content-script主动发消息给后台"></a>content-script主动发消息给后台</h3><p>（先不学）</p>
+<h3 id="injected-script和content-script通信"><a href="#injected-script和content-script通信" class="headerlink" title="injected script和content-script通信"></a>injected script和content-script通信</h3><p>（先不学）</p>
+<h2 id="长连接和短连接"><a href="#长连接和短连接" class="headerlink" title="长连接和短连接"></a>长连接和短连接</h2><p>Chrome扩展中有两种通信方式，一个是短连接(chrome.tabs.sendMessage和chrome.runtime.sendMessage)，一个是长连接(chrome.tabs.connect和chrome.runtime.connect)</p>
+<p>短连接像是带确认回复的报文，如果没有收到回复只能重发；长连接则像是建立一个全双工信道，双发可以随时收发</p>
+<p>上面演示中的例子都是短连接，这里会演示长连接</p>
+<p>popup-js:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 长连接的发送端</span></span><br><span class="line"><span class="title function_">getCurrentTabId</span>(<span class="function">(<span class="params">tabId</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> port = chrome.<span class="property">tabs</span>.<span class="title function_">connect</span>(tabId, &#123;<span class="attr">name</span>: <span class="string">&#x27;test-connect&#x27;</span>&#125;);</span><br><span class="line">  port.<span class="title function_">postMessage</span>(&#123;<span class="attr">question</span>: <span class="string">&#x27;你是谁啊？&#x27;</span>&#125;);</span><br><span class="line">  port.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;收到消息：&#x27;</span>+msg.<span class="property">answer</span>);</span><br><span class="line">    <span class="keyword">if</span>(msg.<span class="property">answer</span> &amp;&amp; msg.<span class="property">answer</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;我是&#x27;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">      port.<span class="title function_">postMessage</span>(&#123;<span class="attr">question</span>: <span class="string">&#x27;哦，原来是你啊！&#x27;</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>content-script:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 监听长连接</span></span><br><span class="line">chrome.<span class="property">runtime</span>.<span class="property">onConnect</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span>(<span class="params">port</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(port);</span><br><span class="line">  <span class="keyword">if</span>(port.<span class="property">name</span> == <span class="string">&#x27;test-connect&#x27;</span>) &#123;</span><br><span class="line">    port.<span class="property">onMessage</span>.<span class="title function_">addListener</span>(<span class="keyword">function</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;收到长连接消息：&#x27;</span>, msg);</span><br><span class="line">      <span class="keyword">if</span>(msg.<span class="property">question</span> == <span class="string">&#x27;你是谁啊？&#x27;</span>) port.<span class="title function_">postMessage</span>(&#123;<span class="attr">answer</span>: <span class="string">&#x27;我是你爸！&#x27;</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他相关API"><a href="#其他相关API" class="headerlink" title="其他相关API"></a>其他相关API</h1><h2 id="动态注入JS或CSS"><a href="#动态注入JS或CSS" class="headerlink" title="动态注入JS或CSS"></a>动态注入JS或CSS</h2><p>相比content-js只能指定”document_start”、”document_end” 、”document_idle”三个调用脚本时机，动态注入的方法更加灵活</p>
+<p>声明权限：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在manifest.json文件中</span></span><br><span class="line">  <span class="comment">//允许标签权限，允许动态注入CSS或JS的网址</span></span><br><span class="line">  <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;tabs&quot;</span><span class="punctuation">,</span> <span class="string">&quot;http://*/*&quot;</span><span class="punctuation">,</span> <span class="string">&quot;https://*/*&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  ...</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>注入JS代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在在background-js或popup-js之中</span></span><br><span class="line"><span class="comment">// 动态执行JS代码</span></span><br><span class="line">chrome.<span class="property">tabs</span>.<span class="title function_">executeScript</span>(tabId, &#123;<span class="attr">code</span>: <span class="string">&#x27;document.body.style.backgroundColor=&quot;red&quot;&#x27;</span>&#125;);</span><br><span class="line"><span class="comment">// 动态执行JS文件</span></span><br><span class="line">chrome.<span class="property">tabs</span>.<span class="title function_">executeScript</span>(tabId, &#123;<span class="attr">file</span>: <span class="string">&#x27;some-script.js&#x27;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注入CSS代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 动态执行CSS代码，TODO，这里有待验证</span></span><br><span class="line"><span class="comment">//chrome.tabs.insertCSS(tabId, &#123;code: &#x27;xxx&#x27;&#125;);</span></span><br><span class="line"><span class="comment">// 动态执行CSS文件</span></span><br><span class="line">chrome.<span class="property">tabs</span>.<span class="title function_">insertCSS</span>(tabId, &#123;<span class="attr">file</span>: <span class="string">&#x27;some-style.css&#x27;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取当前窗口ID、标签页ID"><a href="#获取当前窗口ID、标签页ID" class="headerlink" title="获取当前窗口ID、标签页ID"></a>获取当前窗口ID、标签页ID</h2><p>获取当前窗口ID：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在background-js或popup-js中</span></span><br><span class="line">chrome.<span class="property">windows</span>.<span class="title function_">getCurrent</span>(<span class="keyword">function</span>(<span class="params">currentWindow</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;当前窗口ID：&#x27;</span> + currentWindow.<span class="property">id</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>获取当前标签页ID：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取当前选项卡ID</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getCurrentTabId</span>(<span class="params">callback</span>)</span><br><span class="line">&#123;</span><br><span class="line">  chrome.<span class="property">tabs</span>.<span class="title function_">query</span>(&#123;<span class="attr">active</span>: <span class="literal">true</span>, <span class="attr">currentWindow</span>: <span class="literal">true</span>&#125;, <span class="keyword">function</span>(<span class="params">tabs</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span>(callback) <span class="title function_">callback</span>(tabs.<span class="property">length</span> ? tabs[<span class="number">0</span>].<span class="property">id</span>: <span class="literal">null</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//还有另外一种方法，但不理解，不记录</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h2><p>本地存储建议用chrome.storage，而不是普通的localStorage，主要区别在于：</p>
+<ul>
+<li>chrome.storage针对插件全局，background中保存的数据，在content-script中也能获取到</li>
+<li>chrome.storage.sync可以跟随当前登录用户自动同步</li>
+</ul>
+<p>先声明storage权限:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在manifest.json文件中</span></span><br><span class="line">  <span class="comment">// 权限申请</span></span><br><span class="line">  <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span></span><br><span class="line">  <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;storage&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用chrome.storage.sync读取和保存数据数据：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读取数据，第一个参数是指定要读取的key以及设置默认值</span></span><br><span class="line">chrome.<span class="property">storage</span>.<span class="property">sync</span>.<span class="title function_">get</span>(&#123;<span class="attr">color</span>: <span class="string">&#x27;red&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span>&#125;, <span class="keyword">function</span>(<span class="params">items</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(items.<span class="property">color</span>, items.<span class="property">age</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存数据</span></span><br><span class="line">chrome.<span class="property">storage</span>.<span class="property">sync</span>.<span class="title function_">set</span>(&#123;<span class="attr">color</span>: <span class="string">&#x27;blue&#x27;</span>&#125;, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;保存成功！&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="webRequest系列API"><a href="#webRequest系列API" class="headerlink" title="webRequest系列API"></a>webRequest系列API</h2><p>通过webRequest系统API，可以对HTTP请求进行任意修改、定制，这里使用beforeRequest来演示</p>
+<p>先声明相关权限:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="comment">//在manifest.json文件中</span></span><br><span class="line">  <span class="comment">// 权限申请</span></span><br><span class="line">  <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span></span><br><span class="line">  <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;webRequest&quot;</span><span class="punctuation">,</span> <span class="comment">// web请求</span></span><br><span class="line">    <span class="string">&quot;webRequestBlocking&quot;</span><span class="punctuation">,</span> <span class="comment">// 阻塞式web请求</span></span><br><span class="line">    <span class="string">&quot;storage&quot;</span><span class="punctuation">,</span> <span class="comment">// 插件本地存储</span></span><br><span class="line">    <span class="string">&quot;http://*/*&quot;</span><span class="punctuation">,</span> <span class="comment">// 可以通过executeScript或者insertCSS访问的网站</span></span><br><span class="line">    <span class="string">&quot;https://*/*&quot;</span> <span class="comment">// 可以通过executeScript或者insertCSS访问的网站</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>脚本代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在background-js中</span></span><br><span class="line"><span class="comment">// 是否显示图片</span></span><br><span class="line"><span class="keyword">var</span> showImage;</span><br><span class="line">chrome.<span class="property">storage</span>.<span class="property">sync</span>.<span class="title function_">get</span>(&#123;<span class="attr">showImage</span>: <span class="literal">true</span>&#125;, <span class="keyword">function</span>(<span class="params">items</span>) &#123;</span><br><span class="line">  showImage = items.<span class="property">showImage</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// web请求监听，最后一个参数表示阻塞式，需单独声明权限：webRequestBlocking</span></span><br><span class="line">chrome.<span class="property">webRequest</span>.<span class="property">onBeforeRequest</span>.<span class="title function_">addListener</span>(<span class="function"><span class="params">details</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// cancel 表示取消本次请求</span></span><br><span class="line">  <span class="keyword">if</span>(!showImage &amp;&amp; details.<span class="property">type</span> == <span class="string">&#x27;image&#x27;</span>) <span class="keyword">return</span> &#123;<span class="attr">cancel</span>: <span class="literal">true</span>&#125;;</span><br><span class="line">  <span class="comment">// 简单的音视频检测</span></span><br><span class="line">  <span class="comment">// 大部分网站视频的type并不是media，且视频做了防下载处理，所以这里仅仅是为了演示效果，无实际意义</span></span><br><span class="line">  <span class="keyword">if</span>(details.<span class="property">type</span> == <span class="string">&#x27;media&#x27;</span>) &#123;</span><br><span class="line">    chrome.<span class="property">notifications</span>.<span class="title function_">create</span>(<span class="literal">null</span>, &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;basic&#x27;</span>,</span><br><span class="line">      <span class="attr">iconUrl</span>: <span class="string">&#x27;img/icon.png&#x27;</span>,</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;检测到音视频&#x27;</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&#x27;音视频地址：&#x27;</span> + details.<span class="property">url</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, &#123;<span class="attr">urls</span>: [<span class="string">&quot;&lt;all_urls&gt;&quot;</span>]&#125;, [<span class="string">&quot;blocking&quot;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h2 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h2><p>插件根目录新建_locales文件夹，再在下面新建一些语言文件夹，如 en、zh_CN，然后再在每个文件夹里放入一个messages.json，同时在清单文件中设置defaule_locale</p>
+<p>（不详细介绍）</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>web前端</category>
       </categories>
       <tags>
         <tag>展示</tag>
@@ -336,25 +304,22 @@
     <title>JavaScript专题1--异步JavaScript</title>
     <url>/2022/10/31/%E5%AD%A6%E4%B9%A0/web%E5%89%8D%E7%AB%AF/JavaScript%E4%B8%93%E9%A2%981--%E5%BC%82%E6%AD%A5JavaScript/</url>
     <content><![CDATA[<p>记录异步JavaScript API，重点是用于和服务器交换报文的Promise API 。关于Worker的部分则省略</p>
+<ul>
+<li>2022-11-08 复习整理了一遍Promise</li>
+</ul>
 <span id="more"></span>
 
-<h1 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h1><p>事件处理程序实际上就是异步编程的一种形式，函数会在事件发生的时候调用，而非立即调用</p>
+<h1 id="早期实现异步的XHR"><a href="#早期实现异步的XHR" class="headerlink" title="早期实现异步的XHR"></a>早期实现异步的XHR</h1><p>事件处理程序实际上就是异步编程的一种形式，函数会在事件发生的时候调用，而非立即调用</p>
 <p>XMLHttpRequest（简称为XHR） API是JavaScript早期的异步API，可以发起HTTP请求，并通过给XHR对象附加事件监视器（以及配套的处理程序），在请求进展、最终完成、或其他时刻执行某些行为</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 假定有这样的html文件</span></span><br><span class="line"><span class="comment">&lt;button id=&quot;xhr&quot;&gt;点击发起请求&lt;/button&gt;</span></span><br><span class="line"><span class="comment">&lt;pre readonly class=&quot;event-log&quot;&gt;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> log=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.event-log&#x27;</span>);</span><br><span class="line"><span class="comment">//给点击事件加上监听。（异步）如果点击则发起发起一个http请求</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#xhr&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  log.<span class="property">textContent</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> xhr=<span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">  <span class="comment">//给xhr对象加上监听。（异步）如果获取到返回，则输出相关信息</span></span><br><span class="line">  xhr.<span class="title function_">addEventListener</span>(<span class="string">&#x27;loadend&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    log.<span class="property">textContent</span>=<span class="string">&#x27;$&#123;log.textcont&#125;完成！状态码：$&#123;xhr.status&#125;&#x27;</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//发送一个http请求</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&#x27;www.baidu.com&#x27;</span>);</span><br><span class="line">  xhr.<span class="title function_">send</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 假定有这样的html文件</span></span><br><span class="line"><span class="comment">&lt;button id=&quot;xhr&quot;&gt;点击发起请求&lt;/button&gt;</span></span><br><span class="line"><span class="comment">&lt;pre readonly class=&quot;event-log&quot;&gt;&lt;/pre&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> log=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.event-log&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//给点击事件加上监听。（异步）如果点击则发起发起一个http请求</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#xhr&#x27;</span>).<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  log.<span class="property">textContent</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> xhr=<span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">  <span class="comment">//给xhr对象加上监听。（异步）如果获取到返回，则输出相关信息</span></span><br><span class="line">  xhr.<span class="title function_">addEventListener</span>(<span class="string">&#x27;loadend&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    log.<span class="property">textContent</span>=<span class="string">&#x27;$&#123;log.textcont&#125;完成！状态码：$&#123;xhr.status&#125;&#x27;</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//发送一个http请求</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&#x27;www.baidu.com&#x27;</span>);</span><br><span class="line">  xhr.<span class="title function_">send</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-
-<h1 id="使用Promise"><a href="#使用Promise" class="headerlink" title="使用Promise"></a>使用Promise</h1><p>Promise是一个对象，往往使用它的then方法、catch方法等来实现异步调用</p>
+<h1 id="使用Promise"><a href="#使用Promise" class="headerlink" title="使用Promise"></a>使用Promise</h1><p>Promise是一个对象，往往使用它的then方法、catch方法等来实现异步调用。Promise对象一般用const声明，这个声明的是对象的内存地址值不可变，但对象内容可变</p>
 <p>⭐注意，异步函数总是返回一个Promise，哪怕return的就是一个非常常见的变量。如果有一个返回json变量的函数，加了async关键字，那么它的返回值也会是Promise。如果想要使用这个变量，必须在 .then()中的作为参数的函数内使用，如 xxx.then(json&#x3D;&gt;{console.log(json[0]);}); </p>
 <h2 id="fetch-API返回一个Promise"><a href="#fetch-API返回一个Promise" class="headerlink" title="fetch API返回一个Promise"></a>fetch API返回一个Promise</h2><p>fetch API是一个基于Promise的，用以替代XMLHttpRequest的方法（XHR是早期实现异步编程的API）</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line">fetchPromise.<span class="title function_">then</span>(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;已收到响应：$&#123;reponse.status&#125;&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;已发送请求&quot;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line"><span class="comment">//注意，then方法里面的函数是作为参数的，它会等到promise变为fulfilled再执行</span></span><br><span class="line">fetchPromise.<span class="title function_">then</span>(<span class="function"><span class="params">response</span>=&gt;</span>&#123; <span class="comment">//收到的响应会自动为传递给这个参数</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;已收到响应：$&#123;reponse.status&#125;&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;已发送请求&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>在这里的输出应该是这样的:</p>
+<p>这个成功实现的输出应该是这样的:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">已发送请求</span><br><span class="line">已收到响应：200</span><br></pre></td></tr></table></figure>
-
-<h2 id="链式使用Promise和错误处理"><a href="#链式使用Promise和错误处理" class="headerlink" title="链式使用Promise和错误处理"></a>链式使用Promise和错误处理</h2><p>一个异步操作往往需要由多个函数构成，为了避免在一个then参数内嵌套多个then，可以使用链式调用的方法</p>
-<p>Promise的方便在于，它的方法then本身也会返回一个Promise，并且这个Promise还会指示出作为then参数的函数的完成状态</p>
-<p>Promise还有用于错误处理的catch方法，catch往往位于Promise链的最后一个</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line">fetchPromise</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">json</span>();<span class="comment">//函数返回一个json对象，这个对象之后又会被then构造成一个Promise</span></span><br><span class="line">    <span class="keyword">if</span> (!response.<span class="property">ok</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`error：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">json</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span>=&gt;</span>&#123;<span class="comment">//捕获错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="Promise术语"><a href="#Promise术语" class="headerlink" title="Promise术语"></a>Promise术语</h2><p>Promise有三种状态：</p>
 <ul>
@@ -362,24 +327,23 @@
 <li><strong>已实现fulfilled</strong>：意味着操作成功“完成”，此时调用then方法，其中的resolved参数对应的函数会被调用</li>
 <li><strong>已拒绝rejected</strong>：意味着操作“失败”，此时调用then方法，其中的rejected参数对应的函数会被调用；或者直接被catch捕获</li>
 </ul>
-<p>注意，这里“成功”或“失败”的含义取决于使用的API，如fetch认为服务器返回404时成功，网络错误为失败</p>
-<h2 id="合并使用多个Promise"><a href="#合并使用多个Promise" class="headerlink" title="合并使用多个Promise"></a>合并使用多个Promise</h2><p>如果几个Promise相互间没有依赖关系，那么可以使用all方法，它接收一个Promise数组作为一个参数，返回单一的Promise</p>
-<p>这个all方法返回的Promise使用then方法，给予处理函数的参数是一个响应数组（顺序与传入all的Promise的顺序相同）</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//省略三个fetch</span></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([fetchPromise1, fetchPromise2, fetchPromise3])</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">responses</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> response <span class="keyword">of</span> responses) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`status：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">//只要有一个fetch失败就会触发错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`获取失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>注意，这里“成功”或“失败”的含义取决于使用的API，如fetch会认为服务器返回（response.status）404时成功，网络错误时失败</p>
+<h2 id="链式使用Promise和错误处理"><a href="#链式使用Promise和错误处理" class="headerlink" title="链式使用Promise和错误处理"></a>链式使用Promise和错误处理</h2><p>一个异步操作往往需要由多个函数构成，为了避免在一个then参数内嵌套多个then，可以使用链式调用的方法。Promise的方便在于，它的方法then本身也会返回一个Promise，并且这个Promise还会指示出作为then参数的函数的完成状态</p>
+<p>Promise还有用于错误处理的catch方法，catch往往位于Promise链的最后一个</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fetchPromise=<span class="title function_">fetch</span>(<span class="string">&#x27;https://cehsiceshi.com/somedata.json&#x27;</span>);</span><br><span class="line">fetchPromise</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">response</span> =&gt;</span> &#123; <span class="comment">//收到的响应自动传递给这个参数</span></span><br><span class="line">    <span class="keyword">return</span> response.<span class="title function_">json</span>();<span class="comment">//函数返回一个json对象，这个对象之后又会被then构造成一个Promise</span></span><br><span class="line">    <span class="keyword">if</span> (!response.<span class="property">ok</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`error：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">json</span> =&gt;</span> &#123; <span class="comment">//上一个then内（作为参数的）函数的返回值，自动传递给这个参数</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span>=&gt;</span>&#123;<span class="comment">//捕获错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>简单观察这个例子，不妨简单把then()里作为参数的函数看作成功时执行的代码，cathc()里作为参数的函数看作错误出现时的代码</p>
+<h2 id="合并使用多个Promise"><a href="#合并使用多个Promise" class="headerlink" title="合并使用多个Promise"></a>合并使用多个Promise</h2><p>如果几个Promise相互间没有依赖关系，那么可以使用all方法，它接收一个Promise数组作为一个参数，返回单一的Promise。这个all方法返回的Promise使用then方法，给予处理函数的参数是一个响应数组（顺序与传入all的Promise的顺序相同）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//省略三个fetch</span></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([fetchPromise1, fetchPromise2, fetchPromise3])</span><br><span class="line">  .<span class="title function_">then</span>( <span class="function"><span class="params">responses</span> =&gt;</span> &#123; <span class="comment">//注意，这个自动传递的response是一个数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> response <span class="keyword">of</span> responses) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`status：<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>( <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">//只要有一个fetch失败就会触发错误</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`获取失败：<span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-<h2 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h2><p>同步变异步：async关键字能够让自定义的一个普通函数成为异步函数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunc</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h2><p><strong>同步变异步：</strong>async关键字能够让自定义的一个普通函数成为异步函数。注意，此时这个函数的返回值变成了Promise，如需使用这个函数return语句返回的对象，需要在then()方法中使用：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">myFunc</span>(<span class="params"></span>)&#123; <span class="keyword">var</span> a=<span class="number">1</span>; <span class="keyword">return</span> a;&#125;</span><br><span class="line"><span class="keyword">const</span> myPromise = <span class="title function_">myFunc</span>();</span><br><span class="line">myPromise.<span class="title function_">then</span>(<span class="function"><span class="params">a</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-<p>异步变同步：await关键字能够使得代码在该点上等待，直到Promise被完成</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> response=<span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://ceshiceshi.com/ceshi.json&#x27;</span>)</span><br><span class="line">  <span class="comment">//下面的代码会在fetch完成后再执行</span></span><br><span class="line">  <span class="keyword">if</span>(!response.<span class="property">ok</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;请求错误：$&#123;response.status&#125;&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//注意，json方法也是异步的</span></span><br><span class="line">  <span class="keyword">const</span> ceshiJson=<span class="keyword">await</span> response.<span class="title function_">json</span>(); </span><br><span class="line">  <span class="comment">//添加了await关键字后，ceshiJson是一个普通的json对象；不然它仍然是一个Promise对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>异步变同步：</strong>await关键字能够使得代码在该点上等待，直到Promise被完成。此时，如fetch等默认返回Promise的对象，返回值变成return语句返回的对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> response=<span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://ceshiceshi.com/ceshi.json&#x27;</span>)<span class="comment">//添加声明后，fetch返回值由Promise变为一个响应对象，且变为顺序执行</span></span><br><span class="line">  <span class="comment">//下面的代码会在fetch完成后再执行</span></span><br><span class="line">  <span class="keyword">if</span>(!response.<span class="property">ok</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;请求错误：$&#123;response.status&#125;&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//注意，json方法默认也是异步的</span></span><br><span class="line">  <span class="keyword">const</span> ceshiJson=<span class="keyword">await</span> response.<span class="title function_">json</span>(); <span class="comment">//添加了await关键字后，json返回值由Promise变为一个普通的json对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(json[<span class="number">0</span>].<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(error)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;$&#123;error&#125;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Promise构造器"><a href="#Promise构造器" class="headerlink" title="Promise构造器"></a>Promise构造器</h2><p>Promise构造器使用单个函数作为参数，这个函数被称为执行器，当创建一个新的Promise的时候需要实现这个执行器</p>
-<p>执行器本身采用两个参数，这两个参数都是函数，通常称作resolve和reject</p>
-<p>执行器本身实现一个异步函数，如果异步函数成功，则会执行在执行器内调用的resolve；如果异步函数失败（包括执行器内的代码），如fetch时网络阻止，主动的throw，，则会<strong>自动</strong>调用reject</p>
-<p><em>注意一下理解，作为执行器作为参数，本身是个函数，执行器的两个参数也是函数</em></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> flag=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#flag&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> a=<span class="keyword">new</span> <span class="title class_">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(flag&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;someting wrong&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">resolve</span>(para1,para2);<span class="comment">//如果之前的异步函数，以及执行器内前面的代码没有出现问题，这里调用了resolve</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="Promise构造器"><a href="#Promise构造器" class="headerlink" title="Promise构造器"></a>Promise构造器</h2><p>如果需要自己实现一个异步<strong>过程</strong>（区别于async关键字注重的是异步函数），此时可以使用Promise构造器创建一个Promise对象。Promise构造器使用单个函数（被称为执行器）作为参数。当创建一个新的Promise的时候需要实现这个执行器，执行器本身采用两个参数，这两个参数都是函数，通常称作resolve和reject</p>
+<p>执行器本身实现一个异步函数，如果异步函数成功，则会运行执行器代码，里面可以调用resolve；如果异步函数失败（包括执行器内的代码），如fetch时网络阻止，主动的throw，，则会<strong>自动</strong>调用reject</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> flag=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#flag&#x27;</span>);</span><br><span class="line"><span class="comment">//注意，resolve和reject是在外面定义好的函数</span></span><br><span class="line"><span class="comment">//其中resolve需要自己去执行（没有需要也可以不执行）</span></span><br><span class="line"><span class="comment">//reject会自动捕获错误，无需在执行器中含有catch语句</span></span><br><span class="line"><span class="keyword">let</span> a=<span class="keyword">new</span> <span class="title class_">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(flag&lt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;someting wrong&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">resolve</span>(para1,para2);<span class="comment">//如果之前的异步函数，以及执行器内前面的代码没有出现问题，这里调用了resolve</span></span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
 
 <h1 id="worker简介"><a href="#worker简介" class="headerlink" title="worker简介"></a>worker简介</h1><p>Web Worker 的作用，就是为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运行。为了避免资源消耗，worker一旦使用完成应该即时关闭</p>
 <p>为了避免多线程环境下的同步问题（尤其是对相同变量的访问），主代码和worker代码永远不能直接访问彼此的变量。这一为了workers不能访问DOM</p>
@@ -433,10 +397,11 @@
     <content><![CDATA[<p>JavaScript 是一种轻量级解释型语言，可以用来创建动态更新的内容，控制多媒体，制作图像动画，其他等等</p>
 <ul>
 <li>2022-10-17 完成JavaScript基础部分的整理</li>
+<li>2022-11-07 重新复习整理了一次</li>
 </ul>
 <span id="more"></span>
 
-<h1 id="JavaScript基础介绍"><a href="#JavaScript基础介绍" class="headerlink" title="JavaScript基础介绍"></a>JavaScript基础介绍</h1><h2 id="JavaScript的API"><a href="#JavaScript的API" class="headerlink" title="JavaScript的API"></a>JavaScript的API</h2><p>JavaScript的应用程序接口API通常分为两类：</p>
+<h1 id="JavaScript基本"><a href="#JavaScript基本" class="headerlink" title="JavaScript基本"></a>JavaScript基本</h1><h2 id="JavaScript的API"><a href="#JavaScript的API" class="headerlink" title="JavaScript的API"></a>JavaScript的API</h2><p>JavaScript的应用程序接口API通常分为两类：</p>
 <ul>
 <li>浏览器API<br>  浏览器API内建与web浏览器中。有：<ul>
 <li>文档对象模型（DOM，Document Object Model）API、</li>
@@ -448,36 +413,21 @@
 <li>第三方API（笔记中不会涉及这些知识）<br>  如Twitter API可以在网站上显示最新的推文，谷歌地图API 可以在网站上嵌入定制的地图</li>
 </ul>
 <h2 id="JavaScript在页面上工作"><a href="#JavaScript在页面上工作" class="headerlink" title="JavaScript在页面上工作"></a>JavaScript在页面上工作</h2><p>在HTML和CSS集合组装成一个网页后，浏览器的JavaScript引擎将执行JavaScript代码。这样的顺序是比较合理的，因为JavaScript的普遍用处是通过DOM API动态修改HTML和CSS。</p>
-<p>实际上在未加载完HTML时就执行Javascript代码是可能的，应要妥善安排脚本调用策略来避免这种情况</p>
+<p>实际上在未加载完HTML时就执行Javascript代码是可能的，但这需要妥善安排脚本调用策略</p>
 <p>每个浏览器标签页就是其自身用来运行代码的独立容器，大多数情况下代码是独立运行的 <em>（以安全方式在不同标签页中传输代码和数据的方式是存在的，笔记中不会涉及）</em></p>
-<h2 id="向页面添加JavaScript"><a href="#向页面添加JavaScript" class="headerlink" title="向页面添加JavaScript"></a>向页面添加JavaScript</h2><p>可以像添加CSS一样，用相似的方法添加。CSS使用&lt;link&gt;元素连接外部样式表，用&lt;style&gt;添加内嵌样式表，而JavaScript只需要一个元素&lt;script&gt;</p>
-<p>内部JavaScript写在HTML文件中，代码内容包围在 &lt;script&gt; 元素中</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>...<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="向页面添加JavaScript"><a href="#向页面添加JavaScript" class="headerlink" title="向页面添加JavaScript"></a>向页面添加JavaScript</h2><h3 id="外部脚本调用策略"><a href="#外部脚本调用策略" class="headerlink" title="外部脚本调用策略"></a>外部脚本调用策略</h3><p>CSS使用&lt;link&gt;元素连接外部样式表，用&lt;style&gt;添加内嵌样式表；而外部JavaScript的在HTML文件中使用&lt;script&gt;来调用脚本</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;script.js&quot;</span> <span class="attr">async</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--async是异步属性，这个脚本不会中断后续html--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>对于可能引起文档体改变的代码，如DOMContentLoaded时触发的js的调用，应该放在body标签的底部。对于需要顺序执行的脚本，需要使用defer属性</p>
+<p>上面执行js了脚本后，文件内的变量、函数都会存在于当前标签页的<strong>环境</strong>中，此时在控制台或者html中调用其中函数都是可能的，下面的代码添加的事件的处理方法是已引入脚本中的函数</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--内联事件处理器，正常情况下不要使用。这里仅是为了提高理解而做演示--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&#x27;xxxFunc()&#x27;</span>&gt;</span>btn1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--调用js的script标签甚至可以在这个标签后面--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--这里处理过程可能还没加载好，触发点击事件后才会用函数名进行查找--&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>外部JavaScript的代码放在一个外部文件中，在HTML文件中使用内容为空但含有src属性的&lt;script&gt;来引用</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;script.js&quot;</span> <span class="attr">async</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="内部脚本调用策略"><a href="#内部脚本调用策略" class="headerlink" title="内部脚本调用策略"></a>内部脚本调用策略</h3><p>内部JavaScript写在HTML文件中，代码内容包围在 &lt;script&gt; 元素中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>...<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">//这是一个推荐结构</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//...</span></span></span><br><span class="line"><span class="language-javascript">  &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="内部脚本调用策略"><a href="#内部脚本调用策略" class="headerlink" title="内部脚本调用策略"></a>内部脚本调用策略</h3><p>内部JavaScript使用以下结构，实现DOM加载完再执行代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这是一个事件监听器，它监听浏览器的“DOMContentLoaded”事件（即HTML文档提加载、解释完毕），这个事件触发时，才会调用function内的代码。</p>
-<h3 id="外部脚本调用策略"><a href="#外部脚本调用策略" class="headerlink" title="外部脚本调用策略"></a>外部脚本调用策略</h3><p>外部JavaScript使用了一项现代技术–async异步属性，它告诉浏览器遇到&lt;script&gt;标签时不要中断后续HTML内容的加载。</p>
-<p>但是，async属性仅仅是解决了“顺序调用”问题，与内部代码的“DOMContentLoaded”的意义不同，对于可能引起文档体改变的代码，应该放在body标签的底部</p>
-<p>此外，对于相对独立的脚本而言async属性是合适的选择，它不会保证脚本会顺序执行，而对于需要顺序执行的脚本，需要使用defer属性</p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行注释，使用双斜杠添加单行注释</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
-<p>多行注释，在 /* 和 */ 之间添加多行注释</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是存储值的容器，可以是数字、字符串、函数等</p>
-<p>JavaScript是一种“动态类型语言”，这句话的意思是，不需要指定变量包含是什么类型，它会根据<strong>最新的赋值</strong>自动推断</p>
-<p>这意味着，即使初始化时赋予了字符串类型，再次赋值时可以赋数值类型，同时变量类型也会变成数值类型</p>
-<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><p>JavaScript有两种声明变量的方法，使用var关键字和使用let关键字</p>
-<p>现在推荐使用let，因为let不会引起变量提升，也不允许重复声明一个变量</p>
-<h2 id="变量初始化与更新"><a href="#变量初始化与更新" class="headerlink" title="变量初始化与更新"></a>变量初始化与更新</h2><p>声明变量的同时或者之后，使用赋值符号（&#x3D;）即可对变量初始化</p>
-<p><em>可以在控制台通过输入变量名的方式，来验证这个变量是否存在，值是什么。空值的变量会返回 undefined，不存在的变量会得到一个报错信息</em></p>
-<h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><p>由于变量声明（以及其他声明）总是在任意代码执行之前处理的，所以在代码中任意位置声明总是等效于在代码开头声明。<strong>这意味着变量可以在声明之前使用</strong>，这个行为叫做变量提升（hoisting）。</p>
-<p>注意，变量提升不会影响变量初始化</p>
-<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>在Javascript中，声明时不需要指定变量类型</p>
+<p>内部JavaScript采用添加监听“DOMContentLoaded”事件（即HTML文档提加载、解释完毕）的结构调用代码，这样穿插在html文档中也不会造成未知行为</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行注释，使用双斜杠( // )添加单行注释</p>
+<p>多行注释，使用 /* … */ 的方式添加多行注释</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3><p>变量是存储值的容器，可以是数字、字符串、函数、对象等。JavaScript是一种“动态类型语言”，不需要指定变量是什么类型（也许容器本就没有类型），浏览器使用变量时会根据内容自动推断类型</p>
 <p>变量类型有：</p>
 <ul>
 <li>Number：数值类型，包括整数和浮点数</li>
@@ -486,113 +436,119 @@
 <li>Array：数组类型，用方括号括起来，用逗号分隔多个值</li>
 <li>Object：对象类型，它是一种代码结构，如 let dog&#x3D;{name:’Spot’,shout:’wangwang’};  定义了一个对象实例</li>
 </ul>
-<h2 id="数字与运算符"><a href="#数字与运算符" class="headerlink" title="数字与运算符"></a>数字与运算符</h2><p><em>以后再更新记录</em></p>
-<h2 id="字符串与文本处理"><a href="#字符串与文本处理" class="headerlink" title="字符串与文本处理"></a>字符串与文本处理</h2><p>关于字符串的创建，引号包围字符串文本，字符串中的转义字符就不介绍了</p>
-<h3 id="把字符串当作对象"><a href="#把字符串当作对象" class="headerlink" title="把字符串当作对象"></a>把字符串当作对象</h3><ul>
-<li>字符串连接<br>join()方法，字符串字面值和字符串变量之间可以用 + 操作符随意连接。此外，数字也可以和字符串连接</li>
-<li>数字转化成字符串<br>Number对象把传递给它的任何东西试图转换成一个数字，如果不可转化则返回 NaN （这也是一个数字类型的值），如 Number(price)</li>
-<li>字符串与数字的转化<br>toString() 方法</li>
-<li>获取长度<br>length 属性，如 str1.length</li>
-<li>查找子字符串<br>indexOf() 方法，会返回子字符串的索引，如 str1.indexOf(‘apple’)</li>
-<li>提取子字符串<br>slice() 方法，如 str1.slice(0,3); str1.slice(2);</li>
-<li>转换大小写<br>toLowerCase() 方法、 toUpperCase() 方法，将所有字符串分别转为小写或大写，如 str1.toLowerCase();</li>
-<li>替换字符串某部分<br>replace() 方法，这个方法只会替换第一次符合匹配条件的地方，如 str1&#x3D;str1.replace(‘beforeStr’,’afterStr’);</li>
-<li>字符串分割为数组<br>split() 方法，参数为分隔符号，如 let myArray&#x3D;myData.split(‘,’);</li>
+<h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3><p>JavaScript有两种声明变量的方法，使用var关键字和使用let关键字。现在推荐使用let，因为let不会引起“变量提升”，也不允许重复声明一个变量</p>
+<p>变量提升是指，由于变量声明（以及其他声明）总是在任意代码执行之前处理的，所以在代码中任意位置声明总是等效于在代码开头声明。<strong>这意味着变量可以在声明之前使用</strong>，这个行为叫做变量提升（hoisting）。</p>
+<h3 id="变量初始化与更新"><a href="#变量初始化与更新" class="headerlink" title="变量初始化与更新"></a>变量初始化与更新</h3><p>声明变量的同时或者之后，使用赋值符号（&#x3D;）即可对变量初始化或更新</p>
+<p><em>可以在控制台通过输入变量名的方式，来验证这个变量是否存在，值是什么。空值的变量会返回 undefined，不存在的变量会得到一个报错信息</em></p>
+<h2 id="数字与运算符"><a href="#数字与运算符" class="headerlink" title="数字与运算符"></a>数字与运算符</h2><p>注意一下比较运算符（&#x3D;&#x3D;&#x3D; 和 !&#x3D;&#x3D;），其余与一般语言类似，暂时不记录</p>
+<h2 id="字符串作为对象"><a href="#字符串作为对象" class="headerlink" title="字符串作为对象"></a>字符串作为对象</h2><p>字符串对象方法：</p>
+<ul>
+<li><strong>字符串连接：</strong>字符串字面值和字符串变量之间可以用 ‘+’ 操作符随意连接。此外，数字也可以和字符串连接</li>
+<li><strong>获取长度：</strong>length 属性，如 str1.length</li>
+<li><strong>查找子字符串：</strong>indexOf() 方法，会返回子字符串的索引，如 str1.indexOf(‘apple’)</li>
+<li><strong>提取子字符串：</strong>slice() 方法，如 str1.slice(0,3); str1.slice(2);</li>
+<li><strong>转换大小写：</strong>toLowerCase() 方法、 toUpperCase() 方法，将所有字符分别转为小写或大写，如 str1.toLowerCase();</li>
+<li><strong>替换字符串某部分：</strong>replace() 方法，会替换第一次匹配成功的地方，如 str1&#x3D;str1.replace(‘beforeStr’,’afterStr’);</li>
+<li><strong>字符串分割为数组：</strong>split() 方法，参数为分隔符号，如 let myArray&#x3D;myData.split(‘,’);</li>
+</ul>
+<p>其他对象的有关字符串方法：</p>
+<ul>
+<li><strong>数组转为字符串</strong>：Array的join()方法，可以指定分隔符，如 let myNewString &#x3D; myArray.join(‘;’); </li>
+<li><strong>数字转化成字符串：</strong>Number对象的toString() 方法，参数可以指定进制，如 (-10).toString(2)</li>
+<li><strong>字符串转化成数字：</strong>Number对象可以把参数转换成数字 （失败返回NAN，这也是一个数字类型的值），如 Number(price)</li>
 </ul>
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><p>数组用方括号包围，内部用逗号分隔元素。数组内的元素不要求类型相同，甚至数组也可以作为元素</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> randomArr = [<span class="string">&#x27;milk&#x27;</span>, <span class="number">89</span>, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]];</span><br></pre></td></tr></table></figure>
 <h3 id="访问和修改数组"><a href="#访问和修改数组" class="headerlink" title="访问和修改数组"></a>访问和修改数组</h3><p>使用索引可以访问和修改数组中的元素，如</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//访问</span></span><br><span class="line">shopping[<span class="number">0</span>];<span class="comment">//控制台会返回该元素值</span></span><br><span class="line"><span class="comment">//修改</span></span><br><span class="line">shopping[<span class="number">0</span>]=<span class="string">&#x27;milk&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组中数组的修改</span></span><br><span class="line">fruitMap[<span class="number">2</span>][<span class="number">2</span>]=<span class="string">&#x27;apple&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//访问</span></span><br><span class="line">shopping[<span class="number">0</span>];<span class="comment">//控制台会返回该元素值</span></span><br><span class="line"><span class="comment">//修改</span></span><br><span class="line">shopping[<span class="number">0</span>]=<span class="string">&#x27;milk&#x27;</span>;</span><br><span class="line"><span class="comment">//数组中数组的修改</span></span><br><span class="line">fruitMap[<span class="number">2</span>][<span class="number">2</span>]=<span class="string">&#x27;apple&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<h3 id="把数组当作对象"><a href="#把数组当作对象" class="headerlink" title="把数组当作对象"></a>把数组当作对象</h3><p>获取数组长度— length属性</p>
-<p>把数组组合为字符串— toString() 方法，如 dogNames.toString(); 这个方法会自动产生一个逗号分隔符</p>
-<p>把数组组合为字符串，并指定分隔符— join()方法，如 let myNewString &#x3D; myArray.join(‘;’); </p>
-<p>添加和删除数组项：</p>
+<h3 id="把数组当作对象"><a href="#把数组当作对象" class="headerlink" title="把数组当作对象"></a>把数组当作对象</h3><p>数组对象属性或方法：</p>
 <ul>
-<li>push()方法— 如 myArray.push(‘milk’); </li>
-<li>pop()方法— 如 let removedItem &#x3D; myArray.pop()</li>
-<li>unshift()方法— 作用于数组开始的添加元素</li>
-<li>shift()方法— 作用域数组开始的删除元素</li>
+<li><strong>获取数组长度:</strong> length属性</li>
+<li><strong>把数组组合为字符串：</strong>toString() 方法，如 dogNames.toString(); 这个方法会自动产生一个逗号分隔符</li>
+<li><strong>把数组组合为字符串（可指定分隔符）：</strong>join()方法，如 let myNewString &#x3D; myArray.join(‘;’);</li>
 </ul>
-<h1 id="JavaScript基础要件"><a href="#JavaScript基础要件" class="headerlink" title="JavaScript基础要件"></a>JavaScript基础要件</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><h3 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if-else语句"></a>if-else语句</h3><p>JavaScript中的条件判断语句 if…else… 与C外观一致</p>
-<p><em>Javascript中判断是否相等使用 &#x3D;&#x3D;&#x3D; 和 ！&#x3D;&#x3D; ，此处与C不同</em></p>
+<p>数组对象元素操作的方法：</p>
+<ul>
+<li><strong>push()方法：</strong>如 myArray.push(‘milk’); </li>
+<li><strong>pop()方法：</strong>如 let removedItem &#x3D; myArray.pop()</li>
+<li><strong>unshift()方法：</strong>作用于数组开始的添加元素</li>
+<li><strong>shift()方法：</strong>作用域数组开始的删除元素</li>
+</ul>
+<h1 id="JavaScript流程控制"><a href="#JavaScript流程控制" class="headerlink" title="JavaScript流程控制"></a>JavaScript流程控制</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><h3 id="条件语句前言"><a href="#条件语句前言" class="headerlink" title="条件语句前言"></a>条件语句前言</h3><p>条件控制的很多细节，在代码形式上与C外观一直，如果某个细节没有介绍应该就是如此了</p>
+<h3 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if-else语句"></a>if-else语句</h3><p>JavaScript中的条件判断语句 if…else… 与C外观一致：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Javascript中判断是否相等使用 &#x3D;&#x3D;&#x3D; 和 ！&#x3D;&#x3D; ，这个与C不同</em></p>
 <h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>在JavaScript中switch的用处应该比较多，因为在网页中可能有大量的列表存在，形如以下伪代码：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (choice) &#123; <span class="comment">//expression可以是表达式或值</span></span><br><span class="line">  <span class="keyword">case</span> <span class="attr">choice1</span>: <span class="comment">//choice1可以是一个表达式或值</span></span><br><span class="line">    run <span class="variable language_">this</span> code;</span><br><span class="line">    <span class="keyword">break</span>; <span class="comment">//跳出switch语句，否则继续往下匹配</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="attr">choice2</span>:</span><br><span class="line">    run <span class="variable language_">this</span> code instead;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attr">default</span>: <span class="comment">//如果没有break，则default总会执行；default句子可以省略</span></span><br><span class="line">    actually, just run <span class="variable language_">this</span> code;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>switch语句中的 choice（上面伪代码中的）经常是一个列表中选择的值：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> select = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;select&#x27;</span>);</span><br><span class="line">select.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, onChangeFunction);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">onChangeFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> choice = select.<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">switch</span> (choice)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>switch语句中的 choice（上面伪代码中的）经常是一个html的select元素的值：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> select = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;select&#x27;</span>);</span><br><span class="line"></span><br><span class="line">select.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, onChangeFunction);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">onChangeFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> choice = select.<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">switch</span> (choice)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="三元或条件运算符"><a href="#三元或条件运算符" class="headerlink" title="三元或条件运算符"></a>三元或条件运算符</h3><p>三元或条件运算符适用于只有true和else的条件选择，可以向像表达式一样给变量赋值，也可以向代码一样独立成行（这取决于它的返回类型），形如以下伪代码：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">( condition ) ? (run <span class="variable language_">this</span> code) : (run <span class="variable language_">this</span> code instead);</span><br></pre></td></tr></table></figure>
 <p><em>三元或条件运算符的第二、三个操作数可以是表达式或代码块(末尾不带分号)，这会由JavaScript解释器来识别和处理。显然C是无法这样的</em></p>
-<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><p>JavaScript中for、while、do-while语句循环与C外观一致，只有for语句在初始化迭代变量时使用var&#x2F;let关键字 ，而C中一般用int等具体类型声明</p>
+<h2 id="条件循环语句"><a href="#条件循环语句" class="headerlink" title="条件循环语句"></a>条件循环语句</h2><p>JavaScript中for、while、do-while语句循环与C外观一致，只有for语句在初始化迭代变量时使用var&#x2F;let关键字 ，而C中一般用int等具体类型声明</p>
+<p><em>某些对象，如数组对象有forEach方法</em></p>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="浏览器内置函数"><a href="#浏览器内置函数" class="headerlink" title="浏览器内置函数"></a>浏览器内置函数</h3><p>JavaScript有许多内置的函数，它们大多数不是由JavaScript实现的，更像是C++这样更低级的系统语言编写的</p>
 <p>这些内置浏览器函数并非JavaScript语言的一部分，而是浏览器API的一部分</p>
-<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>形如 function() {…} 的是一个匿名函数，没有名字，自己也不会做任何事情</p>
-<p>匿名函数通常与事件处理程序一起使用，如:</p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>形如 function() {…} 的是一个匿名函数，没有名字，自己也不会做任何事情。匿名函数通常与事件处理程序一起使用，如:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">myButton.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
 
-<p><em>匿名函数也被称为函数表达式，它与函数声明有一些区别，不会进行声明提升</em></p>
 <h3 id="函数作用域和冲突"><a href="#函数作用域和冲突" class="headerlink" title="函数作用域和冲突"></a>函数作用域和冲突</h3><p>所有函数的最外层被称为全局作用域，全局作用域定义的值可以在任意地方访问</p>
-<p>调用外部脚本可能会产生问题，可能会因为外部脚本与本处脚本用同一个名字定义变量。因此将代码所在函数中可以极力避免这个问题</p>
-<h3 id="函数内部的函数"><a href="#函数内部的函数" class="headerlink" title="函数内部的函数"></a>函数内部的函数</h3><p>定义函数时，可以调用函数，这可能会导致函数作用域的复杂化，如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myBigFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> myValue;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">subFunction1</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">subFunction1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(myValue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面这个例子观察，在定义函数时，内部调用函数还是比较安全的。这个定义的函数不会通过调用函数来访问到不属于它作用域的变量</p>
-<p>看上去，JavaScript似乎让函数具有了封装文件级别内容的能力，实际上大量的JavaScript代码都是通过“函数内部的函数”来实现封装</p>
-<h2 id="事件介绍"><a href="#事件介绍" class="headerlink" title="事件介绍"></a>事件介绍</h2><p>在Web中可能发生很多事件，如：在某个元素上鼠标点击或悬停，用户按下某个按键，用户调整浏览器大小，一个网页停止加载，提交表单，播放视频，关闭错误</p>
-<p><em>网络事件不是JavaScript语言的核心，它们被定义成内置于浏览器的APIs</em></p>
-<p>每个可用的事件都会有一个事件处理器，也就是事件触发时会运行的代码块</p>
-<p><em>事件处理器也会被叫做事件监听器，因为这块代码既监听事件也处理事件</em></p>
-<h3 id="添加事件处理器"><a href="#添加事件处理器" class="headerlink" title="添加事件处理器"></a>添加事件处理器</h3><p>事件处理器代码的“入口地址”可以被赋给元素对象的特定属性并实现监听效果，这样的属性被称为<strong>事件处理属性</strong>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> btn=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">btn.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
-<p>它明显的缺点是不能添加做个处理器</p>
-<p>另一种触发机制是使用监听函数，更建议使用这种方式：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> btn=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">cliFun</span>(<span class="params"></span>)&#123;...&#125;;</span><br><span class="line">btn,<span class="title function_">addEvebtListener</span>(<span class="string">&#x27;click&#x27;</span>,cliFun);</span><br></pre></td></tr></table></figure>
-<p>这种方法在比较大的项目中可以更清楚地添加和删除事件处理器，此外，还能给同一个监听器触发多个处理器</p>
-<h3 id="移除处理器"><a href="#移除处理器" class="headerlink" title="移除处理器"></a>移除处理器</h3><p>对于使用事件处理器属性，移除处理器只要对该属性赋空即可</p>
-<p>对于使用监听函数添加的处理器，使用removeEventListener函数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">removeEventListener</span>(<span class="string">&#x27;click&#x27;</span>,cliFun);</span><br><span class="line"><span class="comment">//这里的cliFun表示的是处理器函数，至于究竟是怎样匹配到它的，这里不做研究</span></span><br></pre></td></tr></table></figure>
+<p>调用外部脚本可能会产生问题，可能会因为外部脚本与本处脚本用同一个名字定义变量。因此将代码封装在函数中可以极力避免这个问题</p>
+<h3 id="函数内部的函数"><a href="#函数内部的函数" class="headerlink" title="函数内部的函数"></a>函数内部的函数</h3><p>定义函数时，可以比较安全地调用函数，但对作用域的理解有区别的C等语言：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myBigFunction</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> myValue;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">subFunction1</span>();<span class="comment">//调用</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">subFunction1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//这个变量要想成功调用，只有“调用时”环境里存在这个名字的变量</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(myValue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要从脚本语言理解变量：第二个函数自身本不知道有个myValue变量（如果是编译型语言肯定会报错），但是代码执行到“调用时”环境中，并且调用这个函数时，浏览器可以从当前环境里寻找名为myValue的变量</p>
+<p>看上去，实际上大量的JavaScript代码都是通过“函数内部的函数”来实现封装，这样既避免了加载html时调用，也避免了变量名冲突</p>
+<h2 id="事件介绍"><a href="#事件介绍" class="headerlink" title="事件介绍"></a>事件介绍</h2><h3 id="事件和事件处理器"><a href="#事件和事件处理器" class="headerlink" title="事件和事件处理器"></a>事件和事件处理器</h3><p>在Web中可能发生很多事件，如：在某个元素上鼠标点击或悬停，用户按下某个按键，用户调整浏览器大小，一个网页停止加载，提交表单，播放视频，关闭错误。<em>网络事件不是JavaScript语言的核心，它们被定义成内置于浏览器的APIs</em></p>
+<p>每个可用的事件都会有一个事件处理器（也叫事件监听器），也就是事件触发时会运行的代码块，这个代码块既监听事件也处理事件</p>
+<h3 id="添加事件处理器"><a href="#添加事件处理器" class="headerlink" title="添加事件处理器"></a>添加事件处理器</h3><p><strong>内联事件处理器（不建议的方法）</strong>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;bgChange()&quot;</span>&gt;</span>Press me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>有时候在事件处理函数内部，会加上一个固定指定名称的参数，例如 event、evt、e或自定义的其他名称，它们的意思是相同的，表示一个<strong>事件对象</strong></p>
-<p>e的值是刚刚发生这个事件的元素转化成的JavaScript对象（被称做<strong>事件对象</strong>）</p>
-<p>如果要表示一个标签本身，使用 e.taregt ，假如它表示按钮本身，那么 e.target.style.backgroundColor&#x3D;’red’ 就是修改这个按钮的背景色为红色</p>
+<p><strong>事件处理属性</strong>：处理事件的函数可以被赋给元素对象的特定属性并实现监听效果：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> btn=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"><span class="comment">//它明显的缺点是不能添加多个处理器</span></span><br><span class="line">btn.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>监听函数addEventListener</strong>：能给同一个监听器触发多个处理器，复杂项目更建议使用这种方式：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> btn=<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,cliFun);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">cliFun</span>(<span class="params"></span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="移除处理器"><a href="#移除处理器" class="headerlink" title="移除处理器"></a>移除处理器</h3><p>对于使用事件处理器属性，移除处理器只要对该属性赋空即可。对于使用监听函数添加的处理器，使用removeEventListener函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">removeEventListener</span>(<span class="string">&#x27;click&#x27;</span>,cliFun);</span><br><span class="line"><span class="comment">//究竟是怎样匹配到它的，这里不做研究</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>有时候在事件处理函数内部，会带上一个event、evt、e，它们的意思是相同的，表示一个<strong>事件对象</strong>，它会被自动传递给处理函数</p>
+<p>e的值是刚刚发生这个事件的元素转化成的对象。如果事件发生在一个按钮上，e.taregt表示按钮元素的引用，e.target.style.backgroundColor&#x3D;’red’就是修改这个按钮的背景色为红色</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">bgChange</span>(<span class="params">e</span>) &#123; <span class="comment">//e这个参数会自动传递到函数这里</span></span><br><span class="line">  <span class="keyword">const</span> rndCol = <span class="string">&#x27;rgb(&#x27;</span> + <span class="title function_">random</span>(<span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> + <span class="title function_">random</span>(<span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> + <span class="title function_">random</span>(<span class="number">255</span>) + <span class="string">&#x27;)&#x27;</span>;</span><br><span class="line">  e.<span class="property">target</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = rndCol;<span class="comment">//修改触发事件的按钮的背景色</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e);<span class="comment">//输出这个对象的信息</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, bgChange);</span><br></pre></td></tr></table></figure>
 
-<h3 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h3><p>有些浏览器支持自动的表单验证功能，但这很可能不是想要的，因此需要自己添加一个事件处理程序</p>
-<p>在这个处理程序里面，要先显示调用e.preventDefault()来阻止默认行为，然后再写上自定义行为：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">form.<span class="property">onsubmit</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>();</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a>阻止默认行为</h3><p>有些浏览器支持自动的表单验证功能，但这很可能不是想要的，因此需要自己添加一个事件处理程序。在这个处理程序里面，要先显示调用e.preventDefault()来阻止默认行为，然后再写上自定义行为：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">form.<span class="property">onsubmit</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (...) &#123;</span><br><span class="line">    e.<span class="title function_">preventDefault</span>();<span class="comment">//覆盖默认行为</span></span><br><span class="line">    <span class="comment">//自定义其他行为</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>现代浏览器中，默认情况下，所有事件处理程序都是在冒泡阶段注册的。冒泡是先执行本身事件处理程序，再执行外部的</p>
-<p>这会引起讨厌的行为，标准事件对象具有名为 stopPropagation() 的函数，它只会让当前事件处理程序允许，不会再冒泡链上进一步扩大：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">video.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">  e.<span class="title function_">stopPropagation</span>();</span><br><span class="line">  video.<span class="title function_">play</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>默认情况下，所有事件处理程序都是在冒泡阶段注册的。冒泡是先执行本身事件处理程序，再执行外部的。这可能会引起讨厌的行为，标准事件对象具有名为 stopPropagation() 的函数来阻止冒泡行为：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">video.<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">  e.<span class="title function_">stopPropagation</span>();<span class="comment">//阻止冒泡</span></span><br><span class="line">  <span class="comment">//当前处理程序行为</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>子节点的事件可以委托父节点监听，让这个事件冒泡到父节点上</p>
-<p>常用的情形是，想要让每个列表项&lt;li&gt;点击时弹出信息，则可以将click单击事件监听器放在父元素上，这样事件就会冒泡到父元素&lt;ul&gt;上了</p>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>子节点的事件可以委托父节点监听，让这个事件冒泡到父节点上。常用的情形是，想要让每个列表项&lt;li&gt;点击时弹出信息，则可以将click单击事件监听器放在父元素上，这样事件就会冒泡到父元素&lt;ul&gt;上了</p>
 <h1 id="JavaScript对象介绍"><a href="#JavaScript对象介绍" class="headerlink" title="JavaScript对象介绍"></a>JavaScript对象介绍</h1><h2 id="创建对象并访问"><a href="#创建对象并访问" class="headerlink" title="创建对象并访问"></a>创建对象并访问</h2><p>创建一个对象的方式为：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">  name : &#123;</span><br><span class="line">    firstName : <span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">    lastName : <span class="string">&#x27;Smith&#x27;</span>, </span><br><span class="line">  &#125;,</span><br><span class="line">  age : <span class="number">32</span>,</span><br><span class="line">  greeting : <span class="keyword">function</span>(<span class="params"></span>)&#123;...&#125;,</span><br><span class="line">  intersts : [<span class="string">&#x27;music&#x27;</span>, <span class="string">&#x27;skiing&#x27;</span>]</span><br><span class="line">  all</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>访问对象可以使用点表示法和括号表示法，如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//访问一般变量</span></span><br><span class="line">person.<span class="property">age</span></span><br><span class="line">person[<span class="string">&#x27;age&#x27;</span>]</span><br><span class="line"><span class="comment">//访问数组</span></span><br><span class="line">person.<span class="property">intersts</span>[<span class="number">0</span>]</span><br><span class="line">person[intersts][<span class="number">0</span>]</span><br><span class="line"><span class="comment">//访问对象</span></span><br><span class="line">person.<span class="property">name</span>.<span class="property">first</span></span><br><span class="line">person[<span class="string">&#x27;name&#x27;</span>][<span class="string">&#x27;first&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//访问对象内一般变量</span></span><br><span class="line">person.<span class="property">age</span></span><br><span class="line">person[<span class="string">&#x27;age&#x27;</span>]</span><br><span class="line"><span class="comment">//访问对象内数组</span></span><br><span class="line">person.<span class="property">intersts</span>[<span class="number">0</span>]</span><br><span class="line">person[intersts][<span class="number">0</span>]</span><br><span class="line"><span class="comment">//访问对象内对象</span></span><br><span class="line">person.<span class="property">name</span>.<span class="property">first</span></span><br><span class="line">person[<span class="string">&#x27;name&#x27;</span>][<span class="string">&#x27;first&#x27;</span>]</span><br></pre></td></tr></table></figure>
 <p><em>使用括号表示法看上去很像数组–对象做了字符串到值得映射，数组做的是数字到值得映射</em></p>
 <p>设置成员对象时，如果该成员本不存在，那么会自动创建</p>
-<h2 id="基于原型"><a href="#基于原型" class="headerlink" title="基于原型"></a>基于原型</h2><p>JavaScript的每个对象都拥有一个原型对象，对象以其原型为模板，继承其方法和属性（通过链接）。原型对象也可能拥有一个原型，一层一层继承，形成原型链</p>
-<p>JavaScript中，函数可以有属性，且每个函数都有一个特殊属性–原型（prototype）</p>
+<h2 id="基于原型"><a href="#基于原型" class="headerlink" title="基于原型"></a>基于原型</h2><p>JavaScript的每个对象都拥有一个原型对象，对象以其原型为模板，继承其方法和属性（通过链接）。原型对象也可能拥有一个原型，一层一层继承，形成原型链。特别地，函数也有属性，且每个函数都有一个特殊属性–原型（prototype）</p>
 <p>（更多部分暂时不记录）</p>
-<h2 id="JavaScript中的类"><a href="#JavaScript中的类" class="headerlink" title="JavaScript中的类"></a>JavaScript中的类</h2><p>在函数一节中，提到过在JavaScript中，函数具有封装能力。然而类更具有典型的封装能力，本节记录的类的封装和函数实现的封装有何不同，需要细细观察</p>
-<p>已经理解的是，函数是一个具体的对象，可以被别的函数继承，别的函数可以通过委托的方式沿着原型链调用函数；类则是一类对象的抽象</p>
+<h2 id="JavaScript中的类"><a href="#JavaScript中的类" class="headerlink" title="JavaScript中的类"></a>JavaScript中的类</h2><p>在函数一节中，提到过在JavaScript中，函数具有封装能力（函数本身就是对过程的封装，而JS中函数封装的过程得范围更大）。而类是对对象的封装，本节记录的类的封装和函数实现的封装有何不同，需要细细观察</p>
+<p>有所了解的是，函数是一个具体的对象，可以被别的函数继承，别的函数可以通过委托的方式沿着原型链调用函数（这些细节没有记录在本帖）；类则是一类对象的抽象，可以被别的类继承</p>
 <h3 id="声明一个类"><a href="#声明一个类" class="headerlink" title="声明一个类"></a>声明一个类</h3><p>声明一个类有多种方法，一种是是用class关键字声明一个类，进行比较严格的封装；另一种是在“外部环境”下，定义一个与类名相同的构造器函数</p>
-<p>在“外部环境”下定义一个构造器，以此定义一个类：</p>
+<p><strong>在“外部环境”定义构造器</strong>：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个构造器，来实现声明一个类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Ball</span>(<span class="params">x,y</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在“外部环境”使用prototype，定义这个类的方法</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">drawBall</span>=<span class="keyword">function</span>&#123;...&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>使用class关键字，定义一个类：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  some variables</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  name;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//实现一个构造函数</span></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">personName</span>)&#123;...&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  some functions</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<p><strong>使用class关键字</strong>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">  <span class="comment">//定义变量</span></span><br><span class="line">  name;</span><br><span class="line">  age=<span class="string">&#x27;&#x27;</span>；<span class="comment">//指定默认值的方式</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//实现一个构造函数</span></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span>=name;<span class="comment">//注意，要想用到对象内变量，必须显示指定this</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//定义函数</span></span><br><span class="line">  <span class="title function_">introduceSelf</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hi! I&#x27;m <span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="类的构造函数"><a href="#类的构造函数" class="headerlink" title="类的构造函数"></a>类的构造函数</h3><p>在class关键字定义一个类时，构造函数使用constructor关键字声明，执行这个函数时，它会：</p>
 <ul>
 <li>创建一个新的对象</li>
-<li>将this绑定到这个对象上，然后再构造函数代码中就可以使用this来引用这个对象</li>
+<li>在对象内，将this绑定到这个对象上，然后构造函数中就可以使用this来引用这个对象</li>
 <li>执行构造函数中的代码</li>
 <li>返回这个新对象</li>
 </ul>
@@ -601,7 +557,7 @@
 
 <p>如果不需要特殊的初始内容，可以省略构造函数，而默认的构造函数会被自动生成</p>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>可以使用extends关键字声明这个类继承自另一个类，注意子类的构造函数的定义：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Professor</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">  teaches;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">personName, professorTeaches</span>)&#123;</span><br><span class="line">    <span class="variable language_">super</span>(personName);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">teaches</span> = professorTeaches;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Professor</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">  teaches;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">personName, professorTeaches</span>)&#123;</span><br><span class="line">    <span class="variable language_">super</span>(personName);<span class="comment">//先构造父类</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">teaches</span> = professorTeaches;<span class="comment">//再构造仅属于子类部分</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>子类的构造函数的第一件事情，是使用super()来调用父类的构造方法，然后再设置仅属于子类的部分</p>
 <h3 id="封装–定义私有变量"><a href="#封装–定义私有变量" class="headerlink" title="封装–定义私有变量"></a>封装–定义私有变量</h3><p>JavaScript定义一个私有变量的方法，是从命名规则上实现的，对于以井号(#)开头的属性或函数，都会被定义为私有的：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span>&#123;</span><br><span class="line">  #somePrivateVar;</span><br><span class="line"></span><br><span class="line">  #<span class="title function_">somePrivateMethod</span>(<span class="params"></span>)&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -613,10 +569,10 @@
 <li>JSON要求属性名和字符串用双引号包围，单引号无效</li>
 <li>JSON文件的容错较低，一个错位的逗号或分号就会导致JSON文件出错</li>
 </ul>
-<h3 id="在HTML页面中加载json对象"><a href="#在HTML页面中加载json对象" class="headerlink" title="在HTML页面中加载json对象"></a>在HTML页面中加载json对象</h3><p>为了载入json到页面中，需要使用一个名为XMLRequset的API（常称为XHR）</p>
+<h3 id="在HTML页面中加载json对象"><a href="#在HTML页面中加载json对象" class="headerlink" title="在HTML页面中加载json对象"></a>在HTML页面中加载json对象</h3><p>为了载入json到页面中，需要使用一个名为XMLRequset的API</p>
 <p>XHR是一个非常有用的JavaScript对象，能够通过代码向服务器请求资源文件（图片、文本、JSON、HTML片段）</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> requestURL = <span class="string">&#x27;https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">request.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,requestURL);</span><br><span class="line">request.<span class="property">responseType</span>=<span class="string">&#x27;json&#x27;</span>;</span><br><span class="line"><span class="comment">//上面都在设置这个请求的参数</span></span><br><span class="line"><span class="comment">//send方法发送请求</span></span><br><span class="line">request.<span class="title function_">send</span>();</span><br><span class="line"><span class="comment">//处理返回的数据</span></span><br><span class="line"><span class="comment">//onload事件是浏览器解析完页面之后就会自动触发的</span></span><br><span class="line">request.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> aJsonObj = request.<span class="property">response</span>;<span class="comment">//获得json对象</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  现在已经获取到请求响应的json格式数据</span></span><br><span class="line"><span class="comment">  可以用它修改页面显示，或做其他操作</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意，onload事件触发的时机是浏览器解析完页面之后（有个问题，响应的接收和onload代码的触发的时间有无先后关系？）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> requestURL = <span class="string">&#x27;https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"><span class="comment">//设置这个请求的参数</span></span><br><span class="line">request.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>,requestURL);</span><br><span class="line">request.<span class="property">responseType</span>=<span class="string">&#x27;json&#x27;</span>;</span><br><span class="line"><span class="comment">//send方法发送请求</span></span><br><span class="line">request.<span class="title function_">send</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//onload事件是浏览器解析完页面之后就会自动触发的。处理返回的数据</span></span><br><span class="line">request.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> aJsonObj = request.<span class="property">response</span>;<span class="comment">//获得json对象</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  现在已经获取到请求响应的json格式数据</span></span><br><span class="line"><span class="comment">  可以用它修改页面显示，或做其他操作</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="在HTML页面上显示json数据"><a href="#在HTML页面上显示json数据" class="headerlink" title="在HTML页面上显示json数据"></a>在HTML页面上显示json数据</h3><p>上面的步骤中已经获得了一个json对象，利用它在页面的上添加数据</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> header = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;header&#x27;</span>);</span><br><span class="line"><span class="comment">//在html页面添加一个h1标签，标签内容为获得的json数据的某部分</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">addJsonData</span>(<span class="params">aJsonObj</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> myHearder=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;h1&#x27;</span>);</span><br><span class="line">  myHeader.<span class="property">textContent</span>=aJsonObj[<span class="string">&#x27;foo&#x27;</span>];</span><br><span class="line">  header.<span class="title function_">append</span>(myHeader)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -626,30 +582,6 @@
 <li>JSON.parse()：以文本字符串形式接收json数据，返回一个json对象</li>
 <li>JSON.stringify()：接受一个对象作为参数，返回一个对应的json字符串</li>
 </ul>
-<h1 id="对象构建实验–彩色弹球"><a href="#对象构建实验–彩色弹球" class="headerlink" title="对象构建实验–彩色弹球"></a>对象构建实验–彩色弹球</h1><p>（暂时省略）</p>
-<h2 id="页面构造"><a href="#页面构造" class="headerlink" title="页面构造"></a>页面构造</h2><p>包含内容为：</p>
-<ol>
-<li>一个简单的HTML文档，内容包一个h1元素、一个canvas元素</li>
-<li>一个简单的CSS样式文件，定位h1元素，填充画面背景</li>
-<li>一个JS文件，设置canvas元素</li>
-</ol>
-<h2 id="HTML页面"><a href="#HTML页面" class="headerlink" title="HTML页面"></a>HTML页面</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>实验之彩色弹球<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>彩色弹球<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span>&gt;</span> <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="css部分"><a href="#css部分" class="headerlink" title="css部分"></a>css部分</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*设定标题样式：</span></span><br><span class="line"><span class="comment">标题位于右上角，字体颜色为白*/</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">letter-spacing</span>: -<span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">5px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">color</span>: transparent;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">4px</span> white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="JS部分"><a href="#JS部分" class="headerlink" title="JS部分"></a>JS部分</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 设置画布</span></span><br><span class="line"><span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;canvas&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> width = canvas.<span class="property">width</span> = <span class="variable language_">window</span>.<span class="property">innerWidth</span>;</span><br><span class="line"><span class="keyword">const</span> height = canvas.<span class="property">height</span> = <span class="variable language_">window</span>.<span class="property">innerHeight</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成随机数的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">random</span>(<span class="params">min,max</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> num = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * (max - min)) + min;</span><br><span class="line">  <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成随机颜色值的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">randomColor</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> color = <span class="string">&#x27;rgb(&#x27;</span> +</span><br><span class="line">                <span class="title function_">random</span>(<span class="number">0</span>, <span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> +</span><br><span class="line">                <span class="title function_">random</span>(<span class="number">0</span>, <span class="number">255</span>) + <span class="string">&#x27;,&#x27;</span> +</span><br><span class="line">                <span class="title function_">random</span>(<span class="number">0</span>, <span class="number">255</span>) + <span class="string">&#x27;)&#x27;</span>;</span><br><span class="line">  <span class="keyword">return</span> color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 Ball 构造器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Ball</span>(<span class="params">x, y, velX, velY, color, size</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">velX</span> = velX;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">velY</span> = velY;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">color</span> = color;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">size</span> = size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义彩球绘制函数</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">draw</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  ctx.<span class="title function_">beginPath</span>();</span><br><span class="line">  ctx.<span class="property">fillStyle</span> = <span class="variable language_">this</span>.<span class="property">color</span>;</span><br><span class="line">  ctx.<span class="title function_">arc</span>(<span class="variable language_">this</span>.<span class="property">x</span>, <span class="variable language_">this</span>.<span class="property">y</span>, <span class="variable language_">this</span>.<span class="property">size</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="title class_">Math</span>.<span class="property">PI</span>);</span><br><span class="line">  ctx.<span class="title function_">fill</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义彩球更新函数</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">update</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">x</span> + <span class="variable language_">this</span>.<span class="property">size</span>) &gt;= width) &#123;<span class="variable language_">this</span>.<span class="property">velX</span> = -(<span class="variable language_">this</span>.<span class="property">velX</span>);&#125;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">x</span> - <span class="variable language_">this</span>.<span class="property">size</span>) &lt;= <span class="number">0</span>) &#123;<span class="variable language_">this</span>.<span class="property">velX</span> = -(<span class="variable language_">this</span>.<span class="property">velX</span>);&#125;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">y</span> + <span class="variable language_">this</span>.<span class="property">size</span>) &gt;= height) &#123;<span class="variable language_">this</span>.<span class="property">velY</span> = -(<span class="variable language_">this</span>.<span class="property">velY</span>);&#125;</span><br><span class="line">  <span class="keyword">if</span>((<span class="variable language_">this</span>.<span class="property">y</span> - <span class="variable language_">this</span>.<span class="property">size</span>) &lt;= <span class="number">0</span>) &#123;<span class="variable language_">this</span>.<span class="property">velY</span> = -(<span class="variable language_">this</span>.<span class="property">velY</span>);&#125;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">x</span> += <span class="variable language_">this</span>.<span class="property">velX</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">y</span> += <span class="variable language_">this</span>.<span class="property">velY</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义碰撞检测函数</span></span><br><span class="line"><span class="title class_">Ball</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">collisionDetect</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; balls.<span class="property">length</span>; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span> !== balls[j]) &#123;</span><br><span class="line">      <span class="keyword">const</span> dx = <span class="variable language_">this</span>.<span class="property">x</span> - balls[j].<span class="property">x</span>;</span><br><span class="line">      <span class="keyword">const</span> dy = <span class="variable language_">this</span>.<span class="property">y</span> - balls[j].<span class="property">y</span>;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title class_">Math</span>.<span class="title function_">sqrt</span>(dx * dx + dy * dy);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (distance &lt; <span class="variable language_">this</span>.<span class="property">size</span> + balls[j].<span class="property">size</span>) &#123;</span><br><span class="line">        balls[j].<span class="property">color</span> = <span class="variable language_">this</span>.<span class="property">color</span> = <span class="title function_">randomColor</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个数组，生成并保存所有的球</span></span><br><span class="line"><span class="keyword">let</span> balls = [];</span><br><span class="line"><span class="keyword">while</span>(balls.<span class="property">length</span> &lt; <span class="number">25</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> size = <span class="title function_">random</span>(<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line">  <span class="keyword">let</span> ball = <span class="keyword">new</span> <span class="title class_">Ball</span>(</span><br><span class="line">    <span class="comment">// 为避免绘制错误，球至少离画布边缘球本身一倍宽度的距离</span></span><br><span class="line">    <span class="title function_">random</span>(<span class="number">0</span> + size, width - size),</span><br><span class="line">    <span class="title function_">random</span>(<span class="number">0</span> + size, height - size),</span><br><span class="line">    <span class="title function_">random</span>(-<span class="number">7</span>, <span class="number">7</span>),</span><br><span class="line">    <span class="title function_">random</span>(-<span class="number">7</span>, <span class="number">7</span>),</span><br><span class="line">    <span class="title function_">randomColor</span>(),</span><br><span class="line">    size</span><br><span class="line">  );</span><br><span class="line">  balls.<span class="title function_">push</span>(ball);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个循环来不停地播放</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loop</span>(<span class="params"></span>) &#123;</span><br><span class="line">  ctx.<span class="property">fillStyle</span> = <span class="string">&#x27;rgba(0,0,0,0.25)&#x27;</span>;</span><br><span class="line">  ctx.<span class="title function_">fillRect</span>(<span class="number">0</span>,<span class="number">0</span>,width,height);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; balls.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    balls[i].<span class="title function_">draw</span>();</span><br><span class="line">    balls[i].<span class="title function_">update</span>();</span><br><span class="line">    balls[i].<span class="title function_">collisionDetect</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">requestAnimationFrame</span>(loop);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">loop</span>();</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
 ]]></content>
       <categories>
         <category>学习</category>
@@ -2169,6 +2101,263 @@
       <categories>
         <category>学习</category>
         <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown基础语法</title>
+    <url>/2022/08/15/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/Markdown%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>记录Markdown基本语法</p>
+<ul>
+<li>2022-07-13 <ul>
+<li>重新整理了一些不标准和不合适的markdown语法</li>
+<li>试图更新table样式，发现table样式似乎写死，指定样式无用。</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+
+
+
+
+
+<h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="Heading-level-1"><a href="#Heading-level-1" class="headerlink" title="Heading level 1"></a>Heading level 1</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Heading level 1//一级标题，注意井号后面有个空格</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 1</span></span><br><span class="line"><span class="section">========</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Heading-level-2"><a href="#Heading-level-2" class="headerlink" title="Heading level 2"></a>Heading level 2</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## Heading level 2//二级标题</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">Heading level 2</span></span><br><span class="line"><span class="section">---------</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Heading-level-3"><a href="#Heading-level-3" class="headerlink" title="Heading level 3"></a>Heading level 3</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### Heading level 3//三级标题，增加井号数量可继续增加子标题等级</span></span><br></pre></td></tr></table></figure>
+<h1 id="段落语法"><a href="#段落语法" class="headerlink" title="段落语法"></a>段落语法</h1><p>今天天气不错，<br>午饭吃了吗</p>
+<p>还没有吃</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，</span><br><span class="line">午饭吃了吗</span><br><span class="line"></span><br><span class="line">还没有吃</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">段落，用空白行隔开段落，段落前不要用空格或制表符缩进段落</span><br></pre></td></tr></table></figure>
+<h1 id="换行语法"><a href="#换行语法" class="headerlink" title="换行语法"></a>换行语法</h1><p>这是第一行<br><br>这是第二行<br><br>这是第三行</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是第一行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第二行<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是第三行</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">也在行尾使用两个空格作为换行符</span><br></pre></td></tr></table></figure>
+<h1 id="强调单词或句子"><a href="#强调单词或句子" class="headerlink" title="强调单词或句子"></a>强调单词或句子</h1><p>今天<strong>天气</strong>真不错啊<br><br>今天<em>天气</em>真不错啊<br><br>今天<em><strong>天气</strong></em>真不错啊<br><br>今天~~ 天气 ~~真不错啊</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗体：   </span><br><span class="line"><span class="code">    今天**天气**真不错啊</span></span><br><span class="line"><span class="code">斜体：</span></span><br><span class="line"><span class="code">    今天*天气*真不错啊</span></span><br><span class="line"><span class="code">斜粗体：</span></span><br><span class="line"><span class="code">    今天***天气***真不错啊</span></span><br><span class="line"><span class="code">删去线：</span></span><br><span class="line"><span class="code">    今天~~ 天气 ~~真不错啊</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h1><blockquote>
+<p>第一段落：撅草棍儿抽长短</p>
+<p>第二段落：谁长谁先干</p>
+<blockquote>
+<p>这里是子嵌套的</p>
+</blockquote>
+</blockquote>
+<blockquote><p>今天天气不错</p>
+</blockquote>
+
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;第一段落：撅草棍儿抽长短</span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt;第二段落：谁长谁先干</span></span><br><span class="line">&gt;&gt;这里是子嵌套的</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">多个段落的块引用间，空行也要加&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">今天天气不错</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项<ol>
+<li>子项</li>
+<li>子项</li>
+</ol>
+</li>
+<li>第四项<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项 //注意点后有空格</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br><span class="line"><span class="bullet">    1.</span> 子项</span><br><span class="line"><span class="bullet">    2.</span> 子项</span><br><span class="line"><span class="bullet">4.</span> 第四项</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul>
+<li><p>第一项</p>
+<blockquote>
+<p>今天天气不错</p>
+</blockquote>
+</li>
+<li><p>第二项</p>
+<ul>
+<li>子项</li>
+<li>子项</li>
+<li>子项</li>
+</ul>
+</li>
+<li><p>第三项</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 第一项</span><br><span class="line"></span><br><span class="line"><span class="code">    &gt;今天天气不错 //列表中可嵌套其他元素</span></span><br><span class="line"><span class="code">- 第二项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">    - 子项</span></span><br><span class="line"><span class="code">- 第三项</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h1><p>代码语法的作用是让代码在下面这样的框里显示</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p>编辑代码内容</p>
+<pre><code><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束   </span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>或者<br></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock  %&#125;</span><br><span class="line">int a=10;</span><br><span class="line">print(&quot;%d&quot;,a);</span><br><span class="line">//代码结束</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><p>第一行</p>
+<hr>
+<p>第二行</p>
+<hr>
+<p>第三行</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">第一行</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第二行</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">___</span></span></span><br><span class="line"><span class="emphasis"><span class="strong">第三行</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">独立成行的三个连续的<span class="emphasis">*，或三个连续的下划线可作分隔线</span></span><br></pre></td></tr></table></figure>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><h2 id="加title的链接"><a href="#加title的链接" class="headerlink" title="加title的链接"></a>加title的链接</h2><p>这是一个链接 <a href="www.baidu.com">百度</a><br><br>这是一个链接 <a href="www.baidu.com" title="百度搜素">百度</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line">这是一个链接 [<span class="string">百度</span>](<span class="link">www.baidu.com &quot;百度搜素&quot;</span>)//鼠标放到链接上有“百度搜索”提示</span><br></pre></td></tr></table></figure>
+<h2 id="网址和邮箱地址"><a href="#网址和邮箱地址" class="headerlink" title="网址和邮箱地址"></a>网址和邮箱地址</h2><p><a href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a href="mailto:&#x66;&#x61;&#107;&#x65;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#x66;&#x61;&#107;&#x65;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">&lt;https://markdown.com.cn&gt;</span></span><br><span class="line"><span class="language-xml">&lt;fake@example.com&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="带格式化的链接"><a href="#带格式化的链接" class="headerlink" title="带格式化的链接"></a>带格式化的链接</h2><p>今天天气不错，查看 <em><strong><a href="http://www.weather.com.cn/">中国天气</a></strong></em><br><br>查看<a href="#code"><code>code</code></a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">今天天气不错，查看 <span class="strong">**<span class="emphasis">*[<span class="string">中国天气</span>](<span class="link">http://www.weather.com.cn/</span>)*</span>**</span></span><br><span class="line">查看[<span class="string">`code`</span>](<span class="link">#code</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h1><h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><p><img src="/../../themes/next_a/source/images/avatars/aoba.jpg" alt="图片1" title="aoba"><br></p>
+<p><img src="/assets/images/aoba.jpg" alt="青叶" title="aoba"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">../../themes/next_a/source/images/avatars/aoba.jpg &quot;aoba&quot;</span>)<span class="language-xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span>  //以该post的地址作为起始地址，这样的链接是错误的</span><br><span class="line"></span><br><span class="line">![<span class="string">青叶</span>](<span class="link">/assets/images/aoba.jpg &quot;aoba&quot;</span>)  //运行时相对地址的起始为博客的根目录文件夹，这样的链接是正确的</span><br></pre></td></tr></table></figure>
+
+<h2 id="给图片添加链接"><a href="#给图片添加链接" class="headerlink" title="给图片添加链接"></a>给图片添加链接</h2><p><a href="http://newgame-anime.com/assets/character/c4.png" title="hifumi"><img src="/assets/images/hifumi.jpg" alt="日富美" title="hifumi"></a></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![日富美</span>](<span class="link">/assets/images/hifumi.jpg &quot;hifumi&quot;</span>)](<span class="link">http://newgame-anime.com/assets/character/c4.png &quot;hifumi&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><h2 id="可做转义的字符"><a href="#可做转义的字符" class="headerlink" title="可做转义的字符"></a>可做转义的字符</h2><p>以下列出的字符都可以通过使用反斜杠字符从而达到转义目的。</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\</td>
+<td>反斜线</td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td>反引号</td>
+</tr>
+<tr>
+<td>_</td>
+<td>下划线</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>花括号</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>方括号</td>
+</tr>
+<tr>
+<td>()</td>
+<td>圆括号</td>
+</tr>
+<tr>
+<td>#</td>
+<td>井号</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加号</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减号，连字符</td>
+</tr>
+<tr>
+<td>.</td>
+<td>圆点</td>
+</tr>
+<tr>
+<td>!</td>
+<td>感叹号</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="特殊字符自动转义"><a href="#特殊字符自动转义" class="headerlink" title="特殊字符自动转义"></a>特殊字符自动转义</h2><p>如果你使用 &amp; 符号的作为 HTML 实体的一部分，那么它不会被转换，而在其它情况下，它则会被转换成 &amp;amp;。</p>
+<h1 id="内嵌HTML标签"><a href="#内嵌HTML标签" class="headerlink" title="内嵌HTML标签"></a>内嵌HTML标签</h1><h2 id="lt-ruby-gt"><a href="#lt-ruby-gt" class="headerlink" title="&lt;ruby&gt;"></a>&lt;ruby&gt;</h2><p><ruby>拼音<rt>pinyin</rt></ruby></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">ruby</span>&gt;</span></span>拼音<span class="language-xml"><span class="tag">&lt;<span class="name">rt</span>&gt;</span></span>pinyin<span class="language-xml"><span class="tag">&lt;/<span class="name">rt</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">ruby</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="lt-detail-gt"><a href="#lt-detail-gt" class="headerlink" title="&lt;detail&gt;"></a>&lt;detail&gt;</h2><details class="note primary no-icon" open="">
+<summary><p><strong>总描述</strong></p>
+</summary>
+
+<table>
+<thead>
+<tr>
+<th align="left">栏目1</th>
+<th align="center">栏目2</th>
+<th align="left">栏目 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\</td>
+<td align="center">反斜线</td>
+<td align="left">\</td>
+</tr>
+<tr>
+<td align="left">&#96;</td>
+<td align="center">反引号</td>
+<td align="left">&#96;</td>
+</tr>
+<tr>
+<td align="left">_</td>
+<td align="center">下划线</td>
+<td align="left">_</td>
+</tr>
+</tbody></table>
+</details>
+
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;<span class="name">strong</span>&gt;</span></span>总描述<span class="language-xml"><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">| 栏目1 | 栏目2 | 栏目 3|</span><br><span class="line">| :--- | :----: |:---|  //对齐方式</span><br><span class="line">| \  | 反斜线 | \ |</span><br><span class="line">| <span class="code">`  | 反引号 | `</span> |</span><br><span class="line">| <span class="emphasis">_  | 下划线 | _</span> |</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<details class="note primary no-icon" open="">
+<summary><p><strong>总体介绍</strong></p></summary>
+<table>
+<caption style="text-align: left;">表格标题</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">栏目1</th>
+<th style="text-align: center;">栏目2</th>
+<th style="text-align: center;">栏目3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">aa</td>
+<td style="text-align: center;">aaa</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">bb</td>
+<td style="text-align: center;">bbb</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">bb</td>
+<td style="text-align: center;">bbb</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span> <span class="attr">class</span>=<span class="string">&quot;note primary no-icon&quot;</span> <span class="attr">open</span>=<span class="string">&quot;&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">summary</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>总体介绍<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span> <span class="comment">&lt;!--hexo这里css文件似乎有问题，无法指定格式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">caption</span> <span class="attr">style</span>=<span class="string">&quot;text-align: left;&quot;</span>&gt;</span>表格标题<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目2<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>栏目3<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>a<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;even&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;odd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>b<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>其他</category>
       </categories>
       <tags>
         <tag>展示</tag>
