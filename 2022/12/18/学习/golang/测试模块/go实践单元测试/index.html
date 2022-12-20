@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="初步学习参考极客兔兔的《Go Test 单元测试简明教程》，第二次学习参考官方文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go实践单元测试">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/12/18/%E5%AD%A6%E4%B9%A0/golang/%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97/go%E5%AE%9E%E8%B7%B5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="初步学习参考极客兔兔的《Go Test 单元测试简明教程》，第二次学习参考官方文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-20T00:57:19.628Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/12/18/%E5%AD%A6%E4%B9%A0/golang/%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97/go%E5%AE%9E%E8%B7%B5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/12/18/%E5%AD%A6%E4%B9%A0/golang/%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97/go%E5%AE%9E%E8%B7%B5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/","path":"2022/12/18/学习/golang/测试模块/go实践单元测试/","title":"go实践单元测试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>go实践单元测试 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">27</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E7%94%A8%E5%A4%84"><span class="nav-number">1.</span> <span class="nav-text">单元测试的用处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%84%E7%BB%87"><span class="nav-number">2.</span> <span class="nav-text">测试文件的组织</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D"><span class="nav-number">2.1.</span> <span class="nav-text">测试文件命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%AE%80%E4%BB%8B"><span class="nav-number">2.2.</span> <span class="nav-text">测试文件内容简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">2.3.</span> <span class="nav-text">执行测试用例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%90%E6%B5%8B%E8%AF%95Subtests"><span class="nav-number">3.</span> <span class="nav-text">子测试Subtests</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">3.1.</span> <span class="nav-text">创建子测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%AD%90%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">3.2.</span> <span class="nav-text">执行子测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E5%AD%90%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">3.3.</span> <span class="nav-text">多个子测试的创建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%AE%E5%8A%A9%E5%87%BD%E6%95%B0helpers"><span class="nav-number">4.</span> <span class="nav-text">帮助函数helpers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B8%AE%E5%8A%A9%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">什么是帮助函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%AD%90%E7%94%A8%E4%BE%8B%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">4.2.</span> <span class="nav-text">抽象子用例的创建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#setup%E5%92%8Cteardown"><span class="nav-number">5.</span> <span class="nav-text">setup和teardown</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E2%80%93%E7%BD%91%E7%BB%9C%E6%B5%8B%E8%AF%95"><span class="nav-number">6.</span> <span class="nav-text">实践–网络测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Benchmark%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95"><span class="nav-number">7.</span> <span class="nav-text">Benchmark基准测试</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/12/18/%E5%AD%A6%E4%B9%A0/golang/%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97/go%E5%AE%9E%E8%B7%B5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="go实践单元测试 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          go实践单元测试
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-19T00:00:00+08:00">2022-12-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-12-20 08:57:19" itemprop="dateModified" datetime="2022-12-20T08:57:19+08:00">2022-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97/" itemprop="url" rel="index"><span itemprop="name">测试模块</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97/golang/" itemprop="url" rel="index"><span itemprop="name">golang</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>初步学习参考极客兔兔的《Go Test 单元测试简明教程》，第二次学习参考官方文档</p>
+<span id="more"></span>
+<h1 id="单元测试的用处"><a href="#单元测试的用处" class="headerlink" title="单元测试的用处"></a>单元测试的用处</h1><p>对于大且复杂的项目，如果仅是优化一个函数的性能，或是添加几个新特性，部署后再测试成本太高。对于这种场景，对一些逻辑较为复杂的函数，使用几个小小的测试用例就可覆盖，降低重新构建项目的概率。</p>
+<p>写好单元测试，首先需要写好测试用例。比如，如何测试单个函数；如何做好基准测试；遇到数据库访问等调用时如何mock。</p>
+<p>其次，测试的代码要尽量满足“高内聚、低耦合”。如果有“这种代码没法测试”的问题，这种时候思考，能不能改得更好。为了代码可测试，而重构是值得的。</p>
+<h1 id="测试文件的组织"><a href="#测试文件的组织" class="headerlink" title="测试文件的组织"></a>测试文件的组织</h1><h2 id="测试文件命名"><a href="#测试文件命名" class="headerlink" title="测试文件命名"></a>测试文件命名</h2><p>go语言推荐测试文件和源代码文件放在一起（位于同一个目录下），测试文件以 _test.go 结尾。比如，我们想测试 calc.go 中的Add和Mul函数，那么应该新建 calc_test.go 作为测试文件。</p>
+<h2 id="测试文件内容简介"><a href="#测试文件内容简介" class="headerlink" title="测试文件内容简介"></a>测试文件内容简介</h2><p>假设已经实现了 calc.go ，那么 calc_test.go 的测试用例可以这么写：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="comment">// 测试文件所在包，应该和代码所在包相同</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;testing&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestAdd</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> ans := Add(<span class="number">1</span>, <span class="number">2</span>); ans != <span class="number">3</span> &#123;</span><br><span class="line">        <span class="comment">// t.Error 、t.Errorf 遇错不停；t.Fatal 、t.Fatal、t.Fatalf 遇错退出</span></span><br><span class="line">		t.Errorf(<span class="string">&quot;1 + 2 expected be 3, but %d got&quot;</span>, ans)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ans := Add(<span class="number">-10</span>, <span class="number">-20</span>); ans != <span class="number">-30</span> &#123;</span><br><span class="line">		t.Errorf(<span class="string">&quot;-10 + -20 expected be -30, but %d got&quot;</span>, ans)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在这个文件中，测试用例一般命名为 Test加待测试函数名；即这样命名的函数就是一个测试用例</li>
+<li>测试用例的参数有且只有一个，在这里是 *testing.T</li>
+<li>基准测试benchmark的参数是 *testing.B ，TestMain的参数是 *testing.M 类型</li>
+</ul>
+<h2 id="执行测试用例"><a href="#执行测试用例" class="headerlink" title="执行测试用例"></a>执行测试用例</h2><p>执行 go test ，该package下的所有测试用例都会被执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">go <span class="built_in">test</span></span></span><br><span class="line">ok      example 0.009s</span><br></pre></td></tr></table></figure>
+<p>或 go test -v ，-v参数会显示每个用例的测试结果；-cover参数可以查看覆盖率</p>
+<p>如果只想运行其中一个用例，可以用-run参数指定，该参数支持通配符*，和部分正则表达式。如 go test -run TestAdd -v 指令，只会运行TestAdd这一个测试用例</p>
+<h1 id="子测试Subtests"><a href="#子测试Subtests" class="headerlink" title="子测试Subtests"></a>子测试Subtests</h1><h2 id="创建子测试用例"><a href="#创建子测试用例" class="headerlink" title="创建子测试用例"></a>创建子测试用例</h2><p>子测试是Go语言内置支持的，可以在某个测试用例中，使用 Run 方法创建子测试用例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// calc_test.go</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在TestMul这个测试用例中， 创建 pos，neg 两个子测试用例</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMul</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 创建子测试用例</span></span><br><span class="line">	t.Run(<span class="string">&quot;pos&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> Mul(<span class="number">2</span>, <span class="number">3</span>) != <span class="number">6</span> &#123;</span><br><span class="line">            <span class="comment">// t.Fatal 、t.Fatalf 遇错即停；t.Error 、t.Errorf 遇错不停</span></span><br><span class="line">			t.Fatal(<span class="string">&quot;fail&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;)</span><br><span class="line">    <span class="comment">// 创建子测试用例</span></span><br><span class="line">	t.Run(<span class="string">&quot;neg&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> Mul(<span class="number">2</span>, <span class="number">-3</span>) != <span class="number">-6</span> &#123;</span><br><span class="line">			t.Fatal(<span class="string">&quot;fail&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行子测试用例"><a href="#执行子测试用例" class="headerlink" title="执行子测试用例"></a>执行子测试用例</h2><p>如果想只执行某个测试用例的子测试，要用 -run 参数指定，指定方式为  go test -run TestMul&#x2F;pos -v ；而之前提到的只执行这个测试用例，是用 go test -run TestMul</p>
+<h2 id="多个子测试的创建"><a href="#多个子测试的创建" class="headerlink" title="多个子测试的创建"></a>多个子测试的创建</h2><p>对于多个子测试的场景，推荐如下的table-driven tests：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// calc_test.go</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMul</span><span class="params">(t *testing.T)</span></span>&#123;</span><br><span class="line">    cases:=[]<span class="keyword">struct</span>&#123;</span><br><span class="line">        Name <span class="type">string</span></span><br><span class="line">        A,B,Expected <span class="type">int</span></span><br><span class="line">    &#125;&#123;</span><br><span class="line">		&#123;<span class="string">&quot;pos&quot;</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>&#125;,</span><br><span class="line">		&#123;<span class="string">&quot;neg&quot;</span>, <span class="number">2</span>, <span class="number">-3</span>, <span class="number">-6</span>&#125;,</span><br><span class="line">		&#123;<span class="string">&quot;zero&quot;</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _,c := <span class="keyword">range</span> cases &#123;</span><br><span class="line">        t.Run(c.Name,<span class="function"><span class="keyword">func</span><span class="params">(t *testing.T)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span> ans:=Mul(c.A,c.B);ans!=c.Expected&#123;</span><br><span class="line">                t.Fatalf(<span class="string">&quot;%d * %d expetced %d,but got %d&quot;</span>,c.A,c.B,c.Expected,ans)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所有用例数据组织在切片cases中，新增用例就是给cases新增一条数据。如果数据量比较大，则应该从文件中读取，保存到切片</p>
+<h1 id="帮助函数helpers"><a href="#帮助函数helpers" class="headerlink" title="帮助函数helpers"></a>帮助函数helpers</h1><h2 id="什么是帮助函数"><a href="#什么是帮助函数" class="headerlink" title="什么是帮助函数"></a>什么是帮助函数</h2><p>帮助函数是一些公用的，用于增加测试代码可读性和维护性的函数。常用的帮助函数是 testing.T.Helper ，当遇到报错时，输出会额外携带定位信息</p>
+<h2 id="抽象子用例的创建"><a href="#抽象子用例的创建" class="headerlink" title="抽象子用例的创建"></a>抽象子用例的创建</h2><p>更进一步抽象子用例的创建过程，分割</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// calc_test.go</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;testing&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> calcCase <span class="keyword">struct</span>&#123; A, B, Expected <span class="type">int</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// createMulTestCase 抽象出创建子测试用例的过程</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createMulTestCase</span><span class="params">(t *testing.T, c *calcCase)</span></span> &#123;</span><br><span class="line">	t.Helper()  <span class="comment">// 调用这个帮助函数，在报错时可以清晰显示错误位置</span></span><br><span class="line">	<span class="keyword">if</span> ans := Mul(c.A, c.B); ans != c.Expected &#123;</span><br><span class="line">		t.Fatalf(<span class="string">&quot;%d * %d expected %d, but %d got&quot;</span>,</span><br><span class="line">			c.A, c.B, c.Expected, ans)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMul</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">    <span class="comment">//用例数据</span></span><br><span class="line">    cases:=[]calcCase&#123;</span><br><span class="line">        &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">-3</span>, <span class="number">-6</span>&#125;,</span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>&#125;, <span class="comment">//错误用例</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//迭代创建子测试用例</span></span><br><span class="line">    <span class="keyword">for</span> _,c:= <span class="keyword">range</span> cases&#123;</span><br><span class="line">        createMulTestCase(t, c)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="setup和teardown"><a href="#setup和teardown" class="headerlink" title="setup和teardown"></a>setup和teardown</h1><p>在同一个测试文件中，每一个测试用运行的前后逻辑一般是相同的，这些相同的部分应该分别写在setup（用于执行前的一些初始化操作）和teardown（经常做一些回收资源的操作，如关闭网络连接，释放资源）。</p>
+<p>标准库的testing提供了这样的机制，如果测试函数中包含TestMsin，那么生成的测试会调用 TestMain(m) ，而不是直接运行测试。调用 m.Run()触发所有测试用例的执行，并使用os.Exit()处理返回的状态码，存在用例失败的返回码为非零</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setup</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;Before all tests&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">teardown</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;After all tests&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test1</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;I&#x27;m test1&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test2</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;I&#x27;m test2&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestMain</span><span class="params">(m *testing.M)</span></span> &#123;</span><br><span class="line">	setup() <span class="comment">// setup需要手动调用</span></span><br><span class="line">	code := m.Run() <span class="comment">// 执行所有测试用例，code为零表示用例全部通过</span></span><br><span class="line">	teardown() <span class="comment">// teardown需要手动调用</span></span><br><span class="line">	os.Exit(code) <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="实践–网络测试"><a href="#实践–网络测试" class="headerlink" title="实践–网络测试"></a>实践–网络测试</h1><p>假设需要测试某个API接口的handler能够正常工作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">helloHandler</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">	w.Write([]<span class="type">byte</span>(<span class="string">&quot;hello world&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么可以创建一个真实的网络环境进行测试：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// xxx_test.go</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;io/ioutil&quot;</span></span><br><span class="line">	<span class="string">&quot;net&quot;</span></span><br><span class="line">	<span class="string">&quot;net/http&quot;</span></span><br><span class="line">	<span class="string">&quot;testing&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">handleError</span><span class="params">(t *testing.T, err <span class="type">error</span>)</span></span> &#123;</span><br><span class="line">	t.Helper()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		t.Fatal(<span class="string">&quot;failed&quot;</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestConn</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 创建服务器部分</span></span><br><span class="line">    <span class="comment">// 监听</span></span><br><span class="line">	ln, err := net.Listen(<span class="string">&quot;tcp&quot;</span>, <span class="string">&quot;127.0.0.1:0&quot;</span>)</span><br><span class="line">	handleError(t, err)</span><br><span class="line">	<span class="keyword">defer</span> ln.Close()</span><br><span class="line">    <span class="comment">// 注册句柄</span></span><br><span class="line">	http.HandleFunc(<span class="string">&quot;/hello&quot;</span>, helloHandler)</span><br><span class="line">    <span class="comment">// 启动http服务</span></span><br><span class="line">	<span class="keyword">go</span> http.Serve(ln, <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟用户</span></span><br><span class="line">    <span class="comment">// 发起一个get请求，这个请求会访问到helloHandler</span></span><br><span class="line">	resp, err := http.Get(<span class="string">&quot;http://&quot;</span> + ln.Addr().String() + <span class="string">&quot;/hello&quot;</span>)</span><br><span class="line">	handleError(t, err)</span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 真正的测试部分</span></span><br><span class="line">    <span class="comment">// 获取响应的body</span></span><br><span class="line">	body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">	handleError(t, err)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> <span class="type">string</span>(body) != <span class="string">&quot;hello world&quot;</span> &#123;</span><br><span class="line">		t.Fatal(<span class="string">&quot;expected hello world, but got&quot;</span>, <span class="type">string</span>(body))</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际上，针对http开发的场景，使用标准库net&#x2F;http&#x2F;httptest进行测试更为高效。但标准库对各类环节都进行了封装，缺少上面例子的“模拟真实环境”的展示价值，故使用上面的例子进行演示</p>
+<h1 id="Benchmark基准测试"><a href="#Benchmark基准测试" class="headerlink" title="Benchmark基准测试"></a>Benchmark基准测试</h1><p>基准测试用例的规则如下：</p>
+<ul>
+<li>函数名必须以 Benchmark开头，加待测试函数名，如 BenchmarkMul 是对 Mul 的基准测试</li>
+<li>参数必须为 b *testing.B ，一般测试的参数是 t *testing.t</li>
+<li>执行基准测试命令时，需要添加 -bench 参数</li>
+<li>其他参数，如 -benchmen 可以查看内存使用情况</li>
+</ul>
+<p>基准测试报告每一列值对应的含义如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> BenchmarkResult <span class="keyword">struct</span> &#123;</span><br><span class="line">    N         <span class="type">int</span>           <span class="comment">// 迭代次数</span></span><br><span class="line">    T         time.Duration <span class="comment">// 基准测试花费的时间</span></span><br><span class="line">    Bytes     <span class="type">int64</span>         <span class="comment">// 一次迭代处理的字节数</span></span><br><span class="line">    MemAllocs <span class="type">uint64</span>        <span class="comment">// 总的分配内存的次数</span></span><br><span class="line">    MemBytes  <span class="type">uint64</span>        <span class="comment">// 总的分配内存的字节数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在运行基准测试时需要一些配置，这些配置不需要计入基准测试时间，则在运行测试前使用 b.ResetTimer() 先重置定时器。测试并发性能使用RunParallel函数，而非在内部使用go关键字标记。演示如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// xxx_test.go</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对一段打印&quot;hello&quot;的代码进行测试</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkHello</span><span class="params">(b *testing.B)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 耗时操作</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重置定时器</span></span><br><span class="line">    b.ResetTimer()</span><br><span class="line">    <span class="comment">// 开始基准测试</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; b.N; i++ &#123;</span><br><span class="line">        fmt.Sprintf(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 RunParallel 测试并发性能</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BenchmarkParallel</span><span class="params">(b *testing.B)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 设置html模板渲染的相关操作，具体干啥不知道</span></span><br><span class="line">	templ := template.Must(template.New(<span class="string">&quot;test&quot;</span>).Parse(<span class="string">&quot;Hello, &#123;&#123;.&#125;&#125;!&quot;</span>))</span><br><span class="line">    <span class="comment">// 开始基准测试</span></span><br><span class="line">	b.RunParallel(<span class="function"><span class="keyword">func</span><span class="params">(pb *testing.PB)</span></span> &#123;</span><br><span class="line">		<span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">        <span class="comment">// 这里的for相当于C中的while（刚开始忘记了，没看明白）</span></span><br><span class="line">		<span class="keyword">for</span> pb.Next() &#123;</span><br><span class="line">			<span class="comment">// 所有 goroutine 一起，循环一共执行 b.N 次</span></span><br><span class="line">			buf.Reset() </span><br><span class="line">			templ.Execute(&amp;buf, <span class="string">&quot;World&quot;</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启用测试的指令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">go <span class="built_in">test</span> -benchmem -bench .</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/23/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/ASCII%E3%80%81Unicode%E3%80%81UTF-8%E5%8C%BA%E5%88%AB%E7%AE%80%E8%AE%B0%E5%BD%95/" rel="prev" title="ASCII、Unicode、UTF-8区别简记录">
+                  <i class="fa fa-chevron-left"></i> ASCII、Unicode、UTF-8区别简记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
