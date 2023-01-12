@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这篇文章主要参考文档，记录配置git服务器的过程，以及其他和服务器git交互的知识 参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git学习四：服务器上的git">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/01/10/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84git/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="这篇文章主要参考文档，记录配置git服务器的过程，以及其他和服务器git交互的知识 参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-12T08:43:10.317Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/01/10/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84git/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/01/10/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84git/","path":"2023/01/10/学习/git学习/git学习四：服务器上的git/","title":"git学习四：服务器上的git"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>git学习四：服务器上的git | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">34</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">传输协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BAGit"><span class="nav-number">2.</span> <span class="nav-text">在服务器上搭建Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%A5%BD%E8%A3%B8%E4%BB%93%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">准备好裸仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E8%A3%B8%E4%BB%93%E5%BA%93%E6%94%BE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A"><span class="nav-number">2.2.</span> <span class="nav-text">把裸仓库放到服务器上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AE%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">SSH协议访问仓库的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90SSH%E5%85%AC%E9%92%A5"><span class="nav-number">3.1.</span> <span class="nav-text">生成SSH公钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E7%AB%AFSSH%E8%AE%BF%E9%97%AE"><span class="nav-number">3.2.</span> <span class="nav-text">配置服务端SSH访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%BA%E8%83%BDHTTP%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AE%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">智能HTTP协议访问仓库</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/01/10/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="git学习四：服务器上的git | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          git学习四：服务器上的git
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-11 00:00:00" itemprop="dateCreated datePublished" datetime="2023-01-11T00:00:00+08:00">2023-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-12 16:43:10" itemprop="dateModified" datetime="2023-01-12T16:43:10+08:00">2023-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">git学习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>这篇文章主要参考文档，记录配置git服务器的过程，以及其他和服务器git交互的知识</p>
+<p>参考 <a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+<span id="more"></span>
+
+<h1 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h1><p>架设一台Git服务器，首先需要选择通讯协议。本文的搭建服务器时混合使用智能HTTP协议和SSH协议。</p>
+<p>Git可以使用四种不同的协议来传输资料：本地协议、智能和哑HTTP协议、SSH协议、Git协议。其中本地协议常见于团队成员对一个共享的文件系统都拥有访问权限，但适用范围不够广泛，故不讲述。其中Git协议的适用范围比较狭窄，且需要配置专门的守护进程，故也不讲述。</p>
+<p><strong>智能HTTP协议</strong>应该是最流行的Git通讯方式，它在匿名克隆时最方便。智能HTTP协议运行在标准的HTTP&#x2F;S端口上，并且可以使用各种HTTP验证机制，如用户名密码授权机制，这意味着比SSH协议方便许多。智能HTTP协议既支持设置匿名服务，也支持传输时加密和授权，且只用一个URL就可以做到。</p>
+<p><strong>SSH协议</strong>普遍作为Git服务器的传输协议，假设相对简单，它的守护进程十分常见。唯一的缺点是不支持匿名访问，因此只有在作为开发人员时才使用SSH协议</p>
+<h1 id="在服务器上搭建Git"><a href="#在服务器上搭建Git" class="headerlink" title="在服务器上搭建Git"></a>在服务器上搭建Git</h1><h2 id="准备好裸仓库"><a href="#准备好裸仓库" class="headerlink" title="准备好裸仓库"></a>准备好裸仓库</h2><p>假设Git服务器前，需要把现有仓库导出为裸仓库，即一个不包含当前工作目录的仓库，也可以说是直接把 .git 文件夹复制出来。使用带–bare选项的克隆命令，导出一个仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> --bare my_repo my_repo.git</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="把裸仓库放到服务器上"><a href="#把裸仓库放到服务器上" class="headerlink" title="把裸仓库放到服务器上"></a>把裸仓库放到服务器上</h2><p>既然已经有了裸仓库的副本，那么就剩下放到服务器上了。假设一个git服务器已经假设好，并可以通过SSH连接，想把所有的仓库放到 &#x2F;srv&#x2F;git 目录下，那么可以使用以下命令把裸仓库复制到服务器上。其中git.example.com为服务器名，scp表示secure copy：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">scp -r my_repo.git user@git.example.com:/srv/git</span></span><br></pre></td></tr></table></figure>
+
+<p>之后，其他可以通过SSH读取此服务器上 &#x2F;srv&#x2F;git 的用户可以执行以下命令来克隆仓库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> user@git.example.com:/srv/git/my_repo.git</span></span><br></pre></td></tr></table></figure>
+
+<p>如果一个用户通过SSH连接到服务器，并且对 &#x2F;srv&#x2F;git&#x2F; 目录拥有写权限，那么该用户自动拥有推送权限。</p>
+<h1 id="SSH协议访问仓库的两种方式"><a href="#SSH协议访问仓库的两种方式" class="headerlink" title="SSH协议访问仓库的两种方式"></a>SSH协议访问仓库的两种方式</h1><p>由上节可见，根据现有的Git仓库创建一个裸仓库，然后把它放到协作者有SSH访问权限的服务器，就能够按照服务器上的用户权限去“管理”用户。</p>
+<p>但是，如果要新增一个用户，就在服务器上运行adduser一次，这是有些麻烦的。另外一种SSH连接方法是，在服务器上建立一个git用户，让每个需要写权限的人发送一个SSH公钥加入git账户的 ~&#x2F;.ssh&#x2F;authorized_keys 文件，这样所有人通过git账户访问主机，而访问主机的身份也不会影响提交对象的提交者信息</p>
+<h2 id="生成SSH公钥"><a href="#生成SSH公钥" class="headerlink" title="生成SSH公钥"></a>生成SSH公钥</h2><p>用户的SSH密钥存在其 <del>&#x2F;.ssh 目录下，在windows平台下也适用（</del> 表示用户目录），该目录下id_ras.pub是公钥，id_rsa是对应的私钥。使用 ssh-keygen 程序默认创建一对rsa算法的密钥：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+<p>输入这个命令后，会给出提示确认密钥存储的位置，默认是 ~&#x2F;.ssh&#x2F;id_rsa ，然后会要求输入两次密钥口令。这里-t指定ssh算法类型，-b指定密码的位长度，-C提供一个新注释（这个注释会自动添加到公钥末尾，没有改参数则会自动生成一个注释），这三个参数都不是必须的，但是推荐有。</p>
+<p>当前github推荐的加密算法是 Ed25519，使用如下命令生成一组密钥：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>无论是rsa算法还是Ed25519，此时在 ~&#x2F;.ssh 文件夹里都会有一对密钥。</p>
+<h2 id="配置服务端SSH访问"><a href="#配置服务端SSH访问" class="headerlink" title="配置服务端SSH访问"></a>配置服务端SSH访问</h2><p>这里使用的方法是，创建一个操作系统用户git，为其建立一个.ssh目录，把协作者的密钥加入到认证文件authorized_keys中。</p>
+<p>首先创建一个操作系统用户git，为其建立一个.ssh目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo adduser git</span>  </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">su git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> .ssh &amp;&amp; <span class="built_in">chmod</span> 700 .ssh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> .ssh/authorized_keys &amp;&amp; <span class="built_in">chmod</span> 600 .ssh/authorized_keys  <span class="comment">#在这里，touch作用是，如果不存在该文件则创建自动创建</span></span></span><br></pre></td></tr></table></figure>
+
+<p>把协作者的密钥加入到系统用户git的 ~&#x2F;.ssh&#x2F;authorized_keys 文件末尾：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /tmp/id_rsa.john.pub &gt;&gt; ~/.ssh/authorized_keys</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /tmp/id_rsa.josie.pub &gt;&gt; ~/.ssh/authorized_keys</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /tmp/id_rsa.jessica.pub &gt;&gt; ~/.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+
+<p>现在借助带–bare选项的git init创建一个空仓库，该命令在初始化仓库时不会创建工作目录。注意，每添加一个仓库，都需要创建一个裸仓库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /srv/git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> project.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> project.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git init --bare</span></span><br></pre></td></tr></table></figure>
+
+<p>此时添加过公钥的项目协作者们可以把此仓库设置为远程，并推送分支。下面演示一个协作者把本地分支推送到服务器上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote add orgin git@gitserver:/srv/git/project.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin master</span></span><br></pre></td></tr></table></figure>
+
+<p>所有获得授权的协作者，都能以系统用户git的身份登录，从而获得一个普通的shell。如果要对此限制，则需要修改git用户对应的 &#x2F;etc&#x2F;passwd 文件中的shell值。可以借助git-shell的受限shell工具来指定登录git账户获得的shell，此时把git-shell的完整路径名添加到 &#x2F;etc&#x2F;shells 文件中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /etc/shells   <span class="comment">#查看git-shell完整路径是否已写入</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> git-shell   <span class="comment">#确保git-shell已安装在系统上</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo -e /etc/shells  <span class="comment">#保存当前环境变量，以便sudo后仍可以使用</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo chsh git -s $(<span class="built_in">which</span> git-shell)</span></span><br></pre></td></tr></table></figure>
+
+<p>此时，用户git只能利用SSH连接进行仓库的拉取和推送，无法登录机器获得一个普通的shell。如果试图登录，尝试会被拒绝。但现在用户仍然可以通过SSH端口转发来访问任何可达的git服务器（除了本来预计访问的git服务器，其他可达的git服务器也可被访问），这时可在想要限制的公钥之前添加 no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty 这些选项即可</p>
+<h1 id="智能HTTP协议访问仓库"><a href="#智能HTTP协议访问仓库" class="headerlink" title="智能HTTP协议访问仓库"></a>智能HTTP协议访问仓库</h1><p>使用git时，一般通过SSH进行授权访问，通过git://进行无授权访问，但是git协议需要搭建专门的守护进程且略有难度，目前不考虑。智能HTTP协议可以同时实现以上两种方式的访问。</p>
+<p>设置智能HTTP一般只需要服务器上启用一个Git自带的名为git-http-backend的CGI脚本，该CGI脚本将会读取由git fetch或git push命令向HTTP URL发送的请求路径和头部信息，来判断该客户端是否支持HTTP通信（大于1.6.6版本），如果不支持会自动回落到哑模式下。</p>
+<p>下来将利用Apache来作为CGI服务器，假设已经安装好了Apache，执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install apache2 apache2-utils</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">a2enmod cgi <span class="built_in">alias</span> <span class="built_in">env</span></span></span><br></pre></td></tr></table></figure>
+<p>这些操作会启用mod_cgi、 mod_alias、 mod_env 等Apache模块，这些都是必须的</p>
+<p>还需要将 &#x2F;srv&#x2F;git 的用户组设置为www-data，这样Web服务器才能读写该仓库，运行CGI脚本的Apache实例默认以该用户权限运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chgrp</span> -R www-data /srv/git</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来要修改Apache配置文件，来让git-http-backend作为Web服务器对&#x2F;git路径请求的处理器：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#以下是配置文件新增内容</span><br><span class="line">SetEnv GIT_PROJECT_ROOT /srv/git</span><br><span class="line">SetEnv GIT_HTTP_EXPORT_ALL         </span><br><span class="line">ScriptAlias /git/ /usr/lib/git-core/git-http-backend/</span><br></pre></td></tr></table></figure>
+
+
+<p>剩下的似乎很繁琐，暂时不记录，只关注ssh连接方式</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/09/%E9%98%85%E8%AF%BB/%E5%81%B6%E8%AF%BB%E3%80%8A%E5%B1%B1%E4%B8%AD%E4%B8%8E%E8%A3%B4%E7%A7%80%E6%89%8D%E8%BF%AA%E4%B9%A6%E3%80%8B/" rel="prev" title="偶读《山中与裴秀才迪书》">
+                  <i class="fa fa-chevron-left"></i> 偶读《山中与裴秀才迪书》
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/01/10/%E5%AD%A6%E4%B9%A0/Linux%E7%9B%B8%E5%85%B3/Linux%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" rel="next" title="Linux用户权限管理">
+                  Linux用户权限管理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

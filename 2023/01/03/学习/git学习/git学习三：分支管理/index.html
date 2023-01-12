@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这篇文章主要以客户端角度，记录分支管理的方式。远程分支的部分过段时间整理 参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git学习三：分支管理">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/01/03/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="这篇文章主要以客户端角度，记录分支管理的方式。远程分支的部分过段时间整理 参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-12T08:43:10.317Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/01/03/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/01/03/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/","path":"2023/01/03/学习/git学习/git学习三：分支管理/","title":"git学习三：分支管理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>git学习三：分支管理 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">34</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">分支简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E6%8F%90%E4%BA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">理解提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%88%86%E6%94%AF"><span class="nav-number">1.2.</span> <span class="nav-text">理解分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3HEAD"><span class="nav-number">1.3.</span> <span class="nav-text">理解HEAD</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E3%80%81%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF%E2%80%93git-branch-d-xxx"><span class="nav-number">2.1.</span> <span class="nav-text">创建、删除分支–git branch [-d] xxx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%E2%80%93git-chekout-b-xxx"><span class="nav-number">2.2.</span> <span class="nav-text">切换分支–git chekout [-b] xxx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E2%80%93git-merge-xxx"><span class="nav-number">2.3.</span> <span class="nav-text">合并分支–git merge xxx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E6%97%B6%E9%81%87%E5%88%B0%E5%86%B2%E7%AA%81"><span class="nav-number">2.4.</span> <span class="nav-text">合并时遇到冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF%E2%80%93git-branch%E6%93%8D%E4%BD%9C%E9%9B%86"><span class="nav-number">2.5.</span> <span class="nav-text">查看分支–git branch操作集</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E5%9F%BA"><span class="nav-number">3.</span> <span class="nav-text">变基</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-number">4.</span> <span class="nav-text">远程分支</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/01/03/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="git学习三：分支管理 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          git学习三：分支管理
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-04 00:00:00" itemprop="dateCreated datePublished" datetime="2023-01-04T00:00:00+08:00">2023-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-12 16:43:10" itemprop="dateModified" datetime="2023-01-12T16:43:10+08:00">2023-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">git学习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>这篇文章主要以客户端角度，记录分支管理的方式。远程分支的部分过段时间整理</p>
+<p>参考 <a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+<span id="more"></span>
+
+<h1 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h1><h2 id="理解提交"><a href="#理解提交" class="headerlink" title="理解提交"></a>理解提交</h2><p>回顾《git配置和记录更新》一章的内容，git保存的不是文件的差异，而是一系列快照。</p>
+<p>进行提交操作时，git保存一个提交对象。初次提交时产生的提交对象，大概是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">           98ca1                           21ec1</span><br><span class="line">------------------------------     ------------------------</span><br><span class="line">|      commit  &lt;size&gt;        |     |   tree &lt;size&gt;        |</span><br><span class="line">|        tree  21ec1  -------|---&gt; |   blob 5b1d3 README  |</span><br><span class="line">|      parent                |     |   blob 911e7 LICENSE |</span><br><span class="line">|      author  cocoa         |     |   blob cab10 test    |</span><br><span class="line">|   committer  cocoa         |     |               |      |</span><br><span class="line">| The initial commit of repo |     ----------------|-------</span><br><span class="line">------------------------------                     |    </span><br><span class="line">                                                   |     </span><br><span class="line">                                                   v     </span><br><span class="line">                                           cab10</span><br><span class="line">                                   ------------------------</span><br><span class="line">                                   |   blob &lt;size&gt;        |</span><br><span class="line">                                   |                      |</span><br><span class="line">                                   | int main()&#123;...&#125;      |</span><br><span class="line">                                   ------------------------</span><br></pre></td></tr></table></figure>
+
+<h2 id="理解分支"><a href="#理解分支" class="headerlink" title="理解分支"></a>理解分支</h2><p>之后每次提交，都会产生一个提交对象，它包含指向上次提交对象的指针。一个版本的多个新提交不会互相影响，这也是可以创建分支的原因。而分支的本质，是一个指向提交对象的指针，如果在这个分支下，这个指针会随着新提交的产生而移动到新提交上。两个指向同一个版本的分支，只有所处分支的指针会随提交而移动，其他分支的指针不会移动。</p>
+<p>git分支实体是包含所指提交对象校验和（长度为40的SHA-1值字符串）的文件，创建一个新分支就相当于向文件写入41个字节（40个字符和1个换行符）</p>
+<h2 id="理解HEAD"><a href="#理解HEAD" class="headerlink" title="理解HEAD"></a>理解HEAD</h2><p>其中master分支并不是一个特殊的分支，只是因为git init命令默认创建它。HEAD是对当前所处分支的引用，它表示当前工作目录所在版本，移动HEAD就会改变工作目录的版本。每次提交都是在HEAD指向的版本后，创建新的提交对象，然后HEAD会移动到这个新版本上。</p>
+<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建、删除分支–git-branch-d-xxx"><a href="#创建、删除分支–git-branch-d-xxx" class="headerlink" title="创建、删除分支–git branch [-d] xxx"></a>创建、删除分支–git branch [-d] xxx</h2><p>基于“分支是指向一个提交对象的指针”的理解，可知创建分支并不需要复制文件本体，它只是创建了一个可以移动的新指针。比如创建一个新分支v2-branch：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch v2-branch</span></span><br></pre></td></tr></table></figure>
+<p>此时创建了一个名为 v2-branch 的分支，以及其表示的指针，这个指针会默认指向当前版本</p>
+<p>删除分支时，需要添加参数-d，删除分支的本质是删除一个指针文件，不会影响到任何提交：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch -d v2-branch</span></span><br></pre></td></tr></table></figure>
+<p>对于未合并分支，git还提供了保险机制，需要添加-D选项才允许删除</p>
+<h2 id="切换分支–git-chekout-b-xxx"><a href="#切换分支–git-chekout-b-xxx" class="headerlink" title="切换分支–git chekout [-b] xxx"></a>切换分支–git chekout [-b] xxx</h2><p>要切换到一个已存在的分支，要使用git checkout命令。切换分支会改变HEAD的指向，HEAD表示的是当前工作目录所处分支，改变了HEAD的指向会改变了工作目录的版本。如果git不能干净利落地完成任务，则会禁止切换分支（<strong>什么时候会这样？已知未追踪、已修改、已暂存文件的存在都不会影响切换分支</strong>）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout master</span></span><br></pre></td></tr></table></figure>
+
+<p>此外，如果加上-b参数，会自动创建这个分支，然后切换过去</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout -b issu31</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="合并分支–git-merge-xxx"><a href="#合并分支–git-merge-xxx" class="headerlink" title="合并分支–git merge xxx"></a>合并分支–git merge xxx</h2><p>合并分分之前，需要切回“主”分支，合并后的新版本会接在“主”分支之后，“主”分支指针也会向后移动，而被合入的分支版本不会改变</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout version1.0</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git merge version1.0_fix</span></span><br></pre></td></tr></table></figure>
+<p>这时分支version1.0链上有了新的提交对象，且它分支指针移动到新提交对象上；而分支version1.0_fix不会有任何变化</p>
+<p>特殊地，被合分支是“主”分支的直接后继，那么“主”分支指针会直接移动到后继分支上（这和上面的情况并不矛盾），这称为快进（Fast-forward）</p>
+<h2 id="合并时遇到冲突"><a href="#合并时遇到冲突" class="headerlink" title="合并时遇到冲突"></a>合并时遇到冲突</h2><p>有时候在待合并的两个分支中，对同一个文件的同一部分进行了不同的修改，这时合并（git merge xxx）就会产生合并冲突。此时git会暂停下来，可合并内容已合并完成，而冲突文件都会标识出来，等待用户去解决。</p>
+<p>此时，工作目录内，那个冲突文件的内容会变成：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">（每行前加了一个制表符，避免下面内容被编辑器解析成冲突）</span><br><span class="line"></span><br><span class="line">asd</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">my changes on master</span><br><span class="line">=======</span><br><span class="line">my changes on version1.0</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; version1.0</span><br></pre></td></tr></table></figure>
+<p>这时候需要用户手动调整这个冲突文件的内容，然后暂存、提交。如果不修改冲突文件就暂存，则该文件会保存冲突原文内容（即上面展示的内容）暂存，且之后不再被认定为冲突。</p>
+<h2 id="查看分支–git-branch操作集"><a href="#查看分支–git-branch操作集" class="headerlink" title="查看分支–git branch操作集"></a>查看分支–git branch操作集</h2><p>git branch除了可以创建分支、删除分支， 在不加其他参数的情况下，会显示当前所有存在的分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch</span></span><br><span class="line">  master</span><br><span class="line">* version1.0</span><br><span class="line">  version1.0_fix</span><br></pre></td></tr></table></figure>
+<p>这里的*，表示当前检出的分支，也就是HEAD指向的分支。</p>
+<p>加上参数-v，可以查看每个分支的最后一次提交：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch -v</span></span><br><span class="line">* master         252a6ae Merge branch &#x27;version1.0&#x27;</span><br><span class="line">  version1.0     e5f913e ceshi</span><br><span class="line">  version1.0_fix efd3828 fix some problems</span><br></pre></td></tr></table></figure>
+
+<p>加上参数–merged和–no-merged，可以过滤已经合并或尚未合并到当前分支的分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch --merged</span></span><br><span class="line">* master</span><br><span class="line">  version1.0</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch --no-merged</span></span><br><span class="line">  version1.0_fix</span><br></pre></td></tr></table></figure>
+
+<h1 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h1><p>git整合来自不同分支的修改有：merge（合并）和rebase（变基）两种方法。合并会把“主分支”和“被合分支”基于共同祖先的修改归结为一个新的提交，创建在两个分支的后面，“主分支”指针向后移动。</p>
+<p>变基则相当于把非基底分支，转移到基底分支链上，其实质是在基底分支上重演每次提交的修改，然后以非基底分支的名义产生新的提交。这是基底分支可以使用快进（Fast-forward，也是用merge命令实现的）快速移动到最新提交处。此时非基底分支的提交记录像是被抹去了一样。</p>
+<p>变基的基本原则是，仅变基位于本地的，未推送或分享的分支，因为只有这些分支当前用户才有权去“抹去”。</p>
+<p>变基的方法一是，检出非基底分支后，git rebase &lt;基底分支&gt; ：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout version1.0_fix   <span class="comment">#检出非基底分支</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git rebase version1.0         <span class="comment">#变基到基底分支，让非基底分支“续”到基底分支后面</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout version1.0</span>   </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git merge experiment      <span class="comment">#基底分支快进</span></span></span><br></pre></td></tr></table></figure>
+
+<p>变基的另一种代码是，git rebase &lt;基底分支&gt; &lt;非基底分支&gt;，此时非基底分支会被“续”到基底分支后面：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git rebase version1.0 version1.0_fix</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout version1.0</span>   </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git merge experiment      <span class="comment">#基底分支快进</span></span></span><br></pre></td></tr></table></figure>
+
+<p>带–onto参数的变基，git rebase –onto &lt;基底分支&gt; &lt;不变基分支&gt; &lt;待变基分支&gt;，这里不变基分支和待变基分支的最近祖先提交，不会应用到基底：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git rebase --onto master version1.0 version1.0_fix</span></span><br></pre></td></tr></table></figure>
+<p>这里假设的情景是，基于master，创建一个version1.0版本的分支进行开发，然后发现version1.0版本有个来源于之前版本的bug，为了和新版本更好契合就新建version1.0_fix来修复，突然发现线上版本master需要立即修复这个bug，但又不想引进version1.0的内容，这时候应该使用上述命令。</p>
+<h1 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h1><p>远程分支的过段时间整理，现在没有很好的实践机会</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/12/18/%E5%AD%A6%E4%B9%A0/golang/%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97/go%E5%AE%9E%E8%B7%B5%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="prev" title="go实践单元测试">
+                  <i class="fa fa-chevron-left"></i> go实践单元测试
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/01/09/%E9%98%85%E8%AF%BB/%E5%81%B6%E8%AF%BB%E3%80%8A%E5%B1%B1%E4%B8%AD%E4%B8%8E%E8%A3%B4%E7%A7%80%E6%89%8D%E8%BF%AA%E4%B9%A6%E3%80%8B/" rel="next" title="偶读《山中与裴秀才迪书》">
+                  偶读《山中与裴秀才迪书》 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
