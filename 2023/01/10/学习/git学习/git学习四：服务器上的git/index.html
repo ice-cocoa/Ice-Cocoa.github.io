@@ -28,7 +28,7 @@
 <meta property="og:description" content="这篇文章主要参考文档，记录配置git服务器的过程，以及其他和服务器git交互的知识 参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-01-12T08:43:10.317Z">
+<meta property="article:modified_time" content="2023-02-03T07:37:29.432Z">
 <meta property="article:author" content="Ice-Cocoa">
 <meta property="article:tag" content="展示">
 <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">34</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">38</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">传输协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BAGit"><span class="nav-number">2.</span> <span class="nav-text">在服务器上搭建Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%A5%BD%E8%A3%B8%E4%BB%93%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">准备好裸仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E8%A3%B8%E4%BB%93%E5%BA%93%E6%94%BE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A"><span class="nav-number">2.2.</span> <span class="nav-text">把裸仓库放到服务器上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AE%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">SSH协议访问仓库的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90SSH%E5%85%AC%E9%92%A5"><span class="nav-number">3.1.</span> <span class="nav-text">生成SSH公钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E7%AB%AFSSH%E8%AE%BF%E9%97%AE"><span class="nav-number">3.2.</span> <span class="nav-text">配置服务端SSH访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%BA%E8%83%BDHTTP%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AE%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">智能HTTP协议访问仓库</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">传输协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BAGit"><span class="nav-number">2.</span> <span class="nav-text">在服务器上搭建Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%A5%BD%E8%A3%B8%E4%BB%93%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">准备好裸仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E8%A3%B8%E4%BB%93%E5%BA%93%E6%94%BE%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A"><span class="nav-number">2.2.</span> <span class="nav-text">把裸仓库放到服务器上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AE%E4%BB%93%E5%BA%93%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">SSH协议访问仓库的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90SSH%E5%85%AC%E9%92%A5"><span class="nav-number">3.1.</span> <span class="nav-text">生成SSH公钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E7%AB%AFSSH%E8%AE%BF%E9%97%AE"><span class="nav-number">3.2.</span> <span class="nav-text">配置服务端SSH访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8GitLab%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">使用GitLab搭建服务器</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,13 +166,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -274,7 +274,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-12 16:43:10" itemprop="dateModified" datetime="2023-01-12T16:43:10+08:00">2023-01-12</time>
+      <time title="修改时间：2023-02-03 15:37:29" itemprop="dateModified" datetime="2023-02-03T15:37:29+08:00">2023-02-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,8 +306,8 @@
 
 <h1 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h1><p>架设一台Git服务器，首先需要选择通讯协议。本文的搭建服务器时混合使用智能HTTP协议和SSH协议。</p>
 <p>Git可以使用四种不同的协议来传输资料：本地协议、智能和哑HTTP协议、SSH协议、Git协议。其中本地协议常见于团队成员对一个共享的文件系统都拥有访问权限，但适用范围不够广泛，故不讲述。其中Git协议的适用范围比较狭窄，且需要配置专门的守护进程，故也不讲述。</p>
-<p><strong>智能HTTP协议</strong>应该是最流行的Git通讯方式，它在匿名克隆时最方便。智能HTTP协议运行在标准的HTTP&#x2F;S端口上，并且可以使用各种HTTP验证机制，如用户名密码授权机制，这意味着比SSH协议方便许多。智能HTTP协议既支持设置匿名服务，也支持传输时加密和授权，且只用一个URL就可以做到。</p>
-<p><strong>SSH协议</strong>普遍作为Git服务器的传输协议，假设相对简单，它的守护进程十分常见。唯一的缺点是不支持匿名访问，因此只有在作为开发人员时才使用SSH协议</p>
+<p><strong>智能HTTP协议</strong>应该是最流行的Git通讯方式，它在匿名克隆时最方便。智能HTTP协议运行在标准的HTTP&#x2F;S端口上，并且可以使用各种HTTP验证机制，如用户名密码授权机制，这意味着比SSH协议方便许多。智能HTTP协议既支持设置匿名服务，也支持传输时加密和授权，且只用一个URL就可以做到。但是这需要另外设置一个web服务器，这也许是不方便的。</p>
+<p><strong>SSH协议</strong>普遍作为Git服务器的传输协议，假设相对简单，它的守护进程十分常见，常见的云服务器都初始带有SSH连接的守护程序。唯一的缺点是不支持匿名访问，因此只有在作为开发人员时才使用SSH协议</p>
 <h1 id="在服务器上搭建Git"><a href="#在服务器上搭建Git" class="headerlink" title="在服务器上搭建Git"></a>在服务器上搭建Git</h1><h2 id="准备好裸仓库"><a href="#准备好裸仓库" class="headerlink" title="准备好裸仓库"></a>准备好裸仓库</h2><p>假设Git服务器前，需要把现有仓库导出为裸仓库，即一个不包含当前工作目录的仓库，也可以说是直接把 .git 文件夹复制出来。使用带–bare选项的克隆命令，导出一个仓库</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> --bare my_repo my_repo.git</span></span><br></pre></td></tr></table></figure>
 
@@ -344,19 +344,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /etc/shells   <span class="comment">#查看git-shell完整路径是否已写入</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> git-shell   <span class="comment">#确保git-shell已安装在系统上</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo -e /etc/shells  <span class="comment">#保存当前环境变量，以便sudo后仍可以使用</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo chsh git -s $(<span class="built_in">which</span> git-shell)</span></span><br></pre></td></tr></table></figure>
 
 <p>此时，用户git只能利用SSH连接进行仓库的拉取和推送，无法登录机器获得一个普通的shell。如果试图登录，尝试会被拒绝。但现在用户仍然可以通过SSH端口转发来访问任何可达的git服务器（除了本来预计访问的git服务器，其他可达的git服务器也可被访问），这时可在想要限制的公钥之前添加 no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty 这些选项即可</p>
-<h1 id="智能HTTP协议访问仓库"><a href="#智能HTTP协议访问仓库" class="headerlink" title="智能HTTP协议访问仓库"></a>智能HTTP协议访问仓库</h1><p>使用git时，一般通过SSH进行授权访问，通过git://进行无授权访问，但是git协议需要搭建专门的守护进程且略有难度，目前不考虑。智能HTTP协议可以同时实现以上两种方式的访问。</p>
-<p>设置智能HTTP一般只需要服务器上启用一个Git自带的名为git-http-backend的CGI脚本，该CGI脚本将会读取由git fetch或git push命令向HTTP URL发送的请求路径和头部信息，来判断该客户端是否支持HTTP通信（大于1.6.6版本），如果不支持会自动回落到哑模式下。</p>
-<p>下来将利用Apache来作为CGI服务器，假设已经安装好了Apache，执行以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install apache2 apache2-utils</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">a2enmod cgi <span class="built_in">alias</span> <span class="built_in">env</span></span></span><br></pre></td></tr></table></figure>
-<p>这些操作会启用mod_cgi、 mod_alias、 mod_env 等Apache模块，这些都是必须的</p>
-<p>还需要将 &#x2F;srv&#x2F;git 的用户组设置为www-data，这样Web服务器才能读写该仓库，运行CGI脚本的Apache实例默认以该用户权限运行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chgrp</span> -R www-data /srv/git</span></span><br></pre></td></tr></table></figure>
-
-<p>接下来要修改Apache配置文件，来让git-http-backend作为Web服务器对&#x2F;git路径请求的处理器：</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#以下是配置文件新增内容</span><br><span class="line">SetEnv GIT_PROJECT_ROOT /srv/git</span><br><span class="line">SetEnv GIT_HTTP_EXPORT_ALL         </span><br><span class="line">ScriptAlias /git/ /usr/lib/git-core/git-http-backend/</span><br></pre></td></tr></table></figure>
-
-
-<p>剩下的似乎很繁琐，暂时不记录，只关注ssh连接方式</p>
+<h1 id="使用GitLab搭建服务器"><a href="#使用GitLab搭建服务器" class="headerlink" title="使用GitLab搭建服务器"></a>使用GitLab搭建服务器</h1><p>若要使用智能HTTP协议，可以借助git自带一个CGI脚本，但是使用需要配置一个web服务器，这是不方便的。这里建议的是使用现代化的GitLab服务器，使用GitLab可以更方便的使用SSH和HTTPS访问仓库</p>
+<p>GitLab是一个数据库支持的Web应用，安装过程中涉及更多的东西。可以参考<a target="_blank" rel="noopener" href="https://gitlab.com/gitlab-org/gitlab-ce/tree/master">GitLab社区版</a>的readme文件，由于目前没有需要所以不在这里记录</p>
 
     </div>
 
@@ -373,8 +362,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/01/09/%E9%98%85%E8%AF%BB/%E5%81%B6%E8%AF%BB%E3%80%8A%E5%B1%B1%E4%B8%AD%E4%B8%8E%E8%A3%B4%E7%A7%80%E6%89%8D%E8%BF%AA%E4%B9%A6%E3%80%8B/" rel="prev" title="偶读《山中与裴秀才迪书》">
-                  <i class="fa fa-chevron-left"></i> 偶读《山中与裴秀才迪书》
+                <a href="/2023/01/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/%E9%A5%A5%E8%8D%92%E4%B8%93%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
                 </a>
             </div>
             <div class="post-nav-item">

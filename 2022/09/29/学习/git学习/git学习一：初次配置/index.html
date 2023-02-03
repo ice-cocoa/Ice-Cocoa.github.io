@@ -28,7 +28,7 @@
 <meta property="og:description" content="第一次安装和配置git，以及初始化一个仓库 参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-01-12T08:43:10.317Z">
+<meta property="article:modified_time" content="2023-02-03T07:37:29.432Z">
 <meta property="article:author" content="Ice-Cocoa">
 <meta property="article:tag" content="展示">
 <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">34</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">38</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E6%AC%A1%E9%85%8D%E7%BD%AEgit"><span class="nav-number">1.</span> <span class="nav-text">安装和初次配置git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">git的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.3.</span> <span class="nav-text">检查配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">1.4.</span> <span class="nav-text">配置用户信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">获取仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">在本地目录中初始化仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E7%8E%B0%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-number">2.2.</span> <span class="nav-text">克隆现有的仓库</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E6%AC%A1%E9%85%8D%E7%BD%AEgit"><span class="nav-number">1.</span> <span class="nav-text">安装和初次配置git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">git的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.3.</span> <span class="nav-text">检查配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">1.4.</span> <span class="nav-text">配置用户信息</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,13 +166,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -274,7 +274,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-12 16:43:10" itemprop="dateModified" datetime="2023-01-12T16:43:10+08:00">2023-01-12</time>
+      <time title="修改时间：2023-02-03 15:37:29" itemprop="dateModified" datetime="2023-02-03T15:37:29+08:00">2023-02-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -330,21 +330,9 @@
 <h2 id="配置用户信息"><a href="#配置用户信息" class="headerlink" title="配置用户信息"></a>配置用户信息</h2><p>设置用户名和邮件地址，每一个git提交都会使用这些信息：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config --global user.name <span class="string">&quot;xxx&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git config --global user.name <span class="string">&quot;xxx@xxx.com&quot;</span></span></span><br></pre></td></tr></table></figure>
 <p>通常情况下git config使用–global参数，配置全局设置，除非需要对特定项目使用特别的配置。如果想针对某个特定项目（仓库级别）配置，则需要将进入那个项目，使用没有该参数的命令来配置</p>
-<h1 id="获取仓库"><a href="#获取仓库" class="headerlink" title="获取仓库"></a>获取仓库</h1><p>通常有两种获取git仓库的方式：</p>
-<ol>
-<li>将尚未进行版本控制的本地目录转换为git仓库</li>
-<li>从其他服务器克隆一个已经存在的git仓库</li>
-</ol>
-<h2 id="在本地目录中初始化仓库"><a href="#在本地目录中初始化仓库" class="headerlink" title="在本地目录中初始化仓库"></a>在本地目录中初始化仓库</h2><p>初始化仓库，需要先进入仓库所在文件夹根目录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git init</span></span><br></pre></td></tr></table></figure>
-<p>这样会创.git子目录，包含git仓库的所有必须文件。此时项目里的文件还未被追踪</p>
-<p>第一次追踪文件，并第一次提交。这里只关注初始化，不做其他解释：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add *</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&#x27;first commit&#x27;</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h2><p>使用 git clone <url> 可以克隆一个完整的仓库，或者仓库下的文件夹：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/libgit2/libgit2 myLibgit</span></span><br></pre></td></tr></table></figure>
-<p>这会在当前目录下创建一个名为myLibgit的目录（如果不指定自定义仓库名，则按默认的libgit2），在其中初始化一个.git文件夹，并<strong>从远程仓库拉取所有数据</strong>放入.git文件夹，然后从中读取最新版本的文件的拷贝放到myLibgit目录下</p>
-<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#x74;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>:libgit2&#x2F;libgit2.git）</p>
+<p>此外，还常常用SSH连接的方式，在github等代码托管平台上进行拉取推送。这里把创建一对密钥也作为基本的配置工作。生成密钥对的命令是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">下面的密钥生成指令，用的是当前github推荐的加密算法的</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+<p>密钥文件建议按默认位置保存，密码按需设定后，可以在 ~&#x2F;.ssh 目录下看到两个密钥文件 id_rsa 和 id_rsa.pub ，其中带pub后缀的是公钥，需要让git服务器知晓，在github上则是把id_rsa.pub配置上去</p>
 
     </div>
 

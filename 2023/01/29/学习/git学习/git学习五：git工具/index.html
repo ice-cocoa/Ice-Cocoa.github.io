@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git学习五：git工具">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/01/29/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9Agit%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-03T07:37:29.432Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/01/29/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9Agit%E5%B7%A5%E5%85%B7/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/01/29/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9Agit%E5%B7%A5%E5%85%B7/","path":"2023/01/29/学习/git学习/git学习五：git工具/","title":"git学习五：git工具"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>git学习五：git工具 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">38</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E6%8F%90%E4%BA%A4"><span class="nav-number">1.</span> <span class="nav-text">检索提交</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E5%8D%95%E4%B8%AA%E6%8F%90%E4%BA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">检索单个提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E6%8F%90%E4%BA%A4%E5%8C%BA%E9%97%B4"><span class="nav-number">1.2.</span> <span class="nav-text">检索提交区间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B4%AE%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">贮藏与清理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AE%E8%97%8F%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">贮藏工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-number">2.2.</span> <span class="nav-text">清理工作目录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AD%BE%E7%BD%B2%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">签署工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">介绍和准备工作</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26386034&auto=0&height=66">
+</iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32235540&auto=0&height=66"></iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/01/29/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9Agit%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="git学习五：git工具 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          git学习五：git工具
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-30 00:00:00" itemprop="dateCreated datePublished" datetime="2023-01-30T00:00:00+08:00">2023-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-02-03 15:37:29" itemprop="dateModified" datetime="2023-02-03T15:37:29+08:00">2023-02-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/git%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">git学习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>参考 <a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+<span id="more"></span>
+
+<h1 id="检索提交"><a href="#检索提交" class="headerlink" title="检索提交"></a>检索提交</h1><p>找到某些特定的提交是很多git操作的前提，git检索提交的方法分为单个提交检索和一定范围内提交检索。</p>
+<h2 id="检索单个提交"><a href="#检索单个提交" class="headerlink" title="检索单个提交"></a>检索单个提交</h2><p>第一种方法是，指定提交对象的<strong>哈希值</strong>检索。用来检索的可以是哈希值的前几个字符，这几个字符要求数量不小于4，且没有歧义。如 git show 1c002 可以显示这个对应提交的信息</p>
+<p>第二种方法是，指定提交对象的<strong>分支名</strong>。当前这种方法成功的前提是被检索提交正好处于一个分支的顶端，即是这个分支的最新提交（分支名本身引用的即是本分支的最新提交）</p>
+<p>第三种方法是，根据<strong>HEAD历史指向</strong>指定分支。当在本地仓库工作时，git会在后台保存一个引用日志reflog，引用日志会记录最近几个月本地仓库HEAD指向的提交，使用 git reflog 命令会输出多行形如 <scan style="background:#eee">2c9027f (tag: v1.0) HEAD@{11}: checkout: moving from master to version1.0 </scan> 的结果，使用 HEAD@{11} 即可引用这个分支。在这里 HEAD@{n} 表示的意思是HEAD在五次前所指向的提交，HEAD@{0}则表示当前HEAD指向的提交</p>
+<p>第四种方法是，根据<strong>引用的祖先</strong>来指定分支，这个引用可以是哈希值、分支名、HEAD。如HEAD^ 表示当前分支的第一父提交，HEAD^n 表示当前分支的第n父提交。HEAD~ 表示当前分支的第一父提交，HEAD<del>n 表示第一父提交的n级第一父提交，如HEAD</del>2表示第一父提交的第一父提交</p>
+<h2 id="检索提交区间"><a href="#检索提交区间" class="headerlink" title="检索提交区间"></a>检索提交区间</h2><p>假设有如下提交历史：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A &lt;---- B &lt;---- E &lt;---- F &lt;----&quot;master&quot;</span><br><span class="line">        ^</span><br><span class="line">        |</span><br><span class="line">        +------ C &lt;---- D &lt;----&quot;experiment&quot;</span><br></pre></td></tr></table></figure>
+
+<p>最常用的指明提交区间语法是<strong>双点</strong>，让git指出在一个分支而不在另一方个分支中的提交</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> master..experiment</span></span><br><span class="line">D</span><br><span class="line">C</span><br></pre></td></tr></table></figure>
+<p>这条命令指出在experiment中还未合入master的提交</p>
+<p>还可以查看远端内容和本地仓库的进度情况。下面的命令指出在HEAD所指的本地分支中还未合入远程master的提交，如果执行git push且当前分支正在追踪origin&#x2F;master，这个命令输出的提交就是会传输到服务器的提交：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> origin/master..HEAD</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>多点</strong>语法可以很容易实现包含某些引用，且不包含另外一些引用的提交，下面的命令查询包含在refA和refB的提交，但不包含refC的提交，其中 –not refC可用 ^refC等效替换</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> refA  refB --not refC</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>三点</strong>语法则直接表示两个引用中，不同时包含的提交：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> master...experiment</span></span><br><span class="line">F</span><br><span class="line">E</span><br><span class="line">D</span><br><span class="line">C</span><br></pre></td></tr></table></figure>
+
+<h1 id="贮藏与清理"><a href="#贮藏与清理" class="headerlink" title="贮藏与清理"></a>贮藏与清理</h1><h2 id="贮藏工作"><a href="#贮藏工作" class="headerlink" title="贮藏工作"></a>贮藏工作</h2><p>贮藏的应用场景时，在当前分支做了某些修改，然后需要切换到另一个分支，但是又不想提交刚才的修改，此时需要贮藏工作目录的修改内容。贮藏可以保存当前工作目录的修改和暂存，然后把工作目录复原成HEAD指向的提交，需要注意未追踪文件不会被贮藏，也不会在复原HEAD指向的提交时移除。git stash 命令保存了当前工作目录的状态，然后放到贮藏栈：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git stash</span></span><br><span class="line">Saved working directory and index state WIP on master: 252a6ae Merge branch &#x27;version1.0&#x27;</span><br><span class="line"></span><br><span class="line">Saved working directory and index state WIP on master: 252a6ae Merge branch &#x27;version1.0&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>经过贮藏的工作目录是干净的。此时可以切换分支并继续在其他分支上工作，查看贮藏栈内容使用命令 git stash list：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git stash list</span></span><br><span class="line">stash@&#123;0&#125;: WIP on master: 252a6ae Merge branch &#x27;version1.0&#x27;</span><br><span class="line">stash@&#123;1&#125;: WIP on master: 049d078 added the index file</span><br></pre></td></tr></table></figure>
+
+<p><strong>应用贮藏</strong>使用命令git stash apply，这个命令会应用最近一次的贮藏，或者使用 git stash apply stash@{0} 应用某个贮藏。这样应用贮藏会把原先在暂存区的内容打回到已修改状态，若想连暂存区的状态也复原，需要加上 –index选项</p>
+<p><strong>抛弃贮藏</strong>使用命令git stash drop stash@{n}</p>
+<p><strong>贮藏未追踪的文件</strong>。默认情况下git stash只会贮藏和修改已追踪文件，如果想要贮藏未追踪文件需要添加选项 –include-untracked 或 -u 选项。此时贮藏中包含未追踪文件，但仍不会明确包含忽略文件，加上 –all 或 -a 选项会贮藏包括未追踪和忽略的文件。</p>
+<h2 id="清理工作目录"><a href="#清理工作目录" class="headerlink" title="清理工作目录"></a>清理工作目录</h2><p>清理工作目录的命令git clean是危险的，比较安全的是，使用 git stash –all来替代它，这至少会留有一个“备份”。对于 git clean不再多述。</p>
+<h1 id="签署工作"><a href="#签署工作" class="headerlink" title="签署工作"></a>签署工作</h1><h2 id="介绍和准备工作"><a href="#介绍和准备工作" class="headerlink" title="介绍和准备工作"></a>介绍和准备工作</h2><p>git是密码级安全的，但并非万无一失。git提供集中通过GPG来签署和验证工作的方式。</p>
+<p>在开始之前需要配置GPG并安装个人密钥</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gpg --list-keys</span></span><br><span class="line">/Users/schacon/.gnupg/pubring.gpg</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/25/%E9%98%85%E8%AF%BB/%E8%AF%86%E5%BF%97%E7%90%BC%E6%9C%89%E6%84%9F/" rel="prev" title="识志琼有感">
+                  <i class="fa fa-chevron-left"></i> 识志琼有感
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/02/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Headless%20Chrome%E4%BA%86%E8%A7%A3%E5%AD%A6%E4%B9%A0/" rel="next" title="Headless Chrome了解学习">
+                  Headless Chrome了解学习 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
