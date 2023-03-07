@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录实际使用过程的细节和容易错误的地方，备忘一下。主要是http接口的相关调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实践笔记">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/02/23/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/%E5%AE%9E%E8%B7%B5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="记录实际使用过程的细节和容易错误的地方，备忘一下。主要是http接口的相关调用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-07T02:34:07.361Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/02/23/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/%E5%AE%9E%E8%B7%B5%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/02/23/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/%E5%AE%9E%E8%B7%B5%E7%AC%94%E8%AE%B0/","path":"2023/02/23/学习/测试工具/jmeter/实践笔记/","title":"实践笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>实践笔记 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">53</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%BB%84%E4%BB%B6%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">重要组件概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E5%A4%B4%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP头管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.</span> <span class="nav-text">定义变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E9%87%87%E6%A0%B7%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text">HTTP采样器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E5%88%86%E5%89%B2"><span class="nav-number">2.</span> <span class="nav-text">测试计划分割</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">一般参数配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%BB%84%E5%86%85%E8%AE%BE%E7%BD%AE%E7%9B%91%E5%90%AC%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">线程组内设置监听器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E9%87%87%E6%A0%B7%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">HTTP采样器默认设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie%E7%AE%A1%E7%90%86%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">Cookie管理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%BB"><span class="nav-number">2.5.</span> <span class="nav-text">执行主</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%8E%A7%E5%88%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.5.1.</span> <span class="nav-text">执行控制的基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98save"><span class="nav-number">2.5.2.</span> <span class="nav-text">保存save</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%9D%90%E6%96%99upload"><span class="nav-number">2.5.3.</span> <span class="nav-text">上传材料upload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4submit"><span class="nav-number">2.5.4.</span> <span class="nav-text">提交submit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A1%E6%A0%B8review"><span class="nav-number">2.5.5.</span> <span class="nav-text">审核review</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/02/23/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/%E5%AE%9E%E8%B7%B5%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="实践笔记 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          实践笔记
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-24 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-24T00:00:00+08:00">2023-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-07 10:34:07" itemprop="dateModified" datetime="2023-03-07T10:34:07+08:00">2023-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">测试工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/" itemprop="url" rel="index"><span itemprop="name">jmeter</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>记录实际使用过程的细节和容易错误的地方，备忘一下。主要是http接口的相关调用</p>
+<span id="more"></span>
+<h1 id="重要组件概述"><a href="#重要组件概述" class="headerlink" title="重要组件概述"></a>重要组件概述</h1><h2 id="HTTP头管理"><a href="#HTTP头管理" class="headerlink" title="HTTP头管理"></a>HTTP头管理</h2><p>jmeter中用以管理http头部的是<strong>HTTP Header Manager</strong>，此外还有专门用以设置用户自定义cookie的<strong>HTTP Cookie Manager</strong></p>
+<p>在请求携带cookie方面，两个头部管理器是可以通用的。需要注意cookie管理器设置的是用户的cookie，为了http请求采样器携带cookie，需要在Domain处指定域名，也可以在Path处额外指定路径，这样在请求这个域名的这个路径时会自动携带这个cookie。如果在header管理器中设置，则会让给在它控制范围内的所有http采样器携带这个头部。头部信息应用的优先级规则是，内部的优先级大于外部的</p>
+<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><p>计数器Counter应用于循环控制器或线程组，可以实现迭代变量的效果。计数器可指定初始值、增加值、最大值（超过这个就再从初始值开始计算）、简单数字格式。计数器每经历一次循环或线程，都会根据增加值自动增加一次。其中的数字格式，比如设置 0000 ，则会取四位数字，如值是7时导出为 0007 。 最后设置导出变量名，这样在外部使用时即可用形式为 ${xxx} 的形式使用这个变量，其中xxx是设置的导出变量名</p>
+<h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><p>在这次使用过程中，遇到的设置变量名的地方，有User Defined Variables配置器，和各类响应的提取器（常用的是JSON Extractor）。在这两个地方设置的变量，可以使用 ${x} 来使用变量x。也使用可以内嵌变量的变量名，不过这需要Var函数的辅助 ${_V(x${i})} ，当i为3时，使用变量 x3</p>
+<p>注意，被导出的变量名是不可以使用变量的，即不可以设置 UserName${i}，其中i为计数器变量。如果需要设置根据迭代数量变化的变量名，如 userName001~userName099，往往可以转换为给每个采样器设置userName这个变量名。</p>
+<p>某些特殊需要的，或者动态变化的更加灵活的变量，需要使用 bean shell，这是一个内嵌的java脚本，配合使用 vars.get(“varName”) 获取已在环境中存在的变量，vars.put(“extractedVarName”,x) 设置环境中的变量</p>
+<p>目前发现参数的值无需使用任何转义，如路径变量的值被赋予 D:\ceshi\ceshi.png 即可</p>
+<h2 id="HTTP采样器"><a href="#HTTP采样器" class="headerlink" title="HTTP采样器"></a>HTTP采样器</h2><p>此次使用工程中的HTTP采样器，不外乎GET方法和POST方法。此外对于具体应用，POST方法还有三种本质相同但形式不同的参数设置方式，包括类GET参数携带，典型body参数携带，内容格式为multipart/form-data</p>
+<p><strong>类GET参数携带</strong>是指，在采样器的Parameters里设置参数，形式上和GET方法一样，不过实际发送请求的时候JMeter会把参数拼接到body里。如设置 Name为a，Value为1；Name为b，Value为2；这个等效于body里的 a&#x3D;1&amp;b&#x3D;2。</p>
+<p><strong>典型body参数携带</strong>，是POST的典型参数携带方式，存放在body里的可以是参数也可以是json数据，这取决于后端怎么解析</p>
+<p><strong>内容格式为 multipart/form-data</strong>，它的本质和post并无区别。使用这种形式的，要在http信息头里添加 boundry&#x3D;(一串随机值，可由浏览器生成) ，之后body里各段内容用boundry的值分割。在JMeter里使用需要注意，只需要勾选 “multipart/form-data” 选项，不要额外在信息头里添加 boundry，一个参数，一个文件就是单独分配一个被boundry包围的区域，如上传文件里这么设置：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File Path:      D:\测试图片\test.png</span><br><span class="line">Parameter Name: file</span><br><span class="line">MINE Type:      image/png</span><br></pre></td></tr></table></figure>
+<p>它构造的对应的请求内容如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--LsKyeoosX-9sE6LSfwDLPKuqkK6O-3o</span><br><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;test.png&quot;</span><br><span class="line">Content-Type: image/png</span><br><span class="line">Content-Transfer-Encoding: binary</span><br><span class="line"></span><br><span class="line">&lt;actual file content, not shown here&gt;</span><br><span class="line">--LsKyeoosX-9sE6LSfwDLPKuqkK6O-3o--</span><br></pre></td></tr></table></figure>
+
+<h1 id="测试计划分割"><a href="#测试计划分割" class="headerlink" title="测试计划分割"></a>测试计划分割</h1><h2 id="一般参数配置"><a href="#一般参数配置" class="headerlink" title="一般参数配置"></a>一般参数配置</h2><p>一般参数配置位于测试计划的下一级(放在这个位置出于个人喜好)，使用User Defined Variables 存储通用的默认配置的参数。对于配置好的变量，只需要使用${var} 形式的语法即可引用，其中var是定义的变量名。但要注意，定义变量名时，变量名本身不可以用变量</p>
+<p>通用参数配置包含：</p>
+<ol>
+<li>申请人所需参数、配偶所需参数、孩子所需参数。这几个作为save请求里的body的参数</li>
+<li>通用配置参数，包括：需要cookie携带的参数，主要是身份认证；在请求默认设置HTTP Request Defaults中设置的域名、协议和端口；待上传图片在本机的路径</li>
+<li>材料代码，用于upload接口在绑定用户id、材料类型、服务器内材料id时，提供材料类型的代码</li>
+</ol>
+<h2 id="线程组内设置监听器"><a href="#线程组内设置监听器" class="headerlink" title="线程组内设置监听器"></a>线程组内设置监听器</h2><p>设置了View Result Tree 和 View Result in Table。第一个View Result Tree详细记录每个http采样的请求和响应内容，非常方便检查和调试。View Result in Table调试是一般用不到，放在这里仅是为了另存一种形式的记录</p>
+<p>这个测试计划实际无需进行性能和压力的测试。在正式执行性能或压力测试时，还需添加聚合报告 Aggregate Report；调试结束后再使用命令行界面，进行更加准确的非图形界面的测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="comment">#要求进入jmeter的bin目录，或jmeter已设置了jmeter.sh的系统变量</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jmeter -n -t [jmx file] -l [results file] -e -o [Path to web report folder]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="HTTP采样器默认设置"><a href="#HTTP采样器默认设置" class="headerlink" title="HTTP采样器默认设置"></a>HTTP采样器默认设置</h2><p>使用HTTP Request Defaults可设置受它控制的HTTP采样器的各项默认值，常见的设置是默认协议（http还是https）、默认域名、默认端口、默认编码。这样受它控制的采样器无需重新指定这些内容，如果采样器指定了则会重写覆盖默认值</p>
+<h2 id="Cookie管理器"><a href="#Cookie管理器" class="headerlink" title="Cookie管理器"></a>Cookie管理器</h2><p>这里的cookie是定义给用户的，如果要让具体的采样器携带，必须要指定域名，指定路径会限制cookie的生效路径。这里主要使用的cookie是用于识别会话的，或身份认证的</p>
+<h2 id="执行主"><a href="#执行主" class="headerlink" title="执行主"></a>执行主</h2><h3 id="执行控制的基本设置"><a href="#执行控制的基本设置" class="headerlink" title="执行控制的基本设置"></a>执行控制的基本设置</h3><p>执行主体使用了一个循环控制器，是因为此次计划没有并发需求，仅要求反复多次，那么循环控制器可以简化线程设置。如果又要求并发，那么也不会影响线程组的设置</p>
+<p>执行主体内还有其他基本设置，是一个可以记录循环次数的计数器，和一个用于伪造参数的变量设置器。这个设置器必须和下方的BeanShell组合使用，才会起到用伪造参数替换默认值的效果。比如把身份证a替换为”ceshi0001”，其中的前缀”ceshi”是在这里设置的，”0001”是计数器的值，把两者组合并覆盖默认值是在BeanShell中实现的</p>
+<p>执行主体内的采样，按照测试所需，分为四个阶段：保存、上传材料、提交、审核。按照经验，这个过程在很多申请资格的地方是通用的</p>
+<h3 id="保存save"><a href="#保存save" class="headerlink" title="保存save"></a>保存save</h3><p>save这个简单控制器的下一级，仅有一个HTTP采样器，采样器则有专门的HTTP头管理器、BeanShell预处理器、JSON提取器。</p>
+<p><strong>HTTP采样器</strong>除去使用“HTTP采样器默认设置”以外，额外指定了POST方法和具体请求路径，然后就是一个body的模板，里面各类值都使用形如 ${name} 这样的变量</p>
+<p><strong>HTTP头管理器</strong>中，除了必要的有关认证或定位的一些信息，其余一些不是必须的，后端大多早已决定好了这个请求的处理方式。不过基本的Content-Type、Accept-Encoding等设置一下会更加稳妥</p>
+<p><strong>BeanShell预处理器</strong>里代码的功能，则是在每次进行HTTP采样前，编造信息替代原有变量，这样无需改变在采样器和其他地方的变量名了。这里使用的核心函数是 获取变量vars.get() 和 导出变量vars.put() ，这两个函数无需导入包即可使用。如果禁用这个，则会使用在默认通用参数里的参数</p>
+<p><strong>JSON提取器</strong>用于提取用户id，因为在审核用户（review接口）时需要使用用户id作为参数，所以需要提前提取</p>
+<h3 id="上传材料upload"><a href="#上传材料upload" class="headerlink" title="上传材料upload"></a>上传材料upload</h3><p>upload下一级仅有一个循环控制器，循环控制器内设一个计数器，用于迭代材料代码。材料代码已经事先存储在通用变量中了，材料代码的变量名分别为 materialCode01~materialCode06，故需要循环六次。具体执行材料上传需要分两步走:第一步是上传到服务器，服务器返回材料id；第二部是发送请求把这个材料和用户绑定。所以每次循环里有两个采样器</p>
+<p>第一步实现了材料上传到服务器，在响应中提取文件id。这里的HTTP采样器，使用 multipart/form-data 格式。在jmeter中则仅需要勾选 multipart/form-data 选项，然后在 Files Upload 中添加文件信息作为一个参数，下面是添加在其中的信息：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File Path:      D:\测试图片\test.png</span><br><span class="line">Parameter Name: file</span><br><span class="line">MINE Type:      image/png</span><br></pre></td></tr></table></figure>
+<p>JMeter会自动在Content-Type处指定 multipart&#x2F;form-data; boundary&#x3D;LsKyeoosX-9sE6LSfwDLPKuqkK6O-3o，因此无需也不能再额外添加Content-Type。它构造的对应的请求内容如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--LsKyeoosX-9sE6LSfwDLPKuqkK6O-3o</span><br><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;test.png&quot;</span><br><span class="line">Content-Type: image/png</span><br><span class="line">Content-Transfer-Encoding: binary</span><br><span class="line"></span><br><span class="line">&lt;actual file content, not shown here&gt;</span><br><span class="line">--LsKyeoosX-9sE6LSfwDLPKuqkK6O-3o--</span><br></pre></td></tr></table></figure>
+<p>然后再用JSON提取器，提取id。JSON路径表达式可以是 data[&quot;id&quot;]，匹配序号为1，默认值为0，导出变量这里用了materialId，在下一步绑定材料时可以用 <sapn>${materialId} </sapn>来使用它</p>
+<p>第二步是绑定材料，这里的请求负载用json格式构造：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;fileId&quot;</span><span class="punctuation">:</span><span class="string">&quot;$&#123;materialId&#125;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;materialCode&quot;</span><span class="punctuation">:</span><span class="string">&quot;$&#123;__V(materialCode0$&#123;i&#125;)&#125;&quot;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>其中的fileId的值来自上一步的JSON提取器，materailCode的值由于使用到了内嵌变量，故要使用函数 __V()，注意，这里有两个下划线。这里进行两次解析，第一次解析计数器i，假设这里i为1，那么得到 <span>${__V(materialCode01)}</span>，再次解析就能获得这个材料的代码</p>
+<h3 id="提交submit"><a href="#提交submit" class="headerlink" title="提交submit"></a>提交submit</h3><p>提交这里比较简单，无需携带参数，用于判别的申请人的信息存放在信息头</p>
+<h3 id="审核review"><a href="#审核review" class="headerlink" title="审核review"></a>审核review</h3><p>审核这里使用POST方法携带两个类GET格式的参数，参数id取自保存步骤中，在响应里提取到的用户id；参数qualificationStatus则用于判别是否审核通过</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/16/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest.md/pytest%E5%87%86%E5%A4%87/" rel="prev" title="pytest准备">
+                  <i class="fa fa-chevron-left"></i> pytest准备
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/01/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest.md/pytest%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD/" rel="next" title="pytest核心功能">
+                  pytest核心功能 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
