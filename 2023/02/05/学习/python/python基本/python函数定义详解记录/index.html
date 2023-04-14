@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录python函数定义的比较完备的内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python函数定义详解记录">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/02/05/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="记录python函数定义的比较完备的内容">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-14T03:11:19.055Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/02/05/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3%E8%AE%B0%E5%BD%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/02/05/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3%E8%AE%B0%E5%BD%95/","path":"2023/02/05/学习/python/python基本/python函数定义详解记录/","title":"python函数定义详解记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python函数定义详解记录 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">57</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">函数定义详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">默认值参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">关键字参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E5%8F%82%E6%95%B0%E5%92%8C%E5%AD%97%E5%85%B8%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">元组参数和字典参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%8F%82%E6%95%B0%E5%8F%8A%E5%8F%82%E6%95%B0%E8%A7%84%E8%8C%83"><span class="nav-number">1.4.</span> <span class="nav-text">特殊参数及参数规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E5%AE%9E%E5%8F%82%E5%88%97%E8%A1%A8"><span class="nav-number">1.5.</span> <span class="nav-text">任意实参列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8C%85%E5%AE%9E%E5%8F%82%E5%88%97%E8%A1%A8"><span class="nav-number">1.6.</span> <span class="nav-text">解包实参列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.7.</span> <span class="nav-text">Lambda表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.8.</span> <span class="nav-text">文档字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.9.</span> <span class="nav-text">函数注解</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/02/05/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python函数定义详解记录 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          python函数定义详解记录
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-06 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-06T00:00:00+08:00">2023-02-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-14 11:11:19" itemprop="dateModified" datetime="2023-04-14T11:11:19+08:00">2023-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>记录python函数定义的比较完备的内容</p>
+<span id="more"></span>
+
+
+<h1 id="函数定义详解"><a href="#函数定义详解" class="headerlink" title="函数定义详解"></a>函数定义详解</h1><h2 id="默认值参数"><a href="#默认值参数" class="headerlink" title="默认值参数"></a>默认值参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">ask_ok</span>(<span class="params">prompt,retries=<span class="number">4</span>,reminder=<span class="string">&#x27;default_c&#x27;</span></span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        ok = <span class="built_in">input</span>(prompt)</span><br><span class="line">        <span class="keyword">if</span> ok <span class="keyword">in</span> (<span class="string">&#x27;y&#x27;</span>, <span class="string">&#x27;ye&#x27;</span>, <span class="string">&#x27;yes&#x27;</span>):    <span class="comment">#关键字 in 用于确认序列中是否包含某个值</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> ok <span class="keyword">in</span> (<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;no&#x27;</span>, <span class="string">&#x27;nop&#x27;</span>, <span class="string">&#x27;nope&#x27;</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        retries = retries - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> retries &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&#x27;invalid user response&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(reminder)</span><br></pre></td></tr></table></figure>
+<p>其中 retries 和 reminder 设置了默认值参数，调用 ask_ok 时可以按序省略参数，只要不“跳着省略”</p>
+<p>函数的默认值参数是在，形如 def f(arg&#x3D;i) 中的，默认值只计算一次，轮到<strong>定义</strong>这个函数时就决定好的，但是一般不要把一个变量赋予给默认参数:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>i = <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">arg=i</span>):    <span class="comment">#在这一步，arg的默认参数永远决定为是 5</span></span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(arg)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>i = <span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f()</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>对于类、字典、列表等作为被赋予的默认参数时，计算并传递的是引用。如果想要达到有默认值的效果，应该在函数内部初始化这个列表。</p>
+<h2 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h2><p>在调用含有默认值参数的函数时，可以指出参数名，包括非默认值参数。<br><u>一旦使用关键字参数形式调用函数，所有调用的默认值参数都必须指出参数名</u>，也不能对同一个参数名多次赋值；如果非默认值参数不是前排位置，也必须要指出参数名。</p>
+<h2 id="元组参数和字典参数"><a href="#元组参数和字典参数" class="headerlink" title="元组参数和字典参数"></a>元组参数和字典参数</h2><p>对于含有元组参数，字典参数的函数，调用参数中的元组元素和字典元素可以平铺出来:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">cheeseshop</span>(<span class="params">kind, *arguments, **keywords</span>):   <span class="comment"># 第二个参数为元组，第三个参数为字典</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment">#元组参数和字典参数可以平铺出来调用</span></span><br><span class="line">cheeseshop(<span class="string">&quot;Limburger&quot;</span>, </span><br><span class="line">            <span class="string">&quot;It&#x27;s very runny, sir.&quot;</span>,            <span class="comment"># 元组arguments第1个元素</span></span><br><span class="line">           <span class="string">&quot;It&#x27;s really very, VERY runny, sir.&quot;</span>,<span class="comment"># 元组arguments第2个元素</span></span><br><span class="line">           shopkeeper=<span class="string">&quot;Michael Palin&quot;</span>,      <span class="comment"># 字典keywords第1个元素</span></span><br><span class="line">           client=<span class="string">&quot;John Cleese&quot;</span>,            <span class="comment"># 字典keywords第2个元素</span></span><br><span class="line">           sketch=<span class="string">&quot;Cheese Shop Sketch&quot;</span>)     <span class="comment"># 字典keywords第3个元素</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="特殊参数及参数规范"><a href="#特殊参数及参数规范" class="headerlink" title="特殊参数及参数规范"></a>特殊参数及参数规范</h2><p>比较规范的函数定义方式如下：<br>def f(pos1, pos2, &#x2F;, pos_or_kwd, *, kwd1, kwd2):<br>      ———–    ———-     ———-<br>        |               |                |<br>        |         位置或关键字参数         |<br>        |                                 |<br>  仅仅是位置参数                     仅仅是关键字参数</p>
+<p>特殊参数 / 和 * 是可选的，这两个符号表明形参如何把参数值传递给函数。<br>在可能存在歧义的地方。<br>如以下代码，kwds 把 name 当作键，关键字 ‘name’ 又与第一个形参绑定：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">name, **kwds</span>):</span><br><span class="line">···    <span class="keyword">return</span> <span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> kwds</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo(<span class="number">1</span>, **&#123;<span class="string">&#x27;name&#x27;</span>: <span class="number">2</span>&#125;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">TypeError: foo() got multiple values <span class="keyword">for</span> argument <span class="string">&#x27;name&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>因为这种调用方法等同于 foo(name&#x3D;1, name&#x3D;2) ,这里第一个是位置参数制定了参数名的形式，第二个是 kwds 里的键名</p>
+<p>加上特殊参数后，函数定义会把 name 当作位置参数，’name’ 也可以作为关键字参数的键</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">name, /, **kwds</span>):</span><br><span class="line">···    <span class="keyword">return</span> <span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> kwds</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo(<span class="number">1</span>, **&#123;<span class="string">&#x27;name&#x27;</span>: <span class="number">2</span>&#125;)</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="任意实参列表"><a href="#任意实参列表" class="headerlink" title="任意实参列表"></a>任意实参列表</h2><p>函数定义时，可以使用“固定数量形参+列表形参(形如*args，**args)”。<br>调用时要求独立给出参数，即一个一个给出实参列表中的每一个元素，然后 *args 和 **args 会按照规则收集这些实参</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">write_multiple_items</span>(<span class="params">file, separator, *args</span>):</span><br><span class="line">    file.write(separator.join(args))</span><br></pre></td></tr></table></figure>
+<p>尾部的 *args 会收集调用时的所有剩余参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">concat</span>(<span class="params">*args, sep=<span class="string">&quot;/&quot;</span></span>):</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> sep.join(args)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>concat(<span class="string">&quot;earth&quot;</span>, <span class="string">&quot;mars&quot;</span>, <span class="string">&quot;venus&quot;</span>)</span><br><span class="line"><span class="string">&#x27;earth/mars/venus&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>concat(<span class="string">&quot;earth&quot;</span>, <span class="string">&quot;mars&quot;</span>, <span class="string">&quot;venus&quot;</span>, sep=<span class="string">&quot;.&quot;</span>)</span><br><span class="line"><span class="string">&#x27;earth.mars.venus&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>*args 会自动收集实参；在实参列表后的位置参数或默认参数，调用时需要指定参数名</p>
+<h2 id="解包实参列表"><a href="#解包实参列表" class="headerlink" title="解包实参列表"></a>解包实参列表</h2><p>对于定义时，指定了形如 *args  **args的参数，调用时可以对元组类型或字典类型解包，把他们变成独立的参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = [<span class="number">3</span>, <span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">range</span>(*args))</span><br><span class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<p>这种调用方法把元组类型args&#x3D;[3,6] 解包成两个参数 3和6 ，效果等同于 range(3, 6)</p>
+<p>同样地，也可以对字典类型解包</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">parrot</span>(<span class="params">voltage, state=<span class="string">&#x27;a stiff&#x27;</span>, action=<span class="string">&#x27;voom&#x27;</span></span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">d = &#123;<span class="string">&quot;voltage&quot;</span>: <span class="string">&quot;four million&quot;</span>, <span class="string">&quot;state&quot;</span>: <span class="string">&quot;bleedin&#x27; demised&quot;</span>, <span class="string">&quot;action&quot;</span>: <span class="string">&quot;VOOM&quot;</span>&#125;</span><br><span class="line">parrot(**d)</span><br></pre></td></tr></table></figure>
+<p>这种调用方法等同于 parrot(voltage&#x3D;”four million”, state&#x3D;”bleedin’ demised”, action&#x3D;”VOOM”)</p>
+<h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><p>此处不记述。自认为，在python中，使用lambda的场合较少。</p>
+<h2 id="文档字符串"><a href="#文档字符串" class="headerlink" title="文档字符串"></a>文档字符串</h2><p>function.<strong>doc</strong> 属性返回函数的文档字符串</p>
+<p>下面是多行文档字符串的一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">my_function</span>():</span><br><span class="line"><span class="meta">... </span>    <span class="string">&quot;&quot;&quot;Do nothing, but document it.</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string"><span class="meta">... </span>    No, really, it doesn&#x27;t do anything.</span></span><br><span class="line"><span class="string"><span class="meta">... </span>    &quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">pass</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(my_function.__doc__)</span><br><span class="line">Do nothing, but document it.</span><br><span class="line"></span><br><span class="line">    No, really, it doesn<span class="string">&#x27;t do anything.</span></span><br></pre></td></tr></table></figure>
+<p>第一行应为对象用途的简短摘要,以大写字母开头，以句点结尾;文档字符串为多行时，第二行应为空白行，在视觉上将摘要与其余描述分开。</p>
+<h2 id="函数注解"><a href="#函数注解" class="headerlink" title="函数注解"></a>函数注解</h2><p>函数注解是可选的用户自定义函数类型的元数据完整信息。<br>标注以字典的形式存放在函数的 <strong>annotations</strong> 属性中：</p>
+<ul>
+<li>形参标注的定义方式是在形参名后加冒号，后面跟一个表达式，该表达式会被求值为标注的值</li>
+<li>返回值标注的定义方式是加组合符号 -&gt;，后面跟一个表达式，该标注位于形参列表和表示 def 语句结束的冒号之间</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">ham: <span class="built_in">str</span>, eggs: <span class="built_in">str</span> = <span class="string">&#x27;eggs&#x27;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="string">&quot;Annotations:&quot;</span>, f.__annotations__)</span><br><span class="line">···     <span class="keyword">return</span> ham + <span class="string">&#x27; and &#x27;</span> + eggs</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="string">&#x27;spam&#x27;</span>)</span><br><span class="line">Annotations: &#123;<span class="string">&#x27;ham&#x27;</span>: &lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt;, <span class="string">&#x27;return&#x27;</span>: &lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt;, <span class="string">&#x27;eggs&#x27;</span>: &lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt;&#125;</span><br><span class="line"><span class="string">&#x27;spam and eggs&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/05/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%8F%A5%E6%B3%95%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="prev" title="python句法错误和异常">
+                  <i class="fa fa-chevron-left"></i> python句法错误和异常
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/05/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%86%85%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="next" title="python内置数据结构">
+                  python内置数据结构 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

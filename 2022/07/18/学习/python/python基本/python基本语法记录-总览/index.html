@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="2022-08-23 完成官方文档上，教程部分的初步记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基本语法记录-总览">
+<meta property="og:url" content="https://www.ice-cocoa.net/2022/07/18/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95-%E6%80%BB%E8%A7%88/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="2022-08-23 完成官方文档上，教程部分的初步记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-14T03:11:19.055Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2022/07/18/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95-%E6%80%BB%E8%A7%88/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2022/07/18/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95-%E6%80%BB%E8%A7%88/","path":"2022/07/18/学习/python/python基本/python基本语法记录-总览/","title":"python基本语法记录-总览"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python基本语法记录-总览 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">57</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python%E6%96%87%E4%BB%B6%E5%BC%80%E5%A4%B4%E5%A3%B0%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">Python文件开头声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python%E6%95%B0%E5%AD%97%E3%80%81%E5%AD%97%E7%AC%A6%E3%80%81%E5%88%97%E8%A1%A8%E9%80%9F%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">Python数字、字符、列表速览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%94%A8%E4%BA%8E%E8%AE%A1%E7%AE%97"><span class="nav-number">2.1.</span> <span class="nav-text">数字用于计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%93immutable"><span class="nav-number">2.2.</span> <span class="nav-text">字符串–immutable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E2%80%93sequence%EF%BC%8Cmutable"><span class="nav-number">2.3.</span> <span class="nav-text">列表–sequence，mutable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BC%96%E7%A8%8B%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.4.</span> <span class="nav-text">基本编程语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC"><span class="nav-number">3.</span> <span class="nav-text">编码风格</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2022/07/18/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95-%E6%80%BB%E8%A7%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python基本语法记录-总览 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          python基本语法记录-总览
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-19T00:00:00+08:00">2022-07-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-14 11:11:19" itemprop="dateModified" datetime="2023-04-14T11:11:19+08:00">2023-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>2022-08-23 完成官方文档上，教程部分的初步记录</li>
+</ul>
+<span id="more"></span>
+
+
+<h1 id="Python文件开头声明"><a href="#Python文件开头声明" class="headerlink" title="Python文件开头声明"></a>Python文件开头声明</h1><p>python源文件的开头可以指出调用的解释器位置，声明默认编码。如果指出了调用解释器的位置，它只生效于py作为一个单独脚本时，就像shell脚本一样。第二行指出编码规则，一般无需指出，默认都为utf-8</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment">#coding: utf-8</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Python数字、字符、列表速览"><a href="#Python数字、字符、列表速览" class="headerlink" title="Python数字、字符、列表速览"></a>Python数字、字符、列表速览</h1><h2 id="数字用于计算"><a href="#数字用于计算" class="headerlink" title="数字用于计算"></a>数字用于计算</h2><ol>
+<li>运算符+、-、*、/(除法，返回浮点数)、//（除法，向下取整）、%、**(乘方)、&#x3D;  </li>
+<li>混合运算中整数会自动转为float</li>
+</ol>
+<h2 id="字符串–immutable"><a href="#字符串–immutable" class="headerlink" title="字符串–immutable"></a>字符串–immutable</h2><ol>
+<li>单引号与双引号标注结果相同，一般在单引号里使用双引号无需转义，反之亦然  </li>
+<li>原始字符串标记r,在单引号或双引号面前添加r即可   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(<span class="string">r&#x27;C:\some\name&#x27;</span>)</span><br><span class="line">C:\some\name</span><br></pre></td></tr></table></figure></li>
+<li>字符串与字符串，字符串与变量可以使用 +  *  运算符拼合 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>prefix = <span class="string">&#x27;Py_&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>prefix + <span class="number">3</span> * <span class="string">&#x27;un&#x27;</span> + <span class="string">&#x27;ium&#x27;</span></span><br><span class="line"><span class="string">&#x27;Py_unununium&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>字符串也可以使用空符分隔来合并，这一功能在拆分长字符串换行显示是特别有用；但不能用于变量和字符串的合并 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>text = (<span class="string">&#x27;Put several strings within parentheses &#x27;</span></span><br><span class="line"><span class="meta">... </span>        <span class="string">&#x27;to have them joined together.&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text</span><br><span class="line"><span class="string">&#x27;Put several strings within parentheses to have them joined together.&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>字符串支持索引，索引从0开始，支持负数索引，负数索引中0和-0一样</li>
+<li>字符串支持切片，形如 word[start:end]，若省略start的默认0，省略end则默认len(word);切片越界会自动处理，但索引会报错</li>
+</ol>
+<h2 id="列表–sequence，mutable"><a href="#列表–sequence，mutable" class="headerlink" title="列表–sequence，mutable"></a>列表–sequence，mutable</h2><ol>
+<li>方括号分隔，元素之间使用逗号隔开，列表内元素可以不同类型，元素可以是列表</li>
+<li>支持索引和切片，列表是mutable类型，可以通过索引和切片改变内容</li>
+<li>支持使用 + 合并列表，支持list.append(e)添加元素，支持使用切片赋值、扩展、缩小、情况列表 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>letters = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>] <span class="comment">#使用切片扩展列表</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>letters[:<span class="number">0</span>]=[<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>letters</span><br><span class="line">[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="基本编程语句"><a href="#基本编程语句" class="headerlink" title="基本编程语句"></a>基本编程语句</h2><ol>
+<li>条件值判断标准：Python 和 C 一样，任何非零整数都为真，零为假。这个条件也可以是字符串或列表的值，事实上，任何序列都可以；长度非零就为真，空序列则为假。</li>
+<li>print()函数输出给定参数的值，能实现格式化操作 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>i = <span class="number">256</span>*<span class="number">256</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(<span class="string">&#x27;The value of i is&#x27;</span>, i)   <span class="comment"># 指定参数i</span></span><br><span class="line">The value of i <span class="keyword">is</span> <span class="number">65536</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">256</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(a, end=<span class="string">&#x27;,&#x27;</span>)   <span class="comment"># end替换默认换行符</span></span><br><span class="line">a,</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="编码风格"><a href="#编码风格" class="headerlink" title="编码风格"></a>编码风格</h1><p>Python 项目大多都遵循以下风格:</p>
+<ul>
+<li>缩进，用 4 个空格，不要用制表符。</li>
+<li>4 个空格是小缩进（更深嵌套）和大缩进（更易阅读）之间的折中方案。制表符会引起混乱，最好别用。</li>
+<li>换行，一行不超过 79 个字符。</li>
+<li>用空行分隔函数和类，及函数内较大的代码块。</li>
+<li>最好把注释放到单独一行。</li>
+<li>使用文档字符串。</li>
+<li>运算符前后、逗号后要用空格，但不要直接在括号内使用： a &#x3D; f(1, 2) + g(3, 4)。</li>
+<li>类和函数的命名要一致；按惯例，命名类用 UpperCamelCase，命名函数与方法用 lowercase_with_underscores。命名方法中第一个参数总是用 self (类和方法详见 初探类)。</li>
+<li>编写用于国际多语环境的代码时，不要用生僻的编码。Python 默认的 UTF-8 或纯 ASCII 可以胜任各种情况。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/18/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8/" rel="prev" title="python类的定义和使用">
+                  <i class="fa fa-chevron-left"></i> python类的定义和使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/08/01/%E5%AD%A6%E4%B9%A0/%E5%85%B6%E4%BB%96/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80XML%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="next" title="可扩展标记语言XML学习记录">
+                  可扩展标记语言XML学习记录 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

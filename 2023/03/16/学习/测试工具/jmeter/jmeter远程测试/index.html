@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="使用jmeter远程测试，一定程度模拟分布式压测">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jmeter远程测试">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/03/16/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/jmeter%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="使用jmeter远程测试，一定程度模拟分布式压测">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-14T03:11:19.059Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/03/16/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/jmeter%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/03/16/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/jmeter%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/","path":"2023/03/16/学习/测试工具/jmeter/jmeter远程测试/","title":"jmeter远程测试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>jmeter远程测试 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">57</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">实际操作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JMeter%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95%E6%80%A7%E8%B4%A8"><span class="nav-number">2.</span> <span class="nav-text">JMeter远程测试性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">具体配置流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8IP"><span class="nav-number">3.1.</span> <span class="nav-text">客户端添加服务器IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6"><span class="nav-number">3.2.</span> <span class="nav-text">配置SSL证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E5%90%AF%E5%8A%A8slave%E6%9C%BA"><span class="nav-number">3.3.</span> <span class="nav-text">命令行模式启动slave机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E9%85%8D%E7%BD%AE"><span class="nav-number">3.4.</span> <span class="nav-text">端口配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%90%AF%E6%9C%8D%E5%8A%A1%E7%BB%84%E4%BB%B6"><span class="nav-number">3.5.</span> <span class="nav-text">服务端开启服务组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E4%B8%8D%E5%90%8C%E7%9A%84%E5%8F%91%E9%80%81%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.6.</span> <span class="nav-text">指定不同的发送模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="nav-number">3.7.</span> <span class="nav-text">节点失败处理策略</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/03/16/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/jmeter%E8%BF%9C%E7%A8%8B%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="jmeter远程测试 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          jmeter远程测试
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2023-03-17T00:00:00+08:00">2023-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-14 11:11:19" itemprop="dateModified" datetime="2023-04-14T11:11:19+08:00">2023-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">测试工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/" itemprop="url" rel="index"><span itemprop="name">jmeter</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>使用jmeter远程测试，一定程度模拟分布式压测</p>
+<span id="more"></span>
+
+<h1 id="实际操作流程"><a href="#实际操作流程" class="headerlink" title="实际操作流程"></a>实际操作流程</h1><p>控制端，即master端：</p>
+<ol>
+<li>假设已经有jmeter相应的环境</li>
+<li>客户端调整 bin 目录内相关配置。其调整内容包括：<ul>
+<li>jmeter.properties文件内，remote_hosts属性添加服务器ip和调整后的非默认端口(默认无需设置)</li>
+<li>ssl证书生成和保存，有效期7天</li>
+</ul>
+</li>
+<li>分发经过调整的jmeter目录。其调整内容包括：<ul>
+<li>新的ssl证书</li>
+<li>如果脚本内需要导入文件，建议保存到jmeter目录下。如存放在根目录的文件，使用时的引用路径为 “..\1MB.jpg”</li>
+</ul>
+</li>
+<li>等待服务端启用jmeter服务器组件</li>
+<li>客户端在GUI和非GUI命令下执行分布式测试，GUI模式下不会断开连接无需重启服务器，更加方便</li>
+</ol>
+<p>服务器端，即slave端：</p>
+<ol>
+<li>确保有java环境，且和控制端版本一致</li>
+<li>禁用虚拟网卡（注意，服务器会默认使用虚拟网卡的ip）</li>
+<li>保证1099端口通畅，防火墙允许通过，一般都问题。除非设置自定义用于远程控制的端口</li>
+<li>解压压缩包至任意目录</li>
+<li>（windows环境下）点击解压后目录  \apache-jmeter-5.5\bin\jmeter-server.bat 以启用服务。第一次点击可能出现防火墙的提示，确认该提示。出现问题则再确认第3步</li>
+<li>保持服务窗口打开即可。每次断开连接都需要重启服务器</li>
+</ol>
+<h1 id="JMeter远程测试性质"><a href="#JMeter远程测试性质" class="headerlink" title="JMeter远程测试性质"></a>JMeter远程测试性质</h1><p>JMeter不会在服务器之间分配负载，客户端（master）会向每个服务器（slave）发送测试文件，之后每个服务器会运行相同的完整测试计划。如果测试计划中设置了1000线程并设置了6个服务器，那么最终会执行6000个线程。</p>
+<p>远程模式因管理服务器需要会造成一定的开销，尽量让服务器都处于统一网段，减少网络造成的影响。使用远程管理比较多的服务器可能造成过载，当前版本JMeter使用的StrippedBatch模式，能比较节省远程测试资源，但是仍应该确认客户端没有过载。</p>
+<h1 id="具体配置流程"><a href="#具体配置流程" class="headerlink" title="具体配置流程"></a>具体配置流程</h1><h2 id="客户端添加服务器IP"><a href="#客户端添加服务器IP" class="headerlink" title="客户端添加服务器IP"></a>客户端添加服务器IP</h2><p>在客户端编辑 <sapn>&#x2F;bin&#x2F;jmeter.properties</span>，在 remote_hosts 属性处以逗号分割添加服务器IP。在GUI模式下 RUN - Remote Start 下可以观察到是否成功配置该ip，可以让远程机运行空的测试来测试是否层成功连接</p>
+<h2 id="配置SSL证书"><a href="#配置SSL证书" class="headerlink" title="配置SSL证书"></a>配置SSL证书</h2><p>使用 <span> .&#x2F;create-rmi-keystore.sh </span> ，输入相关内容后生成一个匹配的密钥库，把文件 <span> bin&#x2F;rmi_keystore.jks </span> 复制到用于分布式测试的每个JMeter服务器和客户端（也都是这个路径）</p>
+<p>生成密钥:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> jmeter/bin</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./create-rmi-keystore.sh</span></span><br></pre></td></tr></table></figure>
+
+<p>生成的密钥有效期为7天，默认密码为changeit。密钥生成的默认位置在<span> bin&#x2F;rmi_keystore.jks </span>，在这个位置jmeter即可引用。或者另外设置”server.rmi.ssl.keystore.file”引用它。按这个路径，把这个密钥文件复制到用于测试的每个Jmeter服务器和客户端</p>
+<h2 id="命令行模式启动slave机"><a href="#命令行模式启动slave机" class="headerlink" title="命令行模式启动slave机"></a>命令行模式启动slave机</h2><p>使用以下命令在多个远程服务器上执行测试用例，要求服务器组件已经打开。：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="comment">#调用配置在 /bin/jmeter.properties 的 remote_hosts 所有服务器</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jmeter -n -t script.jmx -r</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="comment">#指定配置在服务器列表的部分服务器</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="comment">#额外指定 -X 参数可以让服务器在测试结束时退出</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">jmeter -n -t script.jmx -R server1_ip,server2_ip -x</span></span><br></pre></td></tr></table></figure>
+<p>命令行模式下明显的缺点是，只能通过“中断”信息来停止测试，此时本机会转储测试结果，但<strong>不会正常停止受控服务器</strong>。导致重新执行该命令，会得到服务器繁忙的报错。GUI模式下，则有”Remote Stop All”的命令，告知服务器停止测试，之后还可继续执行下一个测试</p>
+<h2 id="端口配置"><a href="#端口配置" class="headerlink" title="端口配置"></a>端口配置</h2><p>涉及远程测试的端口有三类，相关配置在 jmeter.properties 文件中：</p>
+<ul>
+<li>使用标准RMI端口1099，完成客户端到服务器的控制。服务端定义受控端口的属性为server.rmi.port；客户端定义用来控制服务器的端口的属性为server_port</li>
+<li>服务端向客户端回传数据，客户端使用高位随机端口接收。定义在  client.rmi.localport，这和</li>
+<li>服务器本身工作时占用的端口，客户端本身工作的端口，动态分配无需关注</li>
+</ul>
+<p>用以RMI连接的端口如果要成功工作，需要满足：1)在服务端使用RMI端口启用了rmiregistry，这个会随着服务器启动自动启用；2)在服务端服务器本身正常工作在server_port定义的端口上（这个和RMI端口不是一个，一般是动态分配的）；3)在客户端，保证remote_hosts字段 host:port和服务器实际ip、RMI端口一致</p>
+<h2 id="服务端开启服务组件"><a href="#服务端开启服务组件" class="headerlink" title="服务端开启服务组件"></a>服务端开启服务组件</h2><p>使用默认安装包里的内容，windows点击 <span>bin&#x2F;jmeter-server.bat</span> 即可启用服务器组件；unix系运行 <span>bin&#x2F;jmeter-server</span></p>
+<h2 id="指定不同的发送模式"><a href="#指定不同的发送模式" class="headerlink" title="指定不同的发送模式"></a>指定不同的发送模式</h2><p>测试时服务器的监听器会把结果发送到客户端，客户端会转写到指定文件中。旧版本JMeter的默认是，样本会在生成时同步发送给客户端，且在结果发回前所在线程无法继续，这可能会影响服务器测试的最大吞吐量。以下是可以优化这种情况的模式，比较推荐的是 Stripped，它会移除成功采样的responseData，这并不会影响对它的评估。</p>
+<p>自JMeter2.9版本以后，默认传输方法为 StrippedBatch，即移除了成功采样的responseData的同时，使用Batch方法，在达到在采样数量阈值num_sample_threshold、时间阈值time_threshold两者其一时，发送一次储存的采样，这可以在服务器端配置。</p>
+<h2 id="节点失败处理策略"><a href="#节点失败处理策略" class="headerlink" title="节点失败处理策略"></a>节点失败处理策略</h2><p>相关配置有：</p>
+<ul>
+<li>client.tries</li>
+<li>client.retries_delay</li>
+<li>client.continue_on_fail</li>
+</ul>
+<p>这些配置都是用于初始化时节点失败的策略，没有涉及测试执行过程中节点失败的策略。根据实际策略来看，应该是会忽略测试执行过程中失败的节点，就当它没回送信息一样。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/01/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD/" rel="prev" title="pytest核心功能">
+                  <i class="fa fa-chevron-left"></i> pytest核心功能
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/28/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/%E5%A4%84%E7%90%86%E5%A4%B1%E8%B4%A5%E7%94%A8%E4%BE%8B/" rel="next" title="处理失败用例">
+                  处理失败用例 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
