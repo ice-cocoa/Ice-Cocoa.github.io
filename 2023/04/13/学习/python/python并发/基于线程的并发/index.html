@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="python并发有三种基本方式，基于线程的，基于进程的，基于协程的。目前尝试运用于负载测试中，考虑到并发数很容易达到上百上千，那么应该使用线程并发和协程并发。在机器性能仍有余力的情况下，线程并发模拟的压力更加稳定和准确">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于线程的并发Threading">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/04/13/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="python并发有三种基本方式，基于线程的，基于进程的，基于协程的。目前尝试运用于负载测试中，考虑到并发数很容易达到上百上千，那么应该使用线程并发和协程并发。在机器性能仍有余力的情况下，线程并发模拟的压力更加稳定和准确">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-04T01:22:48.312Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/04/13/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/04/13/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91/","path":"2023/04/13/学习/python/python并发/基于线程的并发/","title":"基于线程的并发Threading"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基于线程的并发Threading | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">29</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%8D%E6%98%AF%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%8C%E5%85%88%E6%94%BE%E6%94%BE%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">模块函数（不是很重要，先放放）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">线程本地数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">线程对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%81%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">锁对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.1.</span> <span class="nav-text">上下文管理协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E9%94%81"><span class="nav-number">4.2.</span> <span class="nav-text">原始锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">4.3.</span> <span class="nav-text">重入锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E9%94%81"><span class="nav-number">4.4.</span> <span class="nav-text">条件锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.5.</span> <span class="nav-text">信号量对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">同步方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E7%AE%80%E5%8D%95%E9%80%9A%E4%BF%A1"><span class="nav-number">5.1.</span> <span class="nav-text">线程间简单通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%85%E6%A0%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.2.</span> <span class="nav-text">栅栏对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AF%B9%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text">定时器对象</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/04/13/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基于线程的并发Threading | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          基于线程的并发Threading
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-04-14 00:00:00" itemprop="dateCreated datePublished" datetime="2023-04-14T00:00:00+08:00">2023-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-04 09:22:48" itemprop="dateModified" datetime="2023-05-04T09:22:48+08:00">2023-05-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/pyhton/" itemprop="url" rel="index"><span itemprop="name">pyhton</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/pyhton/python%E5%B9%B6%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">python并发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>python并发有三种基本方式，基于线程的，基于进程的，基于协程的。目前尝试运用于负载测试中，考虑到并发数很容易达到上百上千，那么应该使用线程并发和协程并发。在机器性能仍有余力的情况下，线程并发模拟的压力更加稳定和准确</p>
+<span id="more"></span>
+<h1 id="模块函数（不是很重要，先放放）"><a href="#模块函数（不是很重要，先放放）" class="headerlink" title="模块函数（不是很重要，先放放）"></a>模块函数（不是很重要，先放放）</h1><h1 id="线程本地数据"><a href="#线程本地数据" class="headerlink" title="线程本地数据"></a>线程本地数据</h1><p>只需要初始化线程的local实例即可，并在其中存储值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mydata = threading.local()</span><br><span class="line">mydaya.x = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>这个 mydaya.x &#x3D; 1 在每个线程中的值都是独立的，独属于该线程</p>
+<h1 id="线程对象"><a href="#线程对象" class="headerlink" title="线程对象"></a>线程对象</h1><p><span>class threading.Thread(group&#x3D;None, target&#x3D;None, name&#x3D;None, args&#x3D;(), kwargs&#x3D;{}, *, daemon&#x3D;None)</span></p>
+<p><strong>传入参数</strong>有：</p>
+<ul>
+<li>group是保留内容；target指定run的内容；name指定线程名称</li>
+<li>args和kwargs都是服务于目标函数，即作为target的参数</li>
+<li>daemon默认None时继承线程的守护模式属性，主线程为不能是守护线程，所以自主线程创建的子线程必不是守护线程；非None则显示指定为守护线程</li>
+</ul>
+<p><strong>方法</strong>有：start(), run(), join(), is_alive(), isDaemon()<br>其中join()需要注意一下</p>
+<p><strong>属性</strong>有：name线程名，多个线程可以用一样的名字；ident线程标识符，可另用get_ident() 获得；native_id线程ID，由内核分配，可另用get_native_id()获得；daemon是否为守护线程</p>
+<h1 id="锁对象"><a href="#锁对象" class="headerlink" title="锁对象"></a>锁对象</h1><h2 id="上下文管理协议"><a href="#上下文管理协议" class="headerlink" title="上下文管理协议"></a>上下文管理协议</h2><p>“上下文管理协议”是一个专用于锁管理的with语句。其中的锁可以是原始锁或是其子类，只需由acquire和release即可，具体是 Lock、RLock、Condition、Semaphore、BoundedSemaphore</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> some_lock:</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于</span></span><br><span class="line">some_lock.acquire()</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    some_lock.release()</span><br></pre></td></tr></table></figure>
+
+<h2 id="原始锁"><a href="#原始锁" class="headerlink" title="原始锁"></a>原始锁</h2><p>这里的锁对象指的是原始锁，原始锁是一个在锁定时不属于特定线程的同步基元组件，是python中的最低级同步组件，它由底层多线程API模块_thread直接实现。一旦一个线程获得一个锁，会阻塞随后尝试获得锁的线程，直到它被释放</p>
+<p>class threading.Lock 其构造函数是一个工厂函数，返回的是所在平台最有效版本的实例。以下方法构成了“锁”逻辑的最重要功能</p>
+<p><strong>acquire(<em>blocking&#x3D;True, timeout&#x3D;-1</em>)</strong> 默认获得锁时会阻塞其他线程获得锁，成功上锁会返回true。如果指定timeout一个正值浮点数，则该锁最多会阻塞指定相应时间</p>
+<p><strong>release()</strong> 释放一个锁。这个方法可以在任何线程中调用，即非a线程允许解除a线程的已经获得的锁，故需要注意使用，非必要应由持有锁的线程去解锁。当在未锁定的锁上发起调用时，会引发 RuntimeError。</p>
+<p><strong>locked()</strong> 判断锁对象是否已经上锁</p>
+<h2 id="重入锁"><a href="#重入锁" class="headerlink" title="重入锁"></a>重入锁</h2><p>递归锁相比原始锁，多了上锁层数和解锁层数，还有必须由本线程才能完成最终release()</p>
+<h2 id="条件锁"><a href="#条件锁" class="headerlink" title="条件锁"></a>条件锁</h2><p>class threading.Condition(lock&#x3D;None) 条件锁的底层锁默认为重入锁，也可以指定一个原始锁或重入锁。使用条件锁，可以有序地唤醒阻塞线程。相比原始锁，更适用于经常发生资源竞争且可能出现死锁的情况，因为原始锁被释放后，所有线程会一起抢夺资源，而条件锁能主动控制如何唤醒线程，且在阻塞状态时不占用竞争资源（如需要4个，可用2个，那么这个2个也会释放）</p>
+<p><strong>wait(<em>timeout &#x3D; None</em>)</strong> 等待直到被通知或超过限时。调用这个方法时，会释放本身的锁，原先无锁则会引发 RuntimeError，然后陷入阻塞，直到被唤醒时才会<strong>尝试</strong>重新获得锁（注意，唤醒后不会直接获得锁，要等调用notify的线程等一会释放锁）。可见这里使用wait的<strong>前提</strong>是，判断到需要使用的资源不足；如果充足，主动进入阻塞是错误的，因为wait之后要被其他线程主动唤醒。当底层锁为RLock时，阻塞时的解锁和被唤醒的上锁有所区别</p>
+<p><strong>wait_for(<em>predicate,timeout &#x3D; None</em>)</strong> 等待至条件为真，再进行wait，predicate是一个返回值为布尔的可调用对象。忽略超时功能时，调用wait_for相当于：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> predicate():</span><br><span class="line">    cv.wait()</span><br></pre></td></tr></table></figure>
+
+<p><strong>notify(<em>n&#x3D;1</em>)</strong> 默认唤醒一个等待这个条件的线程，要求已获得锁，否则引发RuntimeError。注意，唤醒其他线程后，仅仅是让它重新进入了阻塞状态，还需要手动释放锁。唤醒所有等待这个条件的线程使用 notify_all()</p>
+<h2 id="信号量对象"><a href="#信号量对象" class="headerlink" title="信号量对象"></a>信号量对象</h2><p><strong>信号量通常用于保护数量有限的资源。</strong> class threading.Semaphore(<em>value&#x3D;1</em>) 一个信号量管理一个内部原子性计数器，表示当前剩余资源数量，当acquire()时递减，当release()时递增。计数器不会小于零，当acquire()发现计数为零时，会阻塞直到其他线程调用release()。</p>
+<p><strong>acquire(<em>blocking&#x3D;True, timeout&#x3D;None</em>)</strong> 在默认情况下，如果计数器大于等于一，则计数减一并立即返回true；如果计数为零，则进入阻塞，直至被唤醒后返回true。每次release()后将会以不确定次序唤醒一个线程。如果超过时限会返回false</p>
+<p><strong>release(<em>n&#x3D;1</em>)</strong> 释放一个信号量，并将计数加n</p>
+<p>比较特殊的是有界信号量 class threading.BoundedSemaphore(<em>value&#x3D;1</em>)，它的作用是，保证资源数量不会大于指定值，用于保护数量有限且需要留有剩余的资源没有被超额请求</p>
+<p>信号量通常用于保护数量有限的资源，例如数据库服务器。在资源数量固定的任何情况下，都应该使用有界信号量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主线程中</span></span><br><span class="line">MaxConnections = <span class="number">5</span></span><br><span class="line">pool_sema = BoundedSemaphore(value=MaxConnections)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 子线程中</span></span><br><span class="line"><span class="keyword">with</span> pool_sema:</span><br><span class="line">    conn = connectdb()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        conn.close()</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="同步方式"><a href="#同步方式" class="headerlink" title="同步方式"></a>同步方式</h1><h2 id="线程间简单通信"><a href="#线程间简单通信" class="headerlink" title="线程间简单通信"></a>线程间简单通信</h2><p>事件对象可以实现线程间最简单的通信，其通信内容仅是一个逻辑值，可以实现这样的机制：一个线程可以发出事件信号，而其他线程等待这个事件信号</p>
+<p>class threading.Event 实现事件对象的类。事件对象管理一个内部标识，初始值为false。调用 set(), clear() 能够把内部标识置true，置false；调用 wait(timeout&#x3D;None) 让所在线程阻塞直至内部标识为true。使用 is_set() 可以判别内部标识</p>
+<h2 id="栅栏对象"><a href="#栅栏对象" class="headerlink" title="栅栏对象"></a>栅栏对象</h2><p>class threading.Barrier(parties, action&#x3D;None, timeout&#x3D;None) 栅栏对象提供一个简单的同步原语，用于多个线程互相等待的情况，线程调用 wait() 方法后将阻塞，直到所有线程都调用了 wait() 方法，此时所有线程将被同时释放。如果提供了action参数，它会在所有线程被释放时在其中一个线程中自动调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">b = Barrier(<span class="number">2</span>, timeout=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">server</span>():</span><br><span class="line">    start_server()</span><br><span class="line">    b.wait()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        connection = accept_connection()</span><br><span class="line">        process_server_connection(connection)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">client</span>():</span><br><span class="line">    b.wait()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        connection = make_connection()</span><br><span class="line">        process_client_connection(connection)</span><br></pre></td></tr></table></figure>
+
+<p>wait(<em>timeout&#x3D;None</em>) 方法用于“冲击”栅栏，只有当足够数量的线程正在“冲击”栅栏时，才能成功“冲破”。这里timeout优先级高于构造栅栏的。成功“冲破”时返回一个 0 ~ parties-1 之间的和其他线程不同的唯一值，可以用它来执行只有个别线程能够执行的操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = barrier.wait()</span><br><span class="line"><span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">    <span class="comment"># 只有这个线程才会打印</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;passed the barrier&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>栅栏破损态</strong> 属性broken可以表示栅栏是否处于破损态。如果创建栅栏对象时制定了action，那么顺利冲破栅栏后会在释放其中一个线程时被调用，如果action引发了异常，那么栅栏对象会进入破损态；如果发生超时，也会进入破损态。栅栏对象破损后的任何wait()，或者reset()栅栏时仍有线程等待释放，将会引发 BrokenBarrierError 异常</p>
+<p><strong>方法 reset()</strong> 重置栅栏为默认的初始态。如果栅栏中仍有线程等待释放，这些线程将会收到 BrokenBarrierError 异常。如果栅栏损坏，最好废弃并重新创建一个</p>
+<p><strong>方法 abort()</strong> 主动使栅栏处于破损态，可能在需要强制终止某个线程时使用。但刚好的方法是设置合理的超时时间</p>
+<h1 id="定时器对象"><a href="#定时器对象" class="headerlink" title="定时器对象"></a>定时器对象</h1><p>定时器对象 class threading.Timer(interval, function, args&#x3D;None, kwargs&#x3D;None) 是线程类Thread的子类，因此可以像线程一样工作。与线程一样，通过调用 start() 方法启动定时器。而 cancel() 方法可以停止计时器（在计时结束前）。Timer类实现的功能是，经过一段时间执行函数的操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello, world&quot;</span>)</span><br><span class="line"></span><br><span class="line">t = Timer(<span class="number">30.0</span>, hello)</span><br><span class="line">t.start()  <span class="comment"># 过了30s就会执行hello函数</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/10/%E9%98%85%E8%AF%BB/%E8%AF%86%E5%B4%A9%E5%B4%A9%E5%B0%8F%E5%9C%86%E5%B8%BD%E6%9C%89%E6%84%9F/" rel="prev" title="识崩崩小圆帽有感">
+                  <i class="fa fa-chevron-left"></i> 识崩崩小圆帽有感
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/04/19/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91/%E5%9F%BA%E4%BA%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91/" rel="next" title="基于进程的并发Process">
+                  基于进程的并发Process <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

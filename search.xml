@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>异步IO</title>
+    <url>/2023/05/06/%E5%AD%A6%E4%B9%A0/python/python%E7%BD%91%E7%BB%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/%E5%BC%82%E6%AD%A5IO/</url>
+    <content><![CDATA[<p>使用 async&#x2F;await 语法进行异步IO</p>
+<span id="more"></span>
+
+<p>简单的异步IO用法，其中关键字await只能在关键字async标记的函数中使用：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello ...&#x27;</span>)</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;... World!&#x27;</span>)</span><br><span class="line"></span><br><span class="line">asyncio.run(main())</span><br></pre></td></tr></table></figure>
+
+<p>asyncio是用来编写并发代码的库，使用async&#x2F;await语法，提供了一组<strong>高级</strong>API用于：</p>
+<ul>
+<li>协程</li>
+<li>控制子进程</li>
+<li>通过队列实现分布式任务</li>
+<li>同步原语以并发</li>
+</ul>
+<p>还有<strong>低层级</strong>API以支持库和框架：</p>
+<ul>
+<li>创建和管理事件循环</li>
+<li>使用transports实现高效率协议</li>
+<li>用async&#x2F;await桥接基于回调的库和代码</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>pyhton</category>
+        <category>python网络和进程间通信</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
-    <url>/2023/04/14/%E9%98%85%E8%AF%BB/%E6%AD%8C%E8%AF%8D--%E5%A4%95%E9%A2%9C%EF%BC%88%E6%9C%88%E5%85%89%E8%8A%B1%EF%BC%89/</url>
+    <url>/2023/05/04/%E9%98%85%E8%AF%BB/%E6%AD%8C%E8%AF%8D--%E5%A4%95%E9%A2%9C%EF%BC%88%E6%9C%88%E5%85%89%E8%8A%B1%EF%BC%89/</url>
     <content><![CDATA[<p>作词 : 竹中三佳<br>作曲 : 竹中三佳</p>
 <p>能登麻美子</p>
 <p>庭に咲き始めた夕顔に<br>要是在庭院里初开的夕颜上<br>水を打ってあげたら<br>洒上晶莹的水珠<br>遊びに出かけていた猫が<br>在外玩耍的伊织<br>帰ってきたわ「おかえり」<br>就会踏进玄关“欢迎回来”<br>ほら見てごらん 雲のさざなみ<br>看吧天空中云彩的涟漪<br>杏色やむらさき<br>呈现着杏黄色和绛紫色<br>沈む夕陽に染まってキレイ<br>西沉的夕阳给天空带来了一抹绮丽<br>まるで夢か幻<br>这一切宛如梦幻一般<br>風は どこから<br>风从哪里来呢<br>吹いてくるのでしょう<br>从何处吹来呢<br>遠い 海を渡り<br>或许穿越了远方的大海<br>長い旅をするの<br>经历了长途跋涉<br>ふと気がつけば 時計の針は<br>突然想到<br>あの人が戻る時間<br>那个人回来的时候<br>お腹の虫も鳴いてるはずよ<br>也一定饿了吧<br>今日は何を作ろう<br>今天的晚饭做什么好呢？<br>そら耳かしら 誰かの声が<br>侧耳倾听是那个人的声音<br>留守録にメッセージ<br>电话中的留言<br>今にあの人あわてて言うわ<br>他匆忙地只说了一句<br>「夕飯はいらない」と<br>“不回来吃晚饭了”<br>風はどこまで<br>风无论到哪里<br>吹いてゆくのでしょう<br>将吹向何处<br>いつか こんな日々も<br>何时又能在这样的日子里<br>なつかしくなるの<br>带来令人眷恋的愁绪<br>ぼっかり空いた時間を一人<br>悠闲空余的时间里<br>持て余すベランダに<br>凉台无法承受我的寂寞<br>一番星がまたたき出した<br>天空中第一颗星星露出了光芒<br>きっと晴れる 明日も<br>明日一定是个晴天吧<br>風はゆく どこへ<br>风吹向何处<br>誰も知らない<br>无人知晓</p>
@@ -11,23 +43,270 @@
 ]]></content>
   </entry>
   <entry>
+    <title>底层网络接口socket</title>
+    <url>/2023/04/27/%E5%AD%A6%E4%B9%A0/python/python%E7%BD%91%E7%BB%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/%E5%BA%95%E5%B1%82%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3socket/</url>
+    <content><![CDATA[<p>BSD（Berkeley）套接字应用程序接口，简称套接字，主要用于实现进程间通讯。所用的socket模块的行为可能因平台不同而异常，因为调用的是操作系统的套接字API</p>
+<span id="more"></span>
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>pyhton</category>
+        <category>python网络和进程间通信</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ctypes-与C兼容的外部库</title>
+    <url>/2023/04/25/%E5%AD%A6%E4%B9%A0/python/python%E5%B0%8F%E8%AE%B0/ctypes-%E4%B8%8EC%E5%85%BC%E5%AE%B9%E7%9A%84%E5%A4%96%E9%83%A8%E5%BA%93/</url>
+    <content><![CDATA[<p>ctypes 是 Python 的外部函数库。它提供了与 C 兼容的数据类型，并允许调用 DLL 或共享库中的函数。可使用该模块以纯 Python 形式对这些库进行封装。</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>pyhton</category>
+        <category>python小记</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>观《白色巨塔》有感</title>
+    <url>/2023/04/21/%E9%98%85%E8%AF%BB/%E8%A7%82%E3%80%8A%E7%99%BD%E8%89%B2%E5%B7%A8%E5%A1%94%E3%80%8B%E6%9C%89%E6%84%9F/</url>
+    <content><![CDATA[<p>机缘巧合下，看了《白色巨塔》这一电视剧，有所感触</p>
+<span id="more"></span>
+
+<h1 id="2023年4月22日看到第11集有感"><a href="#2023年4月22日看到第11集有感" class="headerlink" title="2023年4月22日看到第11集有感"></a>2023年4月22日看到第11集有感</h1><p>看到了很多，又说不出来，幸运的是已经有所长大，不会从一个行为去单纯地去批评一个角色，也因而感慨良多不知从何组织言语。里见医生的正义和理想有时用力过度令人反感，但最终还是讨厌不起来；一个饱食人间烟火，为作为医生面临的种种现状烦恼，他的作为却出淤泥而不染。也想借用财前五郎和别人交流的一段话来看待里见:<br><span><br><br>&amp;emsp;&amp;emsp;财前：他似乎不想成名，但又不是懒惰，单纯地为了患者为了医学，全力付出所学，真的有这种人吗？<br><br>&amp;emsp;&amp;emsp;花森：你怎么觉得呢？<br><br>&amp;emsp;&amp;emsp;财前：一定是骗人的，我是为自己而活的，每个人不都是这样吗？<br><br>&amp;emsp;&amp;emsp;花森：是呢<br><br>&amp;emsp;&amp;emsp;财前：我会很困扰的，若他不是撒谎的话，我会很困扰的.<br><span><br>财前相信自己的一套做法是正确的，可是面对里间纯粹的作为医生的理念，他却无法否定，哪怕后来当上教授，他也没有否定掉里见的理想。</p>
+<p>看电视剧的时候，涉及到一场拜托财前的秘密手术的“告密”，弹幕中随后谈及现实生活中能不能和里间做同事。我的想法是这样的，若是心中向美，便可寻求成为朋友，里间坚守信念的同时并非不进人情，他不会否定心中的别人心中的恶，但是会希望别人慢慢摒除心中的恶；他可以接受人的自私、贪婪、傲慢、势利，在自己保持信念的同时，希望可以慢慢改变他人。他的眼中也并非事事都分好坏，正是他的善良会与现实交织，所以也会一直纠结迷茫和烦恼。他真的是一个好朋友啊，会理解你，不会过分要求你，但衷心希望你变好；你看到他坚守信念的样子，不知不觉也会前往。如果要被卷入纠纷，若是实力不济，躲藏风波也是理所当然，里见也不会因此有所偏见。正是出淤泥而不染，却不躲避和轻视污泥；正是他得以出淤泥而不染的坦然和纯粹，和愿意出于淤泥的包容与洞察，作为一个朋友是永远是合适的。</p>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深浅拷贝</title>
+    <url>/2023/04/19/%E5%AD%A6%E4%B9%A0/python/python%E5%B0%8F%E8%AE%B0/%E5%AD%97%E8%8A%82%E7%B1%BB%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<p>字节类对象应该按照c的理解</p>
+<span id="more"></span>
+
+<p>支持 缓冲协议 并且能导出 C-contiguous 缓冲的对象。这包括所有 bytes、bytearray 和 array.array 对象，以及许多普通 memoryview 对象。字节类对象可在多种二进制数据操作中使用；这些操作包括压缩、保存为二进制文件以及通过套接字发送等。</p>
+<p>某些操作需要可变的二进制数据。这种对象在文档中常被称为“可读写字节类对象”。可变缓冲对象的例子包括 bytearray 以及 bytearray 的 memoryview。其他操作要求二进制数据存放于不可变对象 (“只读字节类对象”)；这种对象的例子包括 bytes 以及 bytes 对象的 memoryview。</p>
+<p>一个缓冲如果是 C 连续 或 Fortran 连续 就会被认为是连续的。零维缓冲是 C 和 Fortran 连续的。在一维数组中，所有条目必须在内存中彼此相邻地排列，采用从零开始的递增索引顺序。在多维 C-连续数组中，当按内存地址排列时用最后一个索引访问条目时速度最快。但是在 Fortran 连续数组中则是用第一个索引最快。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>pyhton</category>
+        <category>python小记</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深浅拷贝</title>
+    <url>/2023/04/19/%E5%AD%A6%E4%B9%A0/python/python%E5%B0%8F%E8%AE%B0/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="python的赋值操作"><a href="#python的赋值操作" class="headerlink" title="python的赋值操作"></a>python的赋值操作</h1><p>Python 的赋值语句不复制对象，而是创建目标和对象的绑定关系。对于自身可变，或包含可变项的集合，最好要拷贝副本。为此应使用拷贝操作</p>
+<h1 id="拷贝操作"><a href="#拷贝操作" class="headerlink" title="拷贝操作"></a>拷贝操作</h1><p>来自 Lib&#x2F;copy.py ，使用时<span>import copy</span>即可</p>
+<p>接口摘要：</p>
+<ul>
+<li>copy.copy(<em>x</em>) 返回浅层复制的对象</li>
+<li>copy.deepcopy(<em>x[, memo]</em>) 返回深层赋值的对象</li>
+<li>exception copy.Error  针对模块特定错误引发</li>
+</ul>
+<p>深、浅赋值的区别仅与符合对象相关。因为复合对象存储的项可能仅是另一个对象的引用，故浅层复制会复制引用；深层复制则会尝试递归地复制所有内容，这对直接或间接包含自身的复合对象来说会导致无限递归。更为复杂且不常用的内容不再记述</p>
+<p>字典的浅层复制可以用 dict.copy()，列表的浅层复制可以使用切片 copied_list &#x3D; list[:] </p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>pyhton</category>
+        <category>python小记</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于进程的并发Process</title>
+    <url>/2023/04/19/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91/%E5%9F%BA%E4%BA%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91/</url>
+    <content><![CDATA[<p>multiprocessing 包同时提供了本地和远程并发操作，通过使用子进程而非线程有效地绕过了全局解释器锁，因此充分利用机器的多核。该模块提供了部分与 threading 使用方式类似的API以产生进程</p>
+<span id="more"></span>
+
+<h1 id="Process类和异常"><a href="#Process类和异常" class="headerlink" title="Process类和异常"></a>Process类和异常</h1><p>class multiprocessing.Process(group&#x3D;None, target&#x3D;None, name&#x3D;None, args&#x3D;(), kwargs&#x3D;{}, *, daemon&#x3D;None)<br>其参数作用和 threading.Thread 相似，不再赘述。包括方法 run(),start(),join([<em>timeout</em>]),is_alive() ；属性 name, daemon 都与线程模块中的作用类似。</p>
+<p>除了 threading.Thread API ，还有以下属性或方法：</p>
+<ul>
+<li>属性pid</li>
+<li>属性exitcode  子进程的退出码</li>
+<li>属性authkey  进程的身份验证密钥</li>
+<li>属性sentinel 系统对象的数字句柄</li>
+<li>方法terminate(),kill()</li>
+<li>方法clase()   关闭Process对象，释放关联资源，如果底层进程仍在运行引发ValueError</li>
+</ul>
+<p><strong>异常</strong> </p>
+<ul>
+<li>exception multiprocessing.ProcessError 所有multiprocessing异常的基类</li>
+<li>exception multiprocessing.BufferTooShort 缓冲区太小导致无法读取消息</li>
+<li>exception multiprocessing.AuthenticationError 身份验证错误</li>
+<li>exception multiprocessing.TimeoutError 有方法超时</li>
+</ul>
+<h1 id="进程间通信-管道和队列"><a href="#进程间通信-管道和队列" class="headerlink" title="进程间通信-管道和队列"></a>进程间通信-管道和队列</h1><p>使用多进程时，一般使用消息机制实现进程间通信，尽可能避免使用同步原语。消息机制有包含：管道Pipe可用于两个进程间通信，队列Queue用于多进程通信</p>
+<h2 id="管道Pipe和Connection对象"><a href="#管道Pipe和Connection对象" class="headerlink" title="管道Pipe和Connection对象"></a>管道Pipe和Connection对象</h2><p>管道 <span>multiprocessing.Pipe([<em>duplex</em>])</span> 返回一对 Connection 对象(conn1, conn2) 分别表示管道的两端。duplex默认为True，这表示管道是双向的</p>
+<p>class multiprocessing.connection.Connection 对象通常由multiprocessing.Pipe()创建，允许收发可以序列化的对象或字符串。它们可以看作面向消息的连接套接字。Connection对象支持上下文管理协议，__enter__()返回连接对象，__exit__()会调用close()</p>
+<p>send(<em>obj</em>) 发送一个对象到连接的另一端，可用recv()获取。发送的对象必须是可序列化的，过大的对象(接近32MiB+，这取决于操作系统 )有可能引发ValueError异常。</p>
+<p>recv() 返回另一端使用send()发送的对象，该方法会一直阻塞直到获取资源。如果关闭连接，或者没有资源可接受，将抛出EOFError异常</p>
+<p>fileno() 返回由连接对象使用的文件描述符</p>
+<p>close() 关闭连接对象。当连接对象被垃圾回收时会自动调用</p>
+<p>poll([<em>timeout</em>]) 返回连接对象是否有可以读取的数据，未指定timeout则立马返回。此外，若想查询一些列Connection, socket.socket或其他对象，那么要使用 multiprocessing.connection.wait(<em>object_list[, timeout&#x3D;None]</em>)，一旦列表中的对象有可读取数据，那么就返回这个对象</p>
+<p>send_bytes(<em>buffer[,offset[,size]]</em>) 从一个字节类对象(bytes-like object)中取出字节数组并作为一条完整消息发送。过大的缓冲区可能会引起ValueError异常</p>
+<p>recv_bytes(<em>[maxlength]</em>) 以字符串形式返回接收到的字节数据。如果指定了maxlength，当消息长于maxlength时会抛出OSError，此时该连接对象不再可读。</p>
+<p>recv_bytes_into(<em>buffer[, offset]</em>)<br>将一条完整的字节数据消息读入buffer中并返回消息的字节数。此方法在接收到数据前将一直阻塞。如果连接对象被对端关闭或者没有数据可读取，将抛出EOFError异常。如果缓冲区太小，会引发BufferTooShort</p>
+<h2 id="消息队列Queue"><a href="#消息队列Queue" class="headerlink" title="消息队列Queue"></a>消息队列Queue</h2><p>class multiprocessing.Queue(<em>[maxsize]</em>)  返回一个由一个管道、少量锁、少量信号量实现的共享队列实例。当一个进程将一个对象放进队列中时，一个写入线程会启动并将对象从缓冲区写入管道中。通常超时引发 queue.Empty 和 queue.Full。消息队列中有很多方法和标准库中的queue.Queue相似，如put, get</p>
+<p>put(<em>obj[,block[,timeout]]</em>) 将obj放入队列，默认会阻塞直至有空的缓冲槽。如果block为False（等效于put_nowait(obj)），那么会直接尝试放入，若无法放入则引发 queue.Full</p>
+<p>get(<em>[block[,timeout]]</em>) 从队列中取出并返回对象，如果可用则直接返回，否则阻塞直至有内容。如果block为False（等效于get_nowwait()），那么会直接尝试获取，无法获取则引发 queue.Empty</p>
+<p>close() 指示当前进程将不会再往队列中放入元素。一旦缓冲区中的所有数据被写入管道之后，后台的写入线程会退出。这个方法在队列被gc回收时会自动调用。使用close()后，才可执行join_thread()，这个会阻塞当前进程直至后台的写入线程退出，确保缓冲区内容写入管道前，本进程不会退出从而导致写入线程意外结束。</p>
+<p>还有Queue的子类的JoinableQueue，额外有task_done()和join(), 暂不关注</p>
+<h1 id="multiprocessing模块函数"><a href="#multiprocessing模块函数" class="headerlink" title="multiprocessing模块函数"></a>multiprocessing模块函数</h1><p>上下文Context对象有和multiprocessing模块相同的API</p>
+<p><strong>multiprocessing.active_children()</strong> 返回当前进程存活的子进程的列表.调用该方法有“等待”已经结束的进程的副作用。</p>
+<p><strong>multiprocessing.cpu_count()</strong> 返回系统的CPU数量，效果等同于os.cpu_cout()。这和进程可用的CPU数量不同，进程可用的CPU数量可以由 len(os.sched_getaffinity(0)) 方法获得。</p>
+<p><strong>multiprocessing.current_process()</strong> 返回当前进程对应的Processor对象</p>
+<p><strong>multiprocessing.parent_process()</strong> 返回父进程对应的Processor对象</p>
+<p><strong>multiprocessing.freeze_support()</strong> 提供冻结以产生windows可执行文件的支持。在</p>
+<p><strong>multiprocessing.get_all_start_methods()</strong> 返回支持的启动方法列表。在Windows中，只有’spawn’是可用的；Unix平台总是支持’fork’和’spawn’，且’fork’是默认值</p>
+<p><strong>multiprocessing.get_context(<em>method&#x3D;None</em>)</strong> 使用对应的method返回一个Context对象，该对象有着和multiprocessing同样的API</p>
+<p><strong>multiprocessing.set_executable(executable)</strong> 设置在启动子进程时使用的 Python 解释器路径。默认使用 sys.executable，部分系统上这可能为空</p>
+<p><strong>multiprocessing.set_start_method(method)</strong> 设置启动子进程的方法。可以是 ‘fork’,’spawn’或者’forkserver’。这最多启用一次，且需要由 <span>if__name__&#x3D;&#x3D;’<strong>main</strong>‘</span>保护</p>
+<h1 id="同步原语"><a href="#同步原语" class="headerlink" title="同步原语"></a>同步原语</h1><p>在多进程中，也有和 threading 模块类似的同步类。相比在多线程中，同步对象并没有那么重要</p>
+<h1 id="共享ctypes对象（暂时不记录，等待学习ctypes）"><a href="#共享ctypes对象（暂时不记录，等待学习ctypes）" class="headerlink" title="共享ctypes对象（暂时不记录，等待学习ctypes）"></a>共享ctypes对象（暂时不记录，等待学习ctypes）</h1><h1 id="管理器Manager"><a href="#管理器Manager" class="headerlink" title="管理器Manager"></a>管理器Manager</h1><p>管理器提供了一个服务，可以跨进程、跨机器共享函数和对象。管理器对象也支持上下文管理协议，__enter__() 启动服务进程并且返回管理器对象，__exit__()会调用shutdown() </p>
+<h2 id="基础的管理器BaseManeger"><a href="#基础的管理器BaseManeger" class="headerlink" title="基础的管理器BaseManeger"></a>基础的管理器BaseManeger</h2><p>class multiprocessing.managers.BaseManager(<em>[address[, authkey]]</em>)  创建一个BaseManager对象，一旦创建需要及时start(), 或 get_server().serve_forever() 确保管理器对象对应的进程尽早启动。</p>
+<p>参数address是管理器服务器的监听地址，传入一个元组，形式为 (‘domain’, port)，作为服务器时domain是仅允许指定域名联机，为空字符串时不限制；作为客户端时用于连接指定的服务器；port是管理器进程监听的端口。</p>
+<p>参数authkey是认证标识，用于检查连接服务进程的请求合法性。必须是byte类型的字符串，如 b’abc’, 如果是None则使用current_process().authkey</p>
+<p>start(<em>[initialize[, initargs]]</em>) 在当前进程创建一个管理器对象对应的子进程。可以指定一个初始化函数及其参数，子进程启动时执行初始化函数 initialize(*initargs) 。可以使用 shutdown()停止管理器对应进程，它可以被多次调用</p>
+<p>get_server() 返回一个Server对象，它是管理器在后台控制的真实的服务，有address属性。Server可以执行serve_forver(), 它的功能应该和start类似</p>
+<p>connect() 返一个本地管理器。在执行connect()前，这个本地管理器需要设置好“连接属性”</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing.managers <span class="keyword">import</span> BaseManager</span><br><span class="line">m = BaseManager(address=(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">50000</span>), authkey=<span class="string">b&#x27;abc&#x27;</span>)</span><br><span class="line">m.connect()</span><br></pre></td></tr></table></figure>
+
+<p>管理器的核心，<strong>类函数</strong>–*<em>register(typeid[, callable[, proxytype[, exposed[, method_to_typeid[, create_method]]]]])</em>  注册类型（通常是类）或可调用对象到BaseManeger类，这样其他连接到这个管理器的本地管理器都可以获取到这个可调用对象。参数typeid是字符串类型，用于唯一表示共享对象类型；参数callable是一个和typeid对应的可调用对象；proxytype是 BaseProxy的子类，可以根据typeid为共享对象创建一个代理，如果是None，则会自动创建一个代理类；其他参数难以理解，省略解释</p>
+<h2 id="可同步进程的SyncManager（暂时不需要，不整理）"><a href="#可同步进程的SyncManager（暂时不需要，不整理）" class="headerlink" title="可同步进程的SyncManager（暂时不需要，不整理）"></a>可同步进程的SyncManager（暂时不需要，不整理）</h2><h2 id="注册共享类型或可调用对象"><a href="#注册共享类型或可调用对象" class="headerlink" title="注册共享类型或可调用对象"></a>注册共享类型或可调用对象</h2><p>注意，要共享一个类型或可调用对象，注册行为在本地管理器和服务器管理器都要进行，区别是，服务器管理器需要指明typeid和callable；本地管理器只需要typeid</p>
+<p>基于BaseManeger派生一个子类，在子类上使用 register 注册可调用对象，是管理器对象创建共享可调用对象或共享类型的方式。以下代码使用自定义管理器注册一个共享类型和一个共享对象，打开服务后，由<strong>服务器端的管理器对象</strong>去访问共享类型：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing.managers <span class="keyword">import</span> BaseManager</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MathsClass</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self,x,y</span>):</span><br><span class="line">        <span class="keyword">return</span> x+y</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyManager</span>(<span class="title class_ inherited__">BaseManager</span>):<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册行为，共享 MathsClass</span></span><br><span class="line">MyManager.register(<span class="string">&#x27;Maths&#x27;</span>,MathClass)</span><br><span class="line"><span class="comment"># 注册行为，共享一个队列对象</span></span><br><span class="line">MyManager.register(<span class="string">&#x27;get_queue&#x27;</span>,Queue())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 使用上下文管理协议，进入时启动服务并返回管理器对象；退出时shutdown()</span></span><br><span class="line">    <span class="keyword">with</span> MyManager(address=(<span class="string">&#x27;&#x27;</span>, <span class="number">50000</span>), authkey=<span class="string">b&#x27;abracadabra&#x27;</span>) <span class="keyword">as</span> manager:</span><br><span class="line">        maths = manager.Maths() <span class="comment"># 返回共享类型后，构建了一个MathsClass的对象</span></span><br><span class="line">        <span class="built_in">print</span>(maths.add(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">        q = manager.get_queue() <span class="comment"># 返回一个共享对象</span></span><br><span class="line">        q.put(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">        q.get()</span><br></pre></td></tr></table></figure>
+
+<p>上面的服务端管理器启动了一会服务，并且可在本地直接使用管理器对象访问共享类型和共享对象。下面是一个<strong>客户端的管理器对象</strong>尝试访问共享对象的过程(上面的服务器启动片刻就退出了，下面假设服务器长时间运行)：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing.managers <span class="keyword">import</span> BaseManager</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QueueManager</span>(<span class="title class_ inherited__">BaseManager</span>): <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">QueueManager.register(<span class="string">&#x27;get_queue&#x27;</span>) <span class="comment"># 要访问远程共享资源，也要注册，此时不需要callable</span></span><br><span class="line">m = QueueManager(address=(<span class="string">&#x27;server_domain&#x27;</span>, <span class="number">50000</span>), authkey=<span class="string">b&#x27;abracadabra&#x27;</span>)</span><br><span class="line">m.connect()</span><br><span class="line">queue = m.get_queue()</span><br><span class="line">queue.put(<span class="string">&#x27;hello&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="代理对象-不太用得到，预计不整理"><a href="#代理对象-不太用得到，预计不整理" class="headerlink" title="代理对象(不太用得到，预计不整理)"></a>代理对象(不太用得到，预计不整理)</h2><p>在上述客户端获取远程共享类型或共享对象后，使用的“引用”实际是一个代理对象</p>
+<h2 id="进程池（暂时放放）"><a href="#进程池（暂时放放）" class="headerlink" title="进程池（暂时放放）"></a>进程池（暂时放放）</h2><p>可以创建一个进程池，它将使用 Pool 类执行提交给它的任务</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>pyhton</category>
+        <category>python并发</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于线程的并发Threading</title>
+    <url>/2023/04/13/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B9%B6%E5%8F%91/</url>
+    <content><![CDATA[<p>python并发有三种基本方式，基于线程的，基于进程的，基于协程的。目前尝试运用于负载测试中，考虑到并发数很容易达到上百上千，那么应该使用线程并发和协程并发。在机器性能仍有余力的情况下，线程并发模拟的压力更加稳定和准确</p>
+<span id="more"></span>
+<h1 id="模块函数（不是很重要，先放放）"><a href="#模块函数（不是很重要，先放放）" class="headerlink" title="模块函数（不是很重要，先放放）"></a>模块函数（不是很重要，先放放）</h1><h1 id="线程本地数据"><a href="#线程本地数据" class="headerlink" title="线程本地数据"></a>线程本地数据</h1><p>只需要初始化线程的local实例即可，并在其中存储值</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mydata = threading.local()</span><br><span class="line">mydaya.x = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>这个 mydaya.x &#x3D; 1 在每个线程中的值都是独立的，独属于该线程</p>
+<h1 id="线程对象"><a href="#线程对象" class="headerlink" title="线程对象"></a>线程对象</h1><p><span>class threading.Thread(group&#x3D;None, target&#x3D;None, name&#x3D;None, args&#x3D;(), kwargs&#x3D;{}, *, daemon&#x3D;None)</span></p>
+<p><strong>传入参数</strong>有：</p>
+<ul>
+<li>group是保留内容；target指定run的内容；name指定线程名称</li>
+<li>args和kwargs都是服务于目标函数，即作为target的参数</li>
+<li>daemon默认None时继承线程的守护模式属性，主线程为不能是守护线程，所以自主线程创建的子线程必不是守护线程；非None则显示指定为守护线程</li>
+</ul>
+<p><strong>方法</strong>有：start(), run(), join(), is_alive(), isDaemon()<br>其中join()需要注意一下</p>
+<p><strong>属性</strong>有：name线程名，多个线程可以用一样的名字；ident线程标识符，可另用get_ident() 获得；native_id线程ID，由内核分配，可另用get_native_id()获得；daemon是否为守护线程</p>
+<h1 id="锁对象"><a href="#锁对象" class="headerlink" title="锁对象"></a>锁对象</h1><h2 id="上下文管理协议"><a href="#上下文管理协议" class="headerlink" title="上下文管理协议"></a>上下文管理协议</h2><p>“上下文管理协议”是一个专用于锁管理的with语句。其中的锁可以是原始锁或是其子类，只需由acquire和release即可，具体是 Lock、RLock、Condition、Semaphore、BoundedSemaphore</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> some_lock:</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于</span></span><br><span class="line">some_lock.acquire()</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    some_lock.release()</span><br></pre></td></tr></table></figure>
+
+<h2 id="原始锁"><a href="#原始锁" class="headerlink" title="原始锁"></a>原始锁</h2><p>这里的锁对象指的是原始锁，原始锁是一个在锁定时不属于特定线程的同步基元组件，是python中的最低级同步组件，它由底层多线程API模块_thread直接实现。一旦一个线程获得一个锁，会阻塞随后尝试获得锁的线程，直到它被释放</p>
+<p>class threading.Lock 其构造函数是一个工厂函数，返回的是所在平台最有效版本的实例。以下方法构成了“锁”逻辑的最重要功能</p>
+<p><strong>acquire(<em>blocking&#x3D;True, timeout&#x3D;-1</em>)</strong> 默认获得锁时会阻塞其他线程获得锁，成功上锁会返回true。如果指定timeout一个正值浮点数，则该锁最多会阻塞指定相应时间</p>
+<p><strong>release()</strong> 释放一个锁。这个方法可以在任何线程中调用，即非a线程允许解除a线程的已经获得的锁，故需要注意使用，非必要应由持有锁的线程去解锁。当在未锁定的锁上发起调用时，会引发 RuntimeError。</p>
+<p><strong>locked()</strong> 判断锁对象是否已经上锁</p>
+<h2 id="重入锁"><a href="#重入锁" class="headerlink" title="重入锁"></a>重入锁</h2><p>递归锁相比原始锁，多了上锁层数和解锁层数，还有必须由本线程才能完成最终release()</p>
+<h2 id="条件锁"><a href="#条件锁" class="headerlink" title="条件锁"></a>条件锁</h2><p>class threading.Condition(lock&#x3D;None) 条件锁的底层锁默认为重入锁，也可以指定一个原始锁或重入锁。使用条件锁，可以有序地唤醒阻塞线程。相比原始锁，更适用于经常发生资源竞争且可能出现死锁的情况，因为原始锁被释放后，所有线程会一起抢夺资源，而条件锁能主动控制如何唤醒线程，且在阻塞状态时不占用竞争资源（如需要4个，可用2个，那么这个2个也会释放）</p>
+<p><strong>wait(<em>timeout &#x3D; None</em>)</strong> 等待直到被通知或超过限时。调用这个方法时，会释放本身的锁，原先无锁则会引发 RuntimeError，然后陷入阻塞，直到被唤醒时才会<strong>尝试</strong>重新获得锁（注意，唤醒后不会直接获得锁，要等调用notify的线程等一会释放锁）。可见这里使用wait的<strong>前提</strong>是，判断到需要使用的资源不足；如果充足，主动进入阻塞是错误的，因为wait之后要被其他线程主动唤醒。当底层锁为RLock时，阻塞时的解锁和被唤醒的上锁有所区别</p>
+<p><strong>wait_for(<em>predicate,timeout &#x3D; None</em>)</strong> 等待至条件为真，再进行wait，predicate是一个返回值为布尔的可调用对象。忽略超时功能时，调用wait_for相当于：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> predicate():</span><br><span class="line">    cv.wait()</span><br></pre></td></tr></table></figure>
+
+<p><strong>notify(<em>n&#x3D;1</em>)</strong> 默认唤醒一个等待这个条件的线程，要求已获得锁，否则引发RuntimeError。注意，唤醒其他线程后，仅仅是让它重新进入了阻塞状态，还需要手动释放锁。唤醒所有等待这个条件的线程使用 notify_all()</p>
+<h2 id="信号量对象"><a href="#信号量对象" class="headerlink" title="信号量对象"></a>信号量对象</h2><p><strong>信号量通常用于保护数量有限的资源。</strong> class threading.Semaphore(<em>value&#x3D;1</em>) 一个信号量管理一个内部原子性计数器，表示当前剩余资源数量，当acquire()时递减，当release()时递增。计数器不会小于零，当acquire()发现计数为零时，会阻塞直到其他线程调用release()。</p>
+<p><strong>acquire(<em>blocking&#x3D;True, timeout&#x3D;None</em>)</strong> 在默认情况下，如果计数器大于等于一，则计数减一并立即返回true；如果计数为零，则进入阻塞，直至被唤醒后返回true。每次release()后将会以不确定次序唤醒一个线程。如果超过时限会返回false</p>
+<p><strong>release(<em>n&#x3D;1</em>)</strong> 释放一个信号量，并将计数加n</p>
+<p>比较特殊的是有界信号量 class threading.BoundedSemaphore(<em>value&#x3D;1</em>)，它的作用是，保证资源数量不会大于指定值，用于保护数量有限且需要留有剩余的资源没有被超额请求</p>
+<p>信号量通常用于保护数量有限的资源，例如数据库服务器。在资源数量固定的任何情况下，都应该使用有界信号量</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主线程中</span></span><br><span class="line">MaxConnections = <span class="number">5</span></span><br><span class="line">pool_sema = BoundedSemaphore(value=MaxConnections)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 子线程中</span></span><br><span class="line"><span class="keyword">with</span> pool_sema:</span><br><span class="line">    conn = connectdb()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        conn.close()</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="同步方式"><a href="#同步方式" class="headerlink" title="同步方式"></a>同步方式</h1><h2 id="线程间简单通信"><a href="#线程间简单通信" class="headerlink" title="线程间简单通信"></a>线程间简单通信</h2><p>事件对象可以实现线程间最简单的通信，其通信内容仅是一个逻辑值，可以实现这样的机制：一个线程可以发出事件信号，而其他线程等待这个事件信号</p>
+<p>class threading.Event 实现事件对象的类。事件对象管理一个内部标识，初始值为false。调用 set(), clear() 能够把内部标识置true，置false；调用 wait(timeout&#x3D;None) 让所在线程阻塞直至内部标识为true。使用 is_set() 可以判别内部标识</p>
+<h2 id="栅栏对象"><a href="#栅栏对象" class="headerlink" title="栅栏对象"></a>栅栏对象</h2><p>class threading.Barrier(parties, action&#x3D;None, timeout&#x3D;None) 栅栏对象提供一个简单的同步原语，用于多个线程互相等待的情况，线程调用 wait() 方法后将阻塞，直到所有线程都调用了 wait() 方法，此时所有线程将被同时释放。如果提供了action参数，它会在所有线程被释放时在其中一个线程中自动调用</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">b = Barrier(<span class="number">2</span>, timeout=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">server</span>():</span><br><span class="line">    start_server()</span><br><span class="line">    b.wait()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        connection = accept_connection()</span><br><span class="line">        process_server_connection(connection)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">client</span>():</span><br><span class="line">    b.wait()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        connection = make_connection()</span><br><span class="line">        process_client_connection(connection)</span><br></pre></td></tr></table></figure>
+
+<p>wait(<em>timeout&#x3D;None</em>) 方法用于“冲击”栅栏，只有当足够数量的线程正在“冲击”栅栏时，才能成功“冲破”。这里timeout优先级高于构造栅栏的。成功“冲破”时返回一个 0 ~ parties-1 之间的和其他线程不同的唯一值，可以用它来执行只有个别线程能够执行的操作</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = barrier.wait()</span><br><span class="line"><span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">    <span class="comment"># 只有这个线程才会打印</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;passed the barrier&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>栅栏破损态</strong> 属性broken可以表示栅栏是否处于破损态。如果创建栅栏对象时制定了action，那么顺利冲破栅栏后会在释放其中一个线程时被调用，如果action引发了异常，那么栅栏对象会进入破损态；如果发生超时，也会进入破损态。栅栏对象破损后的任何wait()，或者reset()栅栏时仍有线程等待释放，将会引发 BrokenBarrierError 异常</p>
+<p><strong>方法 reset()</strong> 重置栅栏为默认的初始态。如果栅栏中仍有线程等待释放，这些线程将会收到 BrokenBarrierError 异常。如果栅栏损坏，最好废弃并重新创建一个</p>
+<p><strong>方法 abort()</strong> 主动使栅栏处于破损态，可能在需要强制终止某个线程时使用。但刚好的方法是设置合理的超时时间</p>
+<h1 id="定时器对象"><a href="#定时器对象" class="headerlink" title="定时器对象"></a>定时器对象</h1><p>定时器对象 class threading.Timer(interval, function, args&#x3D;None, kwargs&#x3D;None) 是线程类Thread的子类，因此可以像线程一样工作。与线程一样，通过调用 start() 方法启动定时器。而 cancel() 方法可以停止计时器（在计时结束前）。Timer类实现的功能是，经过一段时间执行函数的操作</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello, world&quot;</span>)</span><br><span class="line"></span><br><span class="line">t = Timer(<span class="number">30.0</span>, hello)</span><br><span class="line">t.start()  <span class="comment"># 过了30s就会执行hello函数</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>pyhton</category>
+        <category>python并发</category>
+      </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>识崩崩小圆帽有感</title>
     <url>/2023/04/10/%E9%98%85%E8%AF%BB/%E8%AF%86%E5%B4%A9%E5%B4%A9%E5%B0%8F%E5%9C%86%E5%B8%BD%E6%9C%89%E6%84%9F/</url>
     <content><![CDATA[<p>原愚人众第六执行官散兵，其背景在稻妻已基本描绘完成，再待到须弥主线的间章，完成了“倾奇者-散兵-七叶寂照秘密主-流浪者-崩崩小圆帽”的转变</p>
 <span id="more"></span>
 <p>先说起名崩崩小圆帽的缘由。</p>
-<p>散兵本是纯洁无暇的人偶，被雷电影遗弃在借景之馆，被踏鞴砂众人捡回，和他们相处时产生了人类的情感。可惜时日不长，踏鞴砂等人被博士利用，让散兵感觉到了背叛，随后与他为伴的“折翼小鸟”也不幸去世。随后他便以复仇为生，直到成为伪神前后，也是被痛恨和迷茫驱动，让他只能以成神作为目标。和小吉祥草王的合作，让他得知了真相，感到无比痛苦后遂趁机进入世界树，希望能消除有关自己的一切。</p>
-<p>“任何人都不能自己抹除自己的存在”，散兵成为了流浪者，作为流浪者的散兵如白纸般纯洁。与他相遇前不久，他还在“雨天中赶路”，借由那位帮助他的店主话说，即是“没有目的地和目标的人，何必在雨中赶路，只需静静等待雨水过去”。可见流浪者内心还延续着对人心的渴望，却不自知。</p>
-<p>随后借由小吉祥草王的力量，让散兵和流浪者成为一体，散兵机缘巧合下，完成了否定自我，重识自我，最终接受自我的转变。借此他能和“现在的过去”了断，背负了过去种种一切的恶，与小草神的合作中慢慢寻求未来。</p>
-<p>作为出力不少的旅行者，有幸给他起个新名字，思考许久他在哲学意义上的转变，作为雷神孩子的过去，作为草神新孩子的新生，同秘密主成神后的神性，种种形容都展示着他的过去和现在；而我却只想他能重新拾起孩童般的纯真。偶然间感觉，崩崩小圆帽这个可爱有趣的名字，没有过去的罪恶，没有曾作为神的力量，也不是作为流浪者的他，是一个与他的背负无关的名字。我希望以“崩崩小圆帽”为名，让他暂时忘却所有，偶尔只是一个可爱的孩子。</p>
+<p>散兵本是纯洁无暇的人偶，被雷电影遗弃在借景之馆，被踏鞴砂众人捡回，和他们相处时产生了人类的情感。可惜时日不长，踏鞴砂等人被博士利用，让散兵感觉到了背叛，随后与他为伴的“折翼小鸟”也不幸去世。随后他便以“复仇”为生，直到成为伪神前后，也是被痛恨和迷茫驱动，让他只能以成神作为目标。和小吉祥草王的合作，让他得知了真相，感到无比痛苦后遂趁机进入世界树，希望能消除有关自己的一切。</p>
+<p>“任何人都不能自己抹除自己的存在”，散兵成为了流浪者，作为流浪者的散兵如白纸般纯洁。与他相遇前不久，他还在“雨天中赶路”，借由那位帮助他的店主话说，即是“没有目的地和目标的人，何必在雨中赶路，只需静静等待雨水过去”。可见流浪者内心还延续着对过去和自我的追逐，却不自知。</p>
+<p>随后借由小吉祥草王的力量，让散兵和流浪者成为一体，散兵机缘巧合下，完成了否定自我，重识自我，最终接受自我的转变。借此他能和“现在的过去”了断，背负了过去种种一切的恶，与小草神的合作中得以走向未来。</p>
+<p>作为出力不少的旅行者，有幸给他起个新名字，思考许久他在哲学意义上的转变，作为雷神孩子的过去，作为草神新孩子的新生，同秘密主成神后的神性，种种形容都展示着他的过去和现在；而我却只想他能重新拾起孩童般的纯真。偶然间感觉，崩崩小圆帽这个可爱有趣的名字，没有过去的罪恶，没有曾作为神的力量，也不是作为流浪者的他，是一个与他的背负无关的名字。我希望以“崩崩小圆帽”为名，让他暂时忘却所有，在我的小小的原想中作为一个孩子新生。</p>
 ]]></content>
       <categories>
         <category>阅读</category>
       </categories>
+      <tags>
+        <tag>展示</tag>
+      </tags>
   </entry>
   <entry>
     <title>获取url网络资源</title>
-    <url>/2023/03/28/%E5%AD%A6%E4%B9%A0/python/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%9D%97urllib/%E8%8E%B7%E5%8F%96url%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/</url>
+    <url>/2023/03/28/%E5%AD%A6%E4%B9%A0/python/python%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/%E8%8E%B7%E5%8F%96url%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<p>本文简单概述，如何利用urllib包获取网络资源</p>
 <span id="more"></span>
 
@@ -76,7 +355,7 @@
       <categories>
         <category>学习</category>
         <category>pyhton</category>
-        <category>网络请求模块urllib</category>
+        <category>python网络请求</category>
       </categories>
       <tags>
         <tag>展示</tag>
@@ -84,7 +363,7 @@
   </entry>
   <entry>
     <title>处理失败用例</title>
-    <url>/2023/03/28/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/%E5%A4%84%E7%90%86%E5%A4%B1%E8%B4%A5%E7%94%A8%E4%BE%8B/</url>
+    <url>/2023/03/28/%E5%AD%A6%E4%B9%A0/python/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/%E5%A4%84%E7%90%86%E5%A4%B1%E8%B4%A5%E7%94%A8%E4%BE%8B/</url>
     <content><![CDATA[<p>pytest处理失败用例</p>
 <span id="more"></span>
 
@@ -93,7 +372,7 @@
 <h1 id="在pytest中使用pdb"><a href="#在pytest中使用pdb" class="headerlink" title="在pytest中使用pdb"></a>在pytest中使用pdb</h1>]]></content>
       <categories>
         <category>学习</category>
-        <category>测试工具</category>
+        <category>pyhton</category>
         <category>测试框架pytest</category>
       </categories>
       <tags>
@@ -169,7 +448,7 @@
   </entry>
   <entry>
     <title>pytest核心功能</title>
-    <url>/2023/03/01/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD/</url>
+    <url>/2023/03/01/%E5%AD%A6%E4%B9%A0/python/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<p>记录pytest的核心功能</p>
 <span id="more"></span>
 
@@ -264,7 +543,7 @@
 ]]></content>
       <categories>
         <category>学习</category>
-        <category>测试工具</category>
+        <category>pyhton</category>
         <category>测试框架pytest</category>
       </categories>
       <tags>
@@ -332,7 +611,7 @@
   </entry>
   <entry>
     <title>pytest准备</title>
-    <url>/2023/02/16/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E5%87%86%E5%A4%87/</url>
+    <url>/2023/02/16/%E5%AD%A6%E4%B9%A0/python/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E5%87%86%E5%A4%87/</url>
     <content><![CDATA[<p>pytest的安装和基本了解</p>
 <span id="more"></span>
 
@@ -360,7 +639,7 @@
 ]]></content>
       <categories>
         <category>学习</category>
-        <category>测试工具</category>
+        <category>pyhton</category>
         <category>测试框架pytest</category>
       </categories>
       <tags>
@@ -894,8 +1173,9 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">try</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">raise</span> Exception(<span class="string">&#x27;spam&#x27;</span>, <span class="string">&#x27;eggs&#x27;</span>)</span><br><span class="line"><span class="meta">... </span><span class="keyword">except</span> Exception <span class="keyword">as</span> inst:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="built_in">type</span>(inst))    <span class="comment"># the exception instance</span></span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(inst.args)     <span class="comment"># arguments stored in .args</span></span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(inst)          <span class="comment"># __str__ allows args to be printed directly,</span></span><br><span class="line"><span class="meta">... </span>                         <span class="comment"># but may be overridden in exception subclasses</span></span><br><span class="line"><span class="meta">... </span>    x, y = inst.args     <span class="comment"># unpack args</span></span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="string">&#x27;x =&#x27;</span>, x)</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(<span class="string">&#x27;y =&#x27;</span>, y)</span><br><span class="line">...</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;Exception&#x27;</span>&gt;</span><br><span class="line">(<span class="string">&#x27;spam&#x27;</span>, <span class="string">&#x27;eggs&#x27;</span>)</span><br><span class="line">(<span class="string">&#x27;spam&#x27;</span>, <span class="string">&#x27;eggs&#x27;</span>)</span><br><span class="line">x = spam</span><br><span class="line">y = eggs</span><br></pre></td></tr></table></figure>
 <h3 id="else子句–对try语句的补充"><a href="#else子句–对try语句的补充" class="headerlink" title="else子句–对try语句的补充"></a>else子句–对try语句的补充</h3><p>try…except 语句具有可选的 else 子句，它必须放在所有except子句之后，没有引发异常时会执行else子句；使用else子句可以避免捕获到无需try保护的代码</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = <span class="built_in">open</span>(arg, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> OSError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;无法打开文件:&#x27;</span>, arg)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 无论是否触发异常，都会执行以下代码</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;已经执行过open函数&#x27;</span>);</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+
 <h3 id="finally子句–定义清理操作"><a href="#finally子句–定义清理操作" class="headerlink" title="finally子句–定义清理操作"></a>finally子句–定义清理操作</h3><p>如果存在finally子句，则finally子句是try语句结束前执行的最后一项任务，不论是否触发异常。<br>因此，一般会先执行finally再处理异常；实际上是暂时搁置这个异常(不确定是否已经实例化过)，执行完finally子句后，再重新触发该异常。  </p>
-<p>特别地， with open 属于预定义的清理操作。</p>
+<p>此外，还有使用with关键字这样的预定义好的清理操作。常见的有 打开文件<span> with open(“myfile.txt”) as f </span> ，请求网络资源<span> with urllib.request.urlopen(“<a href="http://ceshi.com&quot;/">http://ceshi.com&quot;</a>) as response </span> 。支持预定义清理操作的对象会在文档中指出这一点。</p>
 <h2 id="触发异常"><a href="#触发异常" class="headerlink" title="触发异常"></a>触发异常</h2><h3 id="“自然”触发异常"><a href="#“自然”触发异常" class="headerlink" title="“自然”触发异常"></a>“自然”触发异常</h3><p>这类异常的触发点位于内置函数内部(也许这样的描述不准确)，已经被妥善定义好的，我们无需考虑它如何产生</p>
 <h3 id="raise语句强制触发异常"><a href="#raise语句强制触发异常" class="headerlink" title="raise语句强制触发异常"></a>raise语句强制触发异常</h3><p>raise 语句支持在try子句中强制触发异常； raise 唯一的参数就是要触发的异常实例，这个实例一般“匿名” 构造，如:</p>
 <ul>
@@ -2040,7 +2320,7 @@
 <h2 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h2><p>使用 git clone <url> 可以克隆一个完整的仓库，或者仓库下的文件夹：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/libgit2/libgit2 myLibgit</span></span><br></pre></td></tr></table></figure>
 <p>这会在当前目录下创建一个名为myLibgit的目录（如果不指定自定义仓库名，则按默认的libgit2），在其中初始化一个.git文件夹，并<strong>从远程仓库拉取所有数据</strong>放入.git文件夹，然后从中读取最新版本的文件的拷贝放到myLibgit目录下</p>
-<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:libgit2/libgit2.git）</p>
+<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#103;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:libgit2/libgit2.git）</p>
 <h1 id="记录更新到仓库"><a href="#记录更新到仓库" class="headerlink" title="记录更新到仓库"></a>记录更新到仓库</h1><h2 id="检查当前文件状态–git-status"><a href="#检查当前文件状态–git-status" class="headerlink" title="检查当前文件状态–git status"></a>检查当前文件状态–git status</h2><p>工作目录下的<strong>已跟踪</strong>的文件有三种状态：未修改（unmodified），已修改（modifeid），已暂存（staged）。把未跟踪（untracked）作为状态计入，则一共有四个状态</p>
 <p>文件的状态变化周期：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Untracked    Unmodified    Modified      Staged</span><br><span class="line">    |            |            |            |</span><br><span class="line">    |===add==============================&gt; |</span><br><span class="line">    |            |==edit====&gt; |            |</span><br><span class="line">    |            |            |==stage===&gt; |</span><br><span class="line">    | &lt;==remove==|            |            |</span><br><span class="line">    |            | &lt;===============commit==|</span><br><span class="line">    |            |            |            |</span><br></pre></td></tr></table></figure>

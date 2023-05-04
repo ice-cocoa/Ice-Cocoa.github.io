@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="pytest的安装和基本了解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pytest准备">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/02/16/%E5%AD%A6%E4%B9%A0/python/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E5%87%86%E5%A4%87/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="pytest的安装和基本了解">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-04T01:22:48.312Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/02/16/%E5%AD%A6%E4%B9%A0/python/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E5%87%86%E5%A4%87/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/02/16/%E5%AD%A6%E4%B9%A0/python/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E5%87%86%E5%A4%87/","path":"2023/02/16/学习/python/测试框架pytest/pytest准备/","title":"pytest准备"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>pytest准备 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">29</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85pytest"><span class="nav-number">1.</span> <span class="nav-text">安装pytest</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">激活测试用例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E6%98%8E%E6%B5%8B%E8%AF%95%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.1.</span> <span class="nav-text">指明测试对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E7%89%88%E6%9C%AC%E3%80%81%E9%80%89%E9%A1%B9%E3%80%81%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%B8%AE%E5%8A%A9"><span class="nav-number">2.2.</span> <span class="nav-text">获得版本、选项、环境变量的帮助</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">创建测试用例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#raise-helper"><span class="nav-number">3.1.</span> <span class="nav-text">raise helper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82pytest%E5%86%85%E7%BD%AE%E8%A3%85%E7%BD%AE-builtin-fixture"><span class="nav-number">3.2.</span> <span class="nav-text">请求pytest内置装置(builtin fixture)</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/02/16/%E5%AD%A6%E4%B9%A0/python/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/pytest%E5%87%86%E5%A4%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="pytest准备 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          pytest准备
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-17 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-17T00:00:00+08:00">2023-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-04 09:22:48" itemprop="dateModified" datetime="2023-05-04T09:22:48+08:00">2023-05-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/pyhton/" itemprop="url" rel="index"><span itemprop="name">pyhton</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/pyhton/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6pytest/" itemprop="url" rel="index"><span itemprop="name">测试框架pytest</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>pytest的安装和基本了解</p>
+<span id="more"></span>
+
+<h1 id="安装pytest"><a href="#安装pytest" class="headerlink" title="安装pytest"></a>安装pytest</h1><p>安装或更新pytest并检查版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install -U pytest</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pytest --version</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="激活测试用例"><a href="#激活测试用例" class="headerlink" title="激活测试用例"></a>激活测试用例</h1><h2 id="指明测试对象"><a href="#指明测试对象" class="headerlink" title="指明测试对象"></a>指明测试对象</h2><p>pytest命令适用于文件名形式为 test_*.py 或 *_test.py 的文件，执行这些文件下的测试用例。测试用例以函数方式组织，通常都位于一个测试类下，其函数名形式为 test_*.py</p>
+<p>下面是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 位于 test_sample.py 文件内</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestClass</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_one</span>(<span class="params">self</span>):</span><br><span class="line">        x=<span class="string">&quot;this&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="string">&quot;h&quot;</span> <span class="keyword">in</span> x</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_func</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">assert</span> func(<span class="number">3</span>)==<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>下面是执行测试用例的具体命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pytest                                        <span class="comment">#执行当前目录及子目录所有测试文件的测试用例</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pytest  testing/                              <span class="comment">#执行testing目录及子目录所有测试文件的测试用例</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pytest -k TestClass                           <span class="comment">#执行这个测试类下所有的测试用例，-k指定关键字，这里直接用一个类名作为关键字</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pytest test_sample.py                         <span class="comment">#仅执行test_sample.py这个文件下的所有测试用例</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pytest test_sample.py::TestClass::test_func   <span class="comment">#仅执行这个文件下的这个测试类里的测试用例</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pytest --pyargs pkg.testing                   <span class="comment">#执行这个包里的测试用例</span></span></span><br></pre></td></tr></table></figure>
+<p>参数-q启用安静模式，使输出示例保持简短。此外还可以给测试用例标注，对标注slow的测试用例，可以用 “pytest -m slow”</p>
+<h2 id="获得版本、选项、环境变量的帮助"><a href="#获得版本、选项、环境变量的帮助" class="headerlink" title="获得版本、选项、环境变量的帮助"></a>获得版本、选项、环境变量的帮助</h2><p>有如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pytest --version    </span><br><span class="line">pytest --fixures    #展示</span><br><span class="line">pytest -h | --help</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="创建测试用例"><a href="#创建测试用例" class="headerlink" title="创建测试用例"></a>创建测试用例</h1><h2 id="raise-helper"><a href="#raise-helper" class="headerlink" title="raise helper"></a>raise helper</h2><p>使用 raise helper 可以断言某些代码是否引发一个异常：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>():</span><br><span class="line">    <span class="keyword">raise</span> SystemExit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_mytest</span>():</span><br><span class="line">    <span class="comment">#断言f是否引发了一个异常</span></span><br><span class="line">    <span class="keyword">with</span> pytest.raises(SystemExit):</span><br><span class="line">        f()</span><br></pre></td></tr></table></figure>
+
+<p>还不是太明白，试一试去</p>
+<h2 id="请求pytest内置装置-builtin-fixture"><a href="#请求pytest内置装置-builtin-fixture" class="headerlink" title="请求pytest内置装置(builtin fixture)"></a>请求pytest内置装置(builtin fixture)</h2><p>pytest提供了内置变量来提供对各种资源的访问，用户也可以用 @pytest.fixture 标记自定义这样的装置，根据装置定义的位置不同（用例内、类内、全局）生效的范围也不同</p>
+<p>pytest提供的内置装置可以参考这个<a target="_blank" rel="noopener" href="https://docs.pytest.org/en/stable/reference/fixtures.html#fixtures">文档</a>。此外，运行命令 “pytest –fixures” 可以查看内置的和自定义的装置</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/15/%E5%AD%A6%E4%B9%A0/python/python%E5%9F%BA%E6%9C%AC/python%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/" rel="prev" title="python模块和包">
+                  <i class="fa fa-chevron-left"></i> python模块和包
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/23/%E5%AD%A6%E4%B9%A0/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/jmeter/%E5%AE%9E%E8%B7%B5%E7%AC%94%E8%AE%B0/" rel="next" title="实践笔记">
+                  实践笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
