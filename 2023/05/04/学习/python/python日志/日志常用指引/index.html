@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="日志工具logging的记录。本文仅记录通常用法，不深入研究">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日志常用指引">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/05/04/%E5%AD%A6%E4%B9%A0/python/python%E6%97%A5%E5%BF%97/%E6%97%A5%E5%BF%97%E5%B8%B8%E7%94%A8%E6%8C%87%E5%BC%95/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="日志工具logging的记录。本文仅记录通常用法，不深入研究">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-29T00:21:36.871Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/05/04/%E5%AD%A6%E4%B9%A0/python/python%E6%97%A5%E5%BF%97/%E6%97%A5%E5%BF%97%E5%B8%B8%E7%94%A8%E6%8C%87%E5%BC%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/05/04/%E5%AD%A6%E4%B9%A0/python/python%E6%97%A5%E5%BF%97/%E6%97%A5%E5%BF%97%E5%B8%B8%E7%94%A8%E6%8C%87%E5%BC%95/","path":"2023/05/04/学习/python/python日志/日志常用指引/","title":"日志常用指引"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>日志常用指引 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">32</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">69</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">日志基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E8%AE%B0%E5%BD%95%E5%99%A8%E7%9A%84%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">默认记录器的日志记录过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E8%AE%B0%E5%BD%95%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">配置默认记录器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%97%A5%E5%BF%97"><span class="nav-number">2.</span> <span class="nav-text">模块化日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E8%AE%B0%E5%BD%95%E5%99%A8%E5%91%BD%E5%90%8D"><span class="nav-number">2.1.</span> <span class="nav-text">模块化的记录器命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">记录器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">2.3.</span> <span class="nav-text">处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">格式器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%88%E6%9A%82%E6%97%B6%E7%94%A8%E4%B8%8D%E5%88%B0%E8%BF%99%E4%B9%88%E8%AF%A6%E7%BB%86%E7%9A%84%EF%BC%89"><span class="nav-number">2.5.</span> <span class="nav-text">过滤器（暂时用不到这么详细的）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95"><span class="nav-number">2.6.</span> <span class="nav-text">配置日志记录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%94%A8%E7%9A%84%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">有用的处理器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%BB%E6%84%8F%E5%AF%B9%E8%B1%A1%E4%BD%9C%E4%B8%BA%E6%B6%88%E6%81%AF"><span class="nav-number">4.</span> <span class="nav-text">使用任意对象作为消息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BC%98%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">简单优化</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/05/04/%E5%AD%A6%E4%B9%A0/python/python%E6%97%A5%E5%BF%97/%E6%97%A5%E5%BF%97%E5%B8%B8%E7%94%A8%E6%8C%87%E5%BC%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="日志常用指引 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          日志常用指引
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-05 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-05T00:00:00+08:00">2023-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-29 08:21:36" itemprop="dateModified" datetime="2023-05-29T08:21:36+08:00">2023-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/python/python%E6%97%A5%E5%BF%97/" itemprop="url" rel="index"><span itemprop="name">python日志</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>日志工具logging的记录。本文仅记录通常用法，不深入研究</p>
+<span id="more"></span>
+
+<h1 id="日志基础"><a href="#日志基础" class="headerlink" title="日志基础"></a>日志基础</h1><h2 id="默认记录器的日志记录过程"><a href="#默认记录器的日志记录过程" class="headerlink" title="默认记录器的日志记录过程"></a>默认记录器的日志记录过程</h2><p>标题说的“日志记录过程”包括日志的 记录（仅存在于内存），过滤，格式化，处理（转储、转发等）这四个步骤。</p>
+<p>日志有五个经典级别，从上往下严重性逐渐增加：</p>
+<ol>
+<li>DEBUG（仅用于调试）</li>
+<li>INFO（一般信息）</li>
+<li>WARNING（警告信息，这是默认级别）</li>
+<li>ERROR（错误，已影响到系统）</li>
+<li>CRITICAL（关键，系统已不能正常运行）</li>
+</ol>
+<p>日志记录器会按级别记录这五类信息。下面用默认的日志记录器去记录日志，记录的内容会按照 默认格式，默认级别WARNING，打印到默认位置（即控制台）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.warning(<span class="string">&#x27;Watch out!&#x27;</span>)  </span><br><span class="line">logging.info(<span class="string">&#x27;I told you so&#x27;</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 控制台输出内容   WARNING:root:Watch out!</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置默认记录器"><a href="#配置默认记录器" class="headerlink" title="配置默认记录器"></a>配置默认记录器</h2><p>记录日志到文件：在代码中添加 <span>logging.basicConfig(filename&#x3D;’example.log’, encoding&#x3D;’utf-8’, level&#x3D;logging.DEBUG)</span></p>
+<p>记录变量数据，内容要用格式化字符串，如： <span> logging.warning(‘%s before you %s’, ‘Look’, ‘leap!’) </span></p>
+<p>指定格式，格式中可以额外添加时间，如： <span> format&#x3D;’%(levelname)s: ‘%(asctime)s – %(message)s’ </span>，这样可能会是这样的格式：<span>INFO: 2010-12-12 11:41:42,612 – is when this event was logged.</span></p>
+<h1 id="模块化日志"><a href="#模块化日志" class="headerlink" title="模块化日志"></a>模块化日志</h1><p>模块化的日志记录过程分工明确，有记录器、处理器、过滤器和格式器</p>
+<h2 id="模块化的记录器命名"><a href="#模块化的记录器命名" class="headerlink" title="模块化的记录器命名"></a>模块化的记录器命名</h2><p>推荐命名记录器的方式是，使用当前所处的（带上层级结构的）模块名。默认的记录器 logging，来自logging包且直接使用logging.debug()、logging.info() 记录是根记录器，在输出中打印为 “root”，其余如在模块 A.B 中的，可以命名为 A.B，那么要用下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模块名相同时，返回的是同一个记录器引用</span></span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(<span class="string">&quot;A.B&quot;</span>)</span><br><span class="line"><span class="comment"># 或通过  __name__ 获得模块名</span></span><br><span class="line">logger = logging.getLogger(__name__)</span><br></pre></td></tr></table></figure>
+<p>如果需要细分，甚至可以再额外添加类的范围，如命名 “A.B.ClassX”</p>
+<h2 id="记录器"><a href="#记录器" class="headerlink" title="记录器"></a>记录器</h2><p>记录器是 Logger 类的实例，它向应用程序公开了debug~critical五种级别的日记记录方法，通过这五种方法应用程序完成日志的记录。其次，会根据添加在它身上的过滤器进行筛选，确认要处理的日志。然后，把筛选后的日志记录发送到处理器上</p>
+<p>获取记录器，使用 logging.getLogger(<em>logger_name</em>) 返回指定名称的记录器实例的引用，否则返回根记录器实例的引用。如果多次调用的指定名称相同，它们返回的是同一个实例的引用。</p>
+<p>指定的记录器名称按点分级，如 “foo.bar” 是 “foo” 的子记录器，那么 “foo” 如果没有自定义级别，则会沿用父级的级别，且会把消息传播到父级（父级的处理器会处理这个消息，除非指定propagate属性为False）</p>
+<p>记录器最常见的配置方法：</p>
+<ul>
+<li>Logger.setLevel()  这相当于创建一个简单的过滤器并应用于本记录器对象。这并不会影响 debug()~critical() 这些日志的记录行为，仅在发送到处理器这一过程中有意义</li>
+<li>Logger.addHandler(), Logger.removeHandler() 添加和删除处理器对象</li>
+<li>Logger.addFilter(), Logger.removeFilter() 添加和删除过滤器对象。Logger.setLevel()已经起到了足够的过滤作用了，很多时候无需再用这两个方法添加过滤器</li>
+</ul>
+<p>记录器向应用程序公开的日志记录方法：</p>
+<ul>
+<li>Logger.debug(), Logger.info(), Logger.warning(), Logger.error(), Logger.critical()</li>
+<li>仅允许在异常处理语句中使用：Logger.exception() 级别和error相同，但还会额外记录堆栈信息</li>
+<li>自定义日志级别时使用： Logger.log()</li>
+</ul>
+<h2 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h2><p>处理器对象 Handler 负责把过滤好的日志消息发送到指定目标（如标准输出流、本地文件、一个网络端口）。通常都使用内置处理器类作为参数，不需要用户实例化处理器对象</p>
+<p>内置处理器对象可用以下方法：</p>
+<ul>
+<li>setLevel()  此处的setLevel用于筛选已经接收到的日志，记录器处的setLevel用于筛选发送给处理器的日志</li>
+<li>setFormatter() 添加一个格式器对象，决定发送日志消息的格式</li>
+<li>addFilter() 和 removeFilter()</li>
+</ul>
+<p>常见的处理器会在下方另起一节整理</p>
+<h2 id="格式器"><a href="#格式器" class="headerlink" title="格式器"></a>格式器</h2><p>logging.Formatter.<strong>init</strong>(<em>fmt&#x3D;None, datefmt&#x3D;None, style&#x3D;’%’</em>)  格式器的构造函数有三个可选参数：消息格式字符串，日期格式字符串，样式指示符。</p>
+<p>消息格式字符串内可用的日志相关的变量存放在LogRecord对象里，使用 %(&lt;attr_name&gt;)s 即可引用。常用的属性有：消息message、时间asctime、消息等级levelname、记录器名称name</p>
+<p>日期格式字符串默认为:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%Y-%m-%d %H:%M:%S</span><br></pre></td></tr></table></figure>
+
+<p>实例化一个格式器后，即可传递给处理器使用。处理器通过 Handler.setFromatter(<em>my_fromatter</em>) 即成功传递</p>
+<h2 id="过滤器（暂时用不到这么详细的）"><a href="#过滤器（暂时用不到这么详细的）" class="headerlink" title="过滤器（暂时用不到这么详细的）"></a>过滤器（暂时用不到这么详细的）</h2><p>当基于记录器级别和处理器级别的过滤不足够时，可以提供 Filter过滤器</p>
+<h2 id="配置日志记录"><a href="#配置日志记录" class="headerlink" title="配置日志记录"></a>配置日志记录</h2><p>配置模块化的日志记录过程，1) 可以用代码实现记录器、过滤器、处理器、格式器，2) 也可以写成配置文件读取，3) 也可以写成一个字典读取。</p>
+<p>后面两种方法这里不研究也不记录（和第一种方法也本质相同，仅是从文件方便维护），第一种方法的一个完整例子如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建以一个日志记录器</span></span><br><span class="line">logger = logging.getLogger(<span class="string">&#x27;simple_example&#x27;</span>)</span><br><span class="line">logger.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建控制台处理器，并设置处理的日志等级</span></span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line">ch.setLevel(logging.DEBUG)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建格式器</span></span><br><span class="line">formatter = logging.Formatter(<span class="string">&#x27;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 控制台处理器添加格式器</span></span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志记录器添加刚刚创建的控制台处理器</span></span><br><span class="line">logger.addHandler(ch)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行日志记录</span></span><br><span class="line">logger.debug(<span class="string">&#x27;debug message&#x27;</span>) </span><br><span class="line">logger.info(<span class="string">&#x27;info message&#x27;</span>)</span><br><span class="line">logger.warning(<span class="string">&#x27;warn message&#x27;</span>)</span><br><span class="line">logger.error(<span class="string">&#x27;error message&#x27;</span>)</span><br><span class="line">logger.critical(<span class="string">&#x27;critical message&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果日志配置文件因为某些原因找不到了，那么默认行为是把日志 存储在 logging.lastResort，仅在 sys.stderr 输出</p>
+<h1 id="有用的处理器"><a href="#有用的处理器" class="headerlink" title="有用的处理器"></a>有用的处理器</h1><p>通常使用不考虑自定义日志级别和自定义处理器，通常使用以下处理器即可。注意，给记录器添加处理器时，无需实例化，仅需把处理器类传入：</p>
+<p>class logging.StreamHandler(<em>stream&#x3D;None</em>) 可将日志记录输出发送到数据流例如 sys.stdout, sys.stderr(默认) 或任何文件类对象</p>
+<p>class logging.FileHandler(<em>filename, mode&#x3D;’a’, encoding&#x3D;None, delay&#x3D;False, errors&#x3D;None</em>) 可将日志记录输出到磁盘文件中</p>
+<p>class logging.NullHandler() 不进行任何处理操作，仅用于特殊需要时，如开发库时没有提供日志文件，但又不需要输出到 sys.stderr，此时添加它可以禁止输出</p>
+<p>class logging.handlers.BaseRotatingHandler(<em>filename, mode, encoding&#x3D;None, delay&#x3D;False, errors&#x3D;None</em>)  基础日志轮换处理器。它有两个常用的子处理器RotatingFileHandler 和 TimedRotatingFileHandler。此外，如果要定制化日志轮换处理器，应该由这个类派生。（目前为止，没有发现可以自定义日志分割方式的方法，那么不妨换种思路，每个要记录在不同日志文件的代码区域，可以使用不同的记录器去记录）</p>
+<p>class logging.handlers.RotatingFileHandler(<em>filename, mode&#x3D;’a’, maxBytes&#x3D;0, backupCount&#x3D;0, encoding&#x3D;None, delay&#x3D;False, errors&#x3D;None</em>)  基于文件大小的日志轮换处理器，如果日志文件超过一定大小，那么会转储一个新的日志文件，其日志文件命名如 app.log(当前正在记录的), app.log.1, app.log.2, … , app.log.backupCount</p>
+<p>class logging.handlers.TimedRotatingFileHandler(<em>filename, when&#x3D;’h’, interval&#x3D;1, backupCount&#x3D;0, encoding&#x3D;None, delay&#x3D;False, utc&#x3D;False, atTime&#x3D;None, errors&#x3D;None</em>)  基于时间的日志轮换处理器，每个一段时间会转储一个新的日志文件，其日志文件命名同基于文件大小的。参数when可以是”S”、”M”、”H”、”D”、”W0”-“W6”(可指定atTime)、”midnight”(可指定atTime)</p>
+<p>class logging.handlers.SMTPHandler(<em>mailhost, fromaddr, toaddrs, subject, credentials&#x3D;None, secure&#x3D;None, timeout&#x3D;1.0</em>)  mailhost指定smtp服务器地址，如果是非标准smtp服务器端口，则mailhost传入(host,port)元组，否则直接传入一个ip或域名字符串即可。fromaddr和toaddr分别为发件人地址和收件人地址，收件人地址为收件人的邮箱。subject为邮件主题。credentials可能是一个(username,password)元组。secure仅当使用TLS时，传入一个元组，该元组可能为空，可能仅有一个密钥元组，也可能是一组密钥对的作为两个元素</p>
+<p>SocketHandler发送到TCP套接字、DatagramHandler发送到UDP套接字、MemoryHandler发送到内存、HTTPHandler发送到web服务器、QueueHandler发送日志到一个队列，与QueueListener配套使用，用于多线程处理问题。</p>
+<h1 id="使用任意对象作为消息"><a href="#使用任意对象作为消息" class="headerlink" title="使用任意对象作为消息"></a>使用任意对象作为消息</h1><p>这个条件是，所用的对象可以被序列化，拥有 __str()__ 方法</p>
+<h1 id="简单优化"><a href="#简单优化" class="headerlink" title="简单优化"></a>简单优化</h1><p>使用 Logger.isEnabledFor(<em>level</em>) 进行判断当前记录器的记录等级，可以避免同时进行的消耗资源的操作。：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> logger.isEnabledFor(logging.DEBUG):</span><br><span class="line">    logger.debug(<span class="string">&#x27;Message with %s, %s&#x27;</span>, expensive_func1(),</span><br><span class="line">                                        expensive_func2())</span><br></pre></td></tr></table></figure>
+
+<p>还可以在记录时禁止收集一些信息：</p>
+<table>
+<thead>
+<tr>
+<th>不想收集的内容</th>
+<th>配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>调用来源信息</td>
+<td>logging._srcfile设置为None</td>
+</tr>
+<tr>
+<td>线程信息</td>
+<td>logging.logThreads设置为False</td>
+</tr>
+<tr>
+<td>当前进程ID(os.getpid())</td>
+<td>logging.logProcesses设置为False</td>
+</tr>
+<tr>
+<td>进程名称</td>
+<td>logging.logMultiprocessing设置为False</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/27/%E5%AD%A6%E4%B9%A0/python/python%E7%BD%91%E7%BB%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/%E5%BA%95%E5%B1%82%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3socket/" rel="prev" title="底层网络接口socket">
+                  <i class="fa fa-chevron-left"></i> 底层网络接口socket
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/05/06/%E5%AD%A6%E4%B9%A0/python/python%E7%BD%91%E7%BB%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/%E5%BC%82%E6%AD%A5IO/" rel="next" title="异步IO">
+                  异步IO <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

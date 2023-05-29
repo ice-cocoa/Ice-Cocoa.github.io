@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-aoba.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-80x80-aoba.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-32x32-aoba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ice-cocoa.net","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一个轻量级的内嵌数据库，网络服务不是作为主要功能时，使用它更加便于管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内嵌数据库sqlite3">
+<meta property="og:url" content="https://www.ice-cocoa.net/2023/05/10/%E5%AD%A6%E4%B9%A0/python/python%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/%E5%86%85%E5%B5%8C%E6%95%B0%E6%8D%AE%E5%BA%93sqlite3/index.html">
+<meta property="og:site_name" content="Ice-Cocoa">
+<meta property="og:description" content="一个轻量级的内嵌数据库，网络服务不是作为主要功能时，使用它更加便于管理">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-29T00:21:36.871Z">
+<meta property="article:author" content="Ice-Cocoa">
+<meta property="article:tag" content="展示">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.ice-cocoa.net/2023/05/10/%E5%AD%A6%E4%B9%A0/python/python%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/%E5%86%85%E5%B5%8C%E6%95%B0%E6%8D%AE%E5%BA%93sqlite3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.ice-cocoa.net/2023/05/10/%E5%AD%A6%E4%B9%A0/python/python%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/%E5%86%85%E5%B5%8C%E6%95%B0%E6%8D%AE%E5%BA%93sqlite3/","path":"2023/05/10/学习/python/python数据持久化/内嵌数据库sqlite3/","title":"内嵌数据库sqlite3"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>内嵌数据库sqlite3 | Ice-Cocoa</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<style>
+  main {
+
+}
+
+</style>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ice-Cocoa</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">今日も一日頑張るぞ❕</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">32</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">69</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.1.</span> <span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%8E%A7%E5%88%B6%E7%9B%B8%E5%85%B3"><span class="nav-number">2.2.</span> <span class="nav-text">事务控制相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B7%AF%E5%BE%84%E7%9B%B8%E5%85%B3"><span class="nav-number">2.3.</span> <span class="nav-text">数据库路径相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cursor%E5%AF%B9%E8%B1%A1%E6%89%A7%E8%A1%8Csql%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.4.</span> <span class="nav-text">Cursor对象执行sql语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%9F%A5%E7%9C%8B-Row%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.5.</span> <span class="nav-text">结果查看-Row对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%8C%87%E5%BC%95"><span class="nav-number">3.</span> <span class="nav-text">操作指引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%A0%E4%BD%8D%E7%AC%A6"><span class="nav-number">3.1.</span> <span class="nav-text">查询语句中使用占位符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%80%82%E9%85%8D%E5%99%A8-python%E7%B1%BB%E5%9E%8B%E8%BD%AC%E4%B8%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">使用适配器(python类型转为数据库类型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BApyhtone%E7%B1%BB%E5%9E%8B%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">使用转换器（数据库类型转换为pyhtone类型）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%80%E5%AF%B9%E9%80%82%E9%85%8D%E5%99%A8%E3%80%81%E8%BD%AC%E6%8D%A2%E5%99%A8%E5%AE%9E%E7%8E%B0python%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%8F%96"><span class="nav-number">3.4.</span> <span class="nav-text">注册一对适配器、转换器实现python对象存取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%90%8D%E7%A7%B0%E8%80%8C%E9%9D%9E%E7%B4%A2%E5%BC%95%E8%AE%BF%E9%97%AERow%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AE%B9"><span class="nav-number">3.5.</span> <span class="nav-text">通过名称而非索引访问Row对象内容</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ice-Cocoa"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ice-Cocoa</p>
+  <div class="site-description" itemprop="description">笑口常开，喜从天降</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+	
+
+
+
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ice-cocoa.net/2023/05/10/%E5%AD%A6%E4%B9%A0/python/python%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/%E5%86%85%E5%B5%8C%E6%95%B0%E6%8D%AE%E5%BA%93sqlite3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ice-Cocoa">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ice-Cocoa">
+      <meta itemprop="description" content="笑口常开，喜从天降">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="内嵌数据库sqlite3 | Ice-Cocoa">
+      <meta itemprop="description" content="">
+    </span>
+
+
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"  >
+          内嵌数据库sqlite3
+        </h1>
+
+
+        <div class="post-meta-container">
+	<div class="post-meta">
+
+        	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-11 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-11T00:00:00+08:00">2023-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-29 08:21:36" itemprop="dateModified" datetime="2023-05-29T08:21:36+08:00">2023-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/python/python%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">python数据持久化</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>一个轻量级的内嵌数据库，网络服务不是作为主要功能时，使用它更加便于管理</p>
+<span id="more"></span>
+
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>SQLite本是一个C语言库，提供轻量级的基于磁盘的数据库，它不需要独立的服务器进程（因为所在程序本身即可通过库接口打开和控制数据库）。应用程序可以使用 SQLite 作为内部数据存储，也可以把它迁移到大型数据库。</p>
+<p>使用需使用导入语句 <span>import sqlite3</span></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h2 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h2><p>sqlite3.connect(<em>database, timeout&#x3D;5.0, detect_types&#x3D;0, isolation_level&#x3D;’DEFERRED’, check_same_thread&#x3D;True, factory&#x3D;sqlite3.Connection, cached_statements&#x3D;128, uri&#x3D;False</em>) 打开到数据库的一个连接，返回一个 sqlite3.Connection</p>
+<ul>
+<li>database是一个路径类(path-like)对象，通常是一个作为数据库的文件路径。如果传递 “:memory:”, 则是直接在内存中开启一个数据库</li>
+<li>timeout:float 最大尝试连接时间，sqlite数据库在已有连接的某些情况下，可能会锁住，无法进行其他连接</li>
+<li>detect_types:int 可以是 PARSE_DECLTYPES 或 PARSE_COLNAMES，都是python类型到数据库类型的转换格式</li>
+<li>isolation_level:(str|None) 为连接的隔离等级，控制事务是否或者如何打开。可以是 “DEFERRED”(推迟，默认), “EXCLUSIVE”(排他), “IMMEDIATE”(立即), None(禁用隐式打开事务)</li>
+<li>check_same_thread:bool 默认为True，表示只有创建这个连接的的线程才能使用该连接；如果为False，则可以在多线程中共享连接，但同步问题需要由用户去管理</li>
+<li>cached_statements:int 这个连接的内部缓存的语句数量，默认为100</li>
+<li>uri:bool 如果设置为true，则database参数解释为一个文件路径。。。</li>
+</ul>
+<p>class sqlite3.Connection 数据库连接对象，每次打开数据库(connect())都会创建一个数据库连接对象。数据库连接对象在一般情景下的作用是1事务控制，和创建Cursor对象（通过它来执行sql语句和获取结果）。连接对象有“短语句方法”，即在语法上省略创建Cursor的语句，实际隐式创建Cursor来执行sql语句，个人感觉在此处无需记录</p>
+<p><strong>使用上下文管理对象管理连接</strong>：注意，这里的管理的作用是，当sql语句多次execute后，在with末尾时（作为一个事务）自动提交，以及提交的事务出现错误时自动进行回退。连接对象需要在with关键字的范围外，进行连接和关闭</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line">con = sqlite3.connect(<span class="string">&quot;:memory:&quot;</span>)</span><br><span class="line">con.execute(<span class="string">&quot;create table lang (id integer primary key, name varchar unique)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># con.rollback() 会自动在报错后调用</span></span><br><span class="line"><span class="comment"># 报错仍然会发出</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> con:</span><br><span class="line">        con.execute(<span class="string">&quot;insert into lang(name) values (?)&quot;</span>, (<span class="string">&quot;Python&quot;</span>,))</span><br><span class="line"><span class="keyword">except</span> sqlite3.IntegrityError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;couldn&#x27;t add Python twice&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个上下文管理对象仅用于事务的自动提交和回退，不会管理连接对象的打开和关闭</span></span><br><span class="line"><span class="comment"># 所以需要体提前打开连接对象，在所有结束后手动关闭</span></span><br><span class="line">con.close()</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="事务控制相关"><a href="#事务控制相关" class="headerlink" title="事务控制相关"></a>事务控制相关</h2><p>事务处理方式主要有： None, “DEFERRED”, “IMMEDIATE”, “EXCLUSIVE”，通常在创建连接对象时传入，设置于sqlite3.Connection.isolation_level属性 。对应着如下的控制行为：</p>
+<ul>
+<li>None  事务不会被隐式打开，处于自动提交模式，这时每条sql语句都是一个事务</li>
+<li>“DEFERRED”  事务会被隐式打开。未覆盖isolation_level参数时，默认实现”DEFERRED”。存在一定规则的等待，见下文分析</li>
+<li>“IMMEDIATE”  事务会被隐式打开。每次excute都会立即开启一个事务执行。会阻塞其他的写操作</li>
+<li>“EXCLUSIVE”  事务会被隐式打开。在WAL模式下，和”IMMEDIATE” 效果相同</li>
+</ul>
+<p>如果选择隐式打开事务，那么使用commit和rollback方法分别提交和回滚挂起的事务。在事务隐式打开的情况下，通常使用关键字with来管理事务，会在即将退出范围时自动调用commit，以及出错时自动回滚，所以无需不讨论commit和rollback</p>
+<p>**重点讨论”DEFERRED”**。在第一次调用execute时，就隐式开启一个事务，如果第一个操作是读，那么开启一个读事务，如果遇到写语句则升级（没有新建事务）为写事务。</p>
+<h2 id="数据库路径相关"><a href="#数据库路径相关" class="headerlink" title="数据库路径相关"></a>数据库路径相关</h2><p>数据库路径基本有两种方式。一种是直接一个路径类型的参数，如 “test.db”期望的是当前工作目录下的一个数据库；另一种是指定 连接对象传入参数 uri&#x3D;True, 此时使用的数据库参数形如 “file:mem1?mode&#x3D;memory&amp;cache&#x3D;shared”</p>
+<p>如果使用默认的路径类参数，除了一般的 “test.db” 这样的路径类参数，还可以是 “:memory:” 这个特殊参数，指定数据库存在于内存中。</p>
+<p>URI类参数给出的例子有：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">con0 = sqlite3.connect(<span class="string">&quot;file:template.db?mode=ro&quot;</span>, uri=<span class="literal">True</span>)</span><br><span class="line">con1 = sqlite3.connect(<span class="string">&quot;file:mem1?mode=memory&amp;cache=shared&quot;</span>, uri=<span class="literal">True</span>)</span><br><span class="line">con2 = sqlite3.connect(<span class="string">&quot;file:mem1?mode=memory&amp;cache=shared&quot;</span>, uri=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>URIs类参数详情需要另查<a target="_blank" rel="noopener" href="https://www.sqlite.org/uri.html">文档</a></p>
+<h2 id="Cursor对象执行sql语句"><a href="#Cursor对象执行sql语句" class="headerlink" title="Cursor对象执行sql语句"></a>Cursor对象执行sql语句</h2><p>在sqlite中直接进行sql语句执行和结果获取的是 class sqlite3.Cursor 对象。它可以执行sql语句并且管理返回结果。Cursor对象本身是可迭代的，意味着可以使用in关键字，迭代已执行sql语句的cursor对象，来获取每一行结果（一个Row对象）</p>
+<p>Cursor.excute(<em>sql,paramaters&#x3D;(),&#x2F;</em>) 执行单个sql语句，sql语句中使用占位符映射到参数，其中第二个参数为元组类型</p>
+<p>Cursor.excutemany(<em>sql,paramaters&#x3D;(),&#x2F;</em>) 可以执行多个sql语句，要求占位符映射的参数为sequence、map等可迭代类型作为参数（其元素也是元组），它等价于迭代调用execute</p>
+<p>Cursor.excutescript(<em>sql_scipt</em>) 示例如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cur.executescript(<span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    begin;</span></span><br><span class="line"><span class="string">    create table person(firstname, lastname, age);</span></span><br><span class="line"><span class="string">    create table book(title, author, published);</span></span><br><span class="line"><span class="string">    create table publisher(name, address);</span></span><br><span class="line"><span class="string">    commit;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Cursor.fetchone() 返回一个表示下一行内容的Row对象（类似元组），如果没有则返回None</p>
+<p>同理 Cursor.fetchmany(<em>size&#x3D;cursor.arraysize</em>) 返回一个list，元素数量尽可能足够size，由于性能优化，最好使用 cursor.arraysize 属性（默认值为1）。获取不到时获得一个空列表</p>
+<p>同理 Cursor.fetchall() 获得剩下的所有行，返回一个list</p>
+<p>Cursor.close() 关闭这个cursor对象，此时不会关闭连接。最好在关闭连接前，也关闭一下这个。</p>
+<p>属性Cursor.rowcount，只读，且仅当用excute或excutemany“增删改替”时会设置，返回受影响的行数。同理，属性Curosr.lastrowid制度且仅当用excute“增替”时会设置，返回最后一次成功操作的行id</p>
+<p>属性Cursor.description, 只读，返回</p>
+<h2 id="结果查看-Row对象"><a href="#结果查看-Row对象" class="headerlink" title="结果查看-Row对象"></a>结果查看-Row对象</h2><p>class sqlite3.Row 一个Row对象性质如同一个元组，可以当成元组使用。此外，还可以设置 Connect.row_factory 设置格式，但没必要</p>
+<p>Row.keys() 返回一个list，对应一行的所有列名</p>
+<h1 id="操作指引"><a href="#操作指引" class="headerlink" title="操作指引"></a>操作指引</h1><h2 id="查询语句中使用占位符"><a href="#查询语句中使用占位符" class="headerlink" title="查询语句中使用占位符"></a>查询语句中使用占位符</h2><p>使用占位符避免遭受sql注入。占位符有两种模式，一种是问号占位符，另一种是变量名占位符。它们的功能相同，仅是风格不同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line">con = sqlite3.connect(<span class="string">&quot;:memory:&quot;</span>)</span><br><span class="line">cur = con.cursor()</span><br><span class="line">cur.execute(<span class="string">&quot;create table lang (name, first_appeared)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 问号风格占位符。参数通常为元组，执行many时使用元组的list</span></span><br><span class="line">cur.execute(<span class="string">&quot;insert into lang values (?, ?)&quot;</span>, (<span class="string">&quot;C&quot;</span>, <span class="number">1972</span>))</span><br><span class="line"></span><br><span class="line">lang_list = [</span><br><span class="line">    (<span class="string">&quot;Fortran&quot;</span>, <span class="number">1957</span>),</span><br><span class="line">    (<span class="string">&quot;Python&quot;</span>, <span class="number">1991</span>),</span><br><span class="line">    (<span class="string">&quot;Go&quot;</span>, <span class="number">2009</span>),</span><br><span class="line">]</span><br><span class="line">cur.executemany(<span class="string">&quot;insert into lang values (?, ?)&quot;</span>, lang_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 变量名风格占位符。参数为字典</span></span><br><span class="line">cur.execute(<span class="string">&quot;select * from lang where first_appeared=:year&quot;</span>, &#123;<span class="string">&quot;year&quot;</span>: <span class="number">1972</span>&#125;)</span><br><span class="line"></span><br><span class="line">con.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用适配器-python类型转为数据库类型"><a href="#使用适配器-python类型转为数据库类型" class="headerlink" title="使用适配器(python类型转为数据库类型)"></a>使用适配器(python类型转为数据库类型)</h2><p>对象可以自己设置一个适配器，其函数为 __conform__(self, protocol) ，只要在需要自动转换的类中添加这个函数，即可实现自动适配。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        self.x, self.y = x, y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__conform__</span>(<span class="params">self, protocol</span>):</span><br><span class="line">        <span class="keyword">if</span> protocol <span class="keyword">is</span> sqlite3.PrepareProtocol:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;%f;%f&quot;</span> % (self.x, self.y)</span><br><span class="line"></span><br><span class="line">con = sqlite3.connect(<span class="string">&quot;:memory:&quot;</span>)</span><br><span class="line">cur = con.cursor()</span><br><span class="line"></span><br><span class="line">p = Point(<span class="number">4.0</span>, -<span class="number">3.2</span>)</span><br><span class="line">cur.execute(<span class="string">&quot;select ?&quot;</span>, (p,))</span><br><span class="line"><span class="built_in">print</span>(cur.fetchone()[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">con.close()</span><br></pre></td></tr></table></figure>
+
+<p>还可以注册适配器，使用模块函数 sqlite3.register_adapter(<em>python_object, adapter</em>)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">adapt_point</span>(<span class="params">point</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;%f;%f&quot;</span> % (point.x, point.y)</span><br><span class="line"></span><br><span class="line">sqlite3.register_adapter(Point, adapt_point)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用转换器（数据库类型转换为pyhtone类型）"><a href="#使用转换器（数据库类型转换为pyhtone类型）" class="headerlink" title="使用转换器（数据库类型转换为pyhtone类型）"></a>使用转换器（数据库类型转换为pyhtone类型）</h2><p>自定义的转换器，只能通过显示注册的方法。使用 sqlite3.register_converter(<em>colname, converter</em>)，其中 colname 是字符串类型的对应列名，converter是自定义转换器</p>
+<p>一个转换器如下定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">convert_point</span>(<span class="params">s</span>):</span><br><span class="line">    x, y = <span class="built_in">map</span>(<span class="built_in">float</span>, s.split(<span class="string">b&quot;;&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> Point(x, y)</span><br></pre></td></tr></table></figure>
+
+<h2 id="注册一对适配器、转换器实现python对象存取"><a href="#注册一对适配器、转换器实现python对象存取" class="headerlink" title="注册一对适配器、转换器实现python对象存取"></a>注册一对适配器、转换器实现python对象存取</h2><p>以下样例中展示了声明类型(sqlite3.PARSE_DECLTYPES)、指定类名sqlite3.PARSE_COLNAMES) 这两种情况下创建表，且字段类型为python对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        self.x, self.y = x, y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;Point(<span class="subst">&#123;self.x&#125;</span>, <span class="subst">&#123;self.y&#125;</span>)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">adapt_point</span>(<span class="params">point</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;point.x&#125;</span>;<span class="subst">&#123;point.y&#125;</span>&quot;</span>.encode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_point</span>(<span class="params">s</span>):</span><br><span class="line">    x, y = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">float</span>, s.split(<span class="string">b&quot;;&quot;</span>)))</span><br><span class="line">    <span class="keyword">return</span> Point(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Register the adapter and converter</span></span><br><span class="line">sqlite3.register_adapter(Point, adapt_point)</span><br><span class="line">sqlite3.register_converter(<span class="string">&quot;point&quot;</span>, convert_point)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1) Parse using declared types</span></span><br><span class="line">p = Point(<span class="number">4.0</span>, -<span class="number">3.2</span>)</span><br><span class="line">con = sqlite3.connect(<span class="string">&quot;:memory:&quot;</span>, detect_types=sqlite3.PARSE_DECLTYPES)</span><br><span class="line">cur = con.execute(<span class="string">&quot;create table test(p point)&quot;</span>)</span><br><span class="line"></span><br><span class="line">cur.execute(<span class="string">&quot;insert into test(p) values (?)&quot;</span>, (p,))</span><br><span class="line">cur.execute(<span class="string">&quot;select p from test&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;with declared types:&quot;</span>, cur.fetchone()[<span class="number">0</span>])</span><br><span class="line">cur.close()</span><br><span class="line">con.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2) Parse using column names</span></span><br><span class="line">con = sqlite3.connect(<span class="string">&quot;:memory:&quot;</span>, detect_types=sqlite3.PARSE_COLNAMES)</span><br><span class="line">cur = con.execute(<span class="string">&quot;create table test(p)&quot;</span>)</span><br><span class="line"></span><br><span class="line">cur.execute(<span class="string">&quot;insert into test(p) values (?)&quot;</span>, (p,))</span><br><span class="line">cur.execute(<span class="string">&#x27;select p as &quot;p [point]&quot; from test&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;with column names:&quot;</span>, cur.fetchone()[<span class="number">0</span>])</span><br><span class="line">cur.close()</span><br><span class="line">con.close()</span><br></pre></td></tr></table></figure>
+
+
+<p>datetime 模块中的 date 和 datetime 类型自带默认适配器和转换器，这里不记录</p>
+<h2 id="通过名称而非索引访问Row对象内容"><a href="#通过名称而非索引访问Row对象内容" class="headerlink" title="通过名称而非索引访问Row对象内容"></a>通过名称而非索引访问Row对象内容</h2><p>sqlite3.Row有这样的特性，执行sql语句时通过特定语法，其结果对应的“元组”不仅可以被正常索引，也可以被名称访问</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(<span class="string">&quot;select &#x27;John&#x27; as name, 42 as age&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> cur:</span><br><span class="line">    <span class="keyword">assert</span> row[<span class="number">0</span>] == row[<span class="string">&quot;name&quot;</span>]</span><br><span class="line">    <span class="keyword">assert</span> row[<span class="string">&quot;name&quot;</span>] == row[<span class="string">&quot;nAmE&quot;</span>]</span><br><span class="line">    <span class="keyword">assert</span> row[<span class="number">1</span>] == row[<span class="string">&quot;age&quot;</span>]</span><br><span class="line">    <span class="keyword">assert</span> row[<span class="number">1</span>] == row[<span class="string">&quot;AgE&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>使用这种访问方式，可以比较好的提高代码可读性，也可以避免某些低级错误；是比较推荐的</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B1%95%E7%A4%BA/" rel="tag"># 展示</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/05/07/%E5%AD%A6%E4%B9%A0/python/python%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/%E5%BA%8F%E5%88%97%E5%8C%96%E6%A8%A1%E5%9D%97pickle/" rel="prev" title="序列化模块pickle">
+                  <i class="fa fa-chevron-left"></i> 序列化模块pickle
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/05/16/%E5%AD%A6%E4%B9%A0/python/python%E5%B9%B6%E5%8F%91%E5%92%8C%E5%BC%82%E6%AD%A5/%E5%8D%8F%E7%A8%8B%E4%B8%8E%E5%BC%82%E6%AD%A5%E6%B5%81/" rel="next" title="协程与异步流">
+                  协程与异步流 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ice-Cocoa</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
