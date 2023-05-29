@@ -28,7 +28,7 @@
 <meta property="og:description" content="这篇文章主要记录一些客户端用户使用git的方法  2022-10-13 记录了学习的git基础操作 2022-12-20 重新学习一遍基础操作，专注于使用git bash  参考 https:&#x2F;&#x2F;git-scm.com&#x2F;book&#x2F;en&#x2F;v2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-29T00:21:36.867Z">
+<meta property="article:modified_time" content="2023-05-29T00:23:06.547Z">
 <meta property="article:author" content="Ice-Cocoa">
 <meta property="article:tag" content="展示">
 <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">32</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">69</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-share"><a href="/" rel="section"><i class="fa fa-book fa-fw"></i>首页展示</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">31</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">69</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -172,7 +172,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -272,7 +272,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-29 08:21:36" itemprop="dateModified" datetime="2023-05-29T08:21:36+08:00">2023-05-29</time>
+      <time title="修改时间：2023-05-29 08:23:06" itemprop="dateModified" datetime="2023-05-29T08:23:06+08:00">2023-05-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -324,7 +324,7 @@
 <h2 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h2><p>使用 git clone <url> 可以克隆一个完整的仓库，或者仓库下的文件夹：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/libgit2/libgit2 myLibgit</span></span><br></pre></td></tr></table></figure>
 <p>这会在当前目录下创建一个名为myLibgit的目录（如果不指定自定义仓库名，则按默认的libgit2），在其中初始化一个.git文件夹，并<strong>从远程仓库拉取所有数据</strong>放入.git文件夹，然后从中读取最新版本的文件的拷贝放到myLibgit目录下</p>
-<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a>:libgit2/libgit2.git）</p>
+<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:libgit2/libgit2.git）</p>
 <h1 id="记录更新到仓库"><a href="#记录更新到仓库" class="headerlink" title="记录更新到仓库"></a>记录更新到仓库</h1><h2 id="检查当前文件状态–git-status"><a href="#检查当前文件状态–git-status" class="headerlink" title="检查当前文件状态–git status"></a>检查当前文件状态–git status</h2><p>工作目录下的<strong>已跟踪</strong>的文件有三种状态：未修改（unmodified），已修改（modifeid），已暂存（staged）。把未跟踪（untracked）作为状态计入，则一共有四个状态</p>
 <p>文件的状态变化周期：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Untracked    Unmodified    Modified      Staged</span><br><span class="line">    |            |            |            |</span><br><span class="line">    |===add==============================&gt; |</span><br><span class="line">    |            |==edit====&gt; |            |</span><br><span class="line">    |            |            |==stage===&gt; |</span><br><span class="line">    | &lt;==remove==|            |            |</span><br><span class="line">    |            | &lt;===============commit==|</span><br><span class="line">    |            |            |            |</span><br></pre></td></tr></table></figure>

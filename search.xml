@@ -81,7 +81,7 @@
 ]]></content>
       <categories>
         <category>学习</category>
-        <category>pyhton</category>
+        <category>python</category>
         <category>python并发和异步</category>
       </categories>
       <tags>
@@ -149,7 +149,7 @@
 <p>还可以注册适配器，使用模块函数 sqlite3.register_adapter(<em>python_object, adapter</em>)</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">adapt_point</span>(<span class="params">point</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;%f;%f&quot;</span> % (point.x, point.y)</span><br><span class="line"></span><br><span class="line">sqlite3.register_adapter(Point, adapt_point)</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用转换器（数据库类型转换为pyhtone类型）"><a href="#使用转换器（数据库类型转换为pyhtone类型）" class="headerlink" title="使用转换器（数据库类型转换为pyhtone类型）"></a>使用转换器（数据库类型转换为pyhtone类型）</h2><p>自定义的转换器，只能通过显示注册的方法。使用 sqlite3.register_converter(<em>colname, converter</em>)，其中 colname 是字符串类型的对应列名，converter是自定义转换器</p>
+<h2 id="使用转换器（数据库类型转换为python类型）"><a href="#使用转换器（数据库类型转换为python类型）" class="headerlink" title="使用转换器（数据库类型转换为python类型）"></a>使用转换器（数据库类型转换为python类型）</h2><p>自定义的转换器，只能通过显示注册的方法。使用 sqlite3.register_converter(<em>colname, converter</em>)，其中 colname 是字符串类型的对应列名，converter是自定义转换器</p>
 <p>一个转换器如下定义：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">convert_point</span>(<span class="params">s</span>):</span><br><span class="line">    x, y = <span class="built_in">map</span>(<span class="built_in">float</span>, s.split(<span class="string">b&quot;;&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> Point(x, y)</span><br></pre></td></tr></table></figure>
 
@@ -2629,7 +2629,7 @@
 <h2 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h2><p>使用 git clone <url> 可以克隆一个完整的仓库，或者仓库下的文件夹：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/libgit2/libgit2 myLibgit</span></span><br></pre></td></tr></table></figure>
 <p>这会在当前目录下创建一个名为myLibgit的目录（如果不指定自定义仓库名，则按默认的libgit2），在其中初始化一个.git文件夹，并<strong>从远程仓库拉取所有数据</strong>放入.git文件夹，然后从中读取最新版本的文件的拷贝放到myLibgit目录下</p>
-<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a>:libgit2/libgit2.git）</p>
+<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:libgit2/libgit2.git）</p>
 <h1 id="记录更新到仓库"><a href="#记录更新到仓库" class="headerlink" title="记录更新到仓库"></a>记录更新到仓库</h1><h2 id="检查当前文件状态–git-status"><a href="#检查当前文件状态–git-status" class="headerlink" title="检查当前文件状态–git status"></a>检查当前文件状态–git status</h2><p>工作目录下的<strong>已跟踪</strong>的文件有三种状态：未修改（unmodified），已修改（modifeid），已暂存（staged）。把未跟踪（untracked）作为状态计入，则一共有四个状态</p>
 <p>文件的状态变化周期：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Untracked    Unmodified    Modified      Staged</span><br><span class="line">    |            |            |            |</span><br><span class="line">    |===add==============================&gt; |</span><br><span class="line">    |            |==edit====&gt; |            |</span><br><span class="line">    |            |            |==stage===&gt; |</span><br><span class="line">    | &lt;==remove==|            |            |</span><br><span class="line">    |            | &lt;===============commit==|</span><br><span class="line">    |            |            |            |</span><br></pre></td></tr></table></figure>
