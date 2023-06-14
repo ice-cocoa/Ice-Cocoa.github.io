@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title></title>
-    <url>/2023/05/29/%E9%98%85%E8%AF%BB/%E6%AD%8C%E8%AF%8D--%E5%A4%95%E9%A2%9C%EF%BC%88%E6%9C%88%E5%85%89%E8%8A%B1%EF%BC%89/</url>
+    <url>/2023/06/14/%E9%98%85%E8%AF%BB/%E6%AD%8C%E8%AF%8D--%E5%A4%95%E9%A2%9C%EF%BC%88%E6%9C%88%E5%85%89%E8%8A%B1%EF%BC%89/</url>
     <content><![CDATA[<p>作词 : 竹中三佳<br>作曲 : 竹中三佳</p>
 <p>能登麻美子</p>
 <p>庭に咲き始めた夕顔に<br>要是在庭院里初开的夕颜上<br>水を打ってあげたら<br>洒上晶莹的水珠<br>遊びに出かけていた猫が<br>在外玩耍的伊织<br>帰ってきたわ「おかえり」<br>就会踏进玄关“欢迎回来”<br>ほら見てごらん 雲のさざなみ<br>看吧天空中云彩的涟漪<br>杏色やむらさき<br>呈现着杏黄色和绛紫色<br>沈む夕陽に染まってキレイ<br>西沉的夕阳给天空带来了一抹绮丽<br>まるで夢か幻<br>这一切宛如梦幻一般<br>風は どこから<br>风从哪里来呢<br>吹いてくるのでしょう<br>从何处吹来呢<br>遠い 海を渡り<br>或许穿越了远方的大海<br>長い旅をするの<br>经历了长途跋涉<br>ふと気がつけば 時計の針は<br>突然想到<br>あの人が戻る時間<br>那个人回来的时候<br>お腹の虫も鳴いてるはずよ<br>也一定饿了吧<br>今日は何を作ろう<br>今天的晚饭做什么好呢？<br>そら耳かしら 誰かの声が<br>侧耳倾听是那个人的声音<br>留守録にメッセージ<br>电话中的留言<br>今にあの人あわてて言うわ<br>他匆忙地只说了一句<br>「夕飯はいらない」と<br>“不回来吃晚饭了”<br>風はどこまで<br>风无论到哪里<br>吹いてゆくのでしょう<br>将吹向何处<br>いつか こんな日々も<br>何时又能在这样的日子里<br>なつかしくなるの<br>带来令人眷恋的愁绪<br>ぼっかり空いた時間を一人<br>悠闲空余的时间里<br>持て余すベランダに<br>凉台无法承受我的寂寞<br>一番星がまたたき出した<br>天空中第一颗星星露出了光芒<br>きっと晴れる 明日も<br>明日一定是个晴天吧<br>風はゆく どこへ<br>风吹向何处<br>誰も知らない<br>无人知晓</p>
@@ -18,13 +18,13 @@
 
 <h1 id="可等待对象简述"><a href="#可等待对象简述" class="headerlink" title="可等待对象简述"></a>可等待对象简述</h1><p>可等待对象主要有三类：Coroutine(协程)、Task(任务)、Future。可等待对象是可以在 await 中执行的对象。要构造一个协程，使用关键字 async def 即可定义协程；要构造一个任务，则必须显示使用 asyncio.create_task(<em>some_coroutine</em>) 来把一个协程封装为任务。</p>
 <p>任务对象和协程的关系，参考：”Task 对象被用来在事件循环中运行协程。如果一个协程在等待一个 Future 对象，Task 对象会挂起该协程的执行并等待该 Future 对象完成。当该 Future 对象 完成，被打包的协程将恢复执行。”</p>
-<p>关键字 async&#x2F;await 构成的语法，让异步可行。关键字async声明一个函数为协程，而仅有可等待对象可以被 await。其中 await 的作用是，等待 await <em>awaitaeble</em> 中的 <em>awaitable</em> 执行结束（判断方式应该是一个特殊类型的返回值，这里姑且理解为等待执行结束）</p>
+<p>关键字 async&#x2F;await 构成的语法，让异步可行。关键字async声明一个函数为协程，而仅有可等待对象可以被 await。其中 await 的作用是，等待 await <em>awaitaeble</em> 中的 <em>awaitable</em> 执行结束（判断方式应该是判断一个特殊类型的返回值，这里姑且理解为等待执行结束）</p>
 <h1 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h1><h2 id="运行一个协程"><a href="#运行一个协程" class="headerlink" title="运行一个协程"></a>运行一个协程</h2><p>创建一个协程的方法是，使用 async 关键字声明。要真正运行一个协程，有两种方式，第一种是 asyncio.run(<em>coroutine</em>) ，它会直接尝试运行这个协程；第二章是 asyncio.create_task(<em>coroutine</em>) ，它会把协程加入到循环事件集中，在循环事件集的控制下执行协程（此时这个协程对外已经被包装成Task）</p>
 <p>如果一个协程没有加入循环事件集，那么尽管它可以使用 await asyncio.sleep(<em>delay_time</em>)，实际效果和阻塞主线程类似，此时和 time.sleep(<em>delay_time</em>) 用上去并无区别。循环事件集是一个偏低层的概念，后续在研究</p>
-<p>run方式下，使用 await asyncio.sleep() 效果等同于 time.sleep()</p>
+<p>await asyncio.sleep() 效果等同于线程中的 time.sleep()，都是让线程&#x2F;协程停止阻塞指定时间。下面的例子中没有启动事件循环去调用协程，每个协程的阻塞行为是顺序的</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">say_after</span>(<span class="params">delay, what</span>):</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(delay)</span><br><span class="line">    <span class="built_in">print</span>(what)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;started at <span class="subst">&#123;time.strftime(<span class="string">&#x27;%X&#x27;</span>)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> say_after(<span class="number">1</span>, <span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">    <span class="keyword">await</span> say_after(<span class="number">2</span>, <span class="string">&#x27;world&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;finished at <span class="subst">&#123;time.strftime(<span class="string">&#x27;%X&#x27;</span>)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">asyncio.run(main())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预期输出</span></span><br><span class="line"><span class="comment"># started at 17:13:52</span></span><br><span class="line"><span class="comment"># hello</span></span><br><span class="line"><span class="comment"># world</span></span><br><span class="line"><span class="comment"># finished at 17:13:55</span></span><br></pre></td></tr></table></figure>
 
-<p>create_task 方式下：</p>
+<p>create_task 方式下。此时协程会加入事件循环，每个协程的阻塞行为是并行的：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    task1 = asyncio.create_task(</span><br><span class="line">        say_after(<span class="number">1</span>, <span class="string">&#x27;hello&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    task2 = asyncio.create_task(</span><br><span class="line">        say_after(<span class="number">2</span>, <span class="string">&#x27;world&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;started at <span class="subst">&#123;time.strftime(<span class="string">&#x27;%X&#x27;</span>)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Wait until both tasks are completed (should take</span></span><br><span class="line">    <span class="comment"># around 2 seconds.)</span></span><br><span class="line">    <span class="keyword">await</span> task1</span><br><span class="line">    <span class="keyword">await</span> task2</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;finished at <span class="subst">&#123;time.strftime(<span class="string">&#x27;%X&#x27;</span>)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预期输出</span></span><br><span class="line"><span class="comment"># started at 17:14:32</span></span><br><span class="line"><span class="comment"># hello</span></span><br><span class="line"><span class="comment"># world</span></span><br><span class="line"><span class="comment"># finished at 17:14:34</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="创建任务的解释"><a href="#创建任务的解释" class="headerlink" title="创建任务的解释"></a>创建任务的解释</h2><p>上一节已记录了使用create_task把一个协程封装为Task，然后就可以异步执行了。这里再详细分析一下</p>
@@ -75,9 +75,9 @@
 <p>一套使用asyncio模块的异步通信流的完整流程，一般包括：B方开启服务等待连接，A方发起连接，连接双方保持监听对方的writer流，双方使用writer流立即“发送”数据，双方使用reader流按await方式接收数据</p>
 <h2 id="建立流通信双方的连接"><a href="#建立流通信双方的连接" class="headerlink" title="建立流通信双方的连接"></a>建立流通信双方的连接</h2><p>coroutine asyncio.open_connection(<em>host&#x3D;None, port&#x3D;None, *, limit&#x3D;None, ssl&#x3D;None, family&#x3D;0, proto&#x3D;0, flags&#x3D;0, sock&#x3D;None, local_addr&#x3D;None, server_hostname&#x3D;None, ssl_handshake_timeout&#x3D;None, happy_eyeballs_delay&#x3D;None, interleave&#x3D;None</em>) 建立网络连接并返回一对 (StreamReader, StreamWriter) 实例。<br>参数 limit确定reader流的缓冲区大小，默认64KiB，其余参数传入 loop.create_connection()</p>
 <p>coroutine asyncio.start_server(<em>client_connected_cb, host&#x3D;None, port&#x3D;None, *, limit&#x3D;None, family&#x3D;socket.AF_UNSPEC, flags&#x3D;socket.AI_PASSIVE, sock&#x3D;None, backlog&#x3D;100, ssl&#x3D;None, reuse_address&#x3D;None, reuse_port&#x3D;None, ssl_handshake_timeout&#x3D;None, start_serving&#x3D;True</em>) 启动套接字监听服务。</p>
-<p>参数client_connected_cb是一个回调函数，当一个新的客户端连接建立时，它会接收一对 (StreamReader, StreamWriter)实例作为参数。这个回调函数可以是一个普通函数，也可以是一个协程，此时会自动作为Task被调度</p>
+<p>参数client_connected_cb是一个回调函数，当一个新的客户端连接建立时，它会接收一对 (StreamReader, StreamWriter)实例作为参数（因而用户自定义的回调函数需要有且仅有这对读、写流参数）。这个回调函数可以是一个普通函数，也可以是一个协程，此时会自动作为Task被调度</p>
 <p>参数limit确定返回的reader流的缓冲区大小，默认64KiB。除回调函数和limit这两个参数，其余都传入loop.create_server()</p>
-<p>todo问题：start_server会在何时返回一对流</p>
+<h2 id="流读取器"><a href="#流读取器" class="headerlink" title="流读取器"></a>流读取器</h2><p>class asyncio.StreamReader表示一个读取器对象。不应该手动实例化这个对象，而是用open_connection()和start_server()自动创建后返回</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -192,38 +192,6 @@
       </tags>
   </entry>
   <entry>
-    <title>异步IO</title>
-    <url>/2023/05/06/%E5%AD%A6%E4%B9%A0/python/python%E7%BD%91%E7%BB%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/%E5%BC%82%E6%AD%A5IO/</url>
-    <content><![CDATA[<p>使用 async&#x2F;await 语法进行异步IO</p>
-<span id="more"></span>
-
-<p>简单的异步IO用法，其中关键字await只能在关键字async标记的函数中使用：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Hello ...&#x27;</span>)</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;... World!&#x27;</span>)</span><br><span class="line"></span><br><span class="line">asyncio.run(main())</span><br></pre></td></tr></table></figure>
-
-<p>asyncio是用来编写并发代码的库，使用async&#x2F;await语法，提供了一组<strong>高级</strong>API用于：</p>
-<ul>
-<li>协程</li>
-<li>控制子进程</li>
-<li>通过队列实现分布式任务</li>
-<li>同步原语以并发</li>
-</ul>
-<p>还有<strong>低层级</strong>API以支持库和框架：</p>
-<ul>
-<li>创建和管理事件循环</li>
-<li>使用transports实现高效率协议</li>
-<li>用async&#x2F;await桥接基于回调的库和代码</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>python网络和进程间通信</category>
-      </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>日志常用指引</title>
     <url>/2023/05/04/%E5%AD%A6%E4%B9%A0/python/python%E6%97%A5%E5%BF%97/%E6%97%A5%E5%BF%97%E5%B8%B8%E7%94%A8%E6%8C%87%E5%BC%95/</url>
     <content><![CDATA[<p>日志工具logging的记录。本文仅记录通常用法，不深入研究</p>
@@ -326,41 +294,6 @@
         <category>学习</category>
         <category>python</category>
         <category>python日志</category>
-      </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>底层网络接口socket</title>
-    <url>/2023/04/27/%E5%AD%A6%E4%B9%A0/python/python%E7%BD%91%E7%BB%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/%E5%BA%95%E5%B1%82%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3socket/</url>
-    <content><![CDATA[<p>BSD（Berkeley）套接字应用程序接口，简称套接字，主要用于实现进程间通讯。所用的socket模块的行为可能因平台不同而异常，因为调用的是操作系统的套接字API</p>
-<span id="more"></span>
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>python网络和进程间通信</category>
-      </categories>
-      <tags>
-        <tag>展示</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ctypes-与C兼容的外部库</title>
-    <url>/2023/04/25/%E5%AD%A6%E4%B9%A0/python/python%E5%B0%8F%E8%AE%B0/ctypes-%E4%B8%8EC%E5%85%BC%E5%AE%B9%E7%9A%84%E5%A4%96%E9%83%A8%E5%BA%93/</url>
-    <content><![CDATA[<p>ctypes 是 Python 的外部函数库。它提供了与 C 兼容的数据类型，并允许调用 DLL 或共享库中的函数。可使用该模块以纯 Python 形式对这些库进行封装。</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>python小记</category>
       </categories>
       <tags>
         <tag>展示</tag>
@@ -2629,7 +2562,7 @@
 <h2 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h2><p>使用 git clone <url> 可以克隆一个完整的仓库，或者仓库下的文件夹：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/libgit2/libgit2 myLibgit</span></span><br></pre></td></tr></table></figure>
 <p>这会在当前目录下创建一个名为myLibgit的目录（如果不指定自定义仓库名，则按默认的libgit2），在其中初始化一个.git文件夹，并<strong>从远程仓库拉取所有数据</strong>放入.git文件夹，然后从中读取最新版本的文件的拷贝放到myLibgit目录下</p>
-<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:libgit2/libgit2.git）</p>
+<p>克隆使用的url可以是https://协议、git://协议、SSH传输协议（如 <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#111;&#109;</a>:libgit2/libgit2.git）</p>
 <h1 id="记录更新到仓库"><a href="#记录更新到仓库" class="headerlink" title="记录更新到仓库"></a>记录更新到仓库</h1><h2 id="检查当前文件状态–git-status"><a href="#检查当前文件状态–git-status" class="headerlink" title="检查当前文件状态–git status"></a>检查当前文件状态–git status</h2><p>工作目录下的<strong>已跟踪</strong>的文件有三种状态：未修改（unmodified），已修改（modifeid），已暂存（staged）。把未跟踪（untracked）作为状态计入，则一共有四个状态</p>
 <p>文件的状态变化周期：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Untracked    Unmodified    Modified      Staged</span><br><span class="line">    |            |            |            |</span><br><span class="line">    |===add==============================&gt; |</span><br><span class="line">    |            |==edit====&gt; |            |</span><br><span class="line">    |            |            |==stage===&gt; |</span><br><span class="line">    | &lt;==remove==|            |            |</span><br><span class="line">    |            | &lt;===============commit==|</span><br><span class="line">    |            |            |            |</span><br></pre></td></tr></table></figure>
